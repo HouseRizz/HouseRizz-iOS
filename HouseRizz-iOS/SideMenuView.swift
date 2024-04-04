@@ -1,13 +1,14 @@
 //
 //  SideMenuView.swift
-//  HouseRizz
+//  HouseRizz-iOS
 //
-//  Created by Krish Mittal on 01/04/24.
+//  Created by Krish Mittal on 04/04/24.
 //
 
 import SwiftUI
 
 struct SideMenuView: View {
+    @StateObject private var auth = Authentication()
     @Environment(\.colorScheme) var colorScheme
     @State private var showMenu: Bool = false
     @State private var selectedTab: Tab = .Home
@@ -16,6 +17,7 @@ struct SideMenuView: View {
     enum Tab: String, CaseIterable {
         case Home = "house.fill"
         case AR = "camera"
+        
         var title: String {
             switch self {
             case .Home: return "Home"
@@ -46,6 +48,12 @@ struct SideMenuView: View {
                         })
                     }
                 }
+                .onAppear {
+                    auth.fetchUser()
+                }
+                .sheet(isPresented: $showSettings, content: {
+                    SettingsView()
+                })
             }
         } menuView: { safeArea in
             SideBarMenuView(safeArea, selectedTab: $selectedTab)
@@ -64,6 +72,15 @@ struct SideMenuView: View {
                 }
             }
             Spacer()
+            HStack { VStack { Divider() } }
+            if let user = auth.user {
+                SideMenuHeaderView(user: user)
+                    .onTapGesture {
+                        showSettings.toggle()
+                    }
+            } else {
+                Text("Loading Profile ..")
+            }
         }
         .padding(.horizontal, 15)
         .padding(.vertical, 20)
@@ -94,6 +111,31 @@ struct SideMenuView: View {
                     .fill(isSelected ? Color.gray.opacity(0.2) : Color.clear)
             )
         })
+    }
+    
+    @ViewBuilder
+    func SideMenuHeaderView (user: HRUser) -> some View {
+        HStack{
+            Image(systemName: "person.circle.fill")
+                .imageScale(.large)
+                .foregroundStyle(.white)
+                .frame(width: 48, height: 48)
+                .background(.blue)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .padding(.vertical)
+            HStack{
+                VStack(alignment: .leading, spacing: 6){
+                    Text(user.name)
+                        .font(.subheadline)
+                    Text(user.email)
+                        .font(.footnote)
+                        .tint(.gray)
+                }
+                .bold()
+                Spacer()
+                Image(systemName: "ellipsis")
+            }
+        }
     }
 }
 

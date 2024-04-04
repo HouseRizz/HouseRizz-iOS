@@ -29,6 +29,12 @@
 		CC97AEFF2BBE5CB4007BB76C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AEFE2BBE5CB4007BB76C /* FirebaseStorage */; };
 		CC97AF012BBE5CCE007BB76C /* HRUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF002BBE5CCE007BB76C /* HRUser.swift */; };
 		CC97AF032BBE5CE4007BB76C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF022BBE5CE4007BB76C /* Extensions.swift */; };
+		CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF042BBE5DE3007BB76C /* MainView.swift */; };
+		CC97AF072BBE5DEA007BB76C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF062BBE5DEA007BB76C /* LoginView.swift */; };
+		CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF082BBE5DEF007BB76C /* SignupView.swift */; };
+		CC97AF0B2BBE5E18007BB76C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC97AF0A2BBE5E18007BB76C /* GoogleService-Info.plist */; };
+		CC97AF0E2BBE5E52007BB76C /* HRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF0D2BBE5E52007BB76C /* HRButton.swift */; };
+		CC97AF102BBE5F1E007BB76C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +49,13 @@
 		CC97AEF32BBE5C46007BB76C /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		CC97AF002BBE5CCE007BB76C /* HRUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRUser.swift; sourceTree = "<group>"; };
 		CC97AF022BBE5CE4007BB76C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CC97AF042BBE5DE3007BB76C /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CC97AF062BBE5DEA007BB76C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		CC97AF082BBE5DEF007BB76C /* SignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		CC97AF0A2BBE5E18007BB76C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CC97AF0C2BBE5E29007BB76C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CC97AF0D2BBE5E52007BB76C /* HRButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRButton.swift; sourceTree = "<group>"; };
+		CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,12 +101,19 @@
 		CC97AEC42BBE4FCE007BB76C /* HouseRizz-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CC97AF0C2BBE5E29007BB76C /* Info.plist */,
+				CC97AF0A2BBE5E18007BB76C /* GoogleService-Info.plist */,
 				CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */,
 				CC97AEF32BBE5C46007BB76C /* Authentication.swift */,
 				CC97AF022BBE5CE4007BB76C /* Extensions.swift */,
+				CC97AF0D2BBE5E52007BB76C /* HRButton.swift */,
 				CC97AF002BBE5CCE007BB76C /* HRUser.swift */,
 				CC97AED92BBE56F0007BB76C /* SideMenu.swift */,
 				CC97AEDB2BBE5714007BB76C /* HomeView.swift */,
+				CC97AF042BBE5DE3007BB76C /* MainView.swift */,
+				CC97AF062BBE5DEA007BB76C /* LoginView.swift */,
+				CC97AF082BBE5DEF007BB76C /* SignupView.swift */,
+				CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */,
 				CC97AEDD2BBE5724007BB76C /* SideMenuView.swift */,
 				CC97AEC72BBE4FCE007BB76C /* CameraView.swift */,
 				CC97AEC92BBE4FD0007BB76C /* Assets.xcassets */,
@@ -195,6 +215,7 @@
 			files = (
 				CC97AECD2BBE4FD0007BB76C /* Preview Assets.xcassets in Resources */,
 				CC97AECA2BBE4FD0007BB76C /* Assets.xcassets in Resources */,
+				CC97AF0B2BBE5E18007BB76C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,13 +227,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC97AF012BBE5CCE007BB76C /* HRUser.swift in Sources */,
+				CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */,
 				CC97AEDA2BBE56F0007BB76C /* SideMenu.swift in Sources */,
 				CC97AEDC2BBE5714007BB76C /* HomeView.swift in Sources */,
 				CC97AF032BBE5CE4007BB76C /* Extensions.swift in Sources */,
 				CC97AEDE2BBE5724007BB76C /* SideMenuView.swift in Sources */,
 				CC97AEC82BBE4FCE007BB76C /* CameraView.swift in Sources */,
 				CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */,
+				CC97AF072BBE5DEA007BB76C /* LoginView.swift in Sources */,
+				CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */,
 				CC97AEF42BBE5C46007BB76C /* Authentication.swift in Sources */,
+				CC97AF0E2BBE5E52007BB76C /* HRButton.swift in Sources */,
+				CC97AF102BBE5F1E007BB76C /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +375,7 @@
 				DEVELOPMENT_TEAM = 792SAN8W5Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HouseRizz-iOS/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -380,6 +407,7 @@
 				DEVELOPMENT_TEAM = 792SAN8W5Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HouseRizz-iOS/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
