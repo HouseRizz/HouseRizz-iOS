@@ -8,7 +8,7 @@
 import SwiftUI
 import RealityKit
 
-struct ContentView : View {
+struct CameraView : View {
     var body: some View {
         ARViewContainer().edgesIgnoringSafeArea(.all)
     }
@@ -39,8 +39,4 @@ struct ARViewContainer: UIViewRepresentable {
     
     func updateUIView(_ uiView: ARView, context: Context) {}
     
-}
-
-#Preview {
-    ContentView()
 }
