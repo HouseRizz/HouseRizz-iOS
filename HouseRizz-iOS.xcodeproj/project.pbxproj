@@ -35,6 +35,12 @@
 		CC97AF0B2BBE5E18007BB76C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC97AF0A2BBE5E18007BB76C /* GoogleService-Info.plist */; };
 		CC97AF0E2BBE5E52007BB76C /* HRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF0D2BBE5E52007BB76C /* HRButton.swift */; };
 		CC97AF102BBE5F1E007BB76C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */; };
+		CC97AF142BBE7590007BB76C /* redchair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CC97AF132BBE7590007BB76C /* redchair.usdz */; };
+		CC97AF162BBE75C4007BB76C /* retrotv.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CC97AF152BBE75C4007BB76C /* retrotv.usdz */; };
+		CC97AF192BBE79A4007BB76C /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF182BBE79A4007BB76C /* FocusEntity */; };
+		CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF1B2BBE8109007BB76C /* ARPersistence */; };
+		CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C222BC03A42004E51F9 /* fender.usdz */; };
+		CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C242BC03A47004E51F9 /* robot.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +62,10 @@
 		CC97AF0C2BBE5E29007BB76C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CC97AF0D2BBE5E52007BB76C /* HRButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRButton.swift; sourceTree = "<group>"; };
 		CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CC97AF132BBE7590007BB76C /* redchair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = redchair.usdz; sourceTree = "<group>"; };
+		CC97AF152BBE75C4007BB76C /* retrotv.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = retrotv.usdz; sourceTree = "<group>"; };
+		CCC42C222BC03A42004E51F9 /* fender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender.usdz; sourceTree = "<group>"; };
+		CCC42C242BC03A47004E51F9 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +73,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC97AF192BBE79A4007BB76C /* FocusEntity in Frameworks */,
 				CC97AEE92BBE5BF7007BB76C /* FirebaseAnalyticsSwift in Frameworks */,
 				CC97AEE52BBE5BF6007BB76C /* FirebaseAnalytics in Frameworks */,
+				CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */,
 				CC97AEF22BBE5C1D007BB76C /* GoogleSignInSwift in Frameworks */,
 				CC97AEFB2BBE5CA7007BB76C /* FirebaseFirestoreCombine-Community in Frameworks */,
 				CC97AEE72BBE5BF7007BB76C /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
@@ -101,6 +113,7 @@
 		CC97AEC42BBE4FCE007BB76C /* HouseRizz-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CC97AF112BBE7570007BB76C /* Assets */,
 				CC97AF0C2BBE5E29007BB76C /* Info.plist */,
 				CC97AF0A2BBE5E18007BB76C /* GoogleService-Info.plist */,
 				CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */,
@@ -137,6 +150,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CC97AF112BBE7570007BB76C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CC97AF152BBE75C4007BB76C /* retrotv.usdz */,
+				CCC42C242BC03A47004E51F9 /* robot.usdz */,
+				CCC42C222BC03A42004E51F9 /* fender.usdz */,
+				CC97AF132BBE7590007BB76C /* redchair.usdz */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +190,8 @@
 				CC97AEFA2BBE5CA7007BB76C /* FirebaseFirestoreCombine-Community */,
 				CC97AEFC2BBE5CA7007BB76C /* FirebaseFirestoreSwift */,
 				CC97AEFE2BBE5CB4007BB76C /* FirebaseStorage */,
+				CC97AF182BBE79A4007BB76C /* FocusEntity */,
+				CC97AF1B2BBE8109007BB76C /* ARPersistence */,
 			);
 			productName = "HouseRizz-iOS";
 			productReference = CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */;
@@ -198,6 +224,8 @@
 			packageReferences = (
 				CC97AEE32BBE5BF6007BB76C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				CC97AEEE2BBE5C1D007BB76C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				CC97AF172BBE79A3007BB76C /* XCRemoteSwiftPackageReference "FocusEntity" */,
+				CC97AF1A2BBE8108007BB76C /* XCRemoteSwiftPackageReference "ARPersistence" */,
 			);
 			productRefGroup = CC97AEC32BBE4FCE007BB76C /* Products */;
 			projectDirPath = "";
@@ -214,8 +242,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC97AECD2BBE4FD0007BB76C /* Preview Assets.xcassets in Resources */,
+				CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */,
+				CC97AF162BBE75C4007BB76C /* retrotv.usdz in Resources */,
 				CC97AECA2BBE4FD0007BB76C /* Assets.xcassets in Resources */,
 				CC97AF0B2BBE5E18007BB76C /* GoogleService-Info.plist in Resources */,
+				CC97AF142BBE7590007BB76C /* redchair.usdz in Resources */,
+				CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,9 +412,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -412,9 +444,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,6 +498,22 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.1.0;
+			};
+		};
+		CC97AF172BBE79A3007BB76C /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+		CC97AF1A2BBE8108007BB76C /* XCRemoteSwiftPackageReference "ARPersistence" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Shiru99/ARPersistence";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -530,6 +578,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CC97AEE32BBE5BF6007BB76C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		CC97AF182BBE79A4007BB76C /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC97AF172BBE79A3007BB76C /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
+		};
+		CC97AF1B2BBE8109007BB76C /* ARPersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC97AF1A2BBE8108007BB76C /* XCRemoteSwiftPackageReference "ARPersistence" */;
+			productName = ARPersistence;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

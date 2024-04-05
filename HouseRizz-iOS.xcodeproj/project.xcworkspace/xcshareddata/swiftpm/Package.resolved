@@ -28,12 +28,30 @@
       }
     },
     {
+      "identity" : "arpersistence",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Shiru99/ARPersistence",
+      "state" : {
+        "revision" : "e1fcbc7299b94e778703414a7a82de838a776d11",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk",
       "state" : {
         "revision" : "888f0b6026e2441a69e3ee2ad5293c7a92031e62",
         "version" : "10.23.1"
+      }
+    },
+    {
+      "identity" : "focusentity",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maxxfrazer/FocusEntity",
+      "state" : {
+        "revision" : "5fa521172e447cbfa8c2fc1d6602d9d6bed202c7",
+        "version" : "2.5.1"
       }
     },
     {
