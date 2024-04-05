@@ -12,7 +12,7 @@ import FocusEntity
 import Combine
 
 struct CameraView: View {
-    let modelNames = ["retrotv", "redchair"]
+    let modelNames = ["retrotv", "redchair","robot","fender"]
     @State private var selectedModel: String?
     @State private var isPlacementEnabled = false
     @State private var modelConfirmedForPlacement: String?

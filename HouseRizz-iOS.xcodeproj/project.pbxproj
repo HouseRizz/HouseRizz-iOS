@@ -39,6 +39,8 @@
 		CC97AF162BBE75C4007BB76C /* retrotv.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CC97AF152BBE75C4007BB76C /* retrotv.usdz */; };
 		CC97AF192BBE79A4007BB76C /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF182BBE79A4007BB76C /* FocusEntity */; };
 		CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF1B2BBE8109007BB76C /* ARPersistence */; };
+		CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C222BC03A42004E51F9 /* fender.usdz */; };
+		CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C242BC03A47004E51F9 /* robot.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CC97AF132BBE7590007BB76C /* redchair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = redchair.usdz; sourceTree = "<group>"; };
 		CC97AF152BBE75C4007BB76C /* retrotv.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = retrotv.usdz; sourceTree = "<group>"; };
+		CCC42C222BC03A42004E51F9 /* fender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender.usdz; sourceTree = "<group>"; };
+		CCC42C242BC03A47004E51F9 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				CC97AF152BBE75C4007BB76C /* retrotv.usdz */,
+				CCC42C242BC03A47004E51F9 /* robot.usdz */,
+				CCC42C222BC03A42004E51F9 /* fender.usdz */,
 				CC97AF132BBE7590007BB76C /* redchair.usdz */,
 			);
 			path = Assets;
@@ -236,10 +242,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC97AECD2BBE4FD0007BB76C /* Preview Assets.xcassets in Resources */,
+				CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */,
 				CC97AF162BBE75C4007BB76C /* retrotv.usdz in Resources */,
 				CC97AECA2BBE4FD0007BB76C /* Assets.xcassets in Resources */,
 				CC97AF0B2BBE5E18007BB76C /* GoogleService-Info.plist in Resources */,
 				CC97AF142BBE7590007BB76C /* redchair.usdz in Resources */,
+				CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
