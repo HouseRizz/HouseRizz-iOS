@@ -38,6 +38,7 @@
 		CC97AF142BBE7590007BB76C /* redchair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CC97AF132BBE7590007BB76C /* redchair.usdz */; };
 		CC97AF162BBE75C4007BB76C /* retrotv.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CC97AF152BBE75C4007BB76C /* retrotv.usdz */; };
 		CC97AF192BBE79A4007BB76C /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF182BBE79A4007BB76C /* FocusEntity */; };
+		CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF1B2BBE8109007BB76C /* ARPersistence */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 				CC97AF192BBE79A4007BB76C /* FocusEntity in Frameworks */,
 				CC97AEE92BBE5BF7007BB76C /* FirebaseAnalyticsSwift in Frameworks */,
 				CC97AEE52BBE5BF6007BB76C /* FirebaseAnalytics in Frameworks */,
+				CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */,
 				CC97AEF22BBE5C1D007BB76C /* GoogleSignInSwift in Frameworks */,
 				CC97AEFB2BBE5CA7007BB76C /* FirebaseFirestoreCombine-Community in Frameworks */,
 				CC97AEE72BBE5BF7007BB76C /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
@@ -183,6 +185,7 @@
 				CC97AEFC2BBE5CA7007BB76C /* FirebaseFirestoreSwift */,
 				CC97AEFE2BBE5CB4007BB76C /* FirebaseStorage */,
 				CC97AF182BBE79A4007BB76C /* FocusEntity */,
+				CC97AF1B2BBE8109007BB76C /* ARPersistence */,
 			);
 			productName = "HouseRizz-iOS";
 			productReference = CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */;
@@ -216,6 +219,7 @@
 				CC97AEE32BBE5BF6007BB76C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				CC97AEEE2BBE5C1D007BB76C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				CC97AF172BBE79A3007BB76C /* XCRemoteSwiftPackageReference "FocusEntity" */,
+				CC97AF1A2BBE8108007BB76C /* XCRemoteSwiftPackageReference "ARPersistence" */,
 			);
 			productRefGroup = CC97AEC32BBE4FCE007BB76C /* Products */;
 			projectDirPath = "";
@@ -494,6 +498,14 @@
 				minimumVersion = 2.5.1;
 			};
 		};
+		CC97AF1A2BBE8108007BB76C /* XCRemoteSwiftPackageReference "ARPersistence" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Shiru99/ARPersistence";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -561,6 +573,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CC97AF172BBE79A3007BB76C /* XCRemoteSwiftPackageReference "FocusEntity" */;
 			productName = FocusEntity;
+		};
+		CC97AF1B2BBE8109007BB76C /* ARPersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC97AF1A2BBE8108007BB76C /* XCRemoteSwiftPackageReference "ARPersistence" */;
+			productName = ARPersistence;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

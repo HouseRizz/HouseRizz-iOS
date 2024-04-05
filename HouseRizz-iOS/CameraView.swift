@@ -13,12 +13,29 @@ import Combine
 
 struct CameraView: View {
     
+    let modelNames = ["retrotv", "redchair"]
+    @State private var selectedModelIndex = 0
+    
     var body: some View {
         ZStack(alignment: .bottom) {
-            CustomARViewContainer()
+            CustomARViewContainer(selectedModel: modelNames[selectedModelIndex])
+            
+            Picker(selection: $selectedModelIndex, label: Text("Select Model")) {
+                ForEach(0..<modelNames.count, id: \.self) { index in
+                    VStack {
+                        Image(modelNames[index])
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .tag(index)
+                        Text(modelNames[index]).tag(index)
+                    }
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
             
             Button(action: {
-                ActionManager.shared.actionStream.send(.place3DModel)
+                ActionManager.shared.actionStream.send(.place3DModel(modelName: modelNames[selectedModelIndex]))
             }, label: {
                 Text("Place 3D Model")
                     .font(.headline)
@@ -34,21 +51,23 @@ struct CameraView: View {
 
 struct CustomARViewContainer: UIViewRepresentable {
     
+    let selectedModel: String
+    
     func makeUIView(context: Context) -> CustomARView {
-        return CustomARView()
+        return CustomARView(selectedModel: selectedModel)
     }
     
     func updateUIView(_ uiView: CustomARView, context: Context) {}
 }
 
-
-
 class CustomARView: ARView {
     
     var focusEntity: FocusEntity?
     var cancellables: Set<AnyCancellable> = []
+    let selectedModel: String
     
-    init() {
+    init(selectedModel: String) {
+        self.selectedModel = selectedModel
         super.init(frame: .zero)
         
         subscribeToActionStream()
@@ -67,12 +86,12 @@ class CustomARView: ARView {
         
         self.session.run(config)
     }
-
     
-    func place3DModel() {
+    
+    func place3DModel(modelName: String) {
         guard let focusEntity = self.focusEntity else { return }
-
-        let modelEntity = try! ModelEntity.load(named: "redchair.usdz")
+        
+        let modelEntity = try! ModelEntity.load(named: "\(modelName).usdz")
         let anchorEntity = AnchorEntity(world: focusEntity.position)
         anchorEntity.addChild(modelEntity)
         self.scene.addAnchor(anchorEntity)
@@ -86,8 +105,8 @@ class CustomARView: ARView {
                 
                 switch action {
                     
-                case .place3DModel:
-                    self?.place3DModel()
+                case .place3DModel(let modelName):
+                    self?.place3DModel(modelName: modelName)
                     
                 case .remove3DModel:
                     print("Removeing 3D model: has not been implemented")
@@ -106,7 +125,7 @@ class CustomARView: ARView {
 }
 
 enum Actions {
-    case place3DModel
+    case place3DModel(modelName: String)
     case remove3DModel
 }
 
