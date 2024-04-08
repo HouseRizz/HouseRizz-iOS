@@ -93,6 +93,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC3D289B2BC4004A00C1E119 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC97AF002BBE5CCE007BB76C /* HRUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC3D289C2BC4005100C1E119 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC97AEF32BBE5C46007BB76C /* Authentication.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CC3D289D2BC4005900C1E119 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC97AEDB2BBE5714007BB76C /* HomeView.swift */,
+				CC97AF042BBE5DE3007BB76C /* MainView.swift */,
+				CC97AF062BBE5DEA007BB76C /* LoginView.swift */,
+				CC97AF082BBE5DEF007BB76C /* SignupView.swift */,
+				CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */,
+				CC97AEC72BBE4FCE007BB76C /* CameraView.swift */,
+				CC97AEDD2BBE5724007BB76C /* SideMenuView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC3D289E2BC4005F00C1E119 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CC97AF022BBE5CE4007BB76C /* Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CC3D289F2BC4006700C1E119 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CC97AED92BBE56F0007BB76C /* SideMenu.swift */,
+				CC97AF0D2BBE5E52007BB76C /* HRButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CC3D28A02BC4009000C1E119 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */,
+				CC97AEC92BBE4FD0007BB76C /* Assets.xcassets */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		CC97AEB92BBE4FCE007BB76C = {
 			isa = PBXGroup;
 			children = (
@@ -113,23 +169,15 @@
 		CC97AEC42BBE4FCE007BB76C /* HouseRizz-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CC97AF112BBE7570007BB76C /* Assets */,
 				CC97AF0C2BBE5E29007BB76C /* Info.plist */,
 				CC97AF0A2BBE5E18007BB76C /* GoogleService-Info.plist */,
-				CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */,
-				CC97AEF32BBE5C46007BB76C /* Authentication.swift */,
-				CC97AF022BBE5CE4007BB76C /* Extensions.swift */,
-				CC97AF0D2BBE5E52007BB76C /* HRButton.swift */,
-				CC97AF002BBE5CCE007BB76C /* HRUser.swift */,
-				CC97AED92BBE56F0007BB76C /* SideMenu.swift */,
-				CC97AEDB2BBE5714007BB76C /* HomeView.swift */,
-				CC97AF042BBE5DE3007BB76C /* MainView.swift */,
-				CC97AF062BBE5DEA007BB76C /* LoginView.swift */,
-				CC97AF082BBE5DEF007BB76C /* SignupView.swift */,
-				CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */,
-				CC97AEDD2BBE5724007BB76C /* SideMenuView.swift */,
-				CC97AEC72BBE4FCE007BB76C /* CameraView.swift */,
-				CC97AEC92BBE4FD0007BB76C /* Assets.xcassets */,
+				CC3D28A02BC4009000C1E119 /* Support */,
+				CC3D289F2BC4006700C1E119 /* Components */,
+				CC3D289E2BC4005F00C1E119 /* Utilities */,
+				CC3D289D2BC4005900C1E119 /* View */,
+				CC3D289C2BC4005100C1E119 /* ViewModel */,
+				CC3D289B2BC4004A00C1E119 /* Model */,
+				CC97AF112BBE7570007BB76C /* Assets */,
 				CC97AECB2BBE4FD0007BB76C /* Preview Content */,
 			);
 			path = "HouseRizz-iOS";
