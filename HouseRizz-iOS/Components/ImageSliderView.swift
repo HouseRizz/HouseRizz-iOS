@@ -17,13 +17,13 @@ struct ImageSliderView: View {
                 
                 Image(slides[currentIndex])
                     .resizable()
-                    .frame(width: .infinity, height: 180)
+                    .frame(width: .none, height: 180)
                     .scaledToFit()
                     .cornerRadius(15)
             }
             
             HStack {
-                ForEach(0..<slides.count){index in
+                ForEach(0..<slides.count, id: \.self){index in
                     Circle()
                         .fill(self.currentIndex == index ? Color.blue: Color.black)
                         .frame(width: 10, height: 10)

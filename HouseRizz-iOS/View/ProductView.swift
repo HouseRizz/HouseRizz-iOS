@@ -50,8 +50,8 @@ struct ProductView: View {
                     }
                 }
             }
-            .environmentObject(cartViewModel)
         }
+        .environmentObject(cartViewModel)
     }
     
     @ViewBuilder
@@ -69,7 +69,7 @@ struct ProductView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: Text("")) {
+                NavigationLink(destination: CartView().environmentObject(cartViewModel)) {
                     CartButton(numberOfProducts: cartViewModel.products.count)
                 }
             }
@@ -77,7 +77,7 @@ struct ProductView: View {
             Text("Get The Most Realistic")
                 .font(.largeTitle .bold())
             
-            + Text(" Furniture Experience")
+            Text("Furniture Experience")
                 .font(.largeTitle .bold())
                 .foregroundStyle(.purple.opacity(0.4))
         }
@@ -85,9 +85,7 @@ struct ProductView: View {
     }
 }
 
-struct ProductView_Preview: PreviewProvider {
-    static var previews: some View {
-        ProductView()
-            .environmentObject(CartViewModel())
-    }
+#Preview {
+    ProductView()
+        .environmentObject(CartViewModel())
 }
