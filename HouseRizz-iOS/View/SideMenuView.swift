@@ -16,12 +16,14 @@ struct SideMenuView: View {
     
     enum Tab: String, CaseIterable {
         case Home = "house.fill"
-        case AR = "camera"
+        case AR = "camera.fill"
+        case Products = "rectangle.grid.2x2.fill"
         
         var title: String {
             switch self {
             case .Home: return "Home"
             case .AR: return "AR"
+            case .Products: return "Products"
             }
         }
     }
@@ -35,6 +37,8 @@ struct SideMenuView: View {
                         HomeView()
                     case .AR:
                         CameraView()
+                    case .Products:
+                        ProductView()
                     }
                 }
                 .navigationTitle(selectedTab.title)
