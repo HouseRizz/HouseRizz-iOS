@@ -11,14 +11,14 @@ class CartViewModel: ObservableObject {
     @Published private(set) var products: [CartItem] = []
     @Published private(set) var total: Int = 0
 
-    func addToCart(product: HRProduct) {
+    func addToCart(product: HRProduct, quantity: Int = 1) {
         if let index = products.firstIndex(where: { $0.product.id == product.id }) {
-            products[index].quantity += 1
+            products[index].quantity += quantity
         } else {
-            let cartItem = CartItem(product: product, quantity: 1)
+            let cartItem = CartItem(product: product, quantity: quantity)
             products.append(cartItem)
         }
-        total += product.price
+        total += product.price * quantity
     }
 
     func removeFromCart(product: HRProduct) {
@@ -32,7 +32,7 @@ class CartViewModel: ObservableObject {
             total -= product.price
         }
     }
-    
+
     func updateCartItemQuantity(cartItem: CartItem, newQuantity: Int) {
         if let index = products.firstIndex(where: { $0.product.id == cartItem.product.id }) {
             products[index].quantity = newQuantity

@@ -16,37 +16,39 @@ struct ProductView: View {
                 Color.white
                     .edgesIgnoringSafeArea(.all)
                 
-                VStack {
-                    AppBar
-                    
-                    SearchView()
-                    
-                    ImageSliderView()
-                    
-                    HStack {
-                        Text("New Arrivals")
-                            .font(.title2)
-                            .fontWeight(.medium)
+                ScrollView {
+                    VStack {
+                        AppBar
                         
-                        Spacer()
+                        SearchView()
                         
-                        Image(systemName: "circle.grid.2x2.fill")
-                            .foregroundStyle(.purple.opacity(0.2))
-                    }
-                    .padding()
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            ForEach(productList, id: \.id) {product in
-                                NavigationLink{
-                                    Text(product.name)
-                                } label: {
-                                    ProductCardView(product: product)
-                                        .environmentObject(cartViewModel)
+                        ImageSliderView()
+                        
+                        HStack {
+                            Text("New Arrivals")
+                                .font(.title2)
+                                .fontWeight(.medium)
+                            
+                            Spacer()
+                            
+                            Image(systemName: "circle.grid.2x2.fill")
+                                .foregroundStyle(.purple.opacity(0.2))
+                        }
+                        .padding()
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 10) {
+                                ForEach(productList, id: \.id) {product in
+                                    NavigationLink{
+                                        ProductDetailsView(product: product)
+                                    } label: {
+                                        ProductCardView(product: product)
+                                            .environmentObject(cartViewModel)
+                                    }
                                 }
                             }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
                     }
                 }
             }

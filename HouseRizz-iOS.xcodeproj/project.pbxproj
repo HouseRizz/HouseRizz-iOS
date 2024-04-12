@@ -17,6 +17,7 @@
 		CC2F47162BC8CE1900A4C1FC /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F47152BC8CE1900A4C1FC /* CartButton.swift */; };
 		CC2F47182BC8D5ED00A4C1FC /* CartProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F47172BC8D5ED00A4C1FC /* CartProductView.swift */; };
 		CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F47192BC8D73A00A4C1FC /* CartView.swift */; };
+		CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */; };
 		CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */; };
 		CC97AEC82BBE4FCE007BB76C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AEC72BBE4FCE007BB76C /* CameraView.swift */; };
 		CC97AECA2BBE4FD0007BB76C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC97AEC92BBE4FD0007BB76C /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		CC2F47152BC8CE1900A4C1FC /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 		CC2F47172BC8D5ED00A4C1FC /* CartProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductView.swift; sourceTree = "<group>"; };
 		CC2F47192BC8D73A00A4C1FC /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 		CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HouseRizz-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC97AEC72BBE4FCE007BB76C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				CC97AEDD2BBE5724007BB76C /* SideMenuView.swift */,
 				CC2F47072BC80E6100A4C1FC /* ProductView.swift */,
 				CC2F47192BC8D73A00A4C1FC /* CartView.swift */,
+				CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				CC2F47142BC8389B00A4C1FC /* CartViewModel.swift in Sources */,
 				CC97AEDA2BBE56F0007BB76C /* SideMenu.swift in Sources */,
 				CC2F47182BC8D5ED00A4C1FC /* CartProductView.swift in Sources */,
+				CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */,
 				CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */,
 				CC97AEDC2BBE5714007BB76C /* HomeView.swift in Sources */,
 				CC2F47082BC80E6100A4C1FC /* ProductView.swift in Sources */,

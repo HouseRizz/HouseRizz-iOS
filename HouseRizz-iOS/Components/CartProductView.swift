@@ -22,22 +22,21 @@ struct CartProductView: View {
             Text(cartItem.product.name)
                 .font(.caption2)
 
-            HStack(spacing: 10) {
+            HStack{
+                
                 if cartItem.quantity == 1 {
                     Button(action: {
                         cartViewModel.removeFromCart(product: cartItem.product)
                     }) {
-                        Image(systemName: "xmark")
+                        Image(systemName: "x.square")
                             .foregroundStyle(.purple.opacity(0.8))
-                            .frame(width: 5, height: 5)
                     }
                 } else {
                     Button(action: {
                         cartViewModel.updateCartItemQuantity(cartItem: cartItem, newQuantity: cartItem.quantity - 1)
                     }) {
-                        Image(systemName: "minus")
+                        Image(systemName: "minus.square")
                             .foregroundStyle(.purple.opacity(0.8))
-                            .frame(width: 10, height: 10)
                     }
                 }
                 
@@ -45,25 +44,19 @@ struct CartProductView: View {
 
                 Text("\(cartItem.quantity)")
                     .font(.caption2)
-                    .foregroundStyle(.black)
                 
                 Spacer()
 
                 Button(action: {
                     cartViewModel.updateCartItemQuantity(cartItem: cartItem, newQuantity: cartItem.quantity + 1)
                 }) {
-                    Image(systemName: "plus")
+                    Image(systemName: "plus.square.fill")
                         .foregroundStyle(.purple.opacity(0.8))
-                        .frame(width: 10, height: 10)
                 }
             }
-            .padding(8)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-            )
+            .frame(width: 80)
 
-            Text("₹ \(cartItem.product.price * cartItem.quantity)")
+            Text("₹\(cartItem.product.price * cartItem.quantity)")
                 .font(.caption2)
         }
         .padding(.horizontal)
