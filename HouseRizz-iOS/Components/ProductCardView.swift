@@ -20,17 +20,12 @@ struct ProductCardView: View {
                     .cornerRadius(12)
                 
                 Text(product.name)
-                    .font(.headline)
+                    .font(.subheadline)
                     .padding(.vertical, 1)
                     .foregroundStyle(.black)
                 
-                Text(product.supplier)
-                    .foregroundStyle(.gray)
-                    .font(.caption)
-                    .padding(.vertical,0.5)
-                
                 Text("₹ \(product.price)")
-                    .bold()
+                    .font(.caption2)
                     .foregroundStyle(.black)
             }
             
@@ -39,7 +34,7 @@ struct ProductCardView: View {
             } label: {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
-                    .frame(width: 35,height: 35)
+                    .frame(width: 25,height: 25)
                     .foregroundStyle(.black)
                     .padding(.trailing)
             }

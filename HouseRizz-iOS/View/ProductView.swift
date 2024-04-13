@@ -49,6 +49,7 @@ struct ProductView: View {
                             }
                             .padding(.horizontal)
                         }
+                        Spacer()
                     }
                 }
             }

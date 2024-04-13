@@ -51,6 +51,9 @@
 		CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF1B2BBE8109007BB76C /* ARPersistence */; };
 		CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C222BC03A42004E51F9 /* fender.usdz */; };
 		CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C242BC03A47004E51F9 /* robot.usdz */; };
+		CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0022BCA28B5000AFB80 /* TabView.swift */; };
+		CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */; };
+		CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0062BCA3440000AFB80 /* AIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +89,9 @@
 		CC97AF152BBE75C4007BB76C /* retrotv.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = retrotv.usdz; sourceTree = "<group>"; };
 		CCC42C222BC03A42004E51F9 /* fender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender.usdz; sourceTree = "<group>"; };
 		CCC42C242BC03A47004E51F9 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
+		CCD3B0022BCA28B5000AFB80 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRTabItems.swift; sourceTree = "<group>"; };
+		CCD3B0062BCA3440000AFB80 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,7 @@
 			children = (
 				CC97AF002BBE5CCE007BB76C /* HRUser.swift */,
 				CC2F470B2BC80FDB00A4C1FC /* HRProduct.swift */,
+				CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,6 +151,8 @@
 				CC2F47072BC80E6100A4C1FC /* ProductView.swift */,
 				CC2F47192BC8D73A00A4C1FC /* CartView.swift */,
 				CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */,
+				CCD3B0022BCA28B5000AFB80 /* TabView.swift */,
+				CCD3B0062BCA3440000AFB80 /* AIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,13 +354,16 @@
 				CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */,
 				CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */,
 				CC97AEDC2BBE5714007BB76C /* HomeView.swift in Sources */,
+				CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */,
 				CC2F47082BC80E6100A4C1FC /* ProductView.swift in Sources */,
+				CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */,
 				CC97AF032BBE5CE4007BB76C /* Extensions.swift in Sources */,
 				CC97AEDE2BBE5724007BB76C /* SideMenuView.swift in Sources */,
 				CC2F47162BC8CE1900A4C1FC /* CartButton.swift in Sources */,
 				CC2F47102BC81CDB00A4C1FC /* ProductCardView.swift in Sources */,
 				CC97AEC82BBE4FCE007BB76C /* CameraView.swift in Sources */,
 				CC2F47122BC81D6D00A4C1FC /* SearchView.swift in Sources */,
+				CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */,
 				CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */,
 				CC97AF072BBE5DEA007BB76C /* LoginView.swift in Sources */,
 				CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */,
