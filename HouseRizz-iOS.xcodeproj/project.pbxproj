@@ -52,6 +52,7 @@
 		CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C222BC03A42004E51F9 /* fender.usdz */; };
 		CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C242BC03A47004E51F9 /* robot.usdz */; };
 		CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0022BCA28B5000AFB80 /* TabView.swift */; };
+		CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		CCC42C222BC03A42004E51F9 /* fender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender.usdz; sourceTree = "<group>"; };
 		CCC42C242BC03A47004E51F9 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
 		CCD3B0022BCA28B5000AFB80 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRTabItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				CC97AF002BBE5CCE007BB76C /* HRUser.swift */,
 				CC2F470B2BC80FDB00A4C1FC /* HRProduct.swift */,
+				CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */,
 				CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */,
 				CC97AEDC2BBE5714007BB76C /* HomeView.swift in Sources */,
+				CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */,
 				CC2F47082BC80E6100A4C1FC /* ProductView.swift in Sources */,
 				CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */,
 				CC97AF032BBE5CE4007BB76C /* Extensions.swift in Sources */,
