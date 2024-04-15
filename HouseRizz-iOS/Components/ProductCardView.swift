@@ -18,6 +18,10 @@ struct ProductCardView: View {
                     .resizable()
                     .frame(width: 175,height: 160)
                     .cornerRadius(12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(.gray, lineWidth: 0.5)
+                        )
                 
                 Text(product.name)
                     .font(.subheadline)

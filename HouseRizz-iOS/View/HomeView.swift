@@ -38,7 +38,7 @@ struct HomeView: View {
                         ImageSliderView()
                         
                         Text("Trending Near You")
-                            .font(.title2 .bold())
+                            .font(.title3 .bold())
                         
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                             ForEach(productList, id: \.id) { product in

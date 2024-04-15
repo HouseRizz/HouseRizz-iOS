@@ -21,7 +21,6 @@ struct TabbedView: View {
                     .tag(2)
                 ProductView()
                     .tag(3)
-               
             }
 
             ZStack {
