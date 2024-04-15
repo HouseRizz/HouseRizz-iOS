@@ -20,10 +20,10 @@ struct SearchView: View {
                     .padding()
                 
             }
-            .background(Color.purple.opacity(0.2))
+            .background(Color.orange.opacity(0.2))
             .cornerRadius(12)
         }
-        .padding()
+        .padding(.horizontal)
     }
 }
 
