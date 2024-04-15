@@ -38,7 +38,7 @@ struct SideMenuView: View {
                     case .AR:
                         CameraView()
                     case .Products:
-                        ProductView()
+                        HomeView()
                     }
                 }
                 .navigationTitle(selectedTab.title)

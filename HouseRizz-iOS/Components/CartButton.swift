@@ -13,6 +13,7 @@ struct CartButton: View {
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Image(systemName: "bag.fill")
+                .imageScale(.large)
                 .foregroundStyle(.black)
                 .padding(5)
             
@@ -21,7 +22,7 @@ struct CartButton: View {
                     .font(.caption2)
                     .foregroundStyle(.white)
                     .frame(width: 15, height: 15)
-                    .background(.purple)
+                    .background(.orange)
                     .cornerRadius(50)
             }
         }

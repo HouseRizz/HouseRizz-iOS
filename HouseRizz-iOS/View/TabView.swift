@@ -21,7 +21,6 @@ struct TabbedView: View {
                     .tag(2)
                 ProductView()
                     .tag(3)
-               
             }
 
             ZStack {
@@ -37,7 +36,7 @@ struct TabbedView: View {
                 .padding(6)
             }
             .frame(height: 70)
-            .background(.purple.opacity(0.2))
+            .background(.orange.opacity(0.2))
             .cornerRadius(35)
             .padding(.horizontal, 26)
         }
@@ -54,12 +53,12 @@ extension TabbedView {
             if isActive {
                 Text(title)
                     .font(.system(size: 14))
-                    .foregroundColor(isActive ? .black : .purple)
+                    .foregroundColor(isActive ? .black : .orange)
             }
             Spacer()
         }
         .frame(width: isActive ? .none : 60, height: 60)
-        .background(isActive ? .purple.opacity(0.4) : .clear)
+        .background(isActive ? .orange.opacity(0.4) : .clear)
         .cornerRadius(30)
     }
 }
