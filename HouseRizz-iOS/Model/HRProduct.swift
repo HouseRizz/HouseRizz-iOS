@@ -26,7 +26,7 @@ enum Category: CaseIterable {
     case bed
     case chair
     case tv
-    
+        
     var title: String {
         switch self {
         case .sofa:

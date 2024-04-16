@@ -9,12 +9,20 @@ import SwiftUI
 
 struct ProductView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
-    
+    let columns = [GridItem(.flexible()), GridItem(.flexible()),GridItem(.flexible())]
+
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: ProductCategoryView(productCategory: Category.sofa)) {
-                    CategoryCard(image: Category.sofa.image, title: Category.sofa.title)
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(Category.allCases, id: \.self) { category in
+                            NavigationLink(destination: ProductCategoryView(productCategory: category)) {
+                                CategoryCard(image: category.image, title: category.title)
+                            }
+                        }
+                    }
+                    .padding()
                 }
             }
             .navigationTitle("Categories")

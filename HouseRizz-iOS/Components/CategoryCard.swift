@@ -15,7 +15,7 @@ struct CategoryCard: View {
         VStack {
             Image(image)
                 .resizable()
-                .frame(width: 175,height: 160)
+                .frame(width: 100,height: 100)
                 .cornerRadius(12)
                 .overlay(
                     RoundedRectangle(cornerRadius: 12)
@@ -23,10 +23,8 @@ struct CategoryCard: View {
                 )
             Text(title)
                 .bold()
-                .font(.title3)
+                .font(.subheadline)
         }
-        .frame(width: 185, height: 260)
-        .cornerRadius(15)
     }
 }
 
