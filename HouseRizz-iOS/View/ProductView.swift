@@ -9,33 +9,30 @@ import SwiftUI
 
 struct ProductView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
-    
+    let columns = [GridItem(.flexible()), GridItem(.flexible()),GridItem(.flexible())]
+
     var body: some View {
-        VStack {
-            HStack {
-                Text("New Arrivals")
-                    .font(.title2)
-                    .fontWeight(.medium)
-                
-                Spacer()
-                
-                Image(systemName: "circle.grid.2x2.fill")
-                    .foregroundStyle(.purple.opacity(0.2))
-            }
-            .padding()
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10) {
-                    ForEach(productList, id: \.id) {product in
-                        NavigationLink{
-                            ProductDetailsView(product: product)
-                        } label: {
-                            ProductCardView(product: product)
-                                .environmentObject(cartViewModel)
+        NavigationView {
+            VStack {
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(Category.allCases, id: \.self) { category in
+                            NavigationLink(destination: ProductCategoryView(productCategory: category)) {
+                                CategoryCard(image: category.image, title: category.title)
+                            }
                         }
                     }
+                    .padding()
                 }
-                .padding(.horizontal)
+            }
+            .navigationTitle("Categories")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem {
+                    NavigationLink(destination: CartView().environmentObject(cartViewModel)) {
+                        CartButton(numberOfProducts: cartViewModel.products.count)
+                    }
+                }
             }
         }
     }
@@ -43,4 +40,5 @@ struct ProductView: View {
 
 #Preview {
     ProductView()
+        .environmentObject(CartViewModel())
 }

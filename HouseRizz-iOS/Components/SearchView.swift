@@ -13,11 +13,11 @@ struct SearchView: View {
     var body: some View {
         HStack {
             HStack {
-                Image(systemName: "magnifyingglass")
-                    .padding(.leading)
-                
                 TextField("Search For Furniture", text: $search)
                     .padding()
+                
+                Image(systemName: "magnifyingglass")
+                    .padding(.trailing)
                 
             }
             .background(Color.orange.opacity(0.2))
