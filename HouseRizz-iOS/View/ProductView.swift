@@ -13,22 +13,8 @@ struct ProductView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: ProductCategoryView()) {
-                    ZStack {
-                        Color.orange.opacity(0.2)
-                        
-                        HStack {
-                            Text("All Products")
-                                .bold()
-                            
-                            Image("cat")
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                        }
-
-                    }
-                    .frame(width: 300, height: 100)
-                    .cornerRadius(20)
+                NavigationLink(destination: ProductCategoryView(productCategory: Category.sofa)) {
+                    CategoryCard(image: Category.sofa.image, title: Category.sofa.title)
                 }
             }
             .navigationTitle("Categories")

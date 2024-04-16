@@ -11,6 +11,7 @@ struct ProductCategoryView: View {
     
     @EnvironmentObject var cartViewModel: CartViewModel
     var column = [GridItem(.adaptive(minimum: 160), spacing: 20)]
+    var productCategory: Category
     
     var body: some View {
         NavigationView {
@@ -20,7 +21,7 @@ struct ProductCategoryView: View {
                 
                 ScrollView {
                     LazyVGrid(columns: column) {
-                        ForEach(productList, id: \.id) {product in
+                        ForEach(productList.filter {$0.category == productCategory}, id: \.id) {product in
                                 ProductCardView(product: product)
                         }
                     }
@@ -28,7 +29,7 @@ struct ProductCategoryView: View {
                 }
             }
         }
-        .navigationTitle("All Products")
+        .navigationTitle(productCategory.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem {
@@ -41,6 +42,6 @@ struct ProductCategoryView: View {
 }
 
 #Preview {
-    ProductCategoryView()
+    ProductCategoryView(productCategory: Category.sofa)
         .environmentObject(CartViewModel())
 }
