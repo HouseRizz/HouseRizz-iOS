@@ -19,6 +19,7 @@
 		CC2F47182BC8D5ED00A4C1FC /* CartProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F47172BC8D5ED00A4C1FC /* CartProductView.swift */; };
 		CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F47192BC8D73A00A4C1FC /* CartView.swift */; };
 		CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */; };
+		CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */; };
 		CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */; };
 		CC97AEC82BBE4FCE007BB76C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AEC72BBE4FCE007BB76C /* CameraView.swift */; };
 		CC97AECA2BBE4FD0007BB76C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC97AEC92BBE4FD0007BB76C /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		CC2F47172BC8D5ED00A4C1FC /* CartProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductView.swift; sourceTree = "<group>"; };
 		CC2F47192BC8D73A00A4C1FC /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryView.swift; sourceTree = "<group>"; };
 		CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HouseRizz-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC97AEC72BBE4FCE007BB76C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				CCD3B0022BCA28B5000AFB80 /* TabView.swift */,
 				CCD3B0062BCA3440000AFB80 /* AIView.swift */,
 				CC0231572BCD47C8007CC053 /* ProductView.swift */,
+				CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */,
 				CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */,
 				CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */,
+				CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */,
 				CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */,
 				CC97AF032BBE5CE4007BB76C /* Extensions.swift in Sources */,
 				CC97AEDE2BBE5724007BB76C /* SideMenuView.swift in Sources */,
