@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProductCategoryView: View {
+    
     @EnvironmentObject var cartViewModel: CartViewModel
     var column = [GridItem(.adaptive(minimum: 160), spacing: 20)]
     
@@ -15,6 +16,7 @@ struct ProductCategoryView: View {
         NavigationView {
             VStack {
                 SearchView()
+                    .padding(.top,10)
                 
                 ScrollView {
                     LazyVGrid(columns: column) {
@@ -25,13 +27,13 @@ struct ProductCategoryView: View {
                     .padding()
                 }
             }
-            .navigationTitle("All Products")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem {
-                    NavigationLink(destination: CartView().environmentObject(cartViewModel)) {
-                        CartButton(numberOfProducts: cartViewModel.products.count)
-                    }
+        }
+        .navigationTitle("All Products")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem {
+                NavigationLink(destination: CartView().environmentObject(cartViewModel)) {
+                    CartButton(numberOfProducts: cartViewModel.products.count)
                 }
             }
         }
