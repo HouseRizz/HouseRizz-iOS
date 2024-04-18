@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var selectedProduct: HRProduct?
+    @State private var showSettingsView = false
 
     var body: some View {
         NavigationStack {
@@ -60,6 +61,9 @@ struct HomeView: View {
             ProductDetailsView(product: product)
                 .environmentObject(cartViewModel)
         }
+        .sheet(isPresented: $showSettingsView) {
+            SettingsView()
+        }
     }
 
     @ViewBuilder
@@ -69,6 +73,10 @@ struct HomeView: View {
                 Image("Person")
                     .resizable()
                     .frame(width: 40, height: 40)
+                    .onTapGesture {
+                        showSettingsView.toggle()
+                    }
+                    
                 VStack(alignment: .leading) {
                     Text("Delivery Available")
                         .font(.title2)
