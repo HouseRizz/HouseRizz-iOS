@@ -19,7 +19,7 @@ This the User app for [HouseRizz](https://houserizz-com.vercel.app) a tool that 
 - [x]  Place 3D models
 - [x]  Category Page
 - [x]  Product Detail Page
-- [ ]  Cart
+- [x]  Cart
 - [ ]  Fetch from CloudKit
 - [ ]  Search Bar
 - [ ]  Settings Page
