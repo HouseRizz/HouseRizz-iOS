@@ -201,6 +201,7 @@
 		CC3D28A02BC4009000C1E119 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				CC9257F32BFB82490066F94B /* GoogleService-Info.plist */,
 				CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */,
 				CC97AEC92BBE4FD0007BB76C /* Assets.xcassets */,
 			);
@@ -229,7 +230,6 @@
 			children = (
 				CCCBC6362BD182BA00D0FCEA /* HouseRizz-iOS.entitlements */,
 				CC97AF0C2BBE5E29007BB76C /* Info.plist */,
-				CC9257F32BFB82490066F94B /* GoogleService-Info.plist */,
 				CC3D28A02BC4009000C1E119 /* Support */,
 				CC3D289F2BC4006700C1E119 /* Components */,
 				CC3D289E2BC4005F00C1E119 /* Utilities */,
