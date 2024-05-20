@@ -20,6 +20,7 @@
 		CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */; };
 		CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */; };
 		CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */; };
+		CC9257F42BFB82490066F94B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC9257F32BFB82490066F94B /* GoogleService-Info.plist */; };
 		CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */; };
 		CC97AEC82BBE4FCE007BB76C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AEC72BBE4FCE007BB76C /* CameraView.swift */; };
 		CC97AECA2BBE4FD0007BB76C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC97AEC92BBE4FD0007BB76C /* Assets.xcassets */; };
@@ -52,7 +53,6 @@
 		CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF1B2BBE8109007BB76C /* ARPersistence */; };
 		CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C222BC03A42004E51F9 /* fender.usdz */; };
 		CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C242BC03A47004E51F9 /* robot.usdz */; };
-		CCCBC6382BD1838F00D0FCEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCCBC6372BD1838F00D0FCEA /* GoogleService-Info.plist */; };
 		CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0022BCA28B5000AFB80 /* TabView.swift */; };
 		CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */; };
 		CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0062BCA3440000AFB80 /* AIView.swift */; };
@@ -72,6 +72,7 @@
 		CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 		CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryView.swift; sourceTree = "<group>"; };
 		CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
+		CC9257F32BFB82490066F94B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HouseRizz-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC97AEC72BBE4FCE007BB76C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		CCC42C222BC03A42004E51F9 /* fender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender.usdz; sourceTree = "<group>"; };
 		CCC42C242BC03A47004E51F9 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
 		CCCBC6362BD182BA00D0FCEA /* HouseRizz-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HouseRizz-iOS.entitlements"; sourceTree = "<group>"; };
-		CCCBC6372BD1838F00D0FCEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CCD3B0022BCA28B5000AFB80 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRTabItems.swift; sourceTree = "<group>"; };
 		CCD3B0062BCA3440000AFB80 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 			children = (
 				CCCBC6362BD182BA00D0FCEA /* HouseRizz-iOS.entitlements */,
 				CC97AF0C2BBE5E29007BB76C /* Info.plist */,
-				CCCBC6372BD1838F00D0FCEA /* GoogleService-Info.plist */,
+				CC9257F32BFB82490066F94B /* GoogleService-Info.plist */,
 				CC3D28A02BC4009000C1E119 /* Support */,
 				CC3D289F2BC4006700C1E119 /* Components */,
 				CC3D289E2BC4005F00C1E119 /* Utilities */,
@@ -342,7 +342,7 @@
 				CC97AECA2BBE4FD0007BB76C /* Assets.xcassets in Resources */,
 				CC97AF142BBE7590007BB76C /* redchair.usdz in Resources */,
 				CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */,
-				CCCBC6382BD1838F00D0FCEA /* GoogleService-Info.plist in Resources */,
+				CC9257F42BFB82490066F94B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
