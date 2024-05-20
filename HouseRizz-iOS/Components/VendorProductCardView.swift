@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct CKProductCardView: View {
-    @EnvironmentObject var cartViewModel: CartViewModel
+struct VendorProductCardView: View {
     var product: HRCKProduct
     
     var body: some View {
@@ -33,16 +32,6 @@ struct CKProductCardView: View {
                 Text("₹ \(product.price ?? 0)")
                     .font(.caption2)
                     .foregroundStyle(.black)
-            }
-            
-            Button{
-//                cartViewModel.addToCart(product: product)
-            } label: {
-                Image(systemName: "plus.circle.fill")
-                    .resizable()
-                    .frame(width: 25,height: 25)
-                    .foregroundStyle(.black)
-                    .padding(.trailing)
             }
         }
         .frame(width: 185, height: 260)

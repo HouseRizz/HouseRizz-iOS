@@ -11,6 +11,7 @@ struct SettingsView: View {
     @StateObject var auth = Authentication()
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode
+    @State private var showVendorInventory: Bool = false
     
     var body: some View {
         NavigationView {
@@ -31,6 +32,19 @@ struct SettingsView: View {
                 } header: {
                     Text("Account")
                 }
+                
+                Section {
+                    HStack {
+                        Image(systemName: "plus.circle")
+                        Text("Manage Inventory")
+                    }
+                    .onTapGesture {
+                        showVendorInventory.toggle()
+                    }
+                } header: {
+                    Text("Vendor")
+                }
+                
                 Section {
                     HStack {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
@@ -58,6 +72,9 @@ struct SettingsView: View {
             .onAppear {
                 auth.fetchUser()
             }
+            .sheet(isPresented: $showVendorInventory, content: {
+                VendorProductView()
+            })
         }
     }
 }
