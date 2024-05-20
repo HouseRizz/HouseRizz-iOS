@@ -1,6 +1,6 @@
 # HouseRizz User iOS App
 
-This the User app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets you Redesign your home with  AI & AR. 
+This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets you Redesign your home with  AI & AR. 
 
 <p align="center">
     <img src="https://developer.apple.com/assets/elements/icons/swift/swift-96x96_2x.png" alt="Swift5" width="48" height="48">&nbsp;&nbsp;&nbsp;
@@ -27,6 +27,13 @@ This the User app for [HouseRizz](https://houserizz-com.vercel.app) a tool that 
 - [ ]  Razorpay Payment Gateway Integration
 - [ ]  AI Feature - Sketch to Render
 - [ ]  AI Feature - Redesign home from image
+Vendor Side
+- [x]  Add Item to CloudKit
+- [x]  Upload USDZ Model
+- [x]  Fetch Item
+- [x]  Delete Item
+- [x]  Item Detail View
+- [ ]  Order Management
 
 ## Screenshots
 
