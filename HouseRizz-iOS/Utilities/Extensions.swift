@@ -5,7 +5,7 @@
 //  Created by Krish Mittal on 04/04/24.
 //
 
-import Foundation
+import SwiftUI
 
 extension Encodable {
     func asDictionary() -> [String: Any]{
@@ -20,4 +20,17 @@ extension Encodable {
             return [:]
         }
     }
+}
+
+extension Color {
+    static let primaryColor = Color("PrimaryColor")
+    static let secondaryColor = Color("SecondaryColor")
+}
+
+extension NumberFormatter {
+    static let currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
 }
