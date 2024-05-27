@@ -22,6 +22,7 @@
 		CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */; };
 		CC8D4E922C04B34D0080BC0D /* CKCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8D4E912C04B34D0080BC0D /* CKCartViewModel.swift */; };
 		CC8D4E942C04B63D0080BC0D /* CKProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8D4E932C04B63D0080BC0D /* CKProductCardView.swift */; };
+		CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */; };
 		CC9257F42BFB82490066F94B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC9257F32BFB82490066F94B /* GoogleService-Info.plist */; };
 		CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9257F52BFB88AB0066F94B /* CKUtility.swift */; };
 		CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */; };
@@ -85,6 +86,7 @@
 		CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
 		CC8D4E912C04B34D0080BC0D /* CKCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKCartViewModel.swift; sourceTree = "<group>"; };
 		CC8D4E932C04B63D0080BC0D /* CKProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKProductCardView.swift; sourceTree = "<group>"; };
+		CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CC9257F32BFB82490066F94B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CC9257F52BFB88AB0066F94B /* CKUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKUtility.swift; sourceTree = "<group>"; };
 		CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HouseRizz-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +167,7 @@
 				CCC5B0412BFBB8700007BEC1 /* VendorProductViewModel.swift */,
 				CCC5B0432BFBB9310007BEC1 /* AddProductViewModel.swift */,
 				CC8D4E912C04B34D0080BC0D /* CKCartViewModel.swift */,
+				CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				CC97AF012BBE5CCE007BB76C /* HRUser.swift in Sources */,
 				CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */,
 				CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */,
+				CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */,
 				CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */,
 				CCC5B03C2BFBB6B80007BEC1 /* VendorProductCardView.swift in Sources */,
 				CC2F47142BC8389B00A4C1FC /* CartViewModel.swift in Sources */,
