@@ -20,6 +20,9 @@
 		CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */; };
 		CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */; };
 		CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */; };
+		CC8D4E922C04B34D0080BC0D /* CKCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8D4E912C04B34D0080BC0D /* CKCartViewModel.swift */; };
+		CC8D4E942C04B63D0080BC0D /* CKProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8D4E932C04B63D0080BC0D /* CKProductCardView.swift */; };
+		CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */; };
 		CC9257F42BFB82490066F94B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC9257F32BFB82490066F94B /* GoogleService-Info.plist */; };
 		CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9257F52BFB88AB0066F94B /* CKUtility.swift */; };
 		CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */; };
@@ -81,6 +84,9 @@
 		CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 		CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryView.swift; sourceTree = "<group>"; };
 		CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
+		CC8D4E912C04B34D0080BC0D /* CKCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKCartViewModel.swift; sourceTree = "<group>"; };
+		CC8D4E932C04B63D0080BC0D /* CKProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKProductCardView.swift; sourceTree = "<group>"; };
+		CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CC9257F32BFB82490066F94B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CC9257F52BFB88AB0066F94B /* CKUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKUtility.swift; sourceTree = "<group>"; };
 		CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HouseRizz-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +166,8 @@
 				CC2F47132BC8389B00A4C1FC /* CartViewModel.swift */,
 				CCC5B0412BFBB8700007BEC1 /* VendorProductViewModel.swift */,
 				CCC5B0432BFBB9310007BEC1 /* AddProductViewModel.swift */,
+				CC8D4E912C04B34D0080BC0D /* CKCartViewModel.swift */,
+				CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -209,6 +217,7 @@
 				CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */,
 				CCC5B03B2BFBB6B80007BEC1 /* VendorProductCardView.swift */,
 				CCC5B03D2BFBB7700007BEC1 /* HRTextField.swift */,
+				CC8D4E932C04B63D0080BC0D /* CKProductCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -383,6 +392,7 @@
 				CC97AF012BBE5CCE007BB76C /* HRUser.swift in Sources */,
 				CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */,
 				CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */,
+				CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */,
 				CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */,
 				CCC5B03C2BFBB6B80007BEC1 /* VendorProductCardView.swift in Sources */,
 				CC2F47142BC8389B00A4C1FC /* CartViewModel.swift in Sources */,
@@ -391,6 +401,7 @@
 				CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */,
 				CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */,
 				CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */,
+				CC8D4E942C04B63D0080BC0D /* CKProductCardView.swift in Sources */,
 				CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */,
 				CCC5B0462BFBB95A0007BEC1 /* AddProductView.swift in Sources */,
 				CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */,
@@ -416,6 +427,7 @@
 				CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */,
 				CCC5B03A2BFBB62F0007BEC1 /* HRCKProduct.swift in Sources */,
 				CC97AF0E2BBE5E52007BB76C /* HRButton.swift in Sources */,
+				CC8D4E922C04B34D0080BC0D /* CKCartViewModel.swift in Sources */,
 				CC97AF102BBE5F1E007BB76C /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
