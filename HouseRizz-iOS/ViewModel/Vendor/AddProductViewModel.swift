@@ -24,6 +24,8 @@ class AddProductViewModel: ObservableObject {
     @Published var supplier: String = ""
     @Published var items: [HRProduct] = []
     @Published var selectedPhotoData = [Data]()
+    @Published var isSuccess: Bool = false
+    @Published var isLoaded: Bool = false
     var urls: [URL] = []
     var errors: [Error] = []
     var cancellables = Set<AnyCancellable>()
@@ -42,11 +44,12 @@ class AddProductViewModel: ObservableObject {
         
     }
     
-    private func clearItem() {
+    func clearItem() {
         error = ""
         name = ""
         description = ""
         sellingPrice = 0
+        taxRate = 0
         imageURL1 = ""
         imageURL2 = ""
         imageURL3 = ""
@@ -79,12 +82,14 @@ class AddProductViewModel: ObservableObject {
         
         guard let newItem = HRCKProduct(id: UUID(), name: name, description: description, price: finalPrice, imageURL1: urls.count > 0 ? urls[0] : nil, imageURL2: urls.count > 1 ? urls[1] : nil, imageURL3: urls.count > 2 ? urls[2] : nil, modelURL: modelURL, category: selectedCategory.title, supplier: supplier) else {
             error = "Error creating item"
+            isLoaded = true
             return
         }
         
-        CKUtility.add(item: newItem) { result in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.clearItem()
+        CKUtility.add(item: newItem) { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.isLoaded = true
+                self?.isSuccess = true
             }
         }
     }

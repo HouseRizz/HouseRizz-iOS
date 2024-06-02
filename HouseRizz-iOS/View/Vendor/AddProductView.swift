@@ -15,6 +15,9 @@ struct AddProductView: View {
     @State private var photoPickerItems = [PhotosPickerItem]()
     @State private var showFilePicker = false
     @State private var tempFileURL: URL?
+    @State var isSaveButton: Bool = false
+    @State var isAddButton: Bool = false
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationStack {
@@ -35,18 +38,45 @@ struct AddProductView: View {
                 
                 Divider()
                 
-                HRAuthenticationButton(label: "Add") {
-                    viewModel.addButtonPressed()
+                if viewModel.isLoaded {
+                    ProgressView().tint(Color.primaryColor)
+                } else {
+                    saveButtons
                 }
             }
             .padding()
             .navigationTitle("Add Item")
             .navigationBarTitleDisplayMode(.inline)
+            .alert(viewModel.isSuccess ? "Success" : "Failure", isPresented: $viewModel.isLoaded) {
+                Button("Ok", role: .cancel ) {
+                    if isSaveButton {
+                        presentationMode.wrappedValue.dismiss()
+                    } else {
+                        viewModel.clearItem()
+                    }
+                }
+            } message: {
+                Text(viewModel.isSuccess ? "Uploaded Successfully" : viewModel.error)
+            }
         }
     }
 }
 
 extension AddProductView {
+    
+    var saveButtons: some View {
+        HStack {
+            HRAddProductButton(buttonText: "Save", background: Color.primaryColor, textColor: .white) {
+                viewModel.addButtonPressed()
+                isSaveButton = true
+            }
+            
+            HRAddProductButton(buttonText: "Add Another", background: Color.primaryColor.opacity(0.2), textColor: Color.primaryColor) {
+                viewModel.addButtonPressed()
+                isAddButton = true
+            }
+        }
+    }
     
     var threedmodel: some View {
         VStack(alignment: .leading) {
