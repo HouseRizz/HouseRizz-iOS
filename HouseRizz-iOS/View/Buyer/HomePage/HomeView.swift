@@ -14,45 +14,40 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
-            ZStack(alignment: .top) {
-                Color.white
-                    .edgesIgnoringSafeArea(.all)
+            ScrollView {
+                VStack {
+                    AppBar
 
-                ScrollView {
-                    VStack {
-                        AppBar
+                    SearchView()
 
-                        SearchView()
-
-                        HStack {
-                            Text("Rizz Up ")
-                                .font(.title.bold())
-                            + Text("Your House!")
-                                .font(.title.bold())
-                                .foregroundStyle(.orange)
-                            Spacer()
-                            Image("cat")
-                                .resizable()
-                                .frame(width: 100, height: 80)
-                        }
-                        .padding(.horizontal)
-
-                        ImageSliderView()
-
-                        Text("Trending Near You")
-                            .font(.title3.bold())
-
-                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                            ForEach(productList, id: \.id) { product in
-                                ProductCardView(product: product)
-                                    .environmentObject(cartViewModel)
-                                    .onTapGesture {
-                                        selectedProduct = product
-                                    }
-                            }
-                        }
-                        .padding(.horizontal)
+                    HStack {
+                        Text("Rizz Up ")
+                            .font(.title.bold())
+                        + Text("Your House!")
+                            .font(.title.bold())
+                            .foregroundStyle(.orange)
+                        Spacer()
+                        Image("cat")
+                            .resizable()
+                            .frame(width: 100, height: 80)
                     }
+                    .padding(.horizontal)
+
+                    ImageSliderView()
+
+                    Text("Trending Near You")
+                        .font(.title3.bold())
+
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                        ForEach(productList, id: \.id) { product in
+                            ProductCardView(product: product)
+                                .environmentObject(cartViewModel)
+                                .onTapGesture {
+                                    selectedProduct = product
+                                }
+                        }
+                    }
+                    .padding(.horizontal)
                 }
             }
         }

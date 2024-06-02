@@ -26,11 +26,9 @@ struct ProductCardView: View {
                 Text(product.name)
                     .font(.subheadline)
                     .padding(.vertical, 1)
-                    .foregroundStyle(.black)
                 
                 Text("₹ \(product.price)")
                     .font(.caption2)
-                    .foregroundStyle(.black)
             }
             
             Button{
@@ -39,7 +37,6 @@ struct ProductCardView: View {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
                     .frame(width: 25,height: 25)
-                    .foregroundStyle(.black)
                     .padding(.trailing)
             }
         }

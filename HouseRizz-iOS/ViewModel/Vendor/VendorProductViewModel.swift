@@ -93,7 +93,6 @@ class VendorProductViewModel: ObservableObject {
     func deleteItem(indexSet: IndexSet) {
         guard let index = indexSet.first else {return}
         let item = products[index]
-        let record = item.record
         CKUtility.delete(item: item)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in

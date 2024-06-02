@@ -14,7 +14,6 @@ struct CartButton: View {
         ZStack(alignment: .topTrailing) {
             Image(systemName: "bag.fill")
                 .imageScale(.large)
-                .foregroundStyle(.black)
                 .padding(5)
             
             if numberOfProducts > 0 {
@@ -22,7 +21,7 @@ struct CartButton: View {
                     .font(.caption2)
                     .foregroundStyle(.white)
                     .frame(width: 15, height: 15)
-                    .background(.orange)
+                    .background(Color.primaryColor)
                     .cornerRadius(50)
             }
         }
