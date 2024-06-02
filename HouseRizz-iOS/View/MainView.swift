@@ -8,9 +8,21 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var viewModel = Authentication()
+    @StateObject private var viewModel = Authentication()
+    @StateObject private var networkManager = NetworkManager()
     
     var body: some View {
+        Group {
+            if networkManager.isConnected {
+                displayContentView()
+            } else {
+                NoNetworkView()
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func displayContentView() -> some View {
         if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
             TabbedView()
         } else {

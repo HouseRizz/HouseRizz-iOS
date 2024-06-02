@@ -15,6 +15,8 @@
 		CC06A96F2C0C898D00A0DAD3 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A96E2C0C898D00A0DAD3 /* TextFieldExtension.swift */; };
 		CC06A9732C0C8D5800A0DAD3 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A9722C0C8D5800A0DAD3 /* DoubleExtension.swift */; };
 		CC06A9752C0C917E00A0DAD3 /* HRAddProductButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A9742C0C917E00A0DAD3 /* HRAddProductButton.swift */; };
+		CC06A97D2C0C97A100A0DAD3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A97C2C0C97A100A0DAD3 /* NetworkManager.swift */; };
+		CC06A97F2C0C97F000A0DAD3 /* NoNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A97E2C0C97F000A0DAD3 /* NoNetworkView.swift */; };
 		CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F47072BC80E6100A4C1FC /* HomeView.swift */; };
 		CC2F470C2BC80FDB00A4C1FC /* HRProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F470B2BC80FDB00A4C1FC /* HRProduct.swift */; };
 		CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F470D2BC816BA00A4C1FC /* ImageSliderView.swift */; };
@@ -82,6 +84,8 @@
 		CC06A96E2C0C898D00A0DAD3 /* TextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		CC06A9722C0C8D5800A0DAD3 /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		CC06A9742C0C917E00A0DAD3 /* HRAddProductButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAddProductButton.swift; sourceTree = "<group>"; };
+		CC06A97C2C0C97A100A0DAD3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CC06A97E2C0C97F000A0DAD3 /* NoNetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkView.swift; sourceTree = "<group>"; };
 		CC2F47072BC80E6100A4C1FC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CC2F470B2BC80FDB00A4C1FC /* HRProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProduct.swift; sourceTree = "<group>"; };
 		CC2F470D2BC816BA00A4C1FC /* ImageSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderView.swift; sourceTree = "<group>"; };
@@ -328,6 +332,23 @@
 			path = Buyer;
 			sourceTree = "<group>";
 		};
+		CC06A9782C0C976100A0DAD3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CC06A97C2C0C97A100A0DAD3 /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		CC06A9792C0C976700A0DAD3 /* ObservableObject */ = {
+			isa = PBXGroup;
+			children = (
+				CC06A9782C0C976100A0DAD3 /* Manager */,
+				CC3D289C2BC4005100C1E119 /* ViewModel */,
+			);
+			path = ObservableObject;
+			sourceTree = "<group>";
+		};
 		CC3D289B2BC4004A00C1E119 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +378,7 @@
 				CC06A9612C0C086100A0DAD3 /* Authentication */,
 				CC97AF042BBE5DE3007BB76C /* MainView.swift */,
 				CCD3B0022BCA28B5000AFB80 /* TabView.swift */,
+				CC06A97E2C0C97F000A0DAD3 /* NoNetworkView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -414,7 +436,7 @@
 		CC97AEC42BBE4FCE007BB76C /* HouseRizz-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CC3D289C2BC4005100C1E119 /* ViewModel */,
+				CC06A9792C0C976700A0DAD3 /* ObservableObject */,
 				CC3D289D2BC4005900C1E119 /* View */,
 				CC3D289B2BC4004A00C1E119 /* Model */,
 				CC3D289E2BC4005F00C1E119 /* Utilities */,
@@ -554,6 +576,7 @@
 				CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */,
 				CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */,
 				CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */,
+				CC06A97D2C0C97A100A0DAD3 /* NetworkManager.swift in Sources */,
 				CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */,
 				CCC5B03C2BFBB6B80007BEC1 /* VendorProductCardView.swift in Sources */,
 				CC2F47142BC8389B00A4C1FC /* CartViewModel.swift in Sources */,
@@ -566,6 +589,7 @@
 				CC06A9752C0C917E00A0DAD3 /* HRAddProductButton.swift in Sources */,
 				CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */,
 				CCC5B0462BFBB95A0007BEC1 /* AddProductView.swift in Sources */,
+				CC06A97F2C0C97F000A0DAD3 /* NoNetworkView.swift in Sources */,
 				CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */,
 				CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */,
 				CCC5B03E2BFBB7700007BEC1 /* HRTextField.swift in Sources */,
