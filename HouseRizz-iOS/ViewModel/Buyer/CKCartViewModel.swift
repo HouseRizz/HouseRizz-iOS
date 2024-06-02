@@ -18,7 +18,7 @@ class CKCartViewModel: ObservableObject {
             let cartItem = CKCartItem(product: product, quantity: quantity)
             products.append(cartItem)
         }
-        total += (product.price ?? 0) * quantity
+        total += Int((product.price ?? 0)) * quantity
     }
 
     func removeFromCart(product: HRCKProduct) {
@@ -29,14 +29,14 @@ class CKCartViewModel: ObservableObject {
             } else {
                 products.remove(at: index)
             }
-            total -= product.price ?? 0
+            total -= Int(product.price ?? 0)
         }
     }
 
     func updateCartItemQuantity(cartItem: CKCartItem, newQuantity: Int) {
         if let index = products.firstIndex(where: { $0.product.id == cartItem.product.id }) {
             products[index].quantity = newQuantity
-            total = products.reduce(0) { $0 + ($1.quantity * ($1.product.price ?? 0)) }
+            total = products.reduce(0) { $0 + ($1.quantity * Int(($1.product.price ?? 0))) }
         }
     }
 }

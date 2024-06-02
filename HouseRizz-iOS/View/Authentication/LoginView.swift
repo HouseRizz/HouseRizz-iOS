@@ -55,7 +55,7 @@ struct LoginView: View {
                 .padding(.bottom, 8)
                 
                 if viewModel.authenticationState != .authenticating {
-                    HRButton(label: "Login") {
+                    HRAuthenticationButton(label: "Login") {
                         signInWithEmailPassword()
                     }
                 } else {
@@ -74,7 +74,7 @@ struct LoginView: View {
             }
             
             VStack(spacing: 10){
-                HRButton(label: "Sign in with Google", iconImage: Image("google")) {
+                HRAuthenticationButton(label: "Sign in with Google", iconImage: Image("google")) {
                     signInWithGoogle()
                 }
                 SignInWithAppleButton(.signIn) { request in
@@ -88,7 +88,7 @@ struct LoginView: View {
                 .cornerRadius(8)
                 .signInWithAppleButtonStyle(.white)
                 .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
-                HRButton(label: "Sign up with Email", iconName: "envelope.fill") {
+                HRAuthenticationButton(label: "Sign up with Email", iconName: "envelope.fill") {
                     isSignupView.toggle()
                 }
             }
