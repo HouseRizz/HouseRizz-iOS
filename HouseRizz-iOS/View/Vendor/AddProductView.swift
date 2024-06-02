@@ -85,24 +85,28 @@ struct AddProductView: View {
                         
                         VStack(alignment: .leading, spacing: 20) {
                             
-                            HRTextField(text: $viewModel.name, title: "Item Name")
-                                .padding(.top,10)
-
-                            HRTextField(text: $viewModel.description, title: "Description", axis: .vertical)
+                            TextField("Item Name", text: $viewModel.name)
+                                .customTextFieldStyle()
                             
-                            VStack(alignment:.leading) {
+                            TextField("Description", text: $viewModel.description, axis: .vertical)
+                                .customTextFieldStyle()
+                            
+                            VStack(alignment: .leading) {
                                 Text("Price")
                                     .foregroundStyle(.gray)
-                                TextField("Price", value: $viewModel.price, formatter: NumberFormatter.currencyFormatter)
-                                    .font(.system(.title3, design: .rounded))
-                                    .padding(15)
-                                    .cornerRadius(10)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray, lineWidth: 1)
-                                    )
+                                
+                                TextField("Price", value: $viewModel.sellingPrice, formatter: NumberFormatter.currencyFormatter)
+                                    .customTextFieldStyle()
                             }
                             
+                            VStack(alignment: .leading)  {
+                                Text("Tax Rate")
+                                    .foregroundStyle(.gray)
+                                
+                                TextField("Tax", value: $viewModel.taxRate, formatter: NumberFormatter.currencyFormatter)
+                                    .customTextFieldStyle()
+                            }
+                                                        
                             HStack {
                                 Text("Set Category")
                                 

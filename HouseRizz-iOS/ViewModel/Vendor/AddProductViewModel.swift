@@ -13,7 +13,8 @@ class AddProductViewModel: ObservableObject {
     @Published var error: String = ""
     @Published var name: String = ""
     @Published var description: String = ""
-    @Published var price: Int = 0
+    @Published var sellingPrice: Double = 0
+    @Published var taxRate: Double = 0
     @Published var imageURL1: String = ""
     @Published var imageURL2: String = ""
     @Published var imageURL3: String = ""
@@ -26,6 +27,10 @@ class AddProductViewModel: ObservableObject {
     var urls: [URL] = []
     var errors: [Error] = []
     var cancellables = Set<AnyCancellable>()
+    var finalPrice: Double {
+        let totalPrice = sellingPrice + (sellingPrice * taxRate / 100)
+        return totalPrice
+    }
     
     init(){
         getCurrentUserName()
@@ -41,7 +46,7 @@ class AddProductViewModel: ObservableObject {
         error = ""
         name = ""
         description = ""
-        price = 0
+        sellingPrice = 0
         imageURL1 = ""
         imageURL2 = ""
         imageURL3 = ""
@@ -72,7 +77,7 @@ class AddProductViewModel: ObservableObject {
             }
         }
         
-        guard let newItem = HRCKProduct(id: UUID(), name: name, description: description, price: price, imageURL1: urls.count > 0 ? urls[0] : nil, imageURL2: urls.count > 1 ? urls[1] : nil, imageURL3: urls.count > 2 ? urls[2] : nil, modelURL: modelURL, category: selectedCategory.title, supplier: supplier) else {
+        guard let newItem = HRCKProduct(id: UUID(), name: name, description: description, price: finalPrice, imageURL1: urls.count > 0 ? urls[0] : nil, imageURL2: urls.count > 1 ? urls[1] : nil, imageURL3: urls.count > 2 ? urls[2] : nil, modelURL: modelURL, category: selectedCategory.title, supplier: supplier) else {
             error = "Error creating item"
             return
         }

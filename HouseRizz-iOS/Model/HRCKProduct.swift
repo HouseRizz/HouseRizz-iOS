@@ -28,7 +28,7 @@ struct HRCKProduct: Hashable, Identifiable, CKitableProtocol {
     let name: String
     let description: String?
     let supplier: String
-    let price: Int?
+    let price: Double?
     let imageURL1: URL?
     let imageURL2: URL?
     let imageURL3: URL?
@@ -48,7 +48,7 @@ struct HRCKProduct: Hashable, Identifiable, CKitableProtocol {
         self.category = category
         guard let supplier = record[CKItemModelName.supplier] as? String else { return nil }
         self.supplier = supplier
-        guard let price = record[CKItemModelName.price] as? Int else { return nil }
+        guard let price = record[CKItemModelName.price] as? Double else { return nil }
         self.price = price
         let imageAsset1 = record[CKItemModelName.imageURL1] as? CKAsset
         self.imageURL1 = imageAsset1?.fileURL
@@ -61,7 +61,7 @@ struct HRCKProduct: Hashable, Identifiable, CKitableProtocol {
         self.record = record
     }
 
-    init?(id: UUID, name: String, description: String?, price: Int?, imageURL1: URL?, imageURL2: URL?, imageURL3: URL?, modelURL: URL?, category: String?, supplier: String?) {
+    init?(id: UUID, name: String, description: String?, price: Double?, imageURL1: URL?, imageURL2: URL?, imageURL3: URL?, modelURL: URL?, category: String?, supplier: String?) {
         let record = CKRecord(recordType: CKItemModelName.itemRecord)
         record[CKItemModelName.id] = id.uuidString
         record[CKItemModelName.name] = name

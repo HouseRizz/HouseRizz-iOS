@@ -12,6 +12,7 @@
 		CC06A95C2C0C07F100A0DAD3 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A95B2C0C07F100A0DAD3 /* EncodableExtension.swift */; };
 		CC06A95E2C0C080500A0DAD3 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A95D2C0C080500A0DAD3 /* ColorExtension.swift */; };
 		CC06A9602C0C082200A0DAD3 /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A95F2C0C082200A0DAD3 /* NumberFormatterExtension.swift */; };
+		CC06A96F2C0C898D00A0DAD3 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A96E2C0C898D00A0DAD3 /* TextFieldExtension.swift */; };
 		CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F47072BC80E6100A4C1FC /* HomeView.swift */; };
 		CC2F470C2BC80FDB00A4C1FC /* HRProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F470B2BC80FDB00A4C1FC /* HRProduct.swift */; };
 		CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F470D2BC816BA00A4C1FC /* ImageSliderView.swift */; };
@@ -76,6 +77,7 @@
 		CC06A95B2C0C07F100A0DAD3 /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
 		CC06A95D2C0C080500A0DAD3 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		CC06A95F2C0C082200A0DAD3 /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
+		CC06A96E2C0C898D00A0DAD3 /* TextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		CC2F47072BC80E6100A4C1FC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CC2F470B2BC80FDB00A4C1FC /* HRProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProduct.swift; sourceTree = "<group>"; };
 		CC2F470D2BC816BA00A4C1FC /* ImageSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderView.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				CC06A95B2C0C07F100A0DAD3 /* EncodableExtension.swift */,
+				CC06A96E2C0C898D00A0DAD3 /* TextFieldExtension.swift */,
 				CC06A95D2C0C080500A0DAD3 /* ColorExtension.swift */,
 				CC06A95F2C0C082200A0DAD3 /* NumberFormatterExtension.swift */,
 			);
@@ -568,6 +571,7 @@
 				CC2F47122BC81D6D00A4C1FC /* SearchView.swift in Sources */,
 				CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */,
 				CC0231582BCD47C8007CC053 /* ProductView.swift in Sources */,
+				CC06A96F2C0C898D00A0DAD3 /* TextFieldExtension.swift in Sources */,
 				CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */,
 				CC97AF072BBE5DEA007BB76C /* LoginView.swift in Sources */,
 				CCC5B0422BFBB8700007BEC1 /* VendorProductViewModel.swift in Sources */,
