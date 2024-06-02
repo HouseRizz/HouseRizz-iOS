@@ -14,6 +14,7 @@
 		CC06A9602C0C082200A0DAD3 /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A95F2C0C082200A0DAD3 /* NumberFormatterExtension.swift */; };
 		CC06A96F2C0C898D00A0DAD3 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A96E2C0C898D00A0DAD3 /* TextFieldExtension.swift */; };
 		CC06A9732C0C8D5800A0DAD3 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A9722C0C8D5800A0DAD3 /* DoubleExtension.swift */; };
+		CC06A9752C0C917E00A0DAD3 /* HRAddProductButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A9742C0C917E00A0DAD3 /* HRAddProductButton.swift */; };
 		CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F47072BC80E6100A4C1FC /* HomeView.swift */; };
 		CC2F470C2BC80FDB00A4C1FC /* HRProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F470B2BC80FDB00A4C1FC /* HRProduct.swift */; };
 		CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F470D2BC816BA00A4C1FC /* ImageSliderView.swift */; };
@@ -51,7 +52,7 @@
 		CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF042BBE5DE3007BB76C /* MainView.swift */; };
 		CC97AF072BBE5DEA007BB76C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF062BBE5DEA007BB76C /* LoginView.swift */; };
 		CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF082BBE5DEF007BB76C /* SignupView.swift */; };
-		CC97AF0E2BBE5E52007BB76C /* HRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF0D2BBE5E52007BB76C /* HRButton.swift */; };
+		CC97AF0E2BBE5E52007BB76C /* HRAuthenticationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF0D2BBE5E52007BB76C /* HRAuthenticationButton.swift */; };
 		CC97AF102BBE5F1E007BB76C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */; };
 		CC97AF142BBE7590007BB76C /* redchair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CC97AF132BBE7590007BB76C /* redchair.usdz */; };
 		CC97AF162BBE75C4007BB76C /* retrotv.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CC97AF152BBE75C4007BB76C /* retrotv.usdz */; };
@@ -80,6 +81,7 @@
 		CC06A95F2C0C082200A0DAD3 /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
 		CC06A96E2C0C898D00A0DAD3 /* TextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		CC06A9722C0C8D5800A0DAD3 /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		CC06A9742C0C917E00A0DAD3 /* HRAddProductButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAddProductButton.swift; sourceTree = "<group>"; };
 		CC2F47072BC80E6100A4C1FC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CC2F470B2BC80FDB00A4C1FC /* HRProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProduct.swift; sourceTree = "<group>"; };
 		CC2F470D2BC816BA00A4C1FC /* ImageSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderView.swift; sourceTree = "<group>"; };
@@ -107,7 +109,7 @@
 		CC97AF062BBE5DEA007BB76C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CC97AF082BBE5DEF007BB76C /* SignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		CC97AF0C2BBE5E29007BB76C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		CC97AF0D2BBE5E52007BB76C /* HRButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRButton.swift; sourceTree = "<group>"; };
+		CC97AF0D2BBE5E52007BB76C /* HRAuthenticationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRAuthenticationButton.swift; sourceTree = "<group>"; };
 		CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CC97AF132BBE7590007BB76C /* redchair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = redchair.usdz; sourceTree = "<group>"; };
 		CC97AF152BBE75C4007BB76C /* retrotv.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = retrotv.usdz; sourceTree = "<group>"; };
@@ -164,7 +166,8 @@
 		CC06A9542C0C074200A0DAD3 /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				CC97AF0D2BBE5E52007BB76C /* HRButton.swift */,
+				CC97AF0D2BBE5E52007BB76C /* HRAuthenticationButton.swift */,
+				CC06A9742C0C917E00A0DAD3 /* HRAddProductButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */,
 				CC8D4E942C04B63D0080BC0D /* CKProductCardView.swift in Sources */,
 				CC06A9732C0C8D5800A0DAD3 /* DoubleExtension.swift in Sources */,
+				CC06A9752C0C917E00A0DAD3 /* HRAddProductButton.swift in Sources */,
 				CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */,
 				CCC5B0462BFBB95A0007BEC1 /* AddProductView.swift in Sources */,
 				CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */,
@@ -586,7 +590,7 @@
 				CC06A9602C0C082200A0DAD3 /* NumberFormatterExtension.swift in Sources */,
 				CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */,
 				CCC5B03A2BFBB62F0007BEC1 /* HRCKProduct.swift in Sources */,
-				CC97AF0E2BBE5E52007BB76C /* HRButton.swift in Sources */,
+				CC97AF0E2BBE5E52007BB76C /* HRAuthenticationButton.swift in Sources */,
 				CC8D4E922C04B34D0080BC0D /* CKCartViewModel.swift in Sources */,
 				CC97AF102BBE5F1E007BB76C /* SettingsView.swift in Sources */,
 			);

@@ -35,7 +35,7 @@ struct AddProductView: View {
                 
                 Divider()
                 
-                HRButton(label: "Add") {
+                HRAuthenticationButton(label: "Add") {
                     viewModel.addButtonPressed()
                 }
             }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HRButton: View {
+struct HRAuthenticationButton: View {
     @Environment(\.colorScheme) var colorScheme
     var label: String
     var iconName: String?
