@@ -37,6 +37,8 @@ Vendor Side
 
 ## Screenshots
 
+### Buyer
+
 | Login | Signin |
 |---|---|
 | <img src="https://github.com/krishmittal21/HouseRizz-iOS/blob/main/ScreenShots/login.png" width="200" height="400"> | <img src="https://github.com/krishmittal21/HouseRizz-iOS/blob/main/ScreenShots/signin.png" width="200" height="400"> |
@@ -52,3 +54,9 @@ Vendor Side
 | Cart | Cart Badge | Settings |
 |---|---|---|
 | <img src="https://github.com/krishmittal21/HouseRizz-iOS/blob/main/ScreenShots/cart.png" width="200" height="400"> | <img src="https://github.com/krishmittal21/HouseRizz-iOS/blob/main/ScreenShots/cart-badge.png" width="200" height="400"> | <img src="https://github.com/krishmittal21/HouseRizz-iOS/blob/main/ScreenShots/settings.png" width="200" height="400"> |
+
+### Vendor
+
+| Inventory | Delete | Add | Add Product |
+|---|---|---|---|
+| <img src="https://github.com/krishmittal21/HouseRizz-Seller/blob/main/Screenshots/inventory.png" width="200" height="400"> | <img src="https://github.com/krishmittal21/HouseRizz-Seller/blob/main/Screenshots/delete.png" width="200" height="400"> | <img src="https://github.com/krishmittal21/HouseRizz-Seller/blob/main/Screenshots/add.png" width="200" height="400"> | <img src="https://github.com/krishmittal21/HouseRizz-Seller/blob/main/Screenshots/addp.png" width="200" height="400"> | 
