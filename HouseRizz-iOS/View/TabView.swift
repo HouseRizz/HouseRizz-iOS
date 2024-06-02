@@ -36,7 +36,7 @@ struct TabbedView: View {
                 .padding(6)
             }
             .frame(height: 70)
-            .background(.orange.opacity(0.2))
+            .background(Color.primaryColor.opacity(0.4))
             .cornerRadius(35)
             .padding(.horizontal, 26)
         }
@@ -52,13 +52,14 @@ extension TabbedView {
                 .frame(width: 25, height: 25)
             if isActive {
                 Text(title)
+                    .bold()
                     .font(.system(size: 14))
                     .foregroundColor(isActive ? .black : .orange)
             }
             Spacer()
         }
         .frame(width: isActive ? .none : 60, height: 60)
-        .background(isActive ? .orange.opacity(0.4) : .clear)
+        .background(isActive ? Color.primaryColor.opacity(0.6) : .clear)
         .cornerRadius(30)
     }
 }

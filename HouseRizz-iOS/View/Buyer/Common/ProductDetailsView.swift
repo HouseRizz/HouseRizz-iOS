@@ -26,7 +26,7 @@ struct ProductDetailsView: View {
                         .frame(width: 25, height: 25)
                         .padding(.top, 65)
                         .padding(.trailing, 20)
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(Color.primaryColor)
                 }
                 
                 VStack(alignment: .leading) {
@@ -65,7 +65,7 @@ struct ProductDetailsView: View {
                                 }
                             } label: {
                                 Image(systemName: "minus.square")
-                                    .foregroundStyle(.orange.opacity(0.5))
+                                    .foregroundStyle(Color.primaryColor.opacity(0.5))
                             }
                             
                             Text("\(quantity)")
@@ -75,7 +75,7 @@ struct ProductDetailsView: View {
                                 quantity += 1
                             } label: {
                                 Image(systemName: "plus.square.fill")
-                                    .foregroundStyle(.orange.opacity(0.5))
+                                    .foregroundStyle(Color.primaryColor.opacity(0.5))
                             }
                         }
                     }
@@ -133,13 +133,12 @@ struct ProductDetailsView: View {
                             .foregroundColor(.white)
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(.orange)
+                            .background(Color.primaryColor)
                             .cornerRadius(10)
                     }
                     .padding(.vertical)
                 }
                 .padding()
-                .background(.white)
                 .cornerRadius(20)
                 .offset(y: -30)
             }
