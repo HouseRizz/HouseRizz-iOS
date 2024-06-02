@@ -45,7 +45,7 @@ struct VendorProductDetailsView: View {
                         
                         Spacer()
                         
-                        Text("₹\(product.price ?? 0)")
+                        Text(product.price?.formattedCurrency() ?? "")
                             .font(.title2)
                             .fontWeight(.semibold)
                             .padding(.horizontal)

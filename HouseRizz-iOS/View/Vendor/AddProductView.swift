@@ -15,7 +15,7 @@ struct AddProductView: View {
     @State private var photoPickerItems = [PhotosPickerItem]()
     @State private var showFilePicker = false
     @State private var tempFileURL: URL?
-
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -83,6 +83,18 @@ struct AddProductView: View {
                             .frame(height: 60)
                         }
                         
+                        HStack {
+                            Text("Set Category")
+                            
+                            Spacer()
+                            
+                            Picker("Category", selection: $viewModel.selectedCategory) {
+                                ForEach(Category.allCases, id: \.self) {
+                                    Text($0.title)
+                                }
+                            }
+                        }
+                        
                         VStack(alignment: .leading, spacing: 20) {
                             
                             TextField("Item Name", text: $viewModel.name)
@@ -106,43 +118,33 @@ struct AddProductView: View {
                                 TextField("Tax", value: $viewModel.taxRate, formatter: NumberFormatter.currencyFormatter)
                                     .customTextFieldStyle()
                             }
-                                                        
+                            
+                            Text("Final Price: \(viewModel.finalPrice.formattedCurrency())")
+                        }
+                        
+                        VStack(alignment: .leading) {
                             HStack {
-                                Text("Set Category")
+                                Text("Add 3D Model") + Text(" (Optional)")
+                                    .foregroundStyle(.gray)
                                 
                                 Spacer()
                                 
-                                Picker("Category", selection: $viewModel.selectedCategory) {
-                                    ForEach(Category.allCases, id: \.self) {
-                                        Text($0.title)
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .frame(width: 140,height: 40)
+                                        .foregroundStyle(Color.secondaryColor)
+                                    Button {
+                                        showFilePicker.toggle()
+                                    } label: {
+                                        Text("Upload Model")
+                                            .font(.system(.title3, design: .rounded))
+                                            .bold()
+                                            .foregroundStyle(Color.primaryColor)
                                     }
-                                }
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                HStack {
-                                    Text("Add 3D Model") + Text(" (Optional)")
-                                                            .foregroundStyle(.gray)
-                                    
-                                    Spacer()
-                                    
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .frame(width: 140,height: 40)
-                                            .foregroundStyle(Color.secondaryColor)
-                                        Button {
-                                            showFilePicker.toggle()
-                                        } label: {
-                                            Text("Upload Model")
-                                                .font(.system(.title3, design: .rounded))
-                                                .bold()
-                                                .foregroundStyle(Color.primaryColor)
-                                        }
-                                        .fileImporter(isPresented: $showFilePicker, allowedContentTypes: [.usdz]) { result in
-                                            viewModel.loadUSDZFile(from: result)
-                                        }
-                                        
+                                    .fileImporter(isPresented: $showFilePicker, allowedContentTypes: [.usdz]) { result in
+                                        viewModel.loadUSDZFile(from: result)
                                     }
+                                    
                                 }
                             }
                         }
@@ -150,7 +152,7 @@ struct AddProductView: View {
                 }
                 
                 Divider()
-                                
+                
                 HRButton(label: "Add") {
                     viewModel.addButtonPressed()
                 }
