@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct VendorProductCardView: View {
-    var product: HRCKProduct
+    var product: HRProduct
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {

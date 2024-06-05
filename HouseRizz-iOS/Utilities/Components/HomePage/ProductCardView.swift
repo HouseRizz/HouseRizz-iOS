@@ -14,20 +14,22 @@ struct ProductCardView: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             VStack(alignment: .leading) {
-                Image(product.image)
-                    .resizable()
-                    .frame(width: 175,height: 160)
-                    .cornerRadius(12)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(.gray, lineWidth: 0.5)
-                        )
+                if let url = product.imageURL1, let data = try? Data(contentsOf: url), let image = UIImage(data: data){
+                    Image(uiImage: image)
+                        .resizable()
+                        .frame(width: 175,height: 160)
+                        .cornerRadius(12)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(.gray, lineWidth: 0.5)
+                            )
+                }
                 
                 Text(product.name)
                     .font(.subheadline)
                     .padding(.vertical, 1)
                 
-                Text("₹ \(product.price)")
+                Text((product.price ?? 0).formattedCurrency())
                     .font(.caption2)
             }
             
@@ -43,8 +45,4 @@ struct ProductCardView: View {
         .frame(width: 185, height: 260)
         .cornerRadius(15)
     }
-}
-
-#Preview {
-    ProductCardView(product: productList[3])
 }

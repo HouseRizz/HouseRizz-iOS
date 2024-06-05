@@ -11,137 +11,106 @@ struct ProductDetailsView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var quantity: Int = 1
     var product: HRProduct
+    private var imageUrls: [URL?] {
+        [product.imageURL1, product.imageURL2, product.imageURL3]
+    }
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                ZStack(alignment: .topTrailing) {
-                    Image(product.image)
-                        .resizable()
-                        .ignoresSafeArea(edges: .top)
-                        .frame(height: 300)
-                    
-                    Image(systemName: "heart.fill")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .padding(.top, 65)
-                        .padding(.trailing, 20)
-                        .foregroundStyle(Color.primaryColor)
-                }
-                
+        VStack {
+            ScrollView {
                 VStack(alignment: .leading) {
-                    HStack {
+                    ZStack(alignment: .topTrailing) {
+                        ScrollView(.horizontal) {
+                            LazyHStack {
+                                ForEach(imageUrls.compactMap({ $0 }), id: \.self) { url in
+                                    if let data = try? Data(contentsOf: url),
+                                       let image = UIImage(data: data) {
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .ignoresSafeArea(edges: .top)
+                                            .frame(width: 320, height: 300)
+                                    }
+                                }
+                            }
+                        }
+                        
+                        Image(systemName: "heart.fill")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .padding(.top, 65)
+                            .padding(.trailing, 20)
+                            .foregroundStyle(Color.primaryColor)
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Text(product.category)
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                            .foregroundStyle(.gray)
+                        
                         Text(product.name)
                             .font(.title2.bold())
                         
-                        Spacer()
-                        
-                        Text("₹\(product.price * quantity)")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .padding(.horizontal)
-                    }
-                    .padding(.vertical)
-                    
-                    HStack {
-                        HStack(spacing: 10) {
-                            ForEach(0..<5) { index in
-                                Image(systemName: "star.fill")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-                                    .foregroundStyle(.yellow)
-                            }
-                            Text("(4.5)")
-                                .foregroundStyle(.gray)
-                        }
-                        .padding(.vertical)
-                        
-                        Spacer()
-                        
                         HStack {
-                            Button {
-                                if quantity > 1 {
-                                    quantity -= 1
-                                }
-                            } label: {
-                                Image(systemName: "minus.square")
-                                    .foregroundStyle(Color.primaryColor.opacity(0.5))
-                            }
-                            
-                            Text("\(quantity)")
-                                .font(.title2)
-                            
-                            Button {
-                                quantity += 1
-                            } label: {
-                                Image(systemName: "plus.square.fill")
-                                    .foregroundStyle(Color.primaryColor.opacity(0.5))
-                            }
-                        }
-                    }
-                    
-                    Text("Description")
-                        .font(.title3)
-                        .fontWeight(.medium)
-                    
-                    Text(product.description)
-                    
-                    Spacer()
-                    
-                    HStack {
-                        HStack(alignment: .top) {
-                            VStack(alignment: .leading) {
-                                Text("Size")
-                                    .font(.system(size: 18))
-                                    .fontWeight(.semibold)
-                                
-                                Text("Height: \(product.height)")
-                                    .opacity(0.5)
-                                
-                                Text("Width: \(product.width)")
-                                    .opacity(0.5)
-                                
-                                Text("Diameter: \(product.diameter)")
-                                    .opacity(0.5)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            Text(((product.price ?? 0) * Double(quantity)).formattedCurrency())
+                                .font(.title3)
+                                .fontWeight(.semibold)
                             
                             Spacer()
                             
-                            VStack(alignment: .trailing) {
-                                Text("Colors")
-                                    .font(.system(size: 18))
-                                    .fontWeight(.semibold)
+                            HStack {
+                                Button {
+                                    if quantity > 1 {
+                                        quantity -= 1
+                                    }
+                                } label: {
+                                    Image(systemName: "minus.square")
+                                        .foregroundStyle(Color.primaryColor.opacity(0.5))
+                                }
                                 
-                                HStack {
-                                    ColorDotView(color: .blue)
-                                    ColorDotView(color: .black)
-                                    ColorDotView(color: .gray)
+                                Text("\(quantity)")
+                                    .font(.title2)
+                                
+                                Button {
+                                    quantity += 1
+                                } label: {
+                                    Image(systemName: "plus.square.fill")
+                                        .foregroundStyle(Color.primaryColor.opacity(0.5))
                                 }
                             }
-                            .frame(maxWidth: .infinity, alignment: .trailing)
                         }
-                        .padding(.vertical)
-                    }
-                    
-                    Button(action: {
-                        cartViewModel.addToCart(product: product, quantity: quantity)
-                    }) {
-                        Text("Add to Cart")
+                        .padding(.vertical, 10)
+                        
+                        Text("Description")
                             .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.primaryColor)
-                            .cornerRadius(10)
+                            .fontWeight(.medium)
+                        
+                        Text(product.description ?? "")
+                                        
+                        
                     }
-                    .padding(.vertical)
+                    .padding()
+                    .padding(.top, 20)
+                    .cornerRadius(20)
+                    .offset(y: -30)
                 }
-                .padding()
-                .cornerRadius(20)
-                .offset(y: -30)
             }
+            
+            Divider()
+    
+            Button(action: {
+                cartViewModel.addToCart(product: product, quantity: quantity)
+            }) {
+                Text("Add to Cart")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.primaryColor)
+                    .cornerRadius(10)
+            }
+            .padding()
         }
         .ignoresSafeArea(edges: .top)
         .environmentObject(cartViewModel)
@@ -156,9 +125,4 @@ struct ColorDotView: View {
             .frame(width: 25, height: 25)
             .clipShape(Circle())
     }
-}
-
-#Preview {
-    ProductDetailsView(product: productList[2])
-        .environmentObject(CartViewModel())
 }
