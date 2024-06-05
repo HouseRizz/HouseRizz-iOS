@@ -29,7 +29,7 @@ struct ProductCardView: View {
                     .font(.subheadline)
                     .padding(.vertical, 1)
                 
-                Text("₹ \((product.price ?? 0).formattedCurrency())")
+                Text((product.price ?? 0).formattedCurrency())
                     .font(.caption2)
             }
             

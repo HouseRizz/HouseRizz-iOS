@@ -11,105 +11,106 @@ struct ProductDetailsView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var quantity: Int = 1
     var product: HRProduct
+    private var imageUrls: [URL?] {
+        [product.imageURL1, product.imageURL2, product.imageURL3]
+    }
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                ZStack(alignment: .topTrailing) {
-                    if let url = product.imageURL1, let data = try? Data(contentsOf: url), let image = UIImage(data: data){
-                        Image(uiImage: image)
+        VStack {
+            ScrollView {
+                VStack(alignment: .leading) {
+                    ZStack(alignment: .topTrailing) {
+                        ScrollView(.horizontal) {
+                            LazyHStack {
+                                ForEach(imageUrls.compactMap({ $0 }), id: \.self) { url in
+                                    if let data = try? Data(contentsOf: url),
+                                       let image = UIImage(data: data) {
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .ignoresSafeArea(edges: .top)
+                                            .frame(width: 320, height: 300)
+                                    }
+                                }
+                            }
+                        }
+                        
+                        Image(systemName: "heart.fill")
                             .resizable()
-                            .ignoresSafeArea(edges: .top)
-                            .frame(height: 300)
+                            .frame(width: 25, height: 25)
+                            .padding(.top, 65)
+                            .padding(.trailing, 20)
+                            .foregroundStyle(Color.primaryColor)
                     }
                     
-                    
-                    Image(systemName: "heart.fill")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .padding(.top, 65)
-                        .padding(.trailing, 20)
-                        .foregroundStyle(Color.primaryColor)
-                }
-                
-                VStack(alignment: .leading) {
-                    HStack {
+                    VStack(alignment: .leading) {
+                        Text(product.category)
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                            .foregroundStyle(.gray)
+                        
                         Text(product.name)
                             .font(.title2.bold())
                         
-                        Spacer()
-                        
-                        Text(((product.price ?? 0) * Double(quantity)).formattedCurrency())
-                            .font(.caption2)
-                            .foregroundStyle(.black)
-                    }
-                    .padding(.vertical)
-                    
-                    HStack {
-                        HStack(spacing: 10) {
-                            ForEach(0..<5) { index in
-                                Image(systemName: "star.fill")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-                                    .foregroundStyle(.yellow)
-                            }
-                            Text("(4.5)")
-                                .foregroundStyle(.gray)
-                        }
-                        .padding(.vertical)
-                        
-                        Spacer()
-                        
                         HStack {
-                            Button {
-                                if quantity > 1 {
-                                    quantity -= 1
+                            Text(((product.price ?? 0) * Double(quantity)).formattedCurrency())
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            
+                            Spacer()
+                            
+                            HStack {
+                                Button {
+                                    if quantity > 1 {
+                                        quantity -= 1
+                                    }
+                                } label: {
+                                    Image(systemName: "minus.square")
+                                        .foregroundStyle(Color.primaryColor.opacity(0.5))
                                 }
-                            } label: {
-                                Image(systemName: "minus.square")
-                                    .foregroundStyle(Color.primaryColor.opacity(0.5))
-                            }
-                            
-                            Text("\(quantity)")
-                                .font(.title2)
-                            
-                            Button {
-                                quantity += 1
-                            } label: {
-                                Image(systemName: "plus.square.fill")
-                                    .foregroundStyle(Color.primaryColor.opacity(0.5))
+                                
+                                Text("\(quantity)")
+                                    .font(.title2)
+                                
+                                Button {
+                                    quantity += 1
+                                } label: {
+                                    Image(systemName: "plus.square.fill")
+                                        .foregroundStyle(Color.primaryColor.opacity(0.5))
+                                }
                             }
                         }
-                    }
-                    
-                    Text("Description")
-                        .font(.title3)
-                        .fontWeight(.medium)
-                    
-                    Text(product.description ?? "")
-                    
-                    Spacer()
-                    
-
-                    
-                    Button(action: {
-                        cartViewModel.addToCart(product: product, quantity: quantity)
-                    }) {
-                        Text("Add to Cart")
+                        .padding(.vertical, 10)
+                        
+                        Text("Description")
                             .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.primaryColor)
-                            .cornerRadius(10)
+                            .fontWeight(.medium)
+                        
+                        Text(product.description ?? "")
+                                        
+                        
                     }
-                    .padding(.vertical)
+                    .padding()
+                    .padding(.top, 20)
+                    .cornerRadius(20)
+                    .offset(y: -30)
                 }
-                .padding()
-                .cornerRadius(20)
-                .offset(y: -30)
             }
+            
+            Divider()
+    
+            Button(action: {
+                cartViewModel.addToCart(product: product, quantity: quantity)
+            }) {
+                Text("Add to Cart")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.primaryColor)
+                    .cornerRadius(10)
+            }
+            .padding()
         }
         .ignoresSafeArea(edges: .top)
         .environmentObject(cartViewModel)
