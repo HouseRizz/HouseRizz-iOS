@@ -1,14 +1,14 @@
 //
-//  HomeViewModel.swift
+//  ProductCategoryViewModel.swift
 //  HouseRizz-iOS
 //
-//  Created by Krish Mittal on 27/05/24.
+//  Created by Krish Mittal on 05/06/24.
 //
 
 import Foundation
 import Combine
 
-class HomeViewModel: ObservableObject {
+class ProductCategoryViewModel: ObservableObject {
     @Published var error: String = ""
     @Published var products: [HRProduct] = []
     var cancellables = Set<AnyCancellable>()
@@ -35,4 +35,3 @@ class HomeViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 }
-

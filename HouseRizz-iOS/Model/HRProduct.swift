@@ -1,24 +1,96 @@
 //
-//  HRProduct.swift
+//  HRCKProduct.swift
 //  HouseRizz-iOS
 //
-//  Created by Krish Mittal on 11/04/24.
+//  Created by Krish Mittal on 20/05/24.
 //
 
 import Foundation
+import CloudKit
 
-struct HRProduct: Identifiable {
-    var id = UUID()
-    var category: Category
-    var name: String
-    var image: String
-    var description: String
-    var supplier: String
-    var price: Int
-    var width: String
-    var height: String
-    var diameter: String
-    
+struct CKItemModelName {
+    static let id = "id"
+    static let name = "name"
+    static let description = "description"
+    static let category = "category"
+    static let supplier = "supplier"
+    static let price = "price"
+    static let imageURL1 = "imageURL1"
+    static let imageURL2 = "imageURL2"
+    static let imageURL3 = "imageURL3"
+    static let modelURL = "modelURL"
+    static let itemRecord = "Items"
+}
+
+struct HRProduct: Hashable, Identifiable, CKitableProtocol {
+    var id: UUID
+    let category: String
+    let name: String
+    let description: String?
+    let supplier: String
+    let price: Double?
+    let imageURL1: URL?
+    let imageURL2: URL?
+    let imageURL3: URL?
+    let modelURL: URL?
+    let record: CKRecord
+
+    init?(record: CKRecord) {
+        guard let idString = record[CKItemModelName.id] as? String, let id = UUID(uuidString: idString) else {
+            return nil
+        }
+        self.id = id
+        guard let name = record[CKItemModelName.name] as? String else { return nil }
+        self.name = name
+        guard let description = record[CKItemModelName.description] as? String else { return nil }
+        self.description = description
+        guard let category = record[CKItemModelName.category] as? String else { return nil }
+        self.category = category
+        guard let supplier = record[CKItemModelName.supplier] as? String else { return nil }
+        self.supplier = supplier
+        guard let price = record[CKItemModelName.price] as? Double else { return nil }
+        self.price = price
+        let imageAsset1 = record[CKItemModelName.imageURL1] as? CKAsset
+        self.imageURL1 = imageAsset1?.fileURL
+        let imageAsset2 = record[CKItemModelName.imageURL2] as? CKAsset
+        self.imageURL2 = imageAsset2?.fileURL
+        let imageAsset3 = record[CKItemModelName.imageURL3] as? CKAsset
+        self.imageURL3 = imageAsset3?.fileURL
+        let modelURL = record[CKItemModelName.modelURL] as? CKAsset
+        self.modelURL = modelURL?.fileURL
+        self.record = record
+    }
+
+    init?(id: UUID, name: String, description: String?, price: Double?, imageURL1: URL?, imageURL2: URL?, imageURL3: URL?, modelURL: URL?, category: String?, supplier: String?) {
+        let record = CKRecord(recordType: CKItemModelName.itemRecord)
+        record[CKItemModelName.id] = id.uuidString
+        record[CKItemModelName.name] = name
+        record[CKItemModelName.description] = description
+        record[CKItemModelName.price] = price
+        if (category != nil) {
+            record[CKItemModelName.category] = category
+        }
+        if (supplier != nil) {
+            record[CKItemModelName.supplier] = supplier
+        }
+        if let url1 = imageURL1 {
+            let asset1 = CKAsset(fileURL: url1)
+            record[CKItemModelName.imageURL1] = asset1
+        }
+        if let url2 = imageURL2 {
+            let asset2 = CKAsset(fileURL: url2)
+            record[CKItemModelName.imageURL2] = asset2
+        }
+        if let url3 = imageURL3 {
+            let asset3 = CKAsset(fileURL: url3)
+            record[CKItemModelName.imageURL3] = asset3
+        }
+        if let modelURL = modelURL {
+            let modelAsset = CKAsset(fileURL: modelURL)
+            record[CKItemModelName.modelURL] = modelAsset
+        }
+        self.init(record: record)
+    }
 }
 
 enum Category: CaseIterable {
@@ -53,14 +125,3 @@ enum Category: CaseIterable {
         }
     }
 }
-
-var productList = [
-    HRProduct(category: Category.sofa , name: "Blue Sofa", image: "bluesofa", description: "A comfortable blue sofa for your living room. This sofa features plush cushions and sturdy construction. Its vibrant blue color adds a touch of elegance to any space. Elevate your relaxation with this stylish piece of furniture. Available in various sizes to suit your needs.", supplier: "XYZ", price: 200, width: "80 inches", height: "40 inches", diameter: ""),
-    HRProduct(category: Category.bed, name: "White Bed", image: "whitebed", description: "A stylish white bed for a good night's sleep. This bed combines modern design with exceptional comfort. Its sleek frame and clean lines create a contemporary look. Experience luxury and tranquility every night. Available in queen and king sizes.", supplier: "ABC", price: 400, width: "Queen", height: "60 inches", diameter: ""),
-    HRProduct(category: Category.sofa, name: "Leather Sofa", image: "leathersofa", description: "Luxurious leather sofa for your home. Crafted with premium materials, this sofa exudes sophistication and refinement. Its supple leather upholstery provides unmatched comfort. Transform your living space with this timeless piece of furniture. Available in multiple colors to complement any decor.", supplier: "XYZ", price: 250, width: "75 inches", height: "38 inches", diameter: "40 inches"),
-    HRProduct(category: Category.sofa, name: "Gray Sofa", image: "graysofa", description: "Modern gray sofa to enhance your decor. This sofa combines contemporary design with unbeatable comfort. Its neutral gray color blends seamlessly with any interior style. Upgrade your living room with this versatile and chic piece of furniture. Available in various sizes to fit your space perfectly.", supplier: "ABC", price: 430, width: "82 inches", height: "36 inches", diameter: ""),
-    HRProduct(category: Category.chair, name: "Red Chair", image: "redchair", description: "Vibrant red chair for a pop of color. Add a bold statement to your room with this eye-catching chair. Its ergonomic design ensures maximum comfort and support. Whether used as an accent piece or a functional seat, this chair will enhance any space. Available in different upholstery options to suit your preference.", supplier: "Apple", price: 320, width: "26 inches", height: "32 inches", diameter: "40 inches"),
-    HRProduct(category: Category.tv, name: "Retro TV", image: "retrotv", description: "Vintage-style retro TV for nostalgic moments. Transport yourself back in time with this charming retro TV. Its classic design evokes memories of simpler days. Enjoy your favorite movies and shows with modern technology in a nostalgic package. Available in compact sizes for easy placement in any room.", supplier: "Apple", price: 150, width: "32 inches", height: "24 inches", diameter: "40 inches")
-]
-
-

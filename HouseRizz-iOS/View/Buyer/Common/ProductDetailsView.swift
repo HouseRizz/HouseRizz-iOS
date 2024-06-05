@@ -16,10 +16,13 @@ struct ProductDetailsView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 ZStack(alignment: .topTrailing) {
-                    Image(product.image)
-                        .resizable()
-                        .ignoresSafeArea(edges: .top)
-                        .frame(height: 300)
+                    if let url = product.imageURL1, let data = try? Data(contentsOf: url), let image = UIImage(data: data){
+                        Image(uiImage: image)
+                            .resizable()
+                            .ignoresSafeArea(edges: .top)
+                            .frame(height: 300)
+                    }
+                    
                     
                     Image(systemName: "heart.fill")
                         .resizable()
@@ -36,10 +39,9 @@ struct ProductDetailsView: View {
                         
                         Spacer()
                         
-                        Text("₹\(product.price * quantity)")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .padding(.horizontal)
+                        Text(((product.price ?? 0) * Double(quantity)).formattedCurrency())
+                            .font(.caption2)
+                            .foregroundStyle(.black)
                     }
                     .padding(.vertical)
                     
@@ -84,45 +86,11 @@ struct ProductDetailsView: View {
                         .font(.title3)
                         .fontWeight(.medium)
                     
-                    Text(product.description)
+                    Text(product.description ?? "")
                     
                     Spacer()
                     
-                    HStack {
-                        HStack(alignment: .top) {
-                            VStack(alignment: .leading) {
-                                Text("Size")
-                                    .font(.system(size: 18))
-                                    .fontWeight(.semibold)
-                                
-                                Text("Height: \(product.height)")
-                                    .opacity(0.5)
-                                
-                                Text("Width: \(product.width)")
-                                    .opacity(0.5)
-                                
-                                Text("Diameter: \(product.diameter)")
-                                    .opacity(0.5)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                            Spacer()
-                            
-                            VStack(alignment: .trailing) {
-                                Text("Colors")
-                                    .font(.system(size: 18))
-                                    .fontWeight(.semibold)
-                                
-                                HStack {
-                                    ColorDotView(color: .blue)
-                                    ColorDotView(color: .black)
-                                    ColorDotView(color: .gray)
-                                }
-                            }
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                        }
-                        .padding(.vertical)
-                    }
+
                     
                     Button(action: {
                         cartViewModel.addToCart(product: product, quantity: quantity)
@@ -156,9 +124,4 @@ struct ColorDotView: View {
             .frame(width: 25, height: 25)
             .clipShape(Circle())
     }
-}
-
-#Preview {
-    ProductDetailsView(product: productList[2])
-        .environmentObject(CartViewModel())
 }

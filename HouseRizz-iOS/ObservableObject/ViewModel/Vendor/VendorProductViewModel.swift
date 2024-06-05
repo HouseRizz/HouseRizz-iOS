@@ -13,7 +13,7 @@ class VendorProductViewModel: ObservableObject {
     @Published var error: String = ""
     @Published var permissionStatus: Bool = false
     @Published var userName: String = ""
-    @Published var products: [HRCKProduct] = []
+    @Published var products: [HRProduct] = []
     var cancellables = Set<AnyCancellable>()
     
     init(){

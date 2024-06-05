@@ -9,22 +9,25 @@ import SwiftUI
 
 struct CartProductView: View {
     @EnvironmentObject private var cartViewModel: CartViewModel
-    let cartItem: CartItem
+    let cartItem: HRCartItem
 
     var body: some View {
         HStack(spacing: 20) {
-            Image(cartItem.product.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 90, height: 110)
-                .cornerRadius(20)
+            if let url = cartItem.product.imageURL1, let data = try? Data(contentsOf: url), let image = UIImage(data: data){
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 90, height: 110)
+                    .cornerRadius(20)
+            }
+            
 
             VStack(alignment: .leading) {
                 Text(cartItem.product.name)
                     .font(.headline)
                     .bold()
                 
-                Text("₹\(cartItem.product.price * cartItem.quantity)")
+                Text("₹\((cartItem.product.price ?? 0) * Double(cartItem.quantity))")
                     .font(.subheadline)
             }
             
@@ -72,8 +75,4 @@ struct CartProductView: View {
         .frame(minWidth: .none)
         .padding()
     }
-}
-
-#Preview {
-    CartProductView(cartItem: CartItem(product: HRProduct(category: Category.tv, name: "Retro TV", image: "retrotv", description: "Vintage-style retro TV for nostalgic moments. Transport yourself back in time with this charming retro TV. Its classic design evokes memories of simpler days. Enjoy your favorite movies and shows with modern technology in a nostalgic package. Available in compact sizes for easy placement in any room.", supplier: "Apple", price: 150, width: "32 inches", height: "24 inches", diameter: "40 inches"), quantity: 2))
 }

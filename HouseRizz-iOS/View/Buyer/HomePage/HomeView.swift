@@ -11,6 +11,7 @@ struct HomeView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var selectedProduct: HRProduct?
     @State private var showSettingsView = false
+    @StateObject private var viewModel = HomeViewModel()
 
     var body: some View {
         NavigationStack {
@@ -39,11 +40,11 @@ struct HomeView: View {
                         .font(.title3.bold())
 
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                        ForEach(productList, id: \.id) { product in
-                            ProductCardView(product: product)
+                        ForEach(viewModel.products.indices, id: \.self) { index in
+                            ProductCardView(product: viewModel.products[index])
                                 .environmentObject(cartViewModel)
                                 .onTapGesture {
-                                    selectedProduct = product
+                                    selectedProduct = viewModel.products[index]
                                 }
                         }
                     }
