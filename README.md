@@ -20,7 +20,7 @@ This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets 
 - [x]  Category Page
 - [x]  Product Detail Page
 - [x]  Cart
-- [ ]  Fetch from CloudKit
+- [x]  Fetch from CloudKit
 - [ ]  Search Bar
 - [ ]  Settings Page
 - [ ]  Create Orders
