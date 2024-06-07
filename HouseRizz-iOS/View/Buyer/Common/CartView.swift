@@ -9,15 +9,19 @@ import SwiftUI
 
 struct CartView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
-
+    
     var body: some View {
-        ScrollView {
+        VStack {
             if !cartViewModel.products.isEmpty {
-                ForEach(cartViewModel.products, id: \.product.id) { cartItem in
-                    CartProductView(cartItem: cartItem)
-                        .environmentObject(cartViewModel)
+                ScrollView {
+                    ForEach(cartViewModel.products, id: \.product.id) { cartItem in
+                        CartProductView(cartItem: cartItem)
+                            .environmentObject(cartViewModel)
+                    }
                 }
-
+                
+                Divider()
+                
                 HStack {
                     Text("Your Total is ")
                     Spacer()
@@ -25,12 +29,18 @@ struct CartView: View {
                         .bold()
                 }
                 .padding()
+                
+                HRCartButton(buttonText: "Proceed to Checkout", action: {
+                    
+                })
+                .padding()
+                
             } else {
                 Text("Your Cart is Empty")
             }
         }
         .navigationTitle("My Cart")
-        .padding(.top)
+        .padding(.vertical)
     }
 }
 

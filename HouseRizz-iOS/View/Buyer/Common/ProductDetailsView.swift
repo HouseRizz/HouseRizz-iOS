@@ -97,18 +97,9 @@ struct ProductDetailsView: View {
             }
             
             Divider()
-    
-            Button(action: {
+            
+            HRCartButton(buttonText: "Add to Cart") {
                 cartViewModel.addToCart(product: product, quantity: quantity)
-            }) {
-                Text("Add to Cart")
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.primaryColor)
-                    .cornerRadius(10)
             }
             .padding()
         }

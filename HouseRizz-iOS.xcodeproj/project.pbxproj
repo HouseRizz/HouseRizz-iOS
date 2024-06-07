@@ -72,6 +72,7 @@
 		CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0022BCA28B5000AFB80 /* TabView.swift */; };
 		CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */; };
 		CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0062BCA3440000AFB80 /* AIView.swift */; };
+		CCDF24C02C12A5DB00353DD1 /* HRCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		CCD3B0022BCA28B5000AFB80 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRTabItems.swift; sourceTree = "<group>"; };
 		CCD3B0062BCA3440000AFB80 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
+		CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCartButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				CC97AF0D2BBE5E52007BB76C /* HRAuthenticationButton.swift */,
 				CC06A9742C0C917E00A0DAD3 /* HRAddProductButton.swift */,
+				CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */,
 				CC06A9732C0C8D5800A0DAD3 /* DoubleExtension.swift in Sources */,
 				CC06A9752C0C917E00A0DAD3 /* HRAddProductButton.swift in Sources */,
+				CCDF24C02C12A5DB00353DD1 /* HRCartButton.swift in Sources */,
 				CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */,
 				CCC5B0462BFBB95A0007BEC1 /* AddProductView.swift in Sources */,
 				CC06A97F2C0C97F000A0DAD3 /* NoNetworkView.swift in Sources */,
