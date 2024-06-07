@@ -13,6 +13,7 @@ import GoogleSignIn
 import GoogleSignInSwift
 import AuthenticationServices
 import CryptoKit
+import Combine
 
 enum AuthenticationState {
     case unauthenticated
@@ -30,6 +31,8 @@ class Authentication: ObservableObject {
     @Published var user: HRUser? = nil
     @Published var name = ""
     @Published var email = ""
+    @Published var phoneNumber = ""
+    @Published var address = ""
     @Published var password = ""
     @Published var confirmPassword = ""
     @Published var authenticationState: AuthenticationState = .unauthenticated
@@ -38,6 +41,7 @@ class Authentication: ObservableObject {
     @Published var displayName = ""
     private var handler: AuthStateDidChangeListenerHandle?
     private var currentNonce: String?
+    var cancellables = Set<AnyCancellable>()
     
     
     init(){
@@ -54,14 +58,17 @@ class Authentication: ObservableObject {
     
     private func insertUserRecord(id: String) {
         
-        let newUser = HRUser(id: id, name: name, email: email, joined: Date().timeIntervalSince1970)
+        let newUser = HRUser(id: id, name: name, email: email,phoneNumber: phoneNumber, address: address, joined: Date().timeIntervalSince1970)
         
         let db = Firestore.firestore()
         
         db.collection("users")
             .document(id)
             .setData(newUser.asDictionary())
+        
+        CKUtility.add(item: newUser!) { _ in }
     }
+
 }
 
 extension Authentication {
@@ -123,10 +130,12 @@ extension Authentication {
             }
             DispatchQueue.main.async {
                 self?.user = HRUser(
-                    id: data["id"] as? String ?? "",
-                    name: data["name"] as? String ?? "",
-                    email: data["email"] as? String ?? "",
-                    joined: data["joined"] as? TimeInterval ?? 0
+                    id: data[HRUserModelName.id] as? String ?? "",
+                    name: data[HRUserModelName.name] as? String ?? "",
+                    email: data[HRUserModelName.email] as? String ?? "",
+                    phoneNumber: data[HRUserModelName.phoneNumber] as? String ?? "",
+                    address: data[HRUserModelName.address] as? String ?? "",
+                    joined: data[HRUserModelName.joined] as? TimeInterval ?? 0
                 )
             }
         }

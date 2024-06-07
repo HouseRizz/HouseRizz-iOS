@@ -343,6 +343,7 @@
 		CC06A9792C0C976700A0DAD3 /* ObservableObject */ = {
 			isa = PBXGroup;
 			children = (
+				CC97AEF32BBE5C46007BB76C /* Authentication.swift */,
 				CC06A9782C0C976100A0DAD3 /* Manager */,
 				CC3D289C2BC4005100C1E119 /* ViewModel */,
 			);
@@ -365,7 +366,6 @@
 			children = (
 				CC06A96D2C0C0AEB00A0DAD3 /* Buyer */,
 				CC06A96C2C0C0AE600A0DAD3 /* Vendor */,
-				CC97AEF32BBE5C46007BB76C /* Authentication.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
