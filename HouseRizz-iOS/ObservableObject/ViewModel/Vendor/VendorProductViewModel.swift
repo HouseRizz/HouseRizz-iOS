@@ -73,7 +73,7 @@ class VendorProductViewModel: ObservableObject {
     }
     
     func fetchItems(){
-        let predicate = NSPredicate(format: "%K == %@", CKItemModelName.supplier, userName)
+        let predicate = NSPredicate(format: "%K == %@", HRProductModelName.supplier, userName)
         let recordType = "Items"
         CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
             .receive(on: DispatchQueue.main)
