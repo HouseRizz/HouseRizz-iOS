@@ -30,6 +30,7 @@ class Authentication: ObservableObject {
     @Published var currentUserId = ""
     @Published var user: HRUser? = nil
     @Published var name = ""
+    @Published var userType = "user"
     @Published var email = ""
     @Published var phoneNumber = ""
     @Published var address = ""
@@ -58,7 +59,7 @@ class Authentication: ObservableObject {
     
     private func insertUserRecord(id: String) {
         
-        let newUser = HRUser(id: id, name: name, email: email,phoneNumber: phoneNumber, address: address, joined: Date().timeIntervalSince1970)
+        let newUser = HRUser(id: id, name: name, userType: userType, email: email,phoneNumber: phoneNumber, address: address, joined: Date().timeIntervalSince1970)
         
         let db = Firestore.firestore()
         
@@ -132,6 +133,7 @@ extension Authentication {
                 self?.user = HRUser(
                     id: data[HRUserModelName.id] as? String ?? "",
                     name: data[HRUserModelName.name] as? String ?? "",
+                    userType: data[HRUserModelName.userType] as? String ?? "",
                     email: data[HRUserModelName.email] as? String ?? "",
                     phoneNumber: data[HRUserModelName.phoneNumber] as? String ?? "",
                     address: data[HRUserModelName.address] as? String ?? "",

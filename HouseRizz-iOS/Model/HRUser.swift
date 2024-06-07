@@ -11,6 +11,7 @@ import CloudKit
 struct HRUserModelName {
     static let id = "id"
     static let name = "name"
+    static let userType = "userType"
     static let email = "email"
     static let phoneNumber = "phoneNumber"
     static let address = "address"
@@ -22,6 +23,7 @@ struct HRUser: Encodable, Hashable, Identifiable, CKitableProtocol {
     let id: String
     let name: String
     let email: String
+    let userType: String
     let phoneNumber: String?
     let address: String?
     let joined: TimeInterval
@@ -34,6 +36,8 @@ struct HRUser: Encodable, Hashable, Identifiable, CKitableProtocol {
         self.id = idString
         guard let name = record[HRUserModelName.name] as? String else { return nil }
         self.name = name
+        guard let userType = record[HRUserModelName.userType] as? String else { return nil }
+        self.userType = userType
         guard let email = record[HRUserModelName.email] as? String else { return nil }
         self.email = email
         guard let phoneNumber = record[HRUserModelName.phoneNumber] as? String else { return nil }
@@ -45,10 +49,11 @@ struct HRUser: Encodable, Hashable, Identifiable, CKitableProtocol {
         self.record = record
     }
     
-    init?(id: String, name: String, email: String?, phoneNumber: String?, address: String?, joined: TimeInterval) {
+    init?(id: String, name: String,userType: String, email: String?, phoneNumber: String?, address: String?, joined: TimeInterval) {
         let record = CKRecord(recordType: HRUserModelName.itemRecord)
         record[HRUserModelName.id] = id
         record[HRUserModelName.name] = name
+        record[HRUserModelName.userType] = userType
         record[HRUserModelName.email] = email
         record[HRUserModelName.joined] = joined
         if (phoneNumber != nil) {
@@ -63,6 +68,7 @@ struct HRUser: Encodable, Hashable, Identifiable, CKitableProtocol {
     enum CodingKeys: String, CodingKey {
         case id
         case name
+        case type
         case email
         case phoneNumber
         case address
