@@ -12,7 +12,16 @@ struct ManageOrdersView: View {
     @StateObject private var viewModel = ManageOrdersViewModel()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            List(viewModel.orders, id: \.self) { order in
+                OrderListItemView(order: order)
+            }
+        }
+        .navigationTitle("Manage Orders")
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            viewModel.fetchOrders()
+        }
     }
 }
 

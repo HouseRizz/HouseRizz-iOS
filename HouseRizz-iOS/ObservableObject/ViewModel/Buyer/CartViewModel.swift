@@ -12,12 +12,8 @@ class CartViewModel: ObservableObject {
     @Published private(set) var products: [HRCartItem] = []
     @Published private(set) var total: Int = 0
     @Published var orderId = UUID()
-//    @Published var buyerName: String = ""
-//    @Published var buyerEmail: String = ""
-//    @Published var buyerPhoneNumber: String? = ""
-//    @Published var buyerAddress: String? = ""
     @Published var dateOfOrder = Date()
-    @Published var orderStatus: String? = ""
+    @Published var orderStatus: String? = "To be Confirmed"
     
     func sendOrder(buyerName: String, buyerEmail: String, buyerPhoneNumber: String?, buyerAddress: String?) {
         for product in products {

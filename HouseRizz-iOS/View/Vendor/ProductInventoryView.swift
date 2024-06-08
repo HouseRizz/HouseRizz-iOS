@@ -22,7 +22,7 @@ struct ProductInventoryView: View {
                                 .toolbarRole(.editor))
                             {
                                 ZStack(alignment: .topLeading) {
-                                    VendorProductCardView(product: viewModel.products[index])
+                                    InventoryProductCardView(product: viewModel.products[index])
                                     
                                     Image(systemName: "minus.circle.fill")
                                         .imageScale(.large)
