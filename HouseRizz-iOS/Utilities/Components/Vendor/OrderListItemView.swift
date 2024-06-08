@@ -20,7 +20,3 @@ struct OrderListItemView: View {
         }
     }
 }
-
-#Preview {
-    OrderListItemView(order: HROrder(id: UUID(), name: "Red Bed", price: 123.0, quantity: 2, supplier: "Krish", buyerName: "Krish Mittal", buyerEmail: "contact@krishmittal.com", buyerPhoneNumber: "9999670308", buyerAddress: "Rohini, Delhi", dateOfOrder: Date().timeIntervalSince1970, orderStatus: "Confirmed")!)
-}

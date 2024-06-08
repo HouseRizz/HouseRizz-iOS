@@ -21,6 +21,7 @@ class CartViewModel: ObservableObject {
                                          name: product.product.name,
                                          price: product.product.price,
                                          quantity: product.quantity,
+                                         imageURL: product.product.imageURL1,
                                          supplier: product.product.supplier,
                                          buyerName: buyerName,
                                          buyerEmail: buyerEmail,
