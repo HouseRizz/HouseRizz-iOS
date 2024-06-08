@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct VendorProductDetailsView: View {
+struct InventoryProductDetailView: View {
     var product: HRProduct
     private var imageUrls: [URL?] {
         [product.imageURL1, product.imageURL2, product.imageURL3]

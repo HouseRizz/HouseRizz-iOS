@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct VendorProductView: View {
-    @StateObject private var viewModel = VendorProductViewModel()
+struct ProductInventoryView: View {
+    @StateObject private var viewModel = ProductInventoryViewModel()
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     @State private var showDeleteOption: Bool = false
     
@@ -18,7 +18,7 @@ struct VendorProductView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(viewModel.products.indices, id: \.self) { index in
-                            NavigationLink(destination: VendorProductDetailsView(product:viewModel.products[index])
+                            NavigationLink(destination: InventoryProductDetailView(product:viewModel.products[index])
                                 .toolbarRole(.editor))
                             {
                                 ZStack(alignment: .topLeading) {

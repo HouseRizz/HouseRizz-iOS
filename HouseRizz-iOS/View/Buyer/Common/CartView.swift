@@ -49,6 +49,9 @@ struct CartView: View {
         }
         .navigationTitle("My Cart")
         .padding(.vertical)
+        .onAppear {
+            authViewModel.fetchUser()
+        }
     }
 }
 

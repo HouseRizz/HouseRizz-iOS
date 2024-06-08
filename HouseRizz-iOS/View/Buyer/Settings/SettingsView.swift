@@ -12,6 +12,7 @@ struct SettingsView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode
     @State private var showVendorInventory: Bool = false
+    @State private var showVendorOrders: Bool = false
     
     var body: some View {
         NavigationView {
@@ -40,6 +41,13 @@ struct SettingsView: View {
                     }
                     .onTapGesture {
                         showVendorInventory.toggle()
+                    }
+                    HStack {
+                        Image(systemName: "archivebox")
+                        Text("Manage Orders")
+                    }
+                    .onTapGesture {
+                        showVendorOrders.toggle()
                     }
                 } header: {
                     Text("Vendor")
@@ -73,7 +81,10 @@ struct SettingsView: View {
                 auth.fetchUser()
             }
             .sheet(isPresented: $showVendorInventory, content: {
-                VendorProductView()
+                ProductInventoryView()
+            })
+            .sheet(isPresented: $showVendorOrders, content: {
+                ManageOrdersView()
             })
         }
     }
