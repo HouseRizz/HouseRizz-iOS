@@ -6,11 +6,40 @@
 //
 
 import Foundation
+import Combine
 
 class CartViewModel: ObservableObject {
     @Published private(set) var products: [HRCartItem] = []
     @Published private(set) var total: Int = 0
+    @Published var orderId = UUID()
+//    @Published var buyerName: String = ""
+//    @Published var buyerEmail: String = ""
+//    @Published var buyerPhoneNumber: String? = ""
+//    @Published var buyerAddress: String? = ""
+    @Published var dateOfOrder = Date()
+    @Published var orderStatus: String? = ""
+    
+    func sendOrder(buyerName: String, buyerEmail: String, buyerPhoneNumber: String?, buyerAddress: String?) {
+        for product in products {
+            guard let newOrder = HROrder(id: orderId,
+                                         name: product.product.name,
+                                         price: product.product.price,
+                                         quantity: product.quantity,
+                                         supplier: product.product.supplier,
+                                         buyerName: buyerName,
+                                         buyerEmail: buyerEmail,
+                                         buyerPhoneNumber: buyerPhoneNumber,
+                                         buyerAddress: buyerAddress,
+                                         dateOfOrder: dateOfOrder.timeIntervalSince1970,
+                                         orderStatus: orderStatus)
+                    
+            else { continue }
+            CKUtility.add(item: newOrder) { _ in }
+        }
+    }
+}
 
+extension CartViewModel {
     func addToCart(product: HRProduct, quantity: Int = 1) {
         if let index = products.firstIndex(where: { $0.product.id == product.id }) {
             products[index].quantity += quantity
@@ -20,7 +49,7 @@ class CartViewModel: ObservableObject {
         }
         total += Int((product.price ?? 0)) * quantity
     }
-
+    
     func removeFromCart(product: HRProduct) {
         if let index = products.firstIndex(where: { $0.product.id == product.id }) {
             let cartItem = products[index]
@@ -32,7 +61,7 @@ class CartViewModel: ObservableObject {
             total -= Int(product.price ?? 0)
         }
     }
-
+    
     func updateCartItemQuantity(cartItem: HRCartItem, newQuantity: Int) {
         if let index = products.firstIndex(where: { $0.product.id == cartItem.product.id }) {
             products[index].quantity = newQuantity

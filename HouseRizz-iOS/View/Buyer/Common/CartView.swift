@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CartView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
+    @StateObject private var authViewModel = Authentication()
     
     var body: some View {
         VStack {
@@ -30,10 +31,17 @@ struct CartView: View {
                 }
                 .padding()
                 
-                HRCartButton(buttonText: "Proceed to Checkout", action: {
-                    
-                })
-                .padding()
+                if let user = authViewModel.user {
+                    HRCartButton(buttonText: "Proceed to Checkout", action: {
+                        cartViewModel.sendOrder(buyerName: user.name, buyerEmail: user.email, buyerPhoneNumber: user.phoneNumber, buyerAddress: user.address)
+                    })
+                    .padding()
+                } else {
+                    Text("Loading ..")
+                        .foregroundStyle(.gray)
+                }
+                
+                
                 
             } else {
                 Text("Your Cart is Empty")
