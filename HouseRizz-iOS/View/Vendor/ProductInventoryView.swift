@@ -39,6 +39,9 @@ struct ProductInventoryView: View {
                     }
                     .padding()
                 }
+                .onAppear {
+                    viewModel.fetchItems()
+                }
                 .refreshable {
                     viewModel.fetchItems()
                 }

@@ -10,17 +10,33 @@ import SwiftUI
 struct ManageOrdersView: View {
     
     @StateObject private var viewModel = ManageOrdersViewModel()
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack {
-            List(viewModel.orders, id: \.self) { order in
-                OrderListItemView(order: order)
+        NavigationStack {
+            VStack {
+                List(viewModel.orders, id: \.self) { order in
+                    OrderListItemView(order: order)
+                }
             }
-        }
-        .navigationTitle("Manage Orders")
-        .navigationBarTitleDisplayMode(.inline)
-        .onAppear {
-            viewModel.fetchOrders()
+            .navigationTitle("Manage Orders")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.red)
+                    }
+                }
+            }
+            .onAppear {
+                viewModel.fetchOrders()
+            }
+            .refreshable {
+                viewModel.fetchOrders()
+            }
         }
     }
 }
