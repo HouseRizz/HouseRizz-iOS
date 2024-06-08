@@ -51,6 +51,7 @@ class Authentication: ObservableObject {
                 self?.currentUserId = user?.uid ?? ""
             }
         }
+        fetchUser()
     }
     
     public var isSignedIn: Bool{

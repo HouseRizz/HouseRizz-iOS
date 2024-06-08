@@ -13,6 +13,7 @@ struct HROrderModelName {
     static let name = "name"
     static let supplier = "supplier"
     static let price = "price"
+    static let quantity = "quantity"
     static let buyerName = "buyerName"
     static let buyerEmail = "buyerEmail"
     static let buyerPhoneNumber = "buyerPhoneNumber"
@@ -27,6 +28,7 @@ struct HROrder: Hashable, Identifiable, CKitableProtocol {
     let name: String
     let supplier: String
     let price: Double?
+    let quantity: Int?
     let buyerName: String
     let buyerEmail: String
     let buyerPhoneNumber: String?
@@ -46,6 +48,8 @@ struct HROrder: Hashable, Identifiable, CKitableProtocol {
         self.supplier = supplier
         guard let price = record[HROrderModelName.price] as? Double else { return nil }
         self.price = price
+        guard let quantity = record[HROrderModelName.quantity] as? Int else { return nil }
+        self.quantity = quantity
         guard let buyerName = record[HROrderModelName.buyerName] as? String else { return nil }
         self.buyerName = buyerName
         guard let buyerEmail = record[HROrderModelName.buyerEmail] as? String else { return nil }
@@ -61,12 +65,13 @@ struct HROrder: Hashable, Identifiable, CKitableProtocol {
         self.record = record
     }
     
-    init?(id: UUID, name: String, price: Double?, supplier: String? , buyerName: String, buyerEmail: String?, buyerPhoneNumber: String?, buyerAddress: String?, dateOfOrder: TimeInterval, orderStatus: String?) {
+    init?(id: UUID, name: String, price: Double?, quantity: Int?, supplier: String? , buyerName: String, buyerEmail: String?, buyerPhoneNumber: String?, buyerAddress: String?, dateOfOrder: TimeInterval, orderStatus: String?) {
         let record = CKRecord(recordType: HROrderModelName.itemRecord)
         record[HROrderModelName.id] = id.uuidString
         record[HROrderModelName.name] = name
         record[HROrderModelName.supplier] = supplier
         record[HROrderModelName.price] = price
+        record[HROrderModelName.quantity] = quantity
         record[HROrderModelName.buyerName] = buyerName
         record[HROrderModelName.buyerEmail] = buyerEmail
         if (buyerPhoneNumber != nil) {
