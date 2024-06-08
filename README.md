@@ -1,4 +1,4 @@
-# HouseRizz User iOS App
+# HouseRizz iOS App
 
 This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets you Redesign your home with  AI & AR. 
 
