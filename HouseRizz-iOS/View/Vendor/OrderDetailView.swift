@@ -11,6 +11,7 @@ struct OrderDetailView: View {
     
     let order: HROrder
     @StateObject private var viewModel: OrderDetailViewModel
+    @Environment(\.presentationMode) var presentationMode
 
     init(order: HROrder) {
         self.order = order
@@ -80,14 +81,24 @@ struct OrderDetailView: View {
                 
                 Divider()
                 
-                HRCartButton(buttonText: "Confirm Changes") {
-                    viewModel.updateOrderStatus(order: order)
+                if viewModel.isChangedStatus {
+                    ProgressView().tint(Color.primaryColor)
+                } else {
+                    HRCartButton(buttonText: "Confirm Changes") {
+                        viewModel.updateOrderStatus(order: order)
+                    }
                 }
-                
             }
             .padding()
             .cornerRadius(20)
             .offset(y: -30)
+            .alert("Status Updates", isPresented: $viewModel.isChangedStatus) {
+                Button("Ok", role: .cancel ) {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            } message: {
+                Text(viewModel.isChangedStatus ? "Status Updated Successfully" : viewModel.error)
+            }
         }
     }
 }

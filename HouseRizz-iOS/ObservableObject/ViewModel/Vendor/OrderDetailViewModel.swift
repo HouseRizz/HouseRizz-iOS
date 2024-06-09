@@ -13,6 +13,7 @@ class OrderDetailViewModel: ObservableObject {
     @Published var selectedOrderStatus: OrderStatus
     @Published var error: String = ""
     @Published var supplier: String = ""
+    @Published var isChangedStatus: Bool = false
     var cancellables = Set<AnyCancellable>()
     
     init(initialStatus: OrderStatus) {
@@ -22,7 +23,11 @@ class OrderDetailViewModel: ObservableObject {
 
     func updateOrderStatus(order: HROrder) {
         guard let newOrder = order.updateOrderStatus(status: selectedOrderStatus.title) else { return }
-        CKUtility.update(item: newOrder) { _ in }
+        CKUtility.update(item: newOrder) { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.isChangedStatus.toggle()
+            }
+        }
     }
     
     func getCurrentUserName() {
