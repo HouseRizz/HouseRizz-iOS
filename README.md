@@ -41,12 +41,15 @@ Vendor Side
 The Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license grants you the following rights:
 
 Share — You are free to copy and redistribute the material in any medium or format.
+<br/>
 Adapt — You are free to remix, transform, and build upon the material.
 
 #### Under the following terms:
 
 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+<br/>
 NonCommercial — You may not use the material for commercial purposes.
+<br/>
 ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 
 #### Disclaimers
