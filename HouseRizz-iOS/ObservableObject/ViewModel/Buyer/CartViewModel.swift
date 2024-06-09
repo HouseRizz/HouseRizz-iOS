@@ -13,7 +13,7 @@ class CartViewModel: ObservableObject {
     @Published private(set) var total: Int = 0
     @Published var orderId = UUID()
     @Published var dateOfOrder = Date()
-    @Published var orderStatus: String? = "To be Confirmed"
+    @Published var orderStatus: String = OrderStatus.toBeConfirmed.title
     
     func sendOrder(buyerName: String, buyerEmail: String, buyerPhoneNumber: String?, buyerAddress: String?) {
         for product in products {

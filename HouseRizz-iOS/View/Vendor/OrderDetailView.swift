@@ -10,6 +10,16 @@ import SwiftUI
 struct OrderDetailView: View {
     
     let order: HROrder
+    @StateObject private var viewModel: OrderDetailViewModel
+
+    init(order: HROrder) {
+        self.order = order
+        if let status = OrderStatus(statusString: order.orderStatus) {
+            _viewModel = StateObject(wrappedValue: OrderDetailViewModel(initialStatus: status))
+        } else {
+            _viewModel = StateObject(wrappedValue: OrderDetailViewModel(initialStatus: .toBeConfirmed))
+        }
+    }
     
     var body: some View {
         VStack {
@@ -49,7 +59,31 @@ struct OrderDetailView: View {
                 }
                 .padding(.vertical)
                 
+                HStack {
+                    Text("Set Order Status")
+                    
+                    Spacer()
+                    
+                    Picker("Status", selection: $viewModel.selectedOrderStatus) {
+                        ForEach(OrderStatus.allCases, id: \.self) {
+                            Text($0.title)
+                        }
+                    }
+                }
+                
+                Text(order.buyerName)
+                Text(order.buyerEmail)
+                Text(order.buyerPhoneNumber ?? "None Provided")
+                Text(order.buyerAddress ?? "None Provided")
+                
                 Spacer()
+                
+                Divider()
+                
+                HRCartButton(buttonText: "Confirm Changes") {
+                    viewModel.updateOrderStatus(order: order)
+                }
+                
             }
             .padding()
             .cornerRadius(20)

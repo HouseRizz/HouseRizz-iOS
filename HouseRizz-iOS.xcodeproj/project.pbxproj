@@ -77,6 +77,7 @@
 		CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */; };
 		CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0062BCA3440000AFB80 /* AIView.swift */; };
 		CCDED4702C1544CA0063C1D2 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDED46F2C1544CA0063C1D2 /* OrderDetailView.swift */; };
+		CCDED4722C154E9F0063C1D2 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDED4712C154E9F0063C1D2 /* OrderDetailViewModel.swift */; };
 		CCDF24C02C12A5DB00353DD1 /* HRCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRTabItems.swift; sourceTree = "<group>"; };
 		CCD3B0062BCA3440000AFB80 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
 		CCDED46F2C1544CA0063C1D2 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
+		CCDED4712C154E9F0063C1D2 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCartButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -332,6 +334,7 @@
 				CCC5B0432BFBB9310007BEC1 /* AddProductViewModel.swift */,
 				CCC5B0412BFBB8700007BEC1 /* ProductInventoryViewModel.swift */,
 				CC11078C2C1456F200AB9F58 /* ManageOrdersViewModel.swift */,
+				CCDED4712C154E9F0063C1D2 /* OrderDetailViewModel.swift */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */,
 				CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */,
 				CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */,
+				CCDED4722C154E9F0063C1D2 /* OrderDetailViewModel.swift in Sources */,
 				CC06A9732C0C8D5800A0DAD3 /* DoubleExtension.swift in Sources */,
 				CC06A9752C0C917E00A0DAD3 /* HRAddProductButton.swift in Sources */,
 				CCDF24C02C12A5DB00353DD1 /* HRCartButton.swift in Sources */,

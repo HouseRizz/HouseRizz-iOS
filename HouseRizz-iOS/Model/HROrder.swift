@@ -36,7 +36,7 @@ struct HROrder: Hashable, Identifiable, CKitableProtocol {
     let buyerPhoneNumber: String?
     let buyerAddress: String?
     let dateOfOrder: TimeInterval
-    let orderStatus: String?
+    let orderStatus: String
     let record: CKRecord
     
     init?(record: CKRecord) {
@@ -91,5 +91,51 @@ struct HROrder: Hashable, Identifiable, CKitableProtocol {
         record[HROrderModelName.dateOfOrder] = dateOfOrder
         record[HROrderModelName.orderStatus] = orderStatus
         self.init(record: record)
+    }
+    
+    func updateOrderStatus(status: String) -> HROrder? {
+        let record = record
+        record[HROrderModelName.orderStatus] = status
+        return HROrder(record: record)
+    }
+}
+
+enum OrderStatus: CaseIterable {
+    case toBeConfirmed
+    case confirmed
+    case dispatched
+    case delivered
+    case cancelled
+        
+    var title: String {
+        switch self {
+        case .toBeConfirmed:
+            return "To Be Confirmed"
+        case .confirmed:
+            return "Confirmed"
+        case .dispatched:
+            return "Dispatched"
+        case .delivered:
+            return "Delivered"
+        case .cancelled:
+            return "Cancelled"
+        }
+    }
+    
+    init?(statusString: String) {
+        switch statusString {
+        case "To Be Confirmed":
+            self = .toBeConfirmed
+        case "Confirmed":
+            self = .confirmed
+        case "Dispatched":
+            self = .dispatched
+        case "Delivered":
+            self = .delivered
+        case "Cancelled":
+            self = .cancelled
+        default:
+            return nil
+        }
     }
 }
