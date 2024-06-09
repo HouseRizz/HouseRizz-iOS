@@ -16,7 +16,12 @@ struct ManageOrdersView: View {
         NavigationStack {
             VStack {
                 List(viewModel.orders, id: \.self) { order in
-                    OrderListItemView(order: order)
+                    NavigationLink {
+                        OrderDetailView(order: order)
+                    } label: {
+                        OrderListItemView(order: order)
+                    }
+
                 }
             }
             .navigationTitle("Manage Orders")

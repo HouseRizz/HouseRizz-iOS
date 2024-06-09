@@ -16,7 +16,6 @@ struct InventoryProductDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-            
                 ScrollView(.horizontal) {
                     LazyHStack {
                         ForEach(imageUrls.compactMap({ $0 }), id: \.self) { url in
@@ -61,7 +60,6 @@ struct InventoryProductDetailView: View {
                     Spacer()
                 }
                 .padding()
-                .background(.white)
                 .cornerRadius(20)
                 .offset(y: -30)
             }

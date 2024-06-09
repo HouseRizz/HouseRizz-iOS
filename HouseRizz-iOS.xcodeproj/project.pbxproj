@@ -76,6 +76,7 @@
 		CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0022BCA28B5000AFB80 /* TabView.swift */; };
 		CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */; };
 		CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0062BCA3440000AFB80 /* AIView.swift */; };
+		CCDED4702C1544CA0063C1D2 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDED46F2C1544CA0063C1D2 /* OrderDetailView.swift */; };
 		CCDF24C02C12A5DB00353DD1 /* HRCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +139,7 @@
 		CCD3B0022BCA28B5000AFB80 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRTabItems.swift; sourceTree = "<group>"; };
 		CCD3B0062BCA3440000AFB80 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
+		CCDED46F2C1544CA0063C1D2 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 		CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCartButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,6 +266,7 @@
 				CCC5B0472BFBB9A80007BEC1 /* InventoryProductDetailView.swift */,
 				CCC5B03F2BFBB8580007BEC1 /* ProductInventoryView.swift */,
 				CC11078A2C14565400AB9F58 /* ManageOrdersView.swift */,
+				CCDED46F2C1544CA0063C1D2 /* OrderDetailView.swift */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				CCC5B03E2BFBB7700007BEC1 /* HRTextField.swift in Sources */,
 				CC2F47162BC8CE1900A4C1FC /* CartButton.swift in Sources */,
 				CC06A95E2C0C080500A0DAD3 /* ColorExtension.swift in Sources */,
+				CCDED4702C1544CA0063C1D2 /* OrderDetailView.swift in Sources */,
 				CCC5B0442BFBB9310007BEC1 /* AddProductViewModel.swift in Sources */,
 				CCC5B0402BFBB8580007BEC1 /* ProductInventoryView.swift in Sources */,
 				CCC5B0482BFBB9A80007BEC1 /* InventoryProductDetailView.swift in Sources */,
