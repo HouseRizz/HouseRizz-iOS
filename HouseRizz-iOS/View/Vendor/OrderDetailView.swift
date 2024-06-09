@@ -72,10 +72,11 @@ struct OrderDetailView: View {
                     }
                 }
                 
-                Text(order.buyerName)
-                Text(order.buyerEmail)
-                Text(order.buyerPhoneNumber ?? "None Provided")
-                Text(order.buyerAddress ?? "None Provided")
+                Text("Order Date: \(Date(timeIntervalSince1970: order.dateOfOrder).formatted(date: .complete, time: .shortened))")
+                Text("Buyer: \(order.buyerName)")
+                Text("Buyer Email: \(order.buyerEmail)")
+                Text("Buyer Phone: \(order.buyerPhoneNumber ?? "None Provided")")
+                Text("Buyer Address: \(order.buyerAddress ?? "None Provided")")
                 
                 Spacer()
                 
