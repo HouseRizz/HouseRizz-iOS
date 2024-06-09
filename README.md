@@ -23,7 +23,8 @@ This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets 
 - [x]  Fetch from CloudKit
 - [ ]  Search Bar
 - [ ]  Settings Page
-- [ ]  Create Orders
+- [x]  Create Orders
+- [x]  Manage Orders
 - [ ]  Razorpay Payment Gateway Integration
 - [ ]  AI Feature - Sketch to Render
 - [ ]  AI Feature - Redesign home from image
