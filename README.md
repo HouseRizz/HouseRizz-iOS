@@ -35,6 +35,27 @@ Vendor Side
 - [x]  Item Detail View
 - [ ]  Order Management
 
+## Licence
+### This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
+#### Summary
+The Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license grants you the following rights:
+
+Share — You are free to copy and redistribute the material in any medium or format.
+Adapt — You are free to remix, transform, and build upon the material.
+
+#### Under the following terms:
+
+Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+NonCommercial — You may not use the material for commercial purposes.
+ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+
+#### Disclaimers
+
+No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.
+This license applies to the code and documentation in this repository. Any additional third-party works or materials may be subject to different licenses.
+
+For more details, please refer to the full legal text of the CC BY-NC-SA 4.0 license.
+
 ## Screenshots
 
 ### Buyer
