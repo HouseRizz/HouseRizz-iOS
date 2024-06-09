@@ -17,11 +17,11 @@ struct ManageOrdersView: View {
             VStack {
                 List(viewModel.orders, id: \.self) { order in
                     NavigationLink {
-                        OrderDetailView(order: order)
+                        OrderDetailView(order: order).toolbarRole(.editor)
                     } label: {
                         OrderListItemView(order: order)
                     }
-
+                    
                 }
             }
             .navigationTitle("Manage Orders")

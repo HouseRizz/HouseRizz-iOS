@@ -13,10 +13,10 @@ struct OrderListItemView: View {
     
     var body: some View {
         HStack {
-            Text("\(order.buyerName)")
-            Text("\(order.name)")
-            Text("\((order.price ?? 0).formattedCurrency())")
-            Text("\(order.orderStatus ?? "To be Confirmed")")
+            Text("\(order.name) |")
+            Text("\((order.price ?? 0).formattedCurrency()) |")
+            Text("\(order.orderStatus) |")
         }
+        .font(.caption)
     }
 }
