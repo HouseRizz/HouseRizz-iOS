@@ -14,6 +14,7 @@ struct HROrderModelName {
     static let supplier = "supplier"
     static let price = "price"
     static let quantity = "quantity"
+    static let imageURL = "imageURL"
     static let buyerName = "buyerName"
     static let buyerEmail = "buyerEmail"
     static let buyerPhoneNumber = "buyerPhoneNumber"
@@ -29,12 +30,13 @@ struct HROrder: Hashable, Identifiable, CKitableProtocol {
     let supplier: String
     let price: Double?
     let quantity: Int?
+    let imageURL: URL?
     let buyerName: String
     let buyerEmail: String
     let buyerPhoneNumber: String?
     let buyerAddress: String?
     let dateOfOrder: TimeInterval
-    let orderStatus: String?
+    let orderStatus: String
     let record: CKRecord
     
     init?(record: CKRecord) {
@@ -50,6 +52,8 @@ struct HROrder: Hashable, Identifiable, CKitableProtocol {
         self.price = price
         guard let quantity = record[HROrderModelName.quantity] as? Int else { return nil }
         self.quantity = quantity
+        let imageAsset = record[HROrderModelName.imageURL] as? CKAsset
+        self.imageURL = imageAsset?.fileURL
         guard let buyerName = record[HROrderModelName.buyerName] as? String else { return nil }
         self.buyerName = buyerName
         guard let buyerEmail = record[HROrderModelName.buyerEmail] as? String else { return nil }
@@ -65,13 +69,17 @@ struct HROrder: Hashable, Identifiable, CKitableProtocol {
         self.record = record
     }
     
-    init?(id: UUID, name: String, price: Double?, quantity: Int?, supplier: String? , buyerName: String, buyerEmail: String?, buyerPhoneNumber: String?, buyerAddress: String?, dateOfOrder: TimeInterval, orderStatus: String?) {
+    init?(id: UUID, name: String, price: Double?, quantity: Int?, imageURL: URL?,  supplier: String? , buyerName: String, buyerEmail: String?, buyerPhoneNumber: String?, buyerAddress: String?, dateOfOrder: TimeInterval, orderStatus: String?) {
         let record = CKRecord(recordType: HROrderModelName.itemRecord)
         record[HROrderModelName.id] = id.uuidString
         record[HROrderModelName.name] = name
         record[HROrderModelName.supplier] = supplier
         record[HROrderModelName.price] = price
         record[HROrderModelName.quantity] = quantity
+        if let url = imageURL {
+            let asset = CKAsset(fileURL: url)
+            record[HROrderModelName.imageURL] = asset
+        }
         record[HROrderModelName.buyerName] = buyerName
         record[HROrderModelName.buyerEmail] = buyerEmail
         if (buyerPhoneNumber != nil) {
@@ -83,5 +91,51 @@ struct HROrder: Hashable, Identifiable, CKitableProtocol {
         record[HROrderModelName.dateOfOrder] = dateOfOrder
         record[HROrderModelName.orderStatus] = orderStatus
         self.init(record: record)
+    }
+    
+    func updateOrderStatus(status: String) -> HROrder? {
+        let record = record
+        record[HROrderModelName.orderStatus] = status
+        return HROrder(record: record)
+    }
+}
+
+enum OrderStatus: CaseIterable {
+    case toBeConfirmed
+    case confirmed
+    case dispatched
+    case delivered
+    case cancelled
+        
+    var title: String {
+        switch self {
+        case .toBeConfirmed:
+            return "To Be Confirmed"
+        case .confirmed:
+            return "Confirmed"
+        case .dispatched:
+            return "Dispatched"
+        case .delivered:
+            return "Delivered"
+        case .cancelled:
+            return "Cancelled"
+        }
+    }
+    
+    init?(statusString: String) {
+        switch statusString {
+        case "To Be Confirmed":
+            self = .toBeConfirmed
+        case "Confirmed":
+            self = .confirmed
+        case "Dispatched":
+            self = .dispatched
+        case "Delivered":
+            self = .delivered
+        case "Cancelled":
+            self = .cancelled
+        default:
+            return nil
+        }
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct VendorProductDetailsView: View {
+struct InventoryProductDetailView: View {
     var product: HRProduct
     private var imageUrls: [URL?] {
         [product.imageURL1, product.imageURL2, product.imageURL3]
@@ -16,7 +16,6 @@ struct VendorProductDetailsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-            
                 ScrollView(.horizontal) {
                     LazyHStack {
                         ForEach(imageUrls.compactMap({ $0 }), id: \.self) { url in
@@ -61,7 +60,6 @@ struct VendorProductDetailsView: View {
                     Spacer()
                 }
                 .padding()
-                .background(.white)
                 .cornerRadius(20)
                 .offset(y: -30)
             }

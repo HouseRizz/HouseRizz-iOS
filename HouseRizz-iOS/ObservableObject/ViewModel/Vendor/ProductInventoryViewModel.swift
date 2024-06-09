@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class VendorProductViewModel: ObservableObject {
+class ProductInventoryViewModel: ObservableObject {
     @Published var isSignedInToiCloud: Bool = false
     @Published var error: String = ""
     @Published var permissionStatus: Bool = false
