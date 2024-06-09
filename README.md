@@ -24,17 +24,19 @@ This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets 
 - [ ]  Search Bar
 - [ ]  Settings Page
 - [x]  Create Orders
-- [x]  Manage Orders
 - [ ]  Razorpay Payment Gateway Integration
 - [ ]  AI Feature - Sketch to Render
 - [ ]  AI Feature - Redesign home from image
+- [ ]  AI Feature - Tinder Like Swipes but for Furniture Recommendations
+
 Vendor Side
 - [x]  Add Item to CloudKit
 - [x]  Upload USDZ Model
 - [x]  Fetch Item
 - [x]  Delete Item
 - [x]  Item Detail View
-- [ ]  Order Management
+- [x]  Order Management
+- [ ]  Authentication
 
 ## Licence
 ### This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
