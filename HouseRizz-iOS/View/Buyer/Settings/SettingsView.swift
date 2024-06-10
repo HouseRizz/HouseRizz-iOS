@@ -14,8 +14,9 @@ struct SettingsView: View {
     @State private var showVendorInventory: Bool = false
     @State private var showVendorOrders: Bool = false
     @State private var showBuyerOrders: Bool = false
-    @State private var showEditPhoneNumber: Bool = false
+    @State private var editPhoneNumber: Bool = false
     @State private var editablePhoneNumber: String = ""
+    @State private var showEditAddress: Bool = false
     
     var body: some View {
         NavigationView {
@@ -42,7 +43,7 @@ struct SettingsView: View {
                             Image(systemName: "phone")
                             Text("Phone Number")
                             Spacer()
-                            if showEditPhoneNumber {
+                            if editPhoneNumber {
                                 TextField("Phone Number", text: $editablePhoneNumber, onCommit: {
                                     authentication.updatePhoneNumber(editablePhoneNumber)
                                 })
@@ -52,7 +53,7 @@ struct SettingsView: View {
                                 Text(user.phoneNumber ?? "Not Provided")
                                     .foregroundStyle(.blue)
                                     .onTapGesture {
-                                        showEditPhoneNumber.toggle()
+                                        editPhoneNumber.toggle()
                                     }
                             }
                         }
@@ -63,6 +64,9 @@ struct SettingsView: View {
                             Spacer()
                             Text(user.address ?? "Not Provided")
                                 .foregroundStyle(.blue)
+                                .onTapGesture {
+                                    showEditAddress.toggle()
+                                }
                         }
                     } header: {
                         Text("Account")
@@ -144,6 +148,9 @@ struct SettingsView: View {
             })
             .sheet(isPresented: $showBuyerOrders, content: {
                 OrderHistoryListView()
+            })
+            .sheet(isPresented: $showEditAddress, content: {
+                EditAddressView()
             })
         }
     }

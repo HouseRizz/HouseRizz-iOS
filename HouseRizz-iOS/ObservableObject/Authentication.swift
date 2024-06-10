@@ -76,6 +76,18 @@ extension Authentication {
         CKUtility.add(item: newUser!) { _ in }
     }
     
+    func updateAddress(_ address: String) {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        db.collection("users").document(userId).updateData([ "address": address ])
+        updateAddress(user: user!, address: address)
+    }
+    
+    func updateAddress(user: HRUser, address: String) {
+        guard let newUser = user.CKUpdateAddress(address: address) else { return }
+        CKUtility.update(item: newUser) {_ in }
+    }
+    
     func updatePhoneNumber(_ phoneNumber: String) {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
@@ -84,7 +96,7 @@ extension Authentication {
     }
     
     func updatePhoneNumber(user: HRUser, phoneNumber: String) {
-        guard let newUser = user.ckUpdatePhoneNumber(phone: phoneNumber) else { return }
+        guard let newUser = user.CKUpdatePhoneNumber(phone: phoneNumber) else { return }
         CKUtility.update(item: newUser) {_ in }
     }
 }
