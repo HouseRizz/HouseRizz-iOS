@@ -29,13 +29,13 @@ enum AuthenticationError: Error {
 class Authentication: ObservableObject {
     @Published var currentUserId = ""
     @Published var user: HRUser? = nil
-    @Published var name = ""
-    @Published var userType = ""
-    @Published var email = ""
-    @Published var phoneNumber = ""
-    @Published var address = ""
-    @Published var password = ""
-    @Published var confirmPassword = ""
+    @Published var name: String  = ""
+    @Published var userType: String  = "Buyer"
+    @Published var email: String  = ""
+    @Published var phoneNumber: String  = "Not Provided"
+    @Published var address: String  = "Not Provided"
+    @Published var password: String  = ""
+    @Published var confirmPassword: String  = ""
     @Published var authenticationState: AuthenticationState = .unauthenticated
     @Published var isValid: Bool  = false
     @Published var errorMessage: String = ""
