@@ -78,6 +78,7 @@
 		CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0062BCA3440000AFB80 /* AIView.swift */; };
 		CCDB49AE2C16D95900F7031B /* OrderHistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDB49AD2C16D95900F7031B /* OrderHistoryListView.swift */; };
 		CCDB49B02C16D9AB00F7031B /* OrderHistoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDB49AF2C16D9AB00F7031B /* OrderHistoryListViewModel.swift */; };
+		CCDB49B22C16DBC300F7031B /* OrderHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDB49B12C16DBC300F7031B /* OrderHistoryDetailView.swift */; };
 		CCDED4702C1544CA0063C1D2 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDED46F2C1544CA0063C1D2 /* OrderDetailView.swift */; };
 		CCDED4722C154E9F0063C1D2 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDED4712C154E9F0063C1D2 /* OrderDetailViewModel.swift */; };
 		CCDF24C02C12A5DB00353DD1 /* HRCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */; };
@@ -144,6 +145,7 @@
 		CCD3B0062BCA3440000AFB80 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
 		CCDB49AD2C16D95900F7031B /* OrderHistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryListView.swift; sourceTree = "<group>"; };
 		CCDB49AF2C16D9AB00F7031B /* OrderHistoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryListViewModel.swift; sourceTree = "<group>"; };
+		CCDB49B12C16DBC300F7031B /* OrderHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryDetailView.swift; sourceTree = "<group>"; };
 		CCDED46F2C1544CA0063C1D2 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 		CCDED4712C154E9F0063C1D2 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCartButton.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				CCDB49AD2C16D95900F7031B /* OrderHistoryListView.swift */,
+				CCDB49B12C16DBC300F7031B /* OrderHistoryDetailView.swift */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */,
 				CCC5B03E2BFBB7700007BEC1 /* HRTextField.swift in Sources */,
 				CC2F47162BC8CE1900A4C1FC /* CartButton.swift in Sources */,
+				CCDB49B22C16DBC300F7031B /* OrderHistoryDetailView.swift in Sources */,
 				CC06A95E2C0C080500A0DAD3 /* ColorExtension.swift in Sources */,
 				CCDED4702C1544CA0063C1D2 /* OrderDetailView.swift in Sources */,
 				CCC5B0442BFBB9310007BEC1 /* AddProductViewModel.swift in Sources */,

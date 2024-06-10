@@ -11,37 +11,43 @@ struct OrderHistoryListView: View {
     
     @StateObject private var viewModel = OrderHistoryListViewModel()
     @StateObject private var authentication = Authentication()
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack {
-            List(viewModel.orders, id: \.self) { order in
-                NavigationLink {
-
-                } label: {
-                    OrderListItemView(order: order)
-                }
-                
-            }
-        }
-        .navigationTitle("Manage Orders")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                } label: {
-                    Image(systemName: "xmark")
-                        .foregroundColor(.red)
+        NavigationStack {
+            VStack {
+                List(viewModel.orders, id: \.self) { order in
+                    if let user = authentication.user {
+                        NavigationLink {
+                            OrderHistoryDetailView(order: order).toolbarRole(.editor)
+                        } label: {
+                            OrderListItemView(order: order)
+                        }
+                    } else {
+                        Text("Not Signed In")
+                    }
                 }
             }
-        }
-        .onAppear {
-            viewModel.fetchOrders(buyerName: authentication.displayName)
-        }
-        .refreshable {
-            viewModel.fetchOrders(buyerName: authentication.displayName)
+            .navigationTitle("Orders History")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.red)
+                    }
+                }
+            }
+            .onAppear {
+                viewModel.fetchOrders(buyerName: authentication.user?.name ?? "Not Signed In")
+            }
+            .refreshable {
+                viewModel.fetchOrders(buyerName: authentication.user?.name ?? "Not Signed In")
+            }
         }
     }
-    
 }
 
 #Preview {
