@@ -13,6 +13,7 @@ struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showVendorInventory: Bool = false
     @State private var showVendorOrders: Bool = false
+    @State private var showBuyerOrders: Bool = false
     
     var body: some View {
         NavigationView {
@@ -55,6 +56,18 @@ struct SettingsView: View {
                 
                 Section {
                     HStack {
+                        Image(systemName: "archivebox")
+                        Text("Order History")
+                    }
+                    .onTapGesture {
+                        showBuyerOrders.toggle()
+                    }
+                } header: {
+                    Text("Orders")
+                }
+                
+                Section {
+                    HStack {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
                         Text("Sign out")
                     }
@@ -85,6 +98,9 @@ struct SettingsView: View {
             })
             .sheet(isPresented: $showVendorOrders, content: {
                 ManageOrdersView()
+            })
+            .sheet(isPresented: $showBuyerOrders, content: {
+                OrderHistoryListView()
             })
         }
     }
