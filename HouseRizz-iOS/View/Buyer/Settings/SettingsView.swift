@@ -18,22 +18,43 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    HStack {
-                        Image(systemName: "envelope")
-                        Text("Email")
-                        Spacer()
-                        if let user = auth.user {
-                            Text(user.email)
-                                .foregroundStyle(.gray)
-                        } else {
-                            Text("Loading Profile ..")
+                if let user = auth.user {
+                    Section {
+                        HStack {
+                            Image(systemName: "person")
+                            Text("Email")
+                            Spacer()
+                            Text(user.name)
                                 .foregroundStyle(.gray)
                         }
+                        HStack {
+                            Image(systemName: "envelope")
+                            Text("Email")
+                            Spacer()
+                            Text(user.email)
+                                .foregroundStyle(.gray)
+                        }
+                        HStack {
+                            Image(systemName: "phone")
+                            Text("Phone Number")
+                            Spacer()
+                            Text(user.phoneNumber ?? "Not Provided")
+                                .foregroundStyle(.blue)
+                        }
+                        HStack {
+                            Image(systemName: "house")
+                            Text("Address")
+                            Spacer()
+                            Text(user.address ?? "Not Provided")
+                                .foregroundStyle(.blue)
+                        }
+                    } header: {
+                        Text("Account")
                     }
-                } header: {
-                    Text("Account")
+                } else {
+                    Text("Loading Profile ..")
                 }
+                
                 
                 if auth.user?.userType == "vendor" {
                     Section {
