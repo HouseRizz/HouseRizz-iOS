@@ -139,3 +139,17 @@ enum OrderStatus: CaseIterable {
         }
     }
 }
+
+enum availableCities: CaseIterable {
+    case delhi
+    case agra
+    
+    var title: String {
+        switch self {
+        case .delhi:
+            return "Delhi"
+        case .agra:
+            return "Agra"
+        }
+    }
+}

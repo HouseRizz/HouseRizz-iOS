@@ -23,7 +23,6 @@ struct HRTextField: View {
                 .lineLimit(2...15)
                 .font(.system(.title3, design: .rounded))
                 .padding(15)
-                .background(.white)
                 .cornerRadius(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
