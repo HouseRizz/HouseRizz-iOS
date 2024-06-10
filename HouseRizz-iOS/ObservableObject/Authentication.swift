@@ -58,6 +58,11 @@ class Authentication: ObservableObject {
         return Auth.auth().currentUser != nil
     }
     
+    
+
+}
+
+extension Authentication {
     private func insertUserRecord(id: String) {
         
         let newUser = HRUser(id: id, name: name, userType: userType, email: email,phoneNumber: phoneNumber, address: address, joined: Date().timeIntervalSince1970)
@@ -70,7 +75,18 @@ class Authentication: ObservableObject {
         
         CKUtility.add(item: newUser!) { _ in }
     }
-
+    
+    func updatePhoneNumber(_ phoneNumber: String) {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        db.collection("users").document(userId).updateData([ "phoneNumber": phoneNumber ])
+        updatePhoneNumber(user: user!, phoneNumber: phoneNumber)
+    }
+    
+    func updatePhoneNumber(user: HRUser, phoneNumber: String) {
+        guard let newUser = user.ckUpdatePhoneNumber(phone: phoneNumber) else { return }
+        CKUtility.update(item: newUser) {_ in }
+    }
 }
 
 extension Authentication {

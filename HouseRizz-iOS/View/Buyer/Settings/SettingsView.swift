@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @StateObject var auth = Authentication()
+    @StateObject var authentication = Authentication()
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode
     @State private var showVendorInventory: Bool = false
     @State private var showVendorOrders: Bool = false
     @State private var showBuyerOrders: Bool = false
+    @State private var showEditPhoneNumber: Bool = false
+    @State private var editablePhoneNumber: String = ""
     
     var body: some View {
         NavigationView {
             List {
-                if let user = auth.user {
+                if let user = authentication.user {
                     Section {
                         HStack {
                             Image(systemName: "person")
@@ -27,6 +29,7 @@ struct SettingsView: View {
                             Text(user.name)
                                 .foregroundStyle(.gray)
                         }
+                        
                         HStack {
                             Image(systemName: "envelope")
                             Text("Email")
@@ -34,13 +37,26 @@ struct SettingsView: View {
                             Text(user.email)
                                 .foregroundStyle(.gray)
                         }
+                        
                         HStack {
                             Image(systemName: "phone")
                             Text("Phone Number")
                             Spacer()
-                            Text(user.phoneNumber ?? "Not Provided")
+                            if showEditPhoneNumber {
+                                TextField("Phone Number", text: $editablePhoneNumber, onCommit: {
+                                    authentication.updatePhoneNumber(editablePhoneNumber)
+                                })
+                                .frame(width: 110)
                                 .foregroundStyle(.blue)
+                            } else {
+                                Text(user.phoneNumber ?? "Not Provided")
+                                    .foregroundStyle(.blue)
+                                    .onTapGesture {
+                                        showEditPhoneNumber.toggle()
+                                    }
+                            }
                         }
+                        
                         HStack {
                             Image(systemName: "house")
                             Text("Address")
@@ -56,7 +72,7 @@ struct SettingsView: View {
                 }
                 
                 
-                if auth.user?.userType == "vendor" {
+                if authentication.user?.userType == "vendor" {
                     Section {
                         HStack {
                             Image(systemName: "plus.circle")
@@ -65,6 +81,7 @@ struct SettingsView: View {
                         .onTapGesture {
                             showVendorInventory.toggle()
                         }
+                        
                         HStack {
                             Image(systemName: "archivebox")
                             Text("Manage Orders")
@@ -96,7 +113,7 @@ struct SettingsView: View {
                     }
                     .foregroundStyle(.red)
                     .onTapGesture {
-                        auth.signOut()
+                        authentication.signOut()
                     }
                 }
             }
@@ -114,7 +131,10 @@ struct SettingsView: View {
                 }
             }
             .onAppear {
-                auth.fetchUser()
+                authentication.fetchUser()
+                if let phoneNumber = authentication.user?.phoneNumber {
+                    editablePhoneNumber = phoneNumber
+                }
             }
             .sheet(isPresented: $showVendorInventory, content: {
                 ProductInventoryView()
