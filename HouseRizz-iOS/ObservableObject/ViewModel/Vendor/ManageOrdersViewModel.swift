@@ -14,30 +14,8 @@ class ManageOrdersViewModel: ObservableObject {
     @Published var userName: String = ""
     var cancellables = Set<AnyCancellable>()
     
-    init() {
-        getCurrentUserName()
-    }
-
-    func getCurrentUserName() {
-        CKUtility.discoverUserIdentity()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    self?.error = error.localizedDescription
-                }
-            } receiveValue: { [weak self] userName in
-                self?.userName = userName
-                self?.fetchOrders()
-            }
-            .store(in: &cancellables)
-    }
-    
-    func fetchOrders() {
-        
-        let predicate = NSPredicate(format: "%K == %@", HROrderModelName.supplier, userName)
+    func fetchOrders(vendorName: String) {
+        let predicate = NSPredicate(format: "%K == %@", HROrderModelName.supplier, vendorName)
         let recordType = HROrderModelName.itemRecord
         CKUtility.fetch(predicate: predicate, recordType: recordType)
             .receive(on: DispatchQueue.main)

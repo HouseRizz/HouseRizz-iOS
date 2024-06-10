@@ -18,6 +18,7 @@ struct AddProductView: View {
     @State var isSaveButton: Bool = false
     @State var isAddButton: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    @StateObject private var authentication = Authentication()
     
     var body: some View {
         NavigationStack {
@@ -67,12 +68,12 @@ extension AddProductView {
     var saveButtons: some View {
         HStack {
             HRAddProductButton(buttonText: "Save", background: Color.primaryColor, textColor: .white) {
-                viewModel.addButtonPressed()
+                viewModel.addButtonPressed(vendorName: authentication.user?.name ?? "none")
                 isSaveButton = true
             }
             
             HRAddProductButton(buttonText: "Add Another", background: Color.primaryColor.opacity(0.2), textColor: Color.primaryColor) {
-                viewModel.addButtonPressed()
+                viewModel.addButtonPressed(vendorName: authentication.user?.name ?? "none")
                 isAddButton = true
             }
         }

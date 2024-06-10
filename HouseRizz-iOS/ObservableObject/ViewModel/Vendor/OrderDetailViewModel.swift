@@ -18,7 +18,6 @@ class OrderDetailViewModel: ObservableObject {
     
     init(initialStatus: OrderStatus) {
         self.selectedOrderStatus = initialStatus
-        getCurrentUserName()
     }
 
     func updateOrderStatus(order: HROrder) {
@@ -28,21 +27,5 @@ class OrderDetailViewModel: ObservableObject {
                 self?.isChangedStatus.toggle()
             }
         }
-    }
-    
-    func getCurrentUserName() {
-        CKUtility.discoverUserIdentity()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    self?.error = error.localizedDescription
-                }
-            } receiveValue: { [weak self] success in
-                self?.supplier = success
-            }
-            .store(in: &cancellables)
     }
 }

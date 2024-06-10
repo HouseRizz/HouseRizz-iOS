@@ -11,6 +11,7 @@ struct ProductInventoryView: View {
     @StateObject private var viewModel = ProductInventoryViewModel()
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     @State private var showDeleteOption: Bool = false
+    @StateObject private var authentication = Authentication()
     
     var body: some View {
         NavigationStack {
@@ -40,13 +41,13 @@ struct ProductInventoryView: View {
                     .padding()
                 }
                 .onAppear {
-                    viewModel.fetchItems()
+                    viewModel.fetchItems(vendorName: authentication.user?.name ?? "none")
                 }
                 .refreshable {
-                    viewModel.fetchItems()
+                    viewModel.fetchItems(vendorName: authentication.user?.name ?? "none")
                 }
             }
-            .navigationTitle("\(viewModel.userName)'s Products")
+            .navigationTitle("\(authentication.user?.name ?? "none")'s Products")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

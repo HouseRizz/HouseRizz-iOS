@@ -11,6 +11,7 @@ struct ManageOrdersView: View {
     
     @StateObject private var viewModel = ManageOrdersViewModel()
     @Environment(\.presentationMode) var presentationMode
+    @StateObject private var authentication = Authentication()
     
     var body: some View {
         NavigationStack {
@@ -37,10 +38,10 @@ struct ManageOrdersView: View {
                 }
             }
             .onAppear {
-                viewModel.fetchOrders()
+                viewModel.fetchOrders(vendorName: authentication.user?.name ?? "none")
             }
             .refreshable {
-                viewModel.fetchOrders()
+                viewModel.fetchOrders(vendorName: authentication.user?.name ?? "none")
             }
         }
     }

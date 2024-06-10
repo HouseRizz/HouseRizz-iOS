@@ -32,13 +32,9 @@ class AddProductViewModel: ObservableObject {
         return totalPrice
     }
     
-    init(){
-        getCurrentUserName()
-    }
-    
-    func addButtonPressed(){
+    func addButtonPressed(vendorName: String){
         guard !name.isEmpty else {return}
-        addItem(name: name)
+        addItem(name: name, vendorName: vendorName)
         
     }
     
@@ -55,7 +51,7 @@ class AddProductViewModel: ObservableObject {
         selectedPhotoData = [Data]()
     }
     
-    private func addItem(name: String) {
+    private func addItem(name: String, vendorName: String) {
         guard !selectedPhotoData.isEmpty else {
             error = "Please select at least one image"
             return
@@ -76,7 +72,7 @@ class AddProductViewModel: ObservableObject {
             }
         }
         
-        guard let newItem = HRProduct(id: UUID(), name: name, description: description, price: finalPrice, imageURL1: urls.count > 0 ? urls[0] : nil, imageURL2: urls.count > 1 ? urls[1] : nil, imageURL3: urls.count > 2 ? urls[2] : nil, modelURL: modelURL, category: selectedCategory.title, supplier: supplier) else {
+        guard let newItem = HRProduct(id: UUID(), name: name, description: description, price: finalPrice, imageURL1: urls.count > 0 ? urls[0] : nil, imageURL2: urls.count > 1 ? urls[1] : nil, imageURL3: urls.count > 2 ? urls[2] : nil, modelURL: modelURL, category: selectedCategory.title, supplier: vendorName) else {
             error = "Error creating item"
             isLoaded = true
             return
@@ -108,22 +104,6 @@ class AddProductViewModel: ObservableObject {
 
         try FileManager.default.copyItem(at: fileURL, to: modelURL)
         return modelURL
-    }
-    
-    func getCurrentUserName() {
-        CKUtility.discoverUserIdentity()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    self?.error = error.localizedDescription
-                }
-            } receiveValue: { [weak self] success in
-                self?.supplier = success
-            }
-            .store(in: &cancellables)
     }
 }
 
