@@ -35,35 +35,37 @@ struct SettingsView: View {
                     Text("Account")
                 }
                 
-                Section {
-                    HStack {
-                        Image(systemName: "plus.circle")
-                        Text("Manage Inventory")
+                if auth.user?.userType == "vendor" {
+                    Section {
+                        HStack {
+                            Image(systemName: "plus.circle")
+                            Text("Manage Inventory")
+                        }
+                        .onTapGesture {
+                            showVendorInventory.toggle()
+                        }
+                        HStack {
+                            Image(systemName: "archivebox")
+                            Text("Manage Orders")
+                        }
+                        .onTapGesture {
+                            showVendorOrders.toggle()
+                        }
+                    } header: {
+                        Text("Vendor")
                     }
-                    .onTapGesture {
-                        showVendorInventory.toggle()
+                } else {
+                    Section {
+                        HStack {
+                            Image(systemName: "archivebox")
+                            Text("Order History")
+                        }
+                        .onTapGesture {
+                            showBuyerOrders.toggle()
+                        }
+                    } header: {
+                        Text("Orders")
                     }
-                    HStack {
-                        Image(systemName: "archivebox")
-                        Text("Manage Orders")
-                    }
-                    .onTapGesture {
-                        showVendorOrders.toggle()
-                    }
-                } header: {
-                    Text("Vendor")
-                }
-                
-                Section {
-                    HStack {
-                        Image(systemName: "archivebox")
-                        Text("Order History")
-                    }
-                    .onTapGesture {
-                        showBuyerOrders.toggle()
-                    }
-                } header: {
-                    Text("Orders")
                 }
                 
                 Section {

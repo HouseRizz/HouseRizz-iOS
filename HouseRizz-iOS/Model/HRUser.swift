@@ -68,7 +68,7 @@ struct HRUser: Encodable, Hashable, Identifiable, CKitableProtocol {
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case type
+        case userType
         case email
         case phoneNumber
         case address
@@ -79,6 +79,7 @@ struct HRUser: Encodable, Hashable, Identifiable, CKitableProtocol {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
+        try container.encode(userType, forKey: .userType)
         try container.encode(email, forKey: .email)
         try container.encodeIfPresent(phoneNumber, forKey: .phoneNumber)
         try container.encodeIfPresent(address, forKey: .address)
