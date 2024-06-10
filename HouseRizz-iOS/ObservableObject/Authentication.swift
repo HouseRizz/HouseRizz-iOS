@@ -30,7 +30,7 @@ class Authentication: ObservableObject {
     @Published var currentUserId = ""
     @Published var user: HRUser? = nil
     @Published var name = ""
-    @Published var userType = "user"
+    @Published var userType = ""
     @Published var email = ""
     @Published var phoneNumber = ""
     @Published var address = ""
