@@ -37,6 +37,11 @@ class CartViewModel: ObservableObject {
 }
 
 extension CartViewModel {
+    func clearCart() {
+            products.removeAll()
+            total = 0
+        }
+    
     func addToCart(product: HRProduct, quantity: Int = 1) {
         if let index = products.firstIndex(where: { $0.product.id == product.id }) {
             products[index].quantity += quantity
