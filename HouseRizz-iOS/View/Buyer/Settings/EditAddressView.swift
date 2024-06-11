@@ -22,38 +22,52 @@ struct EditAddressView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 10) {
-                ScrollView {
-                    HRTextField(text: $address1, title: "Flat, House no., Building, Company, Apartment")
-                    HRTextField(text: $address2, title: "Area, Street, Sector, Village")
-                    HRTextField(text: $landmark, title: "Landmark")
+            VStack(spacing: 20) {
+                VStack {
+                    Text("Your Current Address ")
+                        .font(.title3)
+                        .bold()
                     
-                    HStack {
-                        HRTextField(text: $pincode, title: "Pincode")
-                        HRTextField(text: $city, title: "Town/City")
-                    }
+                    Text(authentication.user?.address ?? "")
+                            .lineLimit(nil)
+                            .multilineTextAlignment(.leading)
+                            .padding(.horizontal)
+                }
+                                
+                Text("Edit Your Address")
+                    .font(.title3)
+                    .bold()
+                
+                HRTextField(text: $address1, title: "Flat, House no., Building, Company, Apartment")
+                HRTextField(text: $address2, title: "Area, Street, Sector, Village")
+                HRTextField(text: $landmark, title: "Landmark")
+                
+                HStack {
+                    HRTextField(text: $pincode, title: "Pincode")
+                    HRTextField(text: $city, title: "Town/City")
+                }
+                
+                HStack {
+                    Text("State")
                     
-                    HStack {
-                        Text("State")
-                        
-                        Spacer()
-                        
-                        Picker("State", selection: $state) {
-                            ForEach(availableCities.allCases, id: \.self) {
-                                Text($0.title)
-                            }
+                    Spacer()
+                    
+                    Picker("State", selection: $state) {
+                        ForEach(availableCities.allCases, id: \.self) {
+                            Text($0.title)
                         }
                     }
                 }
-                
+                                
                 Divider()
                 
                 HRCartButton(buttonText: "Save Address") {
                     authentication.updateAddress(finalAdress)
+                    presentationMode.wrappedValue.dismiss()
                 }
             }
             .padding()
-            .navigationTitle("Edit Address")
+            .navigationTitle("Your Address")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

@@ -62,7 +62,7 @@ struct SettingsView: View {
                             Image(systemName: "house")
                             Text("Address")
                             Spacer()
-                            Text(user.address ?? "Not Provided")
+                            Text((user.address ?? "Not Provided").prefix(15) + "...")
                                 .foregroundStyle(.blue)
                                 .onTapGesture {
                                     showEditAddress.toggle()
