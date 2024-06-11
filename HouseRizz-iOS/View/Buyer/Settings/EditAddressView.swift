@@ -14,8 +14,11 @@ struct EditAddressView: View {
     @State private var landmark: String = ""
     @State private var pincode: String = ""
     @State private var city: String = ""
-    @State private var state: String = ""
+    @State private var state: String = availableCities.delhi.title
     @Environment(\.presentationMode) var presentationMode
+    var finalAdress: String {
+        address1 + " " + address2 + " " + landmark + " " + pincode + " " + city + " " + state
+    }
     
     var body: some View {
         NavigationStack {
@@ -46,7 +49,7 @@ struct EditAddressView: View {
                 Divider()
                 
                 HRCartButton(buttonText: "Save Address") {
-                    authentication.updateAddress("\(address1+address2+landmark+pincode+city+state)")
+                    authentication.updateAddress(finalAdress)
                 }
             }
             .padding()
