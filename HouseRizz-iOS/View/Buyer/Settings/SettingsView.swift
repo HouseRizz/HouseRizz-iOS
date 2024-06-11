@@ -17,6 +17,7 @@ struct SettingsView: View {
     @State private var editPhoneNumber: Bool = false
     @State private var editablePhoneNumber: String = ""
     @State private var showEditAddress: Bool = false
+    @State private var deleteAccount: Bool = false
     
     var body: some View {
         NavigationView {
@@ -119,6 +120,17 @@ struct SettingsView: View {
                     .onTapGesture {
                         authentication.signOut()
                     }
+                    
+                    HStack {
+                        Image(systemName: "xmark.circle")
+                        Text("Delete Account")
+                    }
+                    .foregroundStyle(.red)
+                    .onTapGesture {
+                        deleteAccount.toggle()
+                    }
+                }  header: {
+                    Text("Leave")
                 }
             }
             .navigationTitle("Settings")
@@ -152,6 +164,15 @@ struct SettingsView: View {
             .sheet(isPresented: $showEditAddress, content: {
                 EditAddressView()
             })
+            .alert(isPresented: $deleteAccount) {
+                Alert(title: Text("Delete Account"),
+                      message: Text("This action will delete your account information, orders, and any other information"),
+                      primaryButton: .destructive(Text("Delete"), action: {
+                          authentication.delete()
+                      }),
+                      secondaryButton: .cancel(Text("Cancel"))
+                )
+            }
         }
     }
 }
