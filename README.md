@@ -22,7 +22,7 @@ This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets 
 - [x]  Cart
 - [x]  Fetch from CloudKit
 - [ ]  Search Bar
-- [ ]  Settings Page
+- [x]  Settings Page
 - [x]  Create Orders
 - [x]  View Order History
 - [ ]  Razorpay Payment Gateway Integration
