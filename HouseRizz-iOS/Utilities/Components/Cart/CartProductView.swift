@@ -27,7 +27,7 @@ struct CartProductView: View {
                     .font(.headline)
                     .bold()
                 
-                Text("₹\((cartItem.product.price ?? 0) * Double(cartItem.quantity))")
+                Text(((cartItem.product.price ?? 0) * Double(cartItem.quantity)).formattedCurrency())
                     .font(.subheadline)
             }
             

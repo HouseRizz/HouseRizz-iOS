@@ -26,7 +26,7 @@ struct CartView: View {
                 HStack {
                     Text("Your Total is ")
                     Spacer()
-                    Text("₹\(cartViewModel.total)")
+                    Text((cartViewModel.total).formattedCurrency())
                         .bold()
                 }
                 .padding()
