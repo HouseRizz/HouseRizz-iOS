@@ -29,13 +29,13 @@ enum AuthenticationError: Error {
 class Authentication: ObservableObject {
     @Published var currentUserId = ""
     @Published var user: HRUser? = nil
-    @Published var name = ""
-    @Published var userType = ""
-    @Published var email = ""
-    @Published var phoneNumber = ""
-    @Published var address = ""
-    @Published var password = ""
-    @Published var confirmPassword = ""
+    @Published var name: String  = ""
+    @Published var userType: String  = "Buyer"
+    @Published var email: String  = ""
+    @Published var phoneNumber: String  = "Not Provided"
+    @Published var address: String  = "Not Provided"
+    @Published var password: String  = ""
+    @Published var confirmPassword: String  = ""
     @Published var authenticationState: AuthenticationState = .unauthenticated
     @Published var isValid: Bool  = false
     @Published var errorMessage: String = ""
@@ -58,6 +58,11 @@ class Authentication: ObservableObject {
         return Auth.auth().currentUser != nil
     }
     
+    
+
+}
+
+extension Authentication {
     private func insertUserRecord(id: String) {
         
         let newUser = HRUser(id: id, name: name, userType: userType, email: email,phoneNumber: phoneNumber, address: address, joined: Date().timeIntervalSince1970)
@@ -70,7 +75,30 @@ class Authentication: ObservableObject {
         
         CKUtility.add(item: newUser!) { _ in }
     }
-
+    
+    func updateAddress(_ address: String) {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        db.collection("users").document(userId).updateData([ "address": address ])
+        updateAddress(user: user!, address: address)
+    }
+    
+    func updateAddress(user: HRUser, address: String) {
+        guard let newUser = user.CKUpdateAddress(address: address) else { return }
+        CKUtility.update(item: newUser) {_ in }
+    }
+    
+    func updatePhoneNumber(_ phoneNumber: String) {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        db.collection("users").document(userId).updateData([ "phoneNumber": phoneNumber ])
+        updatePhoneNumber(user: user!, phoneNumber: phoneNumber)
+    }
+    
+    func updatePhoneNumber(user: HRUser, phoneNumber: String) {
+        guard let newUser = user.CKUpdatePhoneNumber(phone: phoneNumber) else { return }
+        CKUtility.update(item: newUser) {_ in }
+    }
 }
 
 extension Authentication {

@@ -8,34 +8,75 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @StateObject var auth = Authentication()
+    @StateObject var authentication = Authentication()
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode
     @State private var showVendorInventory: Bool = false
     @State private var showVendorOrders: Bool = false
     @State private var showBuyerOrders: Bool = false
+    @State private var editPhoneNumber: Bool = false
+    @State private var editablePhoneNumber: String = ""
+    @State private var showEditAddress: Bool = false
     
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    HStack {
-                        Image(systemName: "envelope")
-                        Text("Email")
-                        Spacer()
-                        if let user = auth.user {
-                            Text(user.email)
-                                .foregroundStyle(.gray)
-                        } else {
-                            Text("Loading Profile ..")
+                if let user = authentication.user {
+                    Section {
+                        HStack {
+                            Image(systemName: "person")
+                            Text("Email")
+                            Spacer()
+                            Text(user.name)
                                 .foregroundStyle(.gray)
                         }
+                        
+                        HStack {
+                            Image(systemName: "envelope")
+                            Text("Email")
+                            Spacer()
+                            Text(user.email)
+                                .foregroundStyle(.gray)
+                        }
+                        
+                        HStack {
+                            Image(systemName: "phone")
+                            Text("Phone Number")
+                            Spacer()
+                            if editPhoneNumber {
+                                TextField("Phone Number", text: $editablePhoneNumber, onCommit: {
+                                    authentication.updatePhoneNumber(editablePhoneNumber)
+                                })
+                                .frame(width: 110)
+                                .foregroundStyle(.blue)
+                            } else {
+                                Text(user.phoneNumber ?? "Not Provided")
+                                    .foregroundStyle(.blue)
+                                    .onTapGesture {
+                                        editPhoneNumber.toggle()
+                                    }
+                            }
+                        }
+                        
+                        HStack {
+                            Image(systemName: "house")
+                            Text("Address")
+                            Spacer()
+                            Text((user.address ?? "Not Provided").prefix(15) + "...")
+                                .foregroundStyle(.blue)
+                                .onTapGesture {
+                                    showEditAddress.toggle()
+                                }
+                        }
+                    } header: {
+                        Text("Account")
                     }
-                } header: {
-                    Text("Account")
+                } else {
+                    Text("Loading Profile ..")
                 }
                 
-                if auth.user?.userType == "vendor" {
+                
+                if authentication.user?.userType == "vendor" {
                     Section {
                         HStack {
                             Image(systemName: "plus.circle")
@@ -44,6 +85,7 @@ struct SettingsView: View {
                         .onTapGesture {
                             showVendorInventory.toggle()
                         }
+                        
                         HStack {
                             Image(systemName: "archivebox")
                             Text("Manage Orders")
@@ -75,7 +117,7 @@ struct SettingsView: View {
                     }
                     .foregroundStyle(.red)
                     .onTapGesture {
-                        auth.signOut()
+                        authentication.signOut()
                     }
                 }
             }
@@ -93,7 +135,10 @@ struct SettingsView: View {
                 }
             }
             .onAppear {
-                auth.fetchUser()
+                authentication.fetchUser()
+                if let phoneNumber = authentication.user?.phoneNumber {
+                    editablePhoneNumber = phoneNumber
+                }
             }
             .sheet(isPresented: $showVendorInventory, content: {
                 ProductInventoryView()
@@ -103,6 +148,9 @@ struct SettingsView: View {
             })
             .sheet(isPresented: $showBuyerOrders, content: {
                 OrderHistoryListView()
+            })
+            .sheet(isPresented: $showEditAddress, content: {
+                EditAddressView()
             })
         }
     }

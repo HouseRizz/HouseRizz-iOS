@@ -85,4 +85,16 @@ struct HRUser: Encodable, Hashable, Identifiable, CKitableProtocol {
         try container.encodeIfPresent(address, forKey: .address)
         try container.encode(joined, forKey: .joined)
     }
+    
+    func CKUpdatePhoneNumber(phone: String) -> HRUser? {
+        let record = record
+        record[HRUserModelName.phoneNumber] = phone
+        return HRUser(record: record)
+    }
+    
+    func CKUpdateAddress(address: String) -> HRUser? {
+        let record = record
+        record[HRUserModelName.address] = address
+        return HRUser(record: record)
+    }
 }

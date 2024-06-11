@@ -20,7 +20,6 @@ class ProductInventoryViewModel: ObservableObject {
         getiCloudStatus()
         requestPermission()
         getCurrentUserName()
-        fetchItems()
     }
     
     private func getiCloudStatus(){
@@ -72,8 +71,8 @@ class ProductInventoryViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func fetchItems(){
-        let predicate = NSPredicate(format: "%K == %@", HRProductModelName.supplier, userName)
+    func fetchItems(vendorName: String){
+        let predicate = NSPredicate(format: "%K == %@", HRProductModelName.supplier, vendorName)
         let recordType = "Items"
         CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
             .receive(on: DispatchQueue.main)
