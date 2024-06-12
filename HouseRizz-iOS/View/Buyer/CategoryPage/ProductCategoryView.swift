@@ -11,7 +11,7 @@ struct ProductCategoryView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var selectedProduct: HRProduct?
     @StateObject private var viewModel = ProductCategoryViewModel()
-    @StateObject private var searchViewModel = SearchViewModel()
+    @EnvironmentObject private var searchViewModel: SearchViewModel
 
     var column = [GridItem(.adaptive(minimum: 160), spacing: 20)]
     var productCategory: Category
@@ -19,7 +19,7 @@ struct ProductCategoryView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBarView(searchViewModel: searchViewModel)
+                SearchBarView()
                     .padding(.top, 10)
 
                 ScrollView {

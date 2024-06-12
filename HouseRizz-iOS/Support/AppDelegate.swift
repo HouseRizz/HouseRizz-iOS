@@ -18,8 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
         let cartViewModel = CartViewModel()
+        let searchViewModel = SearchViewModel()
         let contentView = MainView()
             .environmentObject(cartViewModel)
+            .environmentObject(searchViewModel)
 
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = UIHostingController(rootView: contentView)

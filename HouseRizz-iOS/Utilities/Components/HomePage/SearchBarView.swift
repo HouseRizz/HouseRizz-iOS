@@ -11,7 +11,7 @@ struct SearchBarView: View {
     @State private var search: String = ""
     @EnvironmentObject var cartViewModel: CartViewModel
     @State var pickCity: Bool = false
-    @ObservedObject var searchViewModel: SearchViewModel
+    @EnvironmentObject var searchViewModel: SearchViewModel
     
     var body: some View {
         HStack {

@@ -11,7 +11,7 @@ struct HomeView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var selectedProduct: HRProduct?
     @StateObject private var viewModel = HomeViewModel()
-    @StateObject private var searchViewModel = SearchViewModel() 
+    @EnvironmentObject private var searchViewModel: SearchViewModel
 
     var body: some View {
         NavigationStack {
@@ -20,7 +20,7 @@ struct HomeView: View {
                     .resizable()
                     .frame(width: 150, height: 40)
                 
-                SearchBarView(searchViewModel: searchViewModel)
+                SearchBarView()
                 
                 ScrollView {
                     VStack {
