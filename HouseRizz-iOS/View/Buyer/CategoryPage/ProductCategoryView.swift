@@ -18,7 +18,7 @@ struct ProductCategoryView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchView()
+                SearchBarView()
                     .padding(.top, 10)
 
                 ScrollView {
@@ -37,13 +37,6 @@ struct ProductCategoryView: View {
         }
         .navigationTitle(productCategory.title)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem {
-                NavigationLink(destination: CartView().environmentObject(cartViewModel)) {
-                    CartButton(numberOfProducts: cartViewModel.products.count)
-                }
-            }
-        }
         .sheet(item: $selectedProduct) { product in
             ProductDetailsView(product: product)
                 .environmentObject(cartViewModel)

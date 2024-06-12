@@ -19,7 +19,7 @@ struct HomeView: View {
                     .resizable()
                     .frame(width: 150, height: 40)
                 
-                SearchView()
+                SearchBarView()
                 
                 ScrollView {
                     VStack {

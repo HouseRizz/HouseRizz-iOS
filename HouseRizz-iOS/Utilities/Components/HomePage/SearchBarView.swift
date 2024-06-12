@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct SearchView: View {
+struct SearchBarView: View {
     @State private var search: String = ""
     @EnvironmentObject var cartViewModel: CartViewModel
+    @State var pickCity: Bool = false
     
     var body: some View {
         HStack {
@@ -24,12 +25,17 @@ struct SearchView: View {
                     .font(.caption)
                 }
                 .padding(.leading, 15)
+                .onTapGesture {
+                    pickCity.toggle()
+                }
                 
                 Spacer()
                 
                 HStack {
-                    Image(systemName: "magnifyingglass")
-                        .padding(5)
+                    NavigationLink(destination: SearchView()) {
+                        Image(systemName: "magnifyingglass")
+                            .padding(5)
+                    }
                     
                     NavigationLink(destination: SettingsView()) {
                         Image(systemName:  "person")
@@ -47,5 +53,8 @@ struct SearchView: View {
             .cornerRadius(25)
         }
         .padding(.horizontal)
+        .sheet(isPresented: $pickCity) {
+            CityPickerView()
+        }
     }
 }
