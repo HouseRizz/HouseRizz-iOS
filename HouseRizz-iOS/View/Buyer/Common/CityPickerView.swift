@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CityPickerView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State var selectedCity: String = availableCities.delhi.title
+    @ObservedObject var searchViewModel: SearchViewModel
     
     var body: some View {
         NavigationStack {
@@ -18,8 +18,9 @@ struct CityPickerView: View {
                     ForEach(availableCities.allCases, id: \.self) { city in
                         CityView(city: city.title)
                             .onTapGesture {
-                                selectedCity = city.title
+                                searchViewModel.selectedCity = city.title
                                 presentationMode.wrappedValue.dismiss()
+                                print(city.title)
                             }
                     }
                 }
@@ -40,8 +41,4 @@ struct CityPickerView: View {
             }
         }
     }
-}
-
-#Preview {
-    CityPickerView()
 }

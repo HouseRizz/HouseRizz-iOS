@@ -11,6 +11,7 @@ struct SearchBarView: View {
     @State private var search: String = ""
     @EnvironmentObject var cartViewModel: CartViewModel
     @State var pickCity: Bool = false
+    @ObservedObject var searchViewModel: SearchViewModel
     
     var body: some View {
         HStack {
@@ -20,7 +21,7 @@ struct SearchBarView: View {
                     
                     VStack(alignment: .leading) {
                         Text("Delivery to")
-                        Text("Delhi")
+                        Text(searchViewModel.selectedCity)
                     }
                     .font(.caption)
                 }
@@ -54,7 +55,7 @@ struct SearchBarView: View {
         }
         .padding(.horizontal)
         .sheet(isPresented: $pickCity) {
-            CityPickerView()
+            CityPickerView(searchViewModel: searchViewModel)
         }
     }
 }
