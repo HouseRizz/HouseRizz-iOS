@@ -11,17 +11,12 @@ struct ProductCategoryView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var selectedProduct: HRProduct?
     @StateObject private var viewModel = ProductCategoryViewModel()
-    @EnvironmentObject private var searchViewModel: SearchViewModel
-
     var column = [GridItem(.adaptive(minimum: 160), spacing: 20)]
     var productCategory: Category
 
     var body: some View {
         NavigationView {
             VStack {
-                SearchBarView()
-                    .padding(.top, 10)
-
                 ScrollView {
                     LazyVGrid(columns: column) {
                         ForEach(viewModel.products.filter { $0.category == productCategory.title }, id: \.self) { product in
