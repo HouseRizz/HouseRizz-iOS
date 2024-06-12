@@ -8,8 +8,32 @@
 import SwiftUI
 
 struct CityPickerView: View {
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
+                    ForEach(availableCities.allCases, id: \.self) { city in
+                        CityView(city: city.title)
+                    }
+                }
+            }
+            .padding()
+            .navigationTitle("Select Your City")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundStyle(.gray)
+                    }
+                    
+                }
+            }
+        }
     }
 }
 
