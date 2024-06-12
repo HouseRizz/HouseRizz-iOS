@@ -11,6 +11,7 @@ struct ProductCategoryView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var selectedProduct: HRProduct?
     @StateObject private var viewModel = ProductCategoryViewModel()
+    @EnvironmentObject private var searchViewModel: SearchViewModel
 
     var column = [GridItem(.adaptive(minimum: 160), spacing: 20)]
     var productCategory: Category
@@ -18,21 +19,8 @@ struct ProductCategoryView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchView()
+                SearchBarView()
                     .padding(.top, 10)
-                
-                /*
-                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                     ForEach(viewModel.products.indices, id: \.self) { index in
-                         ProductCardView(product: viewModel.products[index])
-                             .environmentObject(cartViewModel)
-                             .onTapGesture {
-                                 selectedProduct = viewModel.products[index]
-                             }
-                     }
-                 }
-                 .filter { $0.category == productCategory }
-                 */
 
                 ScrollView {
                     LazyVGrid(columns: column) {
@@ -50,13 +38,6 @@ struct ProductCategoryView: View {
         }
         .navigationTitle(productCategory.title)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem {
-                NavigationLink(destination: CartView().environmentObject(cartViewModel)) {
-                    CartButton(numberOfProducts: cartViewModel.products.count)
-                }
-            }
-        }
         .sheet(item: $selectedProduct) { product in
             ProductDetailsView(product: product)
                 .environmentObject(cartViewModel)

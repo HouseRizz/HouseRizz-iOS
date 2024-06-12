@@ -20,7 +20,7 @@ struct SettingsView: View {
     @State private var deleteAccount: Bool = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 if let user = authentication.user {
                     Section {
@@ -135,17 +135,6 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Image(systemName: "xmark")
-                            .foregroundColor(.red)
-                    }
-                    
-                }
-            }
             .onAppear {
                 authentication.fetchUser()
                 if let phoneNumber = authentication.user?.phoneNumber {
