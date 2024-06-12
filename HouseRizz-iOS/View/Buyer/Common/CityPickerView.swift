@@ -9,13 +9,18 @@ import SwiftUI
 
 struct CityPickerView: View {
     @Environment(\.presentationMode) var presentationMode
-
+    @State var selectedCity: String = availableCities.delhi.title
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
                     ForEach(availableCities.allCases, id: \.self) { city in
                         CityView(city: city.title)
+                            .onTapGesture {
+                                selectedCity = city.title
+                                presentationMode.wrappedValue.dismiss()
+                            }
                     }
                 }
             }
