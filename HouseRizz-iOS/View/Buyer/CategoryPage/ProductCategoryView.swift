@@ -20,19 +20,6 @@ struct ProductCategoryView: View {
             VStack {
                 SearchView()
                     .padding(.top, 10)
-                
-                /*
-                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                     ForEach(viewModel.products.indices, id: \.self) { index in
-                         ProductCardView(product: viewModel.products[index])
-                             .environmentObject(cartViewModel)
-                             .onTapGesture {
-                                 selectedProduct = viewModel.products[index]
-                             }
-                     }
-                 }
-                 .filter { $0.category == productCategory }
-                 */
 
                 ScrollView {
                     LazyVGrid(columns: column) {

@@ -9,24 +9,43 @@ import SwiftUI
 
 struct SearchView: View {
     @State private var search: String = ""
+    @EnvironmentObject var cartViewModel: CartViewModel
     
     var body: some View {
         HStack {
             HStack {
-                TextField("Search For Furniture", text: $search)
-                    .padding()
+                HStack {
+                    Image(systemName: "mappin")
+                    
+                    VStack(alignment: .leading) {
+                        Text("Delivery to")
+                        Text("Delhi")
+                    }
+                    .font(.caption)
+                }
+                .padding(.leading, 15)
                 
-                Image(systemName: "magnifyingglass")
-                    .padding(.trailing)
+                Spacer()
                 
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .padding(5)
+                    
+                    NavigationLink(destination: SettingsView()) {
+                        Image(systemName:  "person")
+                            .padding(5)
+                    }
+                    
+                    NavigationLink(destination: CartView().environmentObject(cartViewModel)) {
+                        CartButton(numberOfProducts: cartViewModel.products.count)
+                    }
+                }
+                .padding(.trailing, 15)
             }
+            .padding()
             .background(Color.orange.opacity(0.2))
-            .cornerRadius(12)
+            .cornerRadius(25)
         }
         .padding(.horizontal)
     }
-}
-
-#Preview {
-    SearchView()
 }
