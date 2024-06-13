@@ -14,6 +14,7 @@ struct HRProductModelName {
     static let description = "description"
     static let category = "category"
     static let supplier = "supplier"
+    static let address = "address"
     static let price = "price"
     static let imageURL1 = "imageURL1"
     static let imageURL2 = "imageURL2"
@@ -28,6 +29,7 @@ struct HRProduct: Hashable, Identifiable, CKitableProtocol {
     let name: String
     let description: String?
     let supplier: String
+    let address: String
     let price: Double?
     let imageURL1: URL?
     let imageURL2: URL?
@@ -48,6 +50,8 @@ struct HRProduct: Hashable, Identifiable, CKitableProtocol {
         self.category = category
         guard let supplier = record[HRProductModelName.supplier] as? String else { return nil }
         self.supplier = supplier
+        guard let address = record[HRProductModelName.address] as? String else { return nil }
+        self.address = address
         guard let price = record[HRProductModelName.price] as? Double else { return nil }
         self.price = price
         let imageAsset1 = record[HRProductModelName.imageURL1] as? CKAsset
@@ -61,7 +65,7 @@ struct HRProduct: Hashable, Identifiable, CKitableProtocol {
         self.record = record
     }
 
-    init?(id: UUID, name: String, description: String?, price: Double?, imageURL1: URL?, imageURL2: URL?, imageURL3: URL?, modelURL: URL?, category: String?, supplier: String?) {
+    init?(id: UUID, name: String, description: String?, price: Double?, imageURL1: URL?, imageURL2: URL?, imageURL3: URL?, modelURL: URL?, category: String?, supplier: String?, address: String?) {
         let record = CKRecord(recordType: HRProductModelName.itemRecord)
         record[HRProductModelName.id] = id.uuidString
         record[HRProductModelName.name] = name
@@ -73,6 +77,7 @@ struct HRProduct: Hashable, Identifiable, CKitableProtocol {
         if (supplier != nil) {
             record[HRProductModelName.supplier] = supplier
         }
+        record[HRProductModelName.address] = address
         if let url1 = imageURL1 {
             let asset1 = CKAsset(fileURL: url1)
             record[HRProductModelName.imageURL1] = asset1
