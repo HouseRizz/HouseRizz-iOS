@@ -21,7 +21,7 @@ This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets 
 - [x]  Product Detail Page
 - [x]  Cart
 - [x]  Fetch from CloudKit
-- [ ]  Search Bar
+- [x]  Search Bar
 - [x]  Settings Page
 - [x]  Create Orders
 - [x]  View Order History
