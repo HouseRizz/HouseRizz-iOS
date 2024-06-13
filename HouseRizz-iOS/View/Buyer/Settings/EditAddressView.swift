@@ -14,9 +14,10 @@ struct EditAddressView: View {
     @State private var landmark: String = ""
     @State private var pincode: String = ""
     @State private var city: String = ""
-    @State private var state: String = availableCities.delhi.title
+    @State private var state: String = ""
+    @State private var initialState: availableCities = .delhi
     @Environment(\.presentationMode) var presentationMode
-    var finalAdress: String {
+    var finalAddress: String {
         address1 + " " + address2 + " " + landmark + " " + pincode + " " + city + " " + state
     }
     
@@ -29,11 +30,11 @@ struct EditAddressView: View {
                         .bold()
                     
                     Text(authentication.user?.address ?? "")
-                            .lineLimit(nil)
-                            .multilineTextAlignment(.leading)
-                            .padding(.horizontal)
+                        .lineLimit(nil)
+                        .multilineTextAlignment(.leading)
+                        .padding(.horizontal)
                 }
-                                
+                
                 Text("Edit Your Address")
                     .font(.title3)
                     .bold()
@@ -41,30 +42,44 @@ struct EditAddressView: View {
                 HRTextField(text: $address1, title: "Flat, House no., Building, Company, Apartment")
                 HRTextField(text: $address2, title: "Area, Street, Sector, Village")
                 HRTextField(text: $landmark, title: "Landmark")
-                
                 HStack {
-                    HRTextField(text: $pincode, title: "Pincode")
                     HRTextField(text: $city, title: "Town/City")
+                    HRTextField(text: $pincode, title: "Pincode")
                 }
                 
-                HStack {
-                    Text("State")
-                    
-                    Spacer()
-                    
-                    Picker("State", selection: $state) {
-                        ForEach(availableCities.allCases, id: \.self) {
-                            Text($0.title)
+                NavigationLink {
+                    ScrollView {
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
+                            ForEach(availableCities.allCases, id: \.self) { city in
+                                CityView(city: city.title)
+                                    .onTapGesture {
+                                        state = city.title
+                                        print(city.title)
+                                    }
+                            }
                         }
                     }
+                    .padding()
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 59)
+                            .foregroundStyle( Color.primaryColor.opacity(0.5))
+                        
+                        Text("Pick Your State")
+                            .bold()
+                            .foregroundStyle( .white)
+                    }
                 }
-                                
+                
                 Divider()
                 
                 HRCartButton(buttonText: "Save Address") {
-                    authentication.updateAddress(finalAdress)
+                    authentication.updateAddress(finalAddress)
                     presentationMode.wrappedValue.dismiss()
                 }
+                
             }
             .padding()
             .navigationTitle("Your Address")
@@ -80,6 +95,7 @@ struct EditAddressView: View {
                     
                 }
             }
+            
         }
     }
 }
