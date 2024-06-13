@@ -68,11 +68,13 @@ extension AddProductView {
     var saveButtons: some View {
         HStack {
             HRAddProductButton(buttonText: "Save", background: Color.primaryColor, textColor: .white) {
+                viewModel.address = authentication.user?.address ?? "Not Provided"
                 viewModel.addButtonPressed(vendorName: authentication.user?.name ?? "none")
                 isSaveButton = true
             }
             
             HRAddProductButton(buttonText: "Add Another", background: Color.primaryColor.opacity(0.2), textColor: Color.primaryColor) {
+                viewModel.address = authentication.user?.address ?? "Not Provided"
                 viewModel.addButtonPressed(vendorName: authentication.user?.name ?? "none")
                 isAddButton = true
             }

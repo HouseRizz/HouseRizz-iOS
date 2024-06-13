@@ -21,6 +21,7 @@ class AddProductViewModel: ObservableObject {
     @Published var modelURL: URL?
     @Published var selectedCategory: Category = .sofa
     @Published var supplier: String = ""
+    @Published var address: String = ""
     @Published var selectedPhotoData = [Data]()
     @Published var isSuccess: Bool = false
     @Published var isLoaded: Bool = false
@@ -72,7 +73,7 @@ class AddProductViewModel: ObservableObject {
             }
         }
         
-        guard let newItem = HRProduct(id: UUID(), name: name, description: description, price: finalPrice, imageURL1: urls.count > 0 ? urls[0] : nil, imageURL2: urls.count > 1 ? urls[1] : nil, imageURL3: urls.count > 2 ? urls[2] : nil, modelURL: modelURL, category: selectedCategory.title, supplier: vendorName) else {
+        guard let newItem = HRProduct(id: UUID(), name: name, description: description, price: finalPrice, imageURL1: urls.count > 0 ? urls[0] : nil, imageURL2: urls.count > 1 ? urls[1] : nil, imageURL3: urls.count > 2 ? urls[2] : nil, modelURL: modelURL, category: selectedCategory.title, supplier: vendorName, address: address) else {
             error = "Error creating item"
             isLoaded = true
             return

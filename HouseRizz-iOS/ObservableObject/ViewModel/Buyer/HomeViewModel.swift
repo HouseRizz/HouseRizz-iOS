@@ -12,6 +12,11 @@ class HomeViewModel: ObservableObject {
     @Published var error: String = ""
     @Published var products: [HRProduct] = []
     var cancellables = Set<AnyCancellable>()
+    @Published var city: String = ""
+    var filteredProducts: [HRProduct] {
+        guard !city.isEmpty else {return products}
+        return products.filter { $0.address.localizedCaseInsensitiveContains(city) }
+    }
     
     init(){
         fetchItems()

@@ -15,7 +15,6 @@ struct EditAddressView: View {
     @State private var pincode: String = ""
     @State private var city: String = ""
     @State private var state: String = ""
-    @State private var initialState: availableCities = .delhi
     @Environment(\.presentationMode) var presentationMode
     var finalAddress: String {
         address1 + " " + address2 + " " + landmark + " " + pincode + " " + city + " " + state
