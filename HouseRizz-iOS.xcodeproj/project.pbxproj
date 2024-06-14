@@ -69,6 +69,7 @@
 		CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF1B2BBE8109007BB76C /* ARPersistence */; };
 		CCAC47872C1C0B9E00A8EBF1 /* UPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC47862C1C0B9E00A8EBF1 /* UPIView.swift */; };
 		CCAC47892C1C0BAC00A8EBF1 /* UPIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC47882C1C0BAC00A8EBF1 /* UPIViewModel.swift */; };
+		CCAC478B2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC478A2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift */; };
 		CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C222BC03A42004E51F9 /* fender.usdz */; };
 		CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C242BC03A47004E51F9 /* robot.usdz */; };
 		CCC5B03A2BFBB62F0007BEC1 /* HRProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */; };
@@ -142,6 +143,7 @@
 		CC97AF152BBE75C4007BB76C /* retrotv.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = retrotv.usdz; sourceTree = "<group>"; };
 		CCAC47862C1C0B9E00A8EBF1 /* UPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIView.swift; sourceTree = "<group>"; };
 		CCAC47882C1C0BAC00A8EBF1 /* UPIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIViewModel.swift; sourceTree = "<group>"; };
+		CCAC478A2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIAppListViewDataModel.swift; sourceTree = "<group>"; };
 		CCC42C222BC03A42004E51F9 /* fender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender.usdz; sourceTree = "<group>"; };
 		CCC42C242BC03A47004E51F9 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
 		CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProduct.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */,
 				CC2ACF972C101026004C040B /* HRCartItem.swift */,
 				CC1107882C13F0EB00AB9F58 /* HROrder.swift */,
+				CCAC478A2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				CCC5B0462BFBB95A0007BEC1 /* AddProductView.swift in Sources */,
 				CCDB49B02C16D9AB00F7031B /* OrderHistoryListViewModel.swift in Sources */,
 				CC06A97F2C0C97F000A0DAD3 /* NoNetworkView.swift in Sources */,
+				CCAC478B2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift in Sources */,
 				CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */,
 				CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */,
 				CCC5B03E2BFBB7700007BEC1 /* HRTextField.swift in Sources */,

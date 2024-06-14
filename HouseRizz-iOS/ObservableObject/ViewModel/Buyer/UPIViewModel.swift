@@ -120,14 +120,4 @@ class UPIViewModel: ObservableObject {
     }
 }
 
-struct UPIAppListViewDataModel: Decodable, Hashable {
-    var imageURL: UIImage? {
-        return UIImage(named: appname)
-    }
-    var appname: String
-    var appScheme: String {
-        get {
-            return "\(appname)://app"
-        }
-    }
-}
+

@@ -33,11 +33,22 @@ struct CartView: View {
                 .padding()
                 
                 if let user = authViewModel.user {
-                    HRCartButton(buttonText: "Proceed to Checkout", action: {
-                        cartViewModel.sendOrder(buyerName: user.name, buyerEmail: user.email, buyerPhoneNumber: user.phoneNumber, buyerAddress: user.address)
-                        showAlert = true
-                    })
-                    .padding()
+                    NavigationLink(destination: UPIView()) {
+                        Text("Proceed to Checkout")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.primaryColor)
+                            .cornerRadius(10)
+                            .padding()
+                    }
+//                    HRCartButton(buttonText: "Proceed to Checkout", action: {
+//                        cartViewModel.sendOrder(buyerName: user.name, buyerEmail: user.email, buyerPhoneNumber: user.phoneNumber, buyerAddress: user.address)
+//                        showAlert = true
+//                    })
+//                    .padding()
 //                    .alert(isPresented: $showAlert) {
 //                        Alert(title: Text("Order Sent"),
 //                              message: Text("Your order has been sent successfully."),
