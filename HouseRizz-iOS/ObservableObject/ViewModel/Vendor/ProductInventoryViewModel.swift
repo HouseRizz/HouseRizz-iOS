@@ -73,7 +73,7 @@ class ProductInventoryViewModel: ObservableObject {
     
     func fetchItems(vendorName: String){
         let predicate = NSPredicate(format: "%K == %@", HRProductModelName.supplier, vendorName)
-        let recordType = "Items"
+        let recordType = HRProductModelName.itemRecord
         CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in

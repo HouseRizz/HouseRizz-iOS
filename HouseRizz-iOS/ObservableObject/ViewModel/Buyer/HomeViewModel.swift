@@ -24,7 +24,7 @@ class HomeViewModel: ObservableObject {
     
     func fetchItems(){
         let predicate = NSPredicate(value: true)
-        let recordType = "Items"
+        let recordType = HRProductModelName.itemRecord
         CKUtility.fetch(predicate: predicate, recordType: recordType)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in

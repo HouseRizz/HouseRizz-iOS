@@ -90,6 +90,7 @@ class AddProductViewModel: ObservableObject {
     func loadUSDZFile(from result: Result<URL, Error>) {
         do {
             let fileURL = try result.get()
+            try fileURL.startAccessingSecurityScopedResource()
             let tempFileURL = try createTempFileURL(from: fileURL)
             self.modelURL = tempFileURL
             fileURL.stopAccessingSecurityScopedResource()

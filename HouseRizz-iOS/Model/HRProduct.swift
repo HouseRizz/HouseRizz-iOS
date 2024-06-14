@@ -20,7 +20,7 @@ struct HRProductModelName {
     static let imageURL2 = "imageURL2"
     static let imageURL3 = "imageURL3"
     static let modelURL = "modelURL"
-    static let itemRecord = "Items"
+    static let itemRecord = "Products"
 }
 
 struct HRProduct: Hashable, Identifiable, CKitableProtocol {
