@@ -31,7 +31,7 @@ struct UPIView: View {
                 
                 if let user = authViewModel.user {
                     HRCartButton(buttonText: "Pay Now") {
-                        viewModel.launchIntentURLFromStr(intent: viewModel.selectedApp, payeeVPA: "9999670308@pz", payeeName: "Krish Mittal", amount: "2", currencyCode: "INR", transactionNote: "UPI Transaction Test")
+                        viewModel.launchIntentURLFromStr(intent: viewModel.selectedApp, payeeVPA: "9999670308@pz", payeeName: "HouseRizz", amount: "\(cartViewModel.total)", currencyCode: "INR", transactionNote: "HouseRizz OrderId - \(cartViewModel.orderId)")
                         cartViewModel.sendOrder(buyerName: user.name, buyerEmail: user.email, buyerPhoneNumber: user.phoneNumber, buyerAddress: user.address)
                         showAlert = true
                     }
