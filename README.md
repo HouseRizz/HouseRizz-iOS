@@ -25,7 +25,7 @@ This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets 
 - [x]  Settings Page
 - [x]  Create Orders
 - [x]  View Order History
-- [ ]  Razorpay Payment Gateway Integration
+- [x]  Razorpay Payment Gateway Integration
 - [ ]  AI Feature - Sketch to Render
 - [ ]  AI Feature - Redesign home from image
 - [ ]  AI Feature - Tinder Like Swipes but for Furniture Recommendations
