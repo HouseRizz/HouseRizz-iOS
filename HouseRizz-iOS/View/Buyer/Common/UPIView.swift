@@ -19,9 +19,13 @@ struct UPIView: View {
             VStack {
                 ScrollView {
                     VStack(spacing: 10) {
-                        ForEach(viewModel.installedAppList, id: \.self) { app in
-                            UPIListView(model: app, viewModel: viewModel)
-                                .padding(.vertical)
+                        if viewModel.installedAppList.isEmpty {
+                            NoUPIAppsInstalledView(appSchemes: viewModel.appSchemes)
+                        } else {
+                            ForEach(viewModel.installedAppList, id: \.self) { app in
+                                UPIListView(model: app, viewModel: viewModel)
+                                    .padding(.vertical)
+                            }
                         }
                     }
                     .padding()

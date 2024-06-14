@@ -13,6 +13,23 @@ class UPIViewModel: ObservableObject {
     var upiApps: [String] = []
     var upiImageUrl: [URL] = []
     
+    let appSchemes: [String: String] = [
+            "paytm": "Paytm",
+            "phonepe": "PhonePe",
+            "gpay": "Google Pay",
+            "amazon": "Amazon",
+            "bhim": "Bhim",
+            "cred": "Cred",
+            "payzapp": "PayZapp",
+            "amazonToAlipay": "AmazonToAlipay",
+            "whatsapp": "Whatsapp",
+            "slice": "Slice",
+            "mobikwik": "Mobikwik",
+            "kiwi": "Kiwi",
+            "freecharge": "FreeCharge",
+            "myjio": "MyJIO"
+        ]
+    
     init() {
         checkUPIInstalledAppsInDevice()
     }
@@ -89,22 +106,6 @@ class UPIViewModel: ObservableObject {
     }
     
     func getAppName(itemName: String) -> String {
-        let appSchemes = [
-            "paytm": "Paytm",
-            "phonepe": "PhonePe",
-            "gpay": "Google Pay",
-            "amazon": "Amazon",
-            "bhim": "Bhim",
-            "cred": "Cred",
-            "payzapp": "PayZapp",
-            "amazonToAlipay": "AmazonToAlipay",
-            "whatsapp": "Whatsapp",
-            "slice": "Slice",
-            "mobikwik": "Mobikwik",
-            "kiwi": "Kiwi",
-            "freecharge": "FreeCharge",
-            "myjio": "MyJIO"
-        ]
         
         for (scheme, appName) in appSchemes {
             if itemName.lowercased().contains(scheme) {
