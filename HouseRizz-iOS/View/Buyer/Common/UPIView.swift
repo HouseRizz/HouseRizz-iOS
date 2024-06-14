@@ -9,6 +9,10 @@ import SwiftUI
 
 struct UPIView: View {
     @StateObject private var viewModel = UPIViewModel()
+    @EnvironmentObject var cartViewModel: CartViewModel
+    @StateObject private var authViewModel = Authentication()
+    @State private var showAlert = false
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationStack {
@@ -19,55 +23,35 @@ struct UPIView: View {
                             UPIListView(model: app, viewModel: viewModel)
                                 .padding(.vertical)
                         }
-                        
                     }
                     .padding()
                 }
                 
                 Divider()
                 
-                HRCartButton(buttonText: "Pay Now") {
-                    viewModel.launchIntentURLFromStr(intent: viewModel.selectedApp, payeeVPA: "9999670308@pz", payeeName: "Krish Mittal", amount: "2", currencyCode: "INR", transactionNote: "UPI Transaction Test")
+                if let user = authViewModel.user {
+                    HRCartButton(buttonText: "Pay Now") {
+                        viewModel.launchIntentURLFromStr(intent: viewModel.selectedApp, payeeVPA: "9999670308@pz", payeeName: "Krish Mittal", amount: "2", currencyCode: "INR", transactionNote: "UPI Transaction Test")
+                        cartViewModel.sendOrder(buyerName: user.name, buyerEmail: user.email, buyerPhoneNumber: user.phoneNumber, buyerAddress: user.address)
+                        showAlert = true
+                    }
+                    .padding()
+                    .alert(isPresented: $showAlert) {
+                        Alert(title: Text("Order Sent"),
+                              message: Text("Your order has been sent successfully. Further Confirmation will be in the order history page and over the mail in 24 hours, Make sure to complete the payment in your UPI Application otherwise Order will be rejected"),
+                              dismissButton: .default(Text("OK"), action: {
+                            cartViewModel.clearCart()
+                            presentationMode.wrappedValue.dismiss()
+                        }))
+                    }
+                } else {
+                    Text("Loading ..")
+                        .foregroundStyle(.gray)
                 }
-                .padding()
             }
             .padding(.vertical)
             .navigationTitle("Select the Installed UPI Apps to Continue")
             .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-}
-
-struct UPIListView: View {
-    var model: UPIAppListViewDataModel
-    @ObservedObject var viewModel: UPIViewModel
-    @Environment(\.colorScheme) var colorScheme
-
-    var body: some View {
-        HStack {
-            Image(systemName: viewModel.selectedApp == model.appScheme ? "circle.fill" : "circle")
-                .padding(.leading)
-                .foregroundStyle(Color.primaryColor)
-            
-            Text(model.appname)
-                .font(.title3)
-                .textCase(.uppercase)
-    
-            Spacer()
-            
-            Image(uiImage: model.imageURL ?? UIImage(named: "defaultUPI")!)
-                .resizable()
-                .frame(width: 40, height: 40)
-                .cornerRadius(10)
-                .padding(.trailing)
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 10)
-        .background(colorScheme == .dark ? Color.black : Color.white)
-        .cornerRadius(8)
-        .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
-        .onTapGesture {
-            viewModel.selectedApp = model.appScheme
         }
     }
 }
