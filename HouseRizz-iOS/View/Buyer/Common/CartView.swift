@@ -38,13 +38,13 @@ struct CartView: View {
                         showAlert = true
                     })
                     .padding()
-                    .alert(isPresented: $showAlert) {
-                        Alert(title: Text("Order Sent"),
-                              message: Text("Your order has been sent successfully."),
-                              dismissButton: .default(Text("OK"), action: {
-                            cartViewModel.clearCart()
-                        }))
-                    }
+//                    .alert(isPresented: $showAlert) {
+//                        Alert(title: Text("Order Sent"),
+//                              message: Text("Your order has been sent successfully."),
+//                              dismissButton: .default(Text("OK"), action: {
+//                            cartViewModel.clearCart()
+//                        }))
+//                    }
                 } else {
                     Text("Loading ..")
                         .foregroundStyle(.gray)
