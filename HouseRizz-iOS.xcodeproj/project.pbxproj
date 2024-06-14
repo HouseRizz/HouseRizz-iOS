@@ -67,6 +67,11 @@
 		CC97AF162BBE75C4007BB76C /* retrotv.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CC97AF152BBE75C4007BB76C /* retrotv.usdz */; };
 		CC97AF192BBE79A4007BB76C /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF182BBE79A4007BB76C /* FocusEntity */; };
 		CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF1B2BBE8109007BB76C /* ARPersistence */; };
+		CCAC47872C1C0B9E00A8EBF1 /* UPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC47862C1C0B9E00A8EBF1 /* UPIView.swift */; };
+		CCAC47892C1C0BAC00A8EBF1 /* UPIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC47882C1C0BAC00A8EBF1 /* UPIViewModel.swift */; };
+		CCAC478B2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC478A2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift */; };
+		CCAC478D2C1C1A5600A8EBF1 /* UPIListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC478C2C1C1A5600A8EBF1 /* UPIListView.swift */; };
+		CCAC478F2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC478E2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift */; };
 		CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C222BC03A42004E51F9 /* fender.usdz */; };
 		CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C242BC03A47004E51F9 /* robot.usdz */; };
 		CCC5B03A2BFBB62F0007BEC1 /* HRProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */; };
@@ -138,6 +143,11 @@
 		CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CC97AF132BBE7590007BB76C /* redchair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = redchair.usdz; sourceTree = "<group>"; };
 		CC97AF152BBE75C4007BB76C /* retrotv.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = retrotv.usdz; sourceTree = "<group>"; };
+		CCAC47862C1C0B9E00A8EBF1 /* UPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIView.swift; sourceTree = "<group>"; };
+		CCAC47882C1C0BAC00A8EBF1 /* UPIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIViewModel.swift; sourceTree = "<group>"; };
+		CCAC478A2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIAppListViewDataModel.swift; sourceTree = "<group>"; };
+		CCAC478C2C1C1A5600A8EBF1 /* UPIListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIListView.swift; sourceTree = "<group>"; };
+		CCAC478E2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoUPIAppsInstalledView.swift; sourceTree = "<group>"; };
 		CCC42C222BC03A42004E51F9 /* fender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender.usdz; sourceTree = "<group>"; };
 		CCC42C242BC03A47004E51F9 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
 		CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProduct.swift; sourceTree = "<group>"; };
@@ -191,6 +201,8 @@
 			children = (
 				CC2F47152BC8CE1900A4C1FC /* CartButton.swift */,
 				CC2F47172BC8D5ED00A4C1FC /* CartProductView.swift */,
+				CCAC478C2C1C1A5600A8EBF1 /* UPIListView.swift */,
+				CCAC478E2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -344,6 +356,7 @@
 				CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */,
 				CC3CF4DD2C198BE500C8A58D /* SearchView.swift */,
 				CC3CF4DF2C198DEC00C8A58D /* CityPickerView.swift */,
+				CCAC47862C1C0B9E00A8EBF1 /* UPIView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -367,6 +380,7 @@
 				CC2ACF952C100A7B004C040B /* ProductCategoryViewModel.swift */,
 				CCDB49AF2C16D9AB00F7031B /* OrderHistoryListViewModel.swift */,
 				CC3CF4E32C19989200C8A58D /* SearchViewModel.swift */,
+				CCAC47882C1C0BAC00A8EBF1 /* UPIViewModel.swift */,
 			);
 			path = Buyer;
 			sourceTree = "<group>";
@@ -397,6 +411,7 @@
 				CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */,
 				CC2ACF972C101026004C040B /* HRCartItem.swift */,
 				CC1107882C13F0EB00AB9F58 /* HROrder.swift */,
+				CCAC478A2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -624,6 +639,7 @@
 			files = (
 				CC97AF012BBE5CCE007BB76C /* HRUser.swift in Sources */,
 				CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */,
+				CCAC47892C1C0BAC00A8EBF1 /* UPIViewModel.swift in Sources */,
 				CC11078B2C14565400AB9F58 /* ManageOrdersView.swift in Sources */,
 				CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */,
 				CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */,
@@ -643,9 +659,11 @@
 				CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */,
 				CC3CF4E22C1994C400C8A58D /* CityView.swift in Sources */,
 				CCDB49B62C173BC200F7031B /* EditAddressView.swift in Sources */,
+				CCAC478D2C1C1A5600A8EBF1 /* UPIListView.swift in Sources */,
 				CCC5B0462BFBB95A0007BEC1 /* AddProductView.swift in Sources */,
 				CCDB49B02C16D9AB00F7031B /* OrderHistoryListViewModel.swift in Sources */,
 				CC06A97F2C0C97F000A0DAD3 /* NoNetworkView.swift in Sources */,
+				CCAC478B2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift in Sources */,
 				CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */,
 				CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */,
 				CCC5B03E2BFBB7700007BEC1 /* HRTextField.swift in Sources */,
@@ -663,10 +681,12 @@
 				CC2ACF982C101026004C040B /* HRCartItem.swift in Sources */,
 				CC82F8982C147FA800D978C8 /* OrderListItemView.swift in Sources */,
 				CC0231582BCD47C8007CC053 /* ProductView.swift in Sources */,
+				CCAC47872C1C0B9E00A8EBF1 /* UPIView.swift in Sources */,
 				CC06A96F2C0C898D00A0DAD3 /* TextFieldExtension.swift in Sources */,
 				CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */,
 				CC97AF072BBE5DEA007BB76C /* LoginView.swift in Sources */,
 				CCC5B0422BFBB8700007BEC1 /* ProductInventoryViewModel.swift in Sources */,
+				CCAC478F2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift in Sources */,
 				CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */,
 				CC06A95C2C0C07F100A0DAD3 /* EncodableExtension.swift in Sources */,
 				CC97AEF42BBE5C46007BB76C /* Authentication.swift in Sources */,
