@@ -9,6 +9,7 @@ import SwiftUI
 
 class UPIViewModel: ObservableObject {
     @Published var installedAppList: [UPIAppListViewDataModel] = []
+    @Published var selectedApp: String = ""
     var upiApps: [String] = []
     var upiImageUrl: [URL] = []
     

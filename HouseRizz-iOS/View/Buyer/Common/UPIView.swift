@@ -12,16 +12,27 @@ struct UPIView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: 20) {
-                    ForEach(viewModel.installedAppList, id: \.self) { app in
-                        UPIListView(model: app, viewModel: viewModel)
-                            .padding(.vertical)
+            VStack {
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(viewModel.installedAppList, id: \.self) { app in
+                            UPIListView(model: app, viewModel: viewModel)
+                                .padding(.vertical)
+                        }
+                        
                     }
+                    .padding()
+                }
+                
+                Divider()
+                
+                HRCartButton(buttonText: "Pay Now") {
+                    viewModel.launchIntentURLFromStr(intent: viewModel.selectedApp, payeeVPA: "9999670308@pz", payeeName: "Krish Mittal", amount: "2", currencyCode: "INR", transactionNote: "UPI Transaction Test")
                 }
                 .padding()
             }
-            .navigationTitle("Select the Installed UPI Apps to continue")
+            .padding(.vertical)
+            .navigationTitle("Select the Installed UPI Apps to Continue")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -34,11 +45,14 @@ struct UPIListView: View {
 
     var body: some View {
         HStack {
+            Image(systemName: viewModel.selectedApp == model.appScheme ? "circle.fill" : "circle")
+                .padding(.leading)
+                .foregroundStyle(Color.primaryColor)
+            
             Text(model.appname)
                 .font(.title3)
                 .textCase(.uppercase)
-                .padding(.leading)
-            
+    
             Spacer()
             
             Image(uiImage: model.imageURL ?? UIImage(named: "defaultUPI")!)
@@ -48,12 +62,12 @@ struct UPIListView: View {
                 .padding(.trailing)
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical, 15)
+        .padding(.vertical, 10)
         .background(colorScheme == .dark ? Color.black : Color.white)
         .cornerRadius(8)
         .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
         .onTapGesture {
-            viewModel.launchIntentURLFromStr(intent: model.appScheme, payeeVPA: "9999670308@pz", payeeName: "Krish Mittal", amount: "2", currencyCode: "INR", transactionNote: "UPI Transaction Test")
+            viewModel.selectedApp = model.appScheme
         }
     }
 }
