@@ -72,13 +72,13 @@ struct CartView: View {
                     Text("Your Cart is Empty")
                 }
             }
-            .navigationTitle("My Cart")
-            .navigationBarTitleDisplayMode(.inline)
             .padding(.vertical)
             .onAppear {
                 authViewModel.fetchUser()
             }
         }
+        .navigationTitle("My Cart")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
