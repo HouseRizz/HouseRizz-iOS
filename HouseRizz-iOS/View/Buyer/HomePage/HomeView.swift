@@ -25,9 +25,11 @@ struct HomeView: View {
                 
                 ScrollView {
                     VStack {
-                        ImageSliderView()
+                        ImageSliderView(slides: ["graysofa","leathersofa"])
+                        
+                        ImageSliderView(slides: ["greensofa","bluesofa"])
 
-                        Text("Trending Near You")
+                        Text("Featured Products")
                             .font(.title3.bold())
 
                         LazyVGrid(columns: column) {
