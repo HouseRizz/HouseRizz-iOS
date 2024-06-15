@@ -160,7 +160,7 @@ struct SettingsView: View {
                         showPrivacy = true
                     }
                     HStack {
-                        Image(systemName: "lock")
+                        Image(systemName: "archivebox")
                         Text("Refund Policy")
                     }
                     .onTapGesture {
