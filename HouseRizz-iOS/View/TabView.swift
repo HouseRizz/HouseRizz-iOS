@@ -15,12 +15,12 @@ struct TabbedView: View {
             TabView(selection: $selectedTab) {
                 HomeView()
                     .tag(0)
-                AIView()
-                    .tag(1)
-                CameraView()
-                    .tag(2)
+//                AIView()
+//                    .tag(1)
+//                CameraView()
+//                    .tag(2)
                 ProductView()
-                    .tag(3)
+                    .tag(1)
             }
 
             ZStack {
