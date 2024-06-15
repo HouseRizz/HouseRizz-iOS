@@ -29,14 +29,5 @@
 		<string>freecharge</string>
 		<string>myjio</string>
 	</array>
-	<key>UILaunchScreen</key>
-	<dict>
-		<key>UIColorName</key>
-		<string>BrandOrangeSecondary</string>
-		<key>UIImageName</key>
-		<string>launchScreen</string>
-		<key>UILaunchScreen</key>
-		<dict/>
-	</dict>
 </dict>
 </plist>
