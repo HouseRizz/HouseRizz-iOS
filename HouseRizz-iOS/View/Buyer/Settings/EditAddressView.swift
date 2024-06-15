@@ -19,6 +19,7 @@ struct EditAddressView: View {
     var finalAddress: String {
         address1 + " " + address2 + " " + landmark + " " + pincode + " " + city + " " + state
     }
+    @State private var showAlert:Bool = false
     
     var body: some View {
         NavigationStack {
@@ -53,7 +54,13 @@ struct EditAddressView: View {
                                 CityView(city: city.title)
                                     .onTapGesture {
                                         state = city.title
-                                        print(city.title)
+                                        showAlert.toggle()
+                                    }
+                                    .alert(isPresented: $showAlert) {
+                                        Alert(
+                                            title: Text("\(state) Selected"),
+                                            dismissButton: .default(Text("OK"))
+                                        )
                                     }
                             }
                         }
