@@ -12,6 +12,7 @@ struct HomeView: View {
     @State private var selectedProduct: HRProduct?
     @StateObject private var viewModel = HomeViewModel()
     @EnvironmentObject private var searchViewModel: SearchViewModel
+    var column = [GridItem(.adaptive(minimum: 160), spacing: 20)]
 
     var body: some View {
         NavigationStack {
@@ -29,7 +30,7 @@ struct HomeView: View {
                         Text("Trending Near You")
                             .font(.title3.bold())
 
-                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                        LazyVGrid(columns: column) {
                             ForEach(viewModel.products.indices, id: \.self) { index in
                                 ProductCardView(product: viewModel.products[index])
                                     .environmentObject(cartViewModel)
