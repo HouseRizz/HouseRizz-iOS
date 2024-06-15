@@ -69,7 +69,7 @@ extension Authentication {
         
         let db = Firestore.firestore()
         
-        db.collection("users")
+        db.collection(HRUserModelName.userFirestore)
             .document(id)
             .setData(newUser.asDictionary())
         
@@ -79,7 +79,7 @@ extension Authentication {
     func updateAddress(_ address: String) {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
-        db.collection("users").document(userId).updateData([ "address": address ])
+        db.collection(HRUserModelName.userFirestore).document(userId).updateData([ "address": address ])
         updateAddress(user: user!, address: address)
     }
     
@@ -91,7 +91,7 @@ extension Authentication {
     func updatePhoneNumber(_ phoneNumber: String) {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
-        db.collection("users").document(userId).updateData([ "phoneNumber": phoneNumber ])
+        db.collection(HRUserModelName.userFirestore).document(userId).updateData([ "phoneNumber": phoneNumber ])
         updatePhoneNumber(user: user!, phoneNumber: phoneNumber)
     }
     
@@ -154,7 +154,7 @@ extension Authentication {
             return
         }
         let db = Firestore.firestore()
-        db.collection("users").document(userId).getDocument { [weak self] snapshot, error in
+        db.collection(HRUserModelName.userFirestore).document(userId).getDocument { [weak self] snapshot, error in
             guard let data = snapshot?.data(), error == nil else {
                 return
             }

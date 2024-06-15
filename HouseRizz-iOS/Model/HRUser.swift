@@ -17,6 +17,7 @@ struct HRUserModelName {
     static let address = "address"
     static let joined = "joined"
     static let itemRecord = "SignedInUsers"
+    static let userFirestore = "users_prod"
 }
 
 struct HRUser: Encodable, Hashable, Identifiable, CKitableProtocol {
