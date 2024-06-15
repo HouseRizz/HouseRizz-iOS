@@ -14,32 +14,46 @@ struct ProductDetailsView: View {
     private var imageUrls: [URL?] {
         [product.imageURL1, product.imageURL2, product.imageURL3]
     }
+    @State private var showAlert: Bool = false
+    @State private var showCartView: Bool = false
     
     var body: some View {
         VStack {
             ScrollView {
                 VStack(alignment: .leading) {
                     ZStack(alignment: .topTrailing) {
-                        ScrollView(.horizontal) {
-                            LazyHStack {
-                                ForEach(imageUrls.compactMap({ $0 }), id: \.self) { url in
-                                    if let data = try? Data(contentsOf: url),
-                                       let image = UIImage(data: data) {
-                                        Image(uiImage: image)
-                                            .resizable()
-                                            .ignoresSafeArea(edges: .top)
-                                            .frame(width: 320, height: 300)
+                        let nonEmptyImageUrls = imageUrls.compactMap { $0 }
+                        if nonEmptyImageUrls.count > 1 {
+                            ScrollView(.horizontal) {
+                                LazyHStack {
+                                    ForEach(nonEmptyImageUrls, id: \.self) { url in
+                                        if let data = try? Data(contentsOf: url),
+                                           let image = UIImage(data: data) {
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .ignoresSafeArea(edges: .top)
+                                                .frame(width: 320, height: 300)
+                                        }
                                     }
                                 }
                             }
+                        } else if let url = nonEmptyImageUrls.first {
+                            if let data = try? Data(contentsOf: url),
+                               let image = UIImage(data: data) {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .ignoresSafeArea(edges: .top)
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 300)
+                            }
                         }
                         
-                        Image(systemName: "heart.fill")
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                            .padding(.top, 65)
-                            .padding(.trailing, 20)
-                            .foregroundStyle(Color.primaryColor)
+                        //                        Image(systemName: "heart.fill")
+                        //                            .resizable()
+                        //                            .frame(width: 25, height: 25)
+                        //                            .padding(.top, 65)
+                        //                            .padding(.trailing, 20)
+                        //                            .foregroundStyle(Color.primaryColor)
                     }
                     
                     VStack(alignment: .leading) {
@@ -86,7 +100,7 @@ struct ProductDetailsView: View {
                             .fontWeight(.medium)
                         
                         Text(product.description ?? "")
-                                        
+                        
                         
                     }
                     .padding()
@@ -100,11 +114,25 @@ struct ProductDetailsView: View {
             
             HRCartButton(buttonText: "Add to Cart") {
                 cartViewModel.addToCart(product: product, quantity: quantity)
+                showAlert.toggle()
             }
             .padding()
         }
         .ignoresSafeArea(edges: .top)
         .environmentObject(cartViewModel)
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Product Added to Cart"),
+                  primaryButton: .cancel(Text("Ok")),
+                  secondaryButton: .default(Text("Go To Cart"), action: {
+                    showCartView = true
+                  }))
+        }
+        .sheet(isPresented: $showCartView) {
+            NavigationView {
+                CartView()
+            }
+        }
+        
     }
 }
 

@@ -18,13 +18,13 @@ struct CartProductView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 90, height: 110)
-                    .cornerRadius(20)
+                    .cornerRadius(15)
             }
             
 
             VStack(alignment: .leading) {
                 Text(cartItem.product.name)
-                    .font(.headline)
+                    .font(.caption)
                     .bold()
                 
                 Text(((cartItem.product.price ?? 0) * Double(cartItem.quantity)).formattedCurrency())

@@ -15,6 +15,7 @@ class SearchViewModel: ObservableObject {
     @Published var products: [HRProduct] = []
     var cancellables = Set<AnyCancellable>()
     @Published var search: String = ""
+    @Published var showAlert: Bool = false
     
     var filteredProducts: [HRProduct] {
         guard !search.isEmpty else {return products}

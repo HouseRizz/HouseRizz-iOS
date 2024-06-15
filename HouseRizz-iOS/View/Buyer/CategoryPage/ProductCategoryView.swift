@@ -37,6 +37,13 @@ struct ProductCategoryView: View {
             ProductDetailsView(product: product)
                 .environmentObject(cartViewModel)
         }
+        .toolbar {
+            ToolbarItem {
+                NavigationLink(destination: CartView().environmentObject(cartViewModel)) {
+                    CartButton(numberOfProducts: cartViewModel.products.count)
+                }
+            }
+        }
     }
 }
 

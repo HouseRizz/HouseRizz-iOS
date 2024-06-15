@@ -10,7 +10,7 @@ import SwiftUI
 struct CityPickerView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var searchViewModel: SearchViewModel
-    
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -19,8 +19,13 @@ struct CityPickerView: View {
                         CityView(city: city.title)
                             .onTapGesture {
                                 searchViewModel.selectedCity = city.title
-                                presentationMode.wrappedValue.dismiss()
-                                print(city.title)
+                                searchViewModel.showAlert = true
+                            }
+                            .alert(isPresented: $searchViewModel.showAlert) {
+                                Alert(
+                                    title: Text("\(searchViewModel.selectedCity) Selected"),
+                                    dismissButton: .default(Text("OK"))
+                                )
                             }
                     }
                 }
@@ -36,7 +41,6 @@ struct CityPickerView: View {
                         Image(systemName: "xmark")
                             .foregroundStyle(.gray)
                     }
-                    
                 }
             }
         }

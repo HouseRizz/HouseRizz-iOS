@@ -25,7 +25,7 @@ struct ProductView: View {
                     .padding()
                 }
             }
-            .navigationTitle("Categories")
+            .navigationTitle("All Products")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem {

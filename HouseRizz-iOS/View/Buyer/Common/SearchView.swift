@@ -11,12 +11,13 @@ struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var selectedProduct: HRProduct?
+    var column = [GridItem(.adaptive(minimum: 160), spacing: 20)]
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                    LazyVGrid(columns: column) {
                         ForEach(viewModel.filteredProducts, id: \.self) { product in
                             ProductCardView(product: product)
                                 .environmentObject(cartViewModel)
@@ -25,7 +26,7 @@ struct SearchView: View {
                                 }
                         }
                     }
-                    .padding(.horizontal)
+                    .padding()
                 }
             }
             .refreshable {

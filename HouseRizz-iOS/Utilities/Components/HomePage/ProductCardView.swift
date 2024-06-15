@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductCardView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
+    @Environment(\.colorScheme) var colorScheme
     var product: HRProduct
     
     var body: some View {
@@ -25,10 +26,15 @@ struct ProductCardView: View {
                             )
                 }
                 
-                Text(product.name)
-                    .font(.subheadline)
-                    .padding(.vertical, 1)
-                
+                VStack {
+                    Text(product.name)
+                        .font(.subheadline)
+                        .padding(.vertical, 1)
+                        .lineLimit(4)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Spacer()
+                }
+                    
                 Text((product.price ?? 0).formattedCurrency())
                     .font(.caption2)
             }
@@ -42,7 +48,15 @@ struct ProductCardView: View {
                     .padding(.trailing)
             }
         }
-        .frame(width: 185, height: 260)
-        .cornerRadius(15)
+        .frame(maxWidth: .infinity)
+        .frame(height: 260)
+        .padding(5)
+        .padding(.vertical, 10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 15)
+                .stroke(.gray, lineWidth: 0.5)
+        )
+        .padding(5)
+        .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
     }
 }
