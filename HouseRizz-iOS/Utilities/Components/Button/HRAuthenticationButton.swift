@@ -25,7 +25,9 @@ struct HRAuthenticationButton: View {
                     Image(systemName: iconName)
                         .resizable()
                         .frame(width: 20, height: 15)
+                        .foregroundStyle(.blue)
                 }
+                
                 Text(label)
                     .bold()
                     .foregroundStyle(Color.black)

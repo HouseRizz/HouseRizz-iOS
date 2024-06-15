@@ -27,11 +27,11 @@ struct LoginView: View {
     var body: some View {
         VStack {
             VStack{
-                Text("HouseRizz")
-                    .bold()
-                    .font(.title)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom,20)
+                Image("TextLogo")
+                    .resizable()
+                    .frame(maxWidth: .infinity)
+                
+                Spacer()
                 
                 HStack {
                     Image(systemName: "at")
@@ -77,6 +77,7 @@ struct LoginView: View {
                 HRAuthenticationButton(label: "Sign in with Google", iconImage: Image("google")) {
                     signInWithGoogle()
                 }
+                
                 SignInWithAppleButton(.signIn) { request in
                     viewModel.handleSignInWithAppleRequest(request)
                 } onCompletion: { result in
@@ -88,15 +89,17 @@ struct LoginView: View {
                 .cornerRadius(8)
                 .signInWithAppleButtonStyle(.white)
                 .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
+                
                 HRAuthenticationButton(label: "Sign up with Email", iconName: "envelope.fill") {
                     isSignupView.toggle()
                 }
             }
             .padding()
+            
+            Spacer()
         }
         .listStyle(.plain)
         .padding()
-        .padding(.top,200)
         .sheet(isPresented: $isSignupView) {
             SignupView()
         }
