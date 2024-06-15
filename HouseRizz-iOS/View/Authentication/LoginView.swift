@@ -27,11 +27,10 @@ struct LoginView: View {
     var body: some View {
         VStack {
             VStack{
-                Image("TextLogo")
+                Image("cats")
                     .resizable()
                     .frame(maxWidth: .infinity)
-                
-                Spacer()
+                    .frame(height: 300)
                 
                 HStack {
                     Image(systemName: "at")
@@ -65,7 +64,6 @@ struct LoginView: View {
                         .frame(maxWidth: .infinity)
                 }
             }
-            .padding()
             
             HStack {
                 VStack { Divider() }
@@ -94,8 +92,6 @@ struct LoginView: View {
                     isSignupView.toggle()
                 }
             }
-            .padding()
-            
             Spacer()
         }
         .listStyle(.plain)

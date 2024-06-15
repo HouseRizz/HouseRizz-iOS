@@ -15,12 +15,8 @@ struct SplashScreenView: View {
             if self.isActive {
                 MainView()
             } else {
-                Color.primaryColor.edgesIgnoringSafeArea(.all)
-                
-                Image("logo")
+                Image("cats")
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 300, height: 300)
             }
         }
         .onAppear {
