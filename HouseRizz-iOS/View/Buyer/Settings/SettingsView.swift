@@ -30,7 +30,7 @@ struct SettingsView: View {
                     Section {
                         HStack {
                             Image(systemName: "person")
-                            Text("Email")
+                            Text("Name")
                             Spacer()
                             Text(user.name)
                                 .foregroundStyle(.gray)
