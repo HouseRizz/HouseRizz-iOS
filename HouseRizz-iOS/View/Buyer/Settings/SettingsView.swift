@@ -18,6 +18,10 @@ struct SettingsView: View {
     @State private var editablePhoneNumber: String = ""
     @State private var showEditAddress: Bool = false
     @State private var deleteAccount: Bool = false
+    @State private var showTerms:Bool = false
+    @State private var showPrivacy:Bool = false
+    @State private var showHelp:Bool = false
+    @State private var showRefund:Bool = false
     
     var body: some View {
         NavigationStack {
@@ -132,6 +136,39 @@ struct SettingsView: View {
                 }  header: {
                     Text("Leave")
                 }
+                
+                Section {
+//                    HStack {
+//                        Image(systemName: "questionmark.circle")
+//                        Text("Help Center")
+//                    }
+//                    .onTapGesture {
+//                        showHelp = true
+//                    }
+                    HStack {
+                        Image(systemName: "book.closed")
+                        Text("Terms of Use")
+                    }
+                    .onTapGesture {
+                        showTerms = true
+                    }
+                    HStack {
+                        Image(systemName: "lock")
+                        Text("Privacy Policy")
+                    }
+                    .onTapGesture {
+                        showPrivacy = true
+                    }
+                    HStack {
+                        Image(systemName: "archivebox")
+                        Text("Refund Policy")
+                    }
+                    .onTapGesture {
+                        showRefund = true
+                    }
+                } header: {
+                    Text("About")
+                }
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
@@ -153,12 +190,24 @@ struct SettingsView: View {
             .sheet(isPresented: $showEditAddress, content: {
                 EditAddressView()
             })
+            .sheet(isPresented: $showHelp, content: {
+                HelpView()
+            })
+            .sheet(isPresented: $showTerms, content: {
+                TermsView()
+            })
+            .sheet(isPresented: $showPrivacy, content: {
+                PrivacyView()
+            })
+            .sheet(isPresented: $showRefund, content: {
+                RefundView()
+            })
             .alert(isPresented: $deleteAccount) {
                 Alert(title: Text("Delete Account"),
                       message: Text("This action will delete your account information, orders, and any other information"),
                       primaryButton: .destructive(Text("Delete"), action: {
-                          authentication.delete()
-                      }),
+                    authentication.delete()
+                }),
                       secondaryButton: .cancel(Text("Cancel"))
                 )
             }
