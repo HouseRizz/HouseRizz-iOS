@@ -117,6 +117,28 @@ struct SettingsView: View {
                 
                 Section {
                     HStack {
+                        Image(systemName: "rectangle.portrait.and.arrow.right")
+                        Text("Sign out")
+                    }
+                    .foregroundStyle(.red)
+                    .onTapGesture {
+                        authentication.signOut()
+                    }
+                    
+                    HStack {
+                        Image(systemName: "xmark.circle")
+                        Text("Delete Account")
+                    }
+                    .foregroundStyle(.red)
+                    .onTapGesture {
+                        deleteAccount.toggle()
+                    }
+                }  header: {
+                    Text("Leave")
+                }
+                
+                Section {
+                    HStack {
                         Image(systemName: "questionmark.circle")
                         Text("Help Center")
                     }
@@ -146,28 +168,6 @@ struct SettingsView: View {
                     }
                 } header: {
                     Text("About")
-                }
-                
-                Section {
-                    HStack {
-                        Image(systemName: "rectangle.portrait.and.arrow.right")
-                        Text("Sign out")
-                    }
-                    .foregroundStyle(.red)
-                    .onTapGesture {
-                        authentication.signOut()
-                    }
-                    
-                    HStack {
-                        Image(systemName: "xmark.circle")
-                        Text("Delete Account")
-                    }
-                    .foregroundStyle(.red)
-                    .onTapGesture {
-                        deleteAccount.toggle()
-                    }
-                }  header: {
-                    Text("Leave")
                 }
             }
             .navigationTitle("Settings")

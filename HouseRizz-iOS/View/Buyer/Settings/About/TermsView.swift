@@ -126,13 +126,12 @@ struct TermsView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "xmark")
                             .foregroundColor(.red)
                     }
                 }
-        }
+            }
         }
     }
 }
