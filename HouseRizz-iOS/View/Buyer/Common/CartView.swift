@@ -62,7 +62,7 @@ struct CartView: View {
                             secondaryButton: .cancel()
                         )
                     }
-                    .navigationDestination(isPresented: $navigateToUPIView) {
+                    .sheet(isPresented: $navigateToUPIView) {
                         UPIView()
                     }
                     .sheet(isPresented: $navigateToSetting) {
