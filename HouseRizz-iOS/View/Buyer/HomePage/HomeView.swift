@@ -25,9 +25,9 @@ struct HomeView: View {
                 
                 ScrollView {
                     VStack {
-                        ImageSliderView(slides: ["graysofa","leathersofa"])
+                        ImageSliderView(slides: ["coming1","coming2"])
                         
-                        ImageSliderView(slides: ["greensofa","bluesofa"])
+                        ImageSliderView(slides: ["greensofa","graysofa"])
 
                         Text("Featured Products")
                             .font(.title3.bold())

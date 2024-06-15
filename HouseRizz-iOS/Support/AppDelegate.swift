@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let cartViewModel = CartViewModel()
         let searchViewModel = SearchViewModel()
-        let contentView = MainView()
+        let contentView = SplashScreenView()
             .environmentObject(cartViewModel)
             .environmentObject(searchViewModel)
 
