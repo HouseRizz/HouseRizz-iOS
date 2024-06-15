@@ -14,6 +14,8 @@ struct ProductDetailsView: View {
     private var imageUrls: [URL?] {
         [product.imageURL1, product.imageURL2, product.imageURL3]
     }
+    @State private var showAlert: Bool = false
+    @State private var showCartView: Bool = false
     
     var body: some View {
         VStack {
@@ -112,11 +114,25 @@ struct ProductDetailsView: View {
             
             HRCartButton(buttonText: "Add to Cart") {
                 cartViewModel.addToCart(product: product, quantity: quantity)
+                showAlert.toggle()
             }
             .padding()
         }
         .ignoresSafeArea(edges: .top)
         .environmentObject(cartViewModel)
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Product Added to Cart"),
+                  primaryButton: .cancel(Text("Ok")),
+                  secondaryButton: .default(Text("Go To Cart"), action: {
+                    showCartView = true
+                  }))
+        }
+        .sheet(isPresented: $showCartView) {
+            NavigationView {
+                CartView()
+            }
+        }
+        
     }
 }
 
