@@ -34,12 +34,12 @@ struct ProductDetailsView: View {
                             }
                         }
                         
-                        Image(systemName: "heart.fill")
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                            .padding(.top, 65)
-                            .padding(.trailing, 20)
-                            .foregroundStyle(Color.primaryColor)
+//                        Image(systemName: "heart.fill")
+//                            .resizable()
+//                            .frame(width: 25, height: 25)
+//                            .padding(.top, 65)
+//                            .padding(.trailing, 20)
+//                            .foregroundStyle(Color.primaryColor)
                     }
                     
                     VStack(alignment: .leading) {
