@@ -23,7 +23,7 @@ enum HRTabItems: Int, CaseIterable {
         case .ar:
             return "3D"
         case .products:
-            return "Product"
+            return "Buy"
       
         }
     }

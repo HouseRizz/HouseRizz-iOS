@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "shelves.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
