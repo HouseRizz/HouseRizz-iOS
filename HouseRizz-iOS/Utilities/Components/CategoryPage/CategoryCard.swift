@@ -21,9 +21,15 @@ struct CategoryCard: View {
                     RoundedRectangle(cornerRadius: 12)
                         .stroke(.gray, lineWidth: 0.5)
                 )
-            Text(title)
-                .bold()
-                .font(.subheadline)
+            VStack {
+                Text(title)
+                    .bold()
+                    .font(.subheadline)
+                    .padding(.vertical, 1)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
+                Spacer()
+            }
         }
     }
 }
