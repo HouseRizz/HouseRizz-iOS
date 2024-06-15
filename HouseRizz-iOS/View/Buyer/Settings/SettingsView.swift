@@ -138,13 +138,13 @@ struct SettingsView: View {
                 }
                 
                 Section {
-                    HStack {
-                        Image(systemName: "questionmark.circle")
-                        Text("Help Center")
-                    }
-                    .onTapGesture {
-                        showHelp = true
-                    }
+//                    HStack {
+//                        Image(systemName: "questionmark.circle")
+//                        Text("Help Center")
+//                    }
+//                    .onTapGesture {
+//                        showHelp = true
+//                    }
                     HStack {
                         Image(systemName: "book.closed")
                         Text("Terms of Use")
