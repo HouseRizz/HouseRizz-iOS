@@ -17,7 +17,7 @@ struct OrderHistoryListView: View {
         NavigationStack {
             VStack {
                 List(viewModel.orders, id: \.self) { order in
-                    if let user = authentication.user {
+                    if (authentication.user != nil) {
                         NavigationLink {
                             OrderHistoryDetailView(order: order).toolbarRole(.editor)
                         } label: {
