@@ -57,9 +57,6 @@ class Authentication: ObservableObject {
     public var isSignedIn: Bool{
         return Auth.auth().currentUser != nil
     }
-    
-    
-
 }
 
 extension Authentication {
@@ -102,6 +99,18 @@ extension Authentication {
 }
 
 extension Authentication {
+    func signInAnonymously() async -> Bool {
+        do {
+            let result = try await Auth.auth().signInAnonymously()
+            name = result.user.isAnonymous ? "Anonymous User" : result.user.displayName ?? ""
+            email = result.user.email ?? ""
+            insertUserRecord(id: currentUserId)
+            return true
+        } catch {
+            errorMessage = error.localizedDescription
+            return false
+        }
+    }
     
     func signInWithEmailPassword() async -> Bool {
         do {
@@ -111,7 +120,6 @@ extension Authentication {
             return true
         }
         catch  {
-            print(error)
             errorMessage = error.localizedDescription
             return false
         }

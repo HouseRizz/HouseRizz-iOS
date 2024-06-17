@@ -38,6 +38,8 @@ struct CartView: View {
                     Button(action: {
                         if authViewModel.user?.address != "Not Provided" && authViewModel.user?.phoneNumber != "Not Provided" {
                             navigateToUPIView = true
+                        } else if authViewModel.user?.name != "Anonymous User" {
+                            navigateToUPIView = true
                         } else {
                             showAlert = true
                         }
@@ -54,8 +56,8 @@ struct CartView: View {
                     }
                     .alert(isPresented: $showAlert) {
                         Alert(
-                            title: Text("Address and Phone Missing"),
-                            message: Text("Please provide your address and phone number to proceed."),
+                            title: Text("Cannot Proceed Further. Complete Profile"),
+                            message: Text("Make Sure to sign In and provide your address and phone number to proceed."),
                             primaryButton: .default(Text("Go to Settings"), action: {
                                 navigateToSetting.toggle()
                             }),
