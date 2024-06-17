@@ -64,7 +64,7 @@
 		CC97AEFF2BBE5CB4007BB76C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AEFE2BBE5CB4007BB76C /* FirebaseStorage */; };
 		CC97AF012BBE5CCE007BB76C /* HRUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF002BBE5CCE007BB76C /* HRUser.swift */; };
 		CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF042BBE5DE3007BB76C /* MainView.swift */; };
-		CC97AF072BBE5DEA007BB76C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF062BBE5DEA007BB76C /* LoginView.swift */; };
+		CC97AF072BBE5DEA007BB76C /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF062BBE5DEA007BB76C /* AuthenticationView.swift */; };
 		CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF082BBE5DEF007BB76C /* SignupView.swift */; };
 		CC97AF0E2BBE5E52007BB76C /* HRAuthenticationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF0D2BBE5E52007BB76C /* HRAuthenticationButton.swift */; };
 		CC97AF102BBE5F1E007BB76C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */; };
@@ -72,6 +72,7 @@
 		CC97AF162BBE75C4007BB76C /* retrotv.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CC97AF152BBE75C4007BB76C /* retrotv.usdz */; };
 		CC97AF192BBE79A4007BB76C /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF182BBE79A4007BB76C /* FocusEntity */; };
 		CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF1B2BBE8109007BB76C /* ARPersistence */; };
+		CCA735562C1FDEE800053DDE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA735552C1FDEE800053DDE /* LoginView.swift */; };
 		CCAC47872C1C0B9E00A8EBF1 /* UPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC47862C1C0B9E00A8EBF1 /* UPIView.swift */; };
 		CCAC47892C1C0BAC00A8EBF1 /* UPIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC47882C1C0BAC00A8EBF1 /* UPIViewModel.swift */; };
 		CCAC478B2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC478A2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift */; };
@@ -146,13 +147,14 @@
 		CC97AEF32BBE5C46007BB76C /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		CC97AF002BBE5CCE007BB76C /* HRUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRUser.swift; sourceTree = "<group>"; };
 		CC97AF042BBE5DE3007BB76C /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		CC97AF062BBE5DEA007BB76C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		CC97AF062BBE5DEA007BB76C /* AuthenticationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		CC97AF082BBE5DEF007BB76C /* SignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		CC97AF0C2BBE5E29007BB76C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CC97AF0D2BBE5E52007BB76C /* HRAuthenticationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRAuthenticationButton.swift; sourceTree = "<group>"; };
 		CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CC97AF132BBE7590007BB76C /* redchair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = redchair.usdz; sourceTree = "<group>"; };
 		CC97AF152BBE75C4007BB76C /* retrotv.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = retrotv.usdz; sourceTree = "<group>"; };
+		CCA735552C1FDEE800053DDE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CCAC47862C1C0B9E00A8EBF1 /* UPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIView.swift; sourceTree = "<group>"; };
 		CCAC47882C1C0BAC00A8EBF1 /* UPIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIViewModel.swift; sourceTree = "<group>"; };
 		CCAC478A2C1C0E8C00A8EBF1 /* UPIAppListViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIAppListViewDataModel.swift; sourceTree = "<group>"; };
@@ -286,7 +288,8 @@
 			isa = PBXGroup;
 			children = (
 				CC97AF082BBE5DEF007BB76C /* SignupView.swift */,
-				CC97AF062BBE5DEA007BB76C /* LoginView.swift */,
+				CC97AF062BBE5DEA007BB76C /* AuthenticationView.swift */,
+				CCA735552C1FDEE800053DDE /* LoginView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */,
 				CC3CF4E02C198DEC00C8A58D /* CityPickerView.swift in Sources */,
 				CC06A97D2C0C97A100A0DAD3 /* NetworkManager.swift in Sources */,
+				CCA735562C1FDEE800053DDE /* LoginView.swift in Sources */,
 				CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */,
 				CCC5B03C2BFBB6B80007BEC1 /* InventoryProductCardView.swift in Sources */,
 				CC2F47142BC8389B00A4C1FC /* CartViewModel.swift in Sources */,
@@ -709,7 +713,7 @@
 				CCAC47872C1C0B9E00A8EBF1 /* UPIView.swift in Sources */,
 				CC06A96F2C0C898D00A0DAD3 /* TextFieldExtension.swift in Sources */,
 				CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */,
-				CC97AF072BBE5DEA007BB76C /* LoginView.swift in Sources */,
+				CC97AF072BBE5DEA007BB76C /* AuthenticationView.swift in Sources */,
 				CCC5B0422BFBB8700007BEC1 /* ProductInventoryViewModel.swift in Sources */,
 				CCAC478F2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift in Sources */,
 				CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */,

@@ -26,7 +26,7 @@ struct MainView: View {
         if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
             TabbedView()
         } else {
-            LoginView()
+            AuthenticationView()
         }
     }
 }

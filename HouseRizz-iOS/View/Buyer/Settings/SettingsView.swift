@@ -219,7 +219,7 @@ struct SettingsView: View {
                 RefundView()
             })
             .sheet(isPresented: $showLogin, content: {
-                LoginView()
+                AuthenticationView()
             })
             .alert(isPresented: $deleteAccount) {
                 Alert(title: Text("Delete Account"),
