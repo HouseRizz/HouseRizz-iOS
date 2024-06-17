@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UPIListView: View {
-    var model: UPIAppListViewDataModel
+    var model: UPIListItemModel
     @ObservedObject var viewModel: UPIViewModel
     @Environment(\.colorScheme) var colorScheme
 

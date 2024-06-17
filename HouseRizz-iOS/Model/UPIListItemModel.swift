@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UPIAppListViewDataModel: Decodable, Hashable {
+struct UPIListItemModel: Decodable, Hashable {
     var imageURL: UIImage? {
         return UIImage(named: appname)
     }
