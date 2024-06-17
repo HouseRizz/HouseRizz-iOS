@@ -22,6 +22,7 @@ struct SettingsView: View {
     @State private var showPrivacy:Bool = false
     @State private var showHelp:Bool = false
     @State private var showRefund:Bool = false
+    @State private var showLogin:Bool = false
     
     var body: some View {
         NavigationStack {
@@ -78,6 +79,21 @@ struct SettingsView: View {
                     }
                 } else {
                     Text("Loading Profile ..")
+                }
+                
+                if authentication.user?.name == "Anonymous User" {
+                    Section {
+                        HStack {
+                            Image(systemName: "person.circle")
+                            Text("Log in")
+                        }
+                        .foregroundStyle(.blue)
+                        .onTapGesture {
+                            authentication.signOut()
+                        }
+                    }  header: {
+                        Text("Join")
+                    }
                 }
                 
                 
@@ -201,6 +217,9 @@ struct SettingsView: View {
             })
             .sheet(isPresented: $showRefund, content: {
                 RefundView()
+            })
+            .sheet(isPresented: $showLogin, content: {
+                LoginView()
             })
             .alert(isPresented: $deleteAccount) {
                 Alert(title: Text("Delete Account"),
