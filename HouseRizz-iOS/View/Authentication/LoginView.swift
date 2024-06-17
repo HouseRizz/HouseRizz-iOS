@@ -72,6 +72,12 @@ struct LoginView: View {
             }
             
             VStack(spacing: 10){
+                HRAuthenticationButton(label: "Continue Without Sign in") {
+                    Task {
+                        await viewModel.signInAnonymously()
+                    }
+                }
+                
                 HRAuthenticationButton(label: "Sign in with Google", iconImage: Image("google")) {
                     signInWithGoogle()
                 }
