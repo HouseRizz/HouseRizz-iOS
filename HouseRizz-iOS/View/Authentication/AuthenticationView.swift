@@ -36,7 +36,6 @@ struct AuthenticationView: View {
                 HStack {
                     Spacer()
                     Text("Skip")
-                        .underline()
                         .bold()
                         .foregroundStyle(Color.white)
                         .padding()
