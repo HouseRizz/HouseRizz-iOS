@@ -8,7 +8,7 @@
 import SwiftUI
 
 class UPIViewModel: ObservableObject {
-    @Published var installedAppList: [UPIAppListViewDataModel] = []
+    @Published var installedAppList: [UPIListItemModel] = []
     @Published var selectedApp: String = ""
     var upiApps: [String] = []
     var upiImageUrl: [URL] = []
@@ -117,8 +117,8 @@ class UPIViewModel: ObservableObject {
     }
 
     
-    func createDataModel(appName: String) -> UPIAppListViewDataModel {
-        return UPIAppListViewDataModel(appname: appName)
+    func createDataModel(appName: String) -> UPIListItemModel {
+        return UPIListItemModel(appname: appName)
     }
 }
 

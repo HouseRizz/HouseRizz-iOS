@@ -20,11 +20,11 @@ struct HRAuthenticationButton: View {
                 if let iconImage = iconImage {
                     iconImage
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .frame(width: 15, height: 15)
                 } else if let iconName = iconName {
                     Image(systemName: iconName)
                         .resizable()
-                        .frame(width: 20, height: 15)
+                        .frame(width: 15, height: 10)
                         .foregroundStyle(.blue)
                 }
                 
@@ -33,9 +33,9 @@ struct HRAuthenticationButton: View {
                     .foregroundStyle(Color.black)
             }
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 15)
+            .frame(height: 45)
             .background(Color.white)
-            .cornerRadius(8)
+            .cornerRadius(20)
             .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
         }
     }
