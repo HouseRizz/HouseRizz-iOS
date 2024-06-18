@@ -16,6 +16,7 @@
 		CC06A9752C0C917E00A0DAD3 /* HRAddProductButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A9742C0C917E00A0DAD3 /* HRAddProductButton.swift */; };
 		CC06A97D2C0C97A100A0DAD3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A97C2C0C97A100A0DAD3 /* NetworkManager.swift */; };
 		CC06A97F2C0C97F000A0DAD3 /* NoNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A97E2C0C97F000A0DAD3 /* NoNetworkView.swift */; };
+		CC1026242C218908003FF6C4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC1026232C218908003FF6C4 /* Launch Screen.storyboard */; };
 		CC1107892C13F0EB00AB9F58 /* HROrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1107882C13F0EB00AB9F58 /* HROrder.swift */; };
 		CC11078B2C14565400AB9F58 /* ManageOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11078A2C14565400AB9F58 /* ManageOrdersView.swift */; };
 		CC11078D2C1456F200AB9F58 /* ManageOrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11078C2C1456F200AB9F58 /* ManageOrdersViewModel.swift */; };
@@ -39,7 +40,6 @@
 		CC548A3C2C1DA60500E98B85 /* RefundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A3B2C1DA60500E98B85 /* RefundView.swift */; };
 		CC548A3E2C1DA61400E98B85 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A3D2C1DA61400E98B85 /* TermsView.swift */; };
 		CC548A402C1DA62300E98B85 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A3F2C1DA62300E98B85 /* PrivacyView.swift */; };
-		CC548A442C1DDB5600E98B85 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A432C1DDB5600E98B85 /* SplashScreenView.swift */; };
 		CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */; };
 		CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */; };
 		CC82F8982C147FA800D978C8 /* OrderListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC82F8972C147FA800D978C8 /* OrderListItemView.swift */; };
@@ -110,6 +110,7 @@
 		CC06A9742C0C917E00A0DAD3 /* HRAddProductButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAddProductButton.swift; sourceTree = "<group>"; };
 		CC06A97C2C0C97A100A0DAD3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CC06A97E2C0C97F000A0DAD3 /* NoNetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkView.swift; sourceTree = "<group>"; };
+		CC1026232C218908003FF6C4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CC1107882C13F0EB00AB9F58 /* HROrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HROrder.swift; sourceTree = "<group>"; };
 		CC11078A2C14565400AB9F58 /* ManageOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageOrdersView.swift; sourceTree = "<group>"; };
 		CC11078C2C1456F200AB9F58 /* ManageOrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageOrdersViewModel.swift; sourceTree = "<group>"; };
@@ -133,7 +134,6 @@
 		CC548A3B2C1DA60500E98B85 /* RefundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundView.swift; sourceTree = "<group>"; };
 		CC548A3D2C1DA61400E98B85 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		CC548A3F2C1DA62300E98B85 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
-		CC548A432C1DDB5600E98B85 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryView.swift; sourceTree = "<group>"; };
 		CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
 		CC82F8972C147FA800D978C8 /* OrderListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListItemView.swift; sourceTree = "<group>"; };
@@ -542,7 +542,6 @@
 			children = (
 				CCD3B0022BCA28B5000AFB80 /* TabView.swift */,
 				CC97AF042BBE5DE3007BB76C /* MainView.swift */,
-				CC548A432C1DDB5600E98B85 /* SplashScreenView.swift */,
 				CC06A97E2C0C97F000A0DAD3 /* NoNetworkView.swift */,
 			);
 			path = Main;
@@ -597,6 +596,7 @@
 		CC97AEB92BBE4FCE007BB76C = {
 			isa = PBXGroup;
 			children = (
+				CC1026232C218908003FF6C4 /* Launch Screen.storyboard */,
 				CC97AEC42BBE4FCE007BB76C /* HouseRizz-iOS */,
 				CC97AEC32BBE4FCE007BB76C /* Products */,
 				CC97AEF52BBE5C79007BB76C /* Frameworks */,
@@ -744,6 +744,7 @@
 			files = (
 				CC97AECD2BBE4FD0007BB76C /* Preview Assets.xcassets in Resources */,
 				CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */,
+				CC1026242C218908003FF6C4 /* Launch Screen.storyboard in Resources */,
 				CC97AF162BBE75C4007BB76C /* retrotv.usdz in Resources */,
 				CC97AECA2BBE4FD0007BB76C /* Assets.xcassets in Resources */,
 				CC97AF142BBE7590007BB76C /* redchair.usdz in Resources */,
@@ -813,7 +814,6 @@
 				CCC5B0422BFBB8700007BEC1 /* ProductInventoryViewModel.swift in Sources */,
 				CCAC478F2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift in Sources */,
 				CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */,
-				CC548A442C1DDB5600E98B85 /* SplashScreenView.swift in Sources */,
 				CC06A95C2C0C07F100A0DAD3 /* EncodableExtension.swift in Sources */,
 				CC97AEF42BBE5C46007BB76C /* Authentication.swift in Sources */,
 				CC548A3A2C1DA5FC00E98B85 /* HelpView.swift in Sources */,
@@ -971,6 +971,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
@@ -1011,6 +1012,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;

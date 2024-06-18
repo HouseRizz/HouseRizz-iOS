@@ -26,51 +26,47 @@ struct AuthenticationView: View {
     }
     
     var body: some View {
-        VStack {
-            VStack{
-                Image("cats")
-                    .resizable()
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 400)
-                
-                VStack(spacing: 10){
-                    HRAuthenticationButton(label: "Continue Without Sign in", iconName: "person") {
-                        signInAnonymously()
-                    }
-                    
-                    HStack {
-                        VStack { Divider() }
-                        Text("or")
-                        VStack { Divider() }
-                    }
-                    
-                    HRAuthenticationButton(label: "Sign in with Email", iconName: "envelope.fill") {
-                        showLogin.toggle()
-                    }
-                    
-                    HRAuthenticationButton(label: "Sign in with Google", iconImage: Image("google")) {
-                        signInWithGoogle()
-                    }
-                    
-                    SignInWithAppleButton(.signIn) { request in
+        ZStack {
+            Image("authscreen")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    Text("Skip")
+                        .bold()
+                        .foregroundStyle(Color.white)
+                        .padding()
+                        .onTapGesture {
+                            signInAnonymously()
+                        }
+                        .padding(.top, 15)
+                }
+                                
+                VStack(spacing: 10) {
+                    SignInWithAppleButton(.continue) { request in
                         viewModel.handleSignInWithAppleRequest(request)
                     } onCompletion: { result in
                         viewModel.handleSignInWithAppleCompletion(result)
                     }
                     .frame(maxWidth: .infinity)
-                    .frame(height: 50)
-                    .padding(.vertical, 15)
-                    .cornerRadius(8)
+                    .frame(height: 45)
+                    .cornerRadius(20)
                     .signInWithAppleButtonStyle(.white)
                     .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
+                    
+                    HRAuthenticationButton(label: "Continue with Google", iconImage: Image("google")) { signInWithGoogle() }
+                    
+                    HRAuthenticationButton(label: "Continue with Email", iconName: "envelope.fill") { showLogin.toggle() }
                 }
+                .padding(.top, 80)
+                .sheet(isPresented: $showLogin) { LoginView() }
+                
                 Spacer()
             }
-            .listStyle(.plain)
-            .padding()
-            .sheet(isPresented: $showLogin) {
-                LoginView()
-            }
+            .padding(.horizontal)
         }
     }
 }
