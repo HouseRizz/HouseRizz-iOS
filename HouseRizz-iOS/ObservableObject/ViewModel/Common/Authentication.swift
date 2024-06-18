@@ -62,39 +62,25 @@ class Authentication: ObservableObject {
 extension Authentication {
     private func insertUserRecord(id: String) {
         
-        let newUser = HRUser(id: id, name: name, userType: userType, email: email,phoneNumber: phoneNumber, address: address, joined: Date().timeIntervalSince1970)
+        let newUser = HRUser(id: id, name: name, email: email, userType: userType,phoneNumber: phoneNumber, address: address, joined: Date().timeIntervalSince1970)
         
         let db = Firestore.firestore()
         
         db.collection(HRUserModelName.userFirestore)
             .document(id)
             .setData(newUser.asDictionary())
-        
-        CKUtility.add(item: newUser!) { _ in }
-    }
+        }
     
     func updateAddress(_ address: String) {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
         db.collection(HRUserModelName.userFirestore).document(userId).updateData([ "address": address ])
-        updateAddress(user: user!, address: address)
-    }
-    
-    func updateAddress(user: HRUser, address: String) {
-        guard let newUser = user.CKUpdateAddress(address: address) else { return }
-        CKUtility.update(item: newUser) {_ in }
     }
     
     func updatePhoneNumber(_ phoneNumber: String) {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
         db.collection(HRUserModelName.userFirestore).document(userId).updateData([ "phoneNumber": phoneNumber ])
-        updatePhoneNumber(user: user!, phoneNumber: phoneNumber)
-    }
-    
-    func updatePhoneNumber(user: HRUser, phoneNumber: String) {
-        guard let newUser = user.CKUpdatePhoneNumber(phone: phoneNumber) else { return }
-        CKUtility.update(item: newUser) {_ in }
     }
 }
 
@@ -170,8 +156,8 @@ extension Authentication {
                 self?.user = HRUser(
                     id: data[HRUserModelName.id] as? String ?? "",
                     name: data[HRUserModelName.name] as? String ?? "",
+                    email: data[HRUserModelName.email] as? String ?? "", 
                     userType: data[HRUserModelName.userType] as? String ?? "",
-                    email: data[HRUserModelName.email] as? String ?? "",
                     phoneNumber: data[HRUserModelName.phoneNumber] as? String ?? "",
                     address: data[HRUserModelName.address] as? String ?? "",
                     joined: data[HRUserModelName.joined] as? TimeInterval ?? 0
