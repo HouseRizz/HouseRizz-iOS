@@ -213,39 +213,54 @@ extension Authentication {
 }
 
 extension Authentication {
-    func signInWithGoogle() async -> Bool {
-        guard let clientID = FirebaseApp.app()?.options.clientID else {
-            fatalError("No client ID found in Firebase Config")
-        }
-        let config = GIDConfiguration(clientID: clientID)
-        GIDSignIn.sharedInstance.configuration = config
-        
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = windowScene.windows.first,
-              let rootViewController = window.rootViewController else {
-            print("There is no root view controller!")
-            return false
-        }
-        do {
-            let userAuthentication = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
-            let user = userAuthentication.user
-            guard let idToken = user.idToken else { throw AuthenticationError.tokenError(message: "ID token missing") }
-            let accessToken = user.accessToken
-            let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString,accessToken: accessToken.tokenString)
-            let result = try await Auth.auth().signIn(with: credential)
-            let firebaseUser = result.user
-            name = firebaseUser.displayName ?? ""
-            email = firebaseUser.email ?? ""
-            insertUserRecord(id: currentUserId)
-            return true
-        }
-        catch {
-            print(error.localizedDescription)
-            self.errorMessage = error.localizedDescription
-            return false
-        }
+  func signInWithGoogle() async -> Bool {
+    guard let clientID = FirebaseApp.app()?.options.clientID else {
+      fatalError("No client ID found in Firebase Config")
     }
+    let config = GIDConfiguration(clientID: clientID)
+    GIDSignIn.sharedInstance.configuration = config
+    
+    guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+          let window = windowScene.windows.first,
+          let rootViewController = window.rootViewController else {
+      print("There is no root view controller!")
+      return false
+    }
+    do {
+      let userAuthentication = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
+      let user = userAuthentication.user
+      guard let idToken = user.idToken else { throw AuthenticationError.tokenError(message: "ID token missing") }
+      let accessToken = user.accessToken
+      let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: accessToken.tokenString)
+      let result = try await Auth.auth().signIn(with: credential)
+      let firebaseUser = result.user
+      
+      // Check if user exists in Firestore
+      let db = Firestore.firestore()
+      let docRef = db.collection(HRUserModelName.userFirestore).document(currentUserId)
+      let docSnapshot = try await docRef.getDocument()
+      
+      if docSnapshot.exists {
+        // User exists, get data from Firestore
+        let data = docSnapshot.data()
+        phoneNumber = data?[HRUserModelName.phoneNumber] as? String ?? "Not Provided"
+        address = data?[HRUserModelName.address] as? String ?? "Not Provided"
+        userType = data?[HRUserModelName.userType] as? String ?? "Buyer"
+      }
+        
+      name = firebaseUser.displayName ?? ""
+      email = firebaseUser.email ?? ""
+      insertUserRecord(id: currentUserId)
+      return true
+    }
+    catch {
+      print(error.localizedDescription)
+      self.errorMessage = error.localizedDescription
+      return false
+    }
+  }
 }
+
 
 extension Authentication {
     func handleSignInWithAppleRequest(_ request: ASAuthorizationAppleIDRequest) {
@@ -291,6 +306,7 @@ extension Authentication {
             }
         }
     }
+    
     func updateDisplayName(for user: User, with appleIDCredential: ASAuthorizationAppleIDCredential, force: Bool = false) async {
         if let currentDisplayName = Auth.auth().currentUser?.displayName, !currentDisplayName.isEmpty {}
         else {
