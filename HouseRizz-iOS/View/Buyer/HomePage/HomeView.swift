@@ -17,7 +17,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Image("TextLogo")
+                Image("TextHouseRizz")
                     .resizable()
                     .frame(width: 150, height: 40)
                 

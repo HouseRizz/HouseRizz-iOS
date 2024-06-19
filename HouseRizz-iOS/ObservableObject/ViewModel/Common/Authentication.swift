@@ -38,7 +38,7 @@ class Authentication: ObservableObject {
     @Published var confirmPassword: String  = ""
     @Published var authenticationState: AuthenticationState = .unauthenticated
     @Published var isValid: Bool  = false
-    @Published var errorMessage: String = ""
+    @Published var errorMessage: String? = ""
     @Published var displayName = ""
     private var handler: AuthStateDidChangeListenerHandle?
     private var currentNonce: String?
@@ -62,39 +62,25 @@ class Authentication: ObservableObject {
 extension Authentication {
     private func insertUserRecord(id: String) {
         
-        let newUser = HRUser(id: id, name: name, userType: userType, email: email,phoneNumber: phoneNumber, address: address, joined: Date().timeIntervalSince1970)
+        let newUser = HRUser(id: id, name: name, email: email, userType: userType,phoneNumber: phoneNumber, address: address, joined: Date().timeIntervalSince1970)
         
         let db = Firestore.firestore()
         
         db.collection(HRUserModelName.userFirestore)
             .document(id)
             .setData(newUser.asDictionary())
-        
-        CKUtility.add(item: newUser!) { _ in }
     }
     
     func updateAddress(_ address: String) {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
         db.collection(HRUserModelName.userFirestore).document(userId).updateData([ "address": address ])
-        updateAddress(user: user!, address: address)
-    }
-    
-    func updateAddress(user: HRUser, address: String) {
-        guard let newUser = user.CKUpdateAddress(address: address) else { return }
-        CKUtility.update(item: newUser) {_ in }
     }
     
     func updatePhoneNumber(_ phoneNumber: String) {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
         db.collection(HRUserModelName.userFirestore).document(userId).updateData([ "phoneNumber": phoneNumber ])
-        updatePhoneNumber(user: user!, phoneNumber: phoneNumber)
-    }
-    
-    func updatePhoneNumber(user: HRUser, phoneNumber: String) {
-        guard let newUser = user.CKUpdatePhoneNumber(phone: phoneNumber) else { return }
-        CKUtility.update(item: newUser) {_ in }
     }
 }
 
@@ -170,8 +156,8 @@ extension Authentication {
                 self?.user = HRUser(
                     id: data[HRUserModelName.id] as? String ?? "",
                     name: data[HRUserModelName.name] as? String ?? "",
-                    userType: data[HRUserModelName.userType] as? String ?? "",
                     email: data[HRUserModelName.email] as? String ?? "",
+                    userType: data[HRUserModelName.userType] as? String ?? "",
                     phoneNumber: data[HRUserModelName.phoneNumber] as? String ?? "",
                     address: data[HRUserModelName.address] as? String ?? "",
                     joined: data[HRUserModelName.joined] as? TimeInterval ?? 0
@@ -245,9 +231,23 @@ extension Authentication {
             let user = userAuthentication.user
             guard let idToken = user.idToken else { throw AuthenticationError.tokenError(message: "ID token missing") }
             let accessToken = user.accessToken
-            let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString,accessToken: accessToken.tokenString)
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: accessToken.tokenString)
             let result = try await Auth.auth().signIn(with: credential)
             let firebaseUser = result.user
+            
+            // Check if user exists in Firestore
+            let db = Firestore.firestore()
+            let docRef = db.collection(HRUserModelName.userFirestore).document(currentUserId)
+            let docSnapshot = try await docRef.getDocument()
+            
+            if docSnapshot.exists {
+                // User exists, get data from Firestore
+                let data = docSnapshot.data()
+                phoneNumber = data?[HRUserModelName.phoneNumber] as? String ?? "Not Provided"
+                address = data?[HRUserModelName.address] as? String ?? "Not Provided"
+                userType = data?[HRUserModelName.userType] as? String ?? "Buyer"
+            }
+            
             name = firebaseUser.displayName ?? ""
             email = firebaseUser.email ?? ""
             insertUserRecord(id: currentUserId)
@@ -261,6 +261,7 @@ extension Authentication {
     }
 }
 
+
 extension Authentication {
     func handleSignInWithAppleRequest(_ request: ASAuthorizationAppleIDRequest) {
         request.requestedScopes = [.fullName, .email]
@@ -272,18 +273,17 @@ extension Authentication {
     func handleSignInWithAppleCompletion(_ result: Result<ASAuthorization, Error>) {
         if case .failure(let failure) = result {
             errorMessage = failure.localizedDescription
-        }
-        else if case .success(let authorization) = result {
+        } else if case .success(let authorization) = result {
             if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
                 guard let nonce = currentNonce else {
                     fatalError("Invalid state: a login callback was received, but no login request was sent.")
                 }
                 guard let appleIDToken = appleIDCredential.identityToken else {
-                    print("Unable to fetdch identify token.")
+                    print("Unable to fetch identity token.")
                     return
                 }
                 guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-                    print("Unable to serialise token string from data: \(appleIDToken.debugDescription)")
+                    print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
                     return
                 }
                 
@@ -293,34 +293,65 @@ extension Authentication {
                 Task {
                     do {
                         let result = try await Auth.auth().signIn(with: credential)
-                        await updateDisplayName(for: result.user, with: appleIDCredential)
-                        name = appleIDCredential.displayName()
-                        email = appleIDCredential.email ?? ""
-                        insertUserRecord(id: currentUserId)
-                    }
-                    catch {
+                        
+                        // Set the user ID
+                        currentUserId = result.user.uid
+                        
+                        // Use provided email or set to the user email from result
+                        if let providedEmail = appleIDCredential.email {
+                            email = providedEmail
+                        } else {
+                            email = result.user.email ?? ""
+                        }
+                        
+                        // Use provided name or set to the display name from result
+                        if let providedName = appleIDCredential.fullName?.formatted() {
+                            name = providedName
+                        } else {
+                            name = result.user.displayName ?? ""
+                        }
+                        
+                        // Check if user exists in Firestore
+                        let db = Firestore.firestore()
+                        let docRef = db.collection(HRUserModelName.userFirestore).document(currentUserId)
+                        let docSnapshot = try await docRef.getDocument()
+                        
+                        if docSnapshot.exists {
+                            // User exists, get data from Firestore
+                            let data = docSnapshot.data()
+                            phoneNumber = data?[HRUserModelName.phoneNumber] as? String ?? "Not Provided"
+                            address = data?[HRUserModelName.address] as? String ?? "Not Provided"
+                            userType = data?[HRUserModelName.userType] as? String ?? "Buyer"
+                        } else {
+                            // New user, insert record
+                            insertUserRecord(id: currentUserId)
+                        }
+                    } catch {
                         print("Error authenticating: \(error.localizedDescription)")
+                        errorMessage = error.localizedDescription
                     }
                 }
             }
         }
     }
+
     func updateDisplayName(for user: User, with appleIDCredential: ASAuthorizationAppleIDCredential, force: Bool = false) async {
-        if let currentDisplayName = Auth.auth().currentUser?.displayName, !currentDisplayName.isEmpty {}
-        else {
+        if let currentDisplayName = Auth.auth().currentUser?.displayName, !currentDisplayName.isEmpty {
+            // Do nothing if display name already exists
+        } else {
             let changeRequest = user.createProfileChangeRequest()
             changeRequest.displayName = appleIDCredential.displayName()
             do {
                 try await changeRequest.commitChanges()
                 self.displayName = Auth.auth().currentUser?.displayName ?? ""
-            }
-            catch {
-                print("Unable to update the user's displayname: \(error.localizedDescription)")
+            } catch {
+                print("Unable to update the user's display name: \(error.localizedDescription)")
                 errorMessage = error.localizedDescription
             }
         }
     }
-    
+
+
     func verifySignInWithAppleAuthenticationState() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let providerData = Auth.auth().currentUser?.providerData
@@ -347,10 +378,11 @@ extension Authentication {
 extension ASAuthorizationAppleIDCredential {
     func displayName() -> String {
         return [self.fullName?.givenName, self.fullName?.familyName]
-            .compactMap( {$0})
+            .compactMap { $0 }
             .joined(separator: " ")
     }
 }
+
 
 private func randomNonceString(length: Int = 32) -> String {
     precondition(length > 0)
