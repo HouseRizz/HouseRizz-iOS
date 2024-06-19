@@ -143,9 +143,9 @@ extension AddProductView {
             
             Spacer()
             
-            Picker("Category", selection: $viewModel.selectedCategory) {
-                ForEach(Category.allCases, id: \.self) {
-                    Text($0.title)
+            Picker("Category", selection: $viewModel.selectedCategoryIndex) {
+                ForEach(viewModel.categories.indices, id: \.self) { index in
+                    Text(viewModel.categories[index].name).tag(index)
                 }
             }
         }

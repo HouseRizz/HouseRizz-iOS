@@ -16,12 +16,13 @@ class AddProductViewModel: ObservableObject {
     @Published var sellingPrice: Double = 0
     @Published var taxRate: Double = 0
     @Published var modelURL: URL?
-    @Published var selectedCategory: Category = .sofa
+    @Published var selectedCategoryIndex: Int = 0
     @Published var supplier: String = ""
     @Published var address: String = ""
     @Published var selectedPhotoData = [Data]()
     @Published var isSuccess: Bool = false
     @Published var isLoaded: Bool = false
+    @Published var categories: [HRProductCategory] = []
     var urls: [URL] = []
     var errors: [Error] = []
     var cancellables = Set<AnyCancellable>()
@@ -30,10 +31,13 @@ class AddProductViewModel: ObservableObject {
         return totalPrice
     }
     
+    init() {
+        fetchCategories()
+    }
+    
     func addButtonPressed(vendorName: String){
-        guard !name.isEmpty else {return}
+        guard !name.isEmpty else { return }
         addItem(name: name, vendorName: vendorName)
-        
     }
     
     func clearItem() {
@@ -54,10 +58,7 @@ class AddProductViewModel: ObservableObject {
         
         for (index, imageData) in selectedPhotoData.enumerated() {
             guard let image = UIImage(data: imageData),
-                  let url = FileManager
-                                .default
-                                .urls(for: .cachesDirectory, in: .userDomainMask)
-                                .first?.appendingPathComponent("photo\(index + 1).jpg"),
+                  let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("photo\(index + 1).jpg"),
                   let data = image.jpegData(compressionQuality: 1.0) else { continue }
             do {
                 try data.write(to: url)
@@ -67,7 +68,9 @@ class AddProductViewModel: ObservableObject {
             }
         }
         
-        guard let newItem = HRProduct(id: UUID(), name: name, description: description, price: finalPrice, imageURL1: urls.count > 0 ? urls[0] : nil, imageURL2: urls.count > 1 ? urls[1] : nil, imageURL3: urls.count > 2 ? urls[2] : nil, modelURL: modelURL, category: selectedCategory.title, supplier: vendorName, address: address) else {
+        let selectedCategory = categories[selectedCategoryIndex].name
+        
+        guard let newItem = HRProduct(id: UUID(), name: name, description: description, price: finalPrice, imageURL1: urls.count > 0 ? urls[0] : nil, imageURL2: urls.count > 1 ? urls[1] : nil, imageURL3: urls.count > 2 ? urls[2] : nil, modelURL: modelURL, category: selectedCategory, supplier: vendorName, address: address) else {
             error = "Error creating item"
             isLoaded = true
             return
@@ -84,7 +87,6 @@ class AddProductViewModel: ObservableObject {
     func loadUSDZFile(from result: Result<URL, Error>) {
         do {
             let fileURL = try result.get()
-//            try fileURL.startAccessingSecurityScopedResource()
             let tempFileURL = try createTempFileURL(from: fileURL)
             self.modelURL = tempFileURL
             fileURL.stopAccessingSecurityScopedResource()
@@ -101,5 +103,22 @@ class AddProductViewModel: ObservableObject {
         try FileManager.default.copyItem(at: fileURL, to: modelURL)
         return modelURL
     }
+    
+    func fetchCategories() {
+        let predicate = NSPredicate(value: true)
+        let recordType = HRProductCategoryModelName.itemRecord
+        CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self?.error = error.localizedDescription
+                }
+            } receiveValue: { [weak self] returnedItems in
+                self?.categories = returnedItems
+            }
+            .store(in: &cancellables)
+    }
 }
-
