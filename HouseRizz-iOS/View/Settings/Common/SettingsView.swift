@@ -247,7 +247,7 @@ struct SettingsView: View {
                 VendorInventoryView()
             })
             .sheet(isPresented: $showVendorOrders, content: {
-                ManageOrdersView()
+                VendorOrdersView()
             })
             .sheet(isPresented: $showBuyerOrders, content: {
                 OrderHistoryListView()

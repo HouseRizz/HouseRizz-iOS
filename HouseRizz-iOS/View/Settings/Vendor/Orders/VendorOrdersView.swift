@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct ManageOrdersView: View {
-    
-    @StateObject private var viewModel = ManageOrdersViewModel()
+struct VendorOrdersView: View {
+    @StateObject private var viewModel = VendorOrdersViewModel()
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var authentication = Authentication()
     
@@ -22,7 +21,6 @@ struct ManageOrdersView: View {
                     } label: {
                         OrderListItemView(order: order)
                     }
-                    
                 }
             }
             .navigationTitle("Manage Orders")
@@ -48,5 +46,5 @@ struct ManageOrdersView: View {
 }
 
 #Preview {
-    ManageOrdersView()
+    VendorOrdersView()
 }

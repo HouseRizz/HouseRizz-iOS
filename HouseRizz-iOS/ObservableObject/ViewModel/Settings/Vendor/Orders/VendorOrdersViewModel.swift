@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class ManageOrdersViewModel: ObservableObject {
+class VendorOrdersViewModel: ObservableObject {
     @Published var error: String = ""
     @Published var orders: [HROrder] = []
     @Published var userName: String = ""
