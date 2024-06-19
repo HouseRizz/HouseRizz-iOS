@@ -25,10 +25,13 @@ This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets 
 - [x]  Settings Page
 - [x]  Create Orders
 - [x]  View Order History
-- [x]  Razorpay Payment Gateway Integration
+- [x]  UPI Payment Gateway Integration
 - [ ]  AI Feature - Sketch to Render
 - [ ]  AI Feature - Redesign home from image
+- [ ]  AI Feature - Similarity Model
 - [ ]  AI Feature - Tinder Like Swipes but for Furniture Recommendations
+- [ ]  Notification - Order Updates
+- [ ]  Notification - Promotional
 
 Vendor Side
 - [x]  Add Item to CloudKit
@@ -38,6 +41,13 @@ Vendor Side
 - [x]  Item Detail View
 - [x]  Order Management
 - [x]  Authentication
+
+Admin Side
+- [x]  Manage All Products
+- [x]  Manage All Orders
+- [x]  Manage Products Categories
+- [x]  Manage Add Banners
+- [ ]  Manage Notifications
 
 ## Licence
 ### This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
