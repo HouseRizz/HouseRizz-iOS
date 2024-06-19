@@ -15,9 +15,6 @@ class AddProductViewModel: ObservableObject {
     @Published var description: String = ""
     @Published var sellingPrice: Double = 0
     @Published var taxRate: Double = 0
-    @Published var imageURL1: String = ""
-    @Published var imageURL2: String = ""
-    @Published var imageURL3: String = ""
     @Published var modelURL: URL?
     @Published var selectedCategory: Category = .sofa
     @Published var supplier: String = ""
@@ -45,9 +42,6 @@ class AddProductViewModel: ObservableObject {
         description = ""
         sellingPrice = 0
         taxRate = 0
-        imageURL1 = ""
-        imageURL2 = ""
-        imageURL3 = ""
         supplier = ""
         selectedPhotoData = [Data]()
     }

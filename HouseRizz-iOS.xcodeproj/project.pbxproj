@@ -48,6 +48,9 @@
 		CC7B07CB2C22D35B00627BC5 /* AdminOrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07CA2C22D35B00627BC5 /* AdminOrdersViewModel.swift */; };
 		CC7B07CD2C22D4E000627BC5 /* ManageProductCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07CC2C22D4E000627BC5 /* ManageProductCategoriesView.swift */; };
 		CC7B07CF2C22D59400627BC5 /* HRProductCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07CE2C22D59400627BC5 /* HRProductCategory.swift */; };
+		CC7B07D12C22D7F400627BC5 /* ManageProductCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07D02C22D7F400627BC5 /* ManageProductCategoriesViewModel.swift */; };
+		CC7B07D32C22DEE300627BC5 /* AddProductCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07D22C22DEE300627BC5 /* AddProductCategoriesView.swift */; };
+		CC7B07D52C22DF5900627BC5 /* AddProductCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07D42C22DF5900627BC5 /* AddProductCategoriesViewModel.swift */; };
 		CC82F8982C147FA800D978C8 /* OrderListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC82F8972C147FA800D978C8 /* OrderListItemView.swift */; };
 		CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */; };
 		CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9257F52BFB88AB0066F94B /* CKUtility.swift */; };
@@ -148,6 +151,9 @@
 		CC7B07CA2C22D35B00627BC5 /* AdminOrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrdersViewModel.swift; sourceTree = "<group>"; };
 		CC7B07CC2C22D4E000627BC5 /* ManageProductCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProductCategoriesView.swift; sourceTree = "<group>"; };
 		CC7B07CE2C22D59400627BC5 /* HRProductCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProductCategory.swift; sourceTree = "<group>"; };
+		CC7B07D02C22D7F400627BC5 /* ManageProductCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProductCategoriesViewModel.swift; sourceTree = "<group>"; };
+		CC7B07D22C22DEE300627BC5 /* AddProductCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductCategoriesView.swift; sourceTree = "<group>"; };
+		CC7B07D42C22DF5900627BC5 /* AddProductCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductCategoriesViewModel.swift; sourceTree = "<group>"; };
 		CC82F8972C147FA800D978C8 /* OrderListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListItemView.swift; sourceTree = "<group>"; };
 		CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CC9257F52BFB88AB0066F94B /* CKUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKUtility.swift; sourceTree = "<group>"; };
@@ -485,6 +491,7 @@
 				CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */,
 				CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */,
 				CC7B07CC2C22D4E000627BC5 /* ManageProductCategoriesView.swift */,
+				CC7B07D22C22DEE300627BC5 /* AddProductCategoriesView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -537,6 +544,8 @@
 			children = (
 				CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */,
 				CC7B07CA2C22D35B00627BC5 /* AdminOrdersViewModel.swift */,
+				CC7B07D02C22D7F400627BC5 /* ManageProductCategoriesViewModel.swift */,
+				CC7B07D42C22DF5900627BC5 /* AddProductCategoriesViewModel.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -810,6 +819,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC7B07D32C22DEE300627BC5 /* AddProductCategoriesView.swift in Sources */,
 				CC97AF012BBE5CCE007BB76C /* HRUser.swift in Sources */,
 				CC7B07C42C22D0F900627BC5 /* AdminInventoryView.swift in Sources */,
 				CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */,
@@ -847,6 +857,8 @@
 				CC2F47162BC8CE1900A4C1FC /* CartButton.swift in Sources */,
 				CCDB49B22C16DBC300F7031B /* OrderHistoryDetailView.swift in Sources */,
 				CC7B07C72C22D15A00627BC5 /* AdminInventoryViewModel.swift in Sources */,
+				CC7B07D52C22DF5900627BC5 /* AddProductCategoriesViewModel.swift in Sources */,
+				CC7B07D12C22D7F400627BC5 /* ManageProductCategoriesViewModel.swift in Sources */,
 				CC06A95E2C0C080500A0DAD3 /* ColorExtension.swift in Sources */,
 				CCDED4702C1544CA0063C1D2 /* OrderDetailView.swift in Sources */,
 				CC7B07CB2C22D35B00627BC5 /* AdminOrdersViewModel.swift in Sources */,

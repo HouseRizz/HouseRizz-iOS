@@ -17,9 +17,9 @@ struct ProductView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(Category.allCases, id: \.self) { category in
-                            NavigationLink(destination: ProductCategoryView(productCategory: category)) {
-                                CategoryCard(image: category.image, title: category.title)
-                            }
+//                            NavigationLink(destination: ProductCategoryView(productCategory: category)) {
+//                                CategoryCard(image: category.image, title: category.title)
+//                            }
                         }
                     }
                     .padding()

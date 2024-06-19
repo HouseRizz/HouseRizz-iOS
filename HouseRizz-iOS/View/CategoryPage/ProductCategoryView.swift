@@ -12,14 +12,14 @@ struct ProductCategoryView: View {
     @State private var selectedProduct: HRProduct?
     @StateObject private var viewModel = ProductCategoryViewModel()
     var column = [GridItem(.adaptive(minimum: 160), spacing: 20)]
-    var productCategory: Category
+    var productCategory: HRProductCategory
 
     var body: some View {
         NavigationView {
             VStack {
                 ScrollView {
                     LazyVGrid(columns: column) {
-                        ForEach(viewModel.products.filter { $0.category == productCategory.title }, id: \.self) { product in
+                        ForEach(viewModel.products.filter { $0.category == productCategory.name }, id: \.self) { product in
                             ProductCardView(product: product)
                                 .environmentObject(cartViewModel)
                                 .onTapGesture {
@@ -31,7 +31,7 @@ struct ProductCategoryView: View {
                 }
             }
         }
-        .navigationTitle(productCategory.title)
+        .navigationTitle(productCategory.name)
         .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $selectedProduct) { product in
             ProductDetailsView(product: product)
@@ -45,9 +45,4 @@ struct ProductCategoryView: View {
             }
         }
     }
-}
-
-#Preview {
-    ProductCategoryView(productCategory: Category.sofa)
-        .environmentObject(CartViewModel())
 }

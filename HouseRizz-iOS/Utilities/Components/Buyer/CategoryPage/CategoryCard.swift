@@ -8,21 +8,23 @@
 import SwiftUI
 
 struct CategoryCard: View {
-    var image: String
-    var title: String
+    var category: HRProductCategory
 
     var body: some View {
         VStack {
-            Image(image)
-                .resizable()
-                .frame(width: 100,height: 100)
-                .cornerRadius(12)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(.gray, lineWidth: 0.5)
-                )
+            if let url = category.imageURL, let data = try? Data(contentsOf: url), let image = UIImage(data: data){
+                Image(uiImage: image)
+                    .resizable()
+                    .frame(width: 100,height: 100)
+                    .cornerRadius(12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(.gray, lineWidth: 0.5)
+                    )
+            }
+            
             VStack {
-                Text(title)
+                Text(category.name)
                     .bold()
                     .font(.subheadline)
                     .padding(.vertical, 1)
@@ -32,8 +34,4 @@ struct CategoryCard: View {
             }
         }
     }
-}
-
-#Preview {
-    CategoryCard(image: Category.sofa.image, title: Category.sofa.title)
 }
