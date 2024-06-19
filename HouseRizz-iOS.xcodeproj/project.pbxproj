@@ -46,6 +46,8 @@
 		CC7B07C72C22D15A00627BC5 /* AdminInventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */; };
 		CC7B07C92C22D33A00627BC5 /* AdminOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */; };
 		CC7B07CB2C22D35B00627BC5 /* AdminOrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07CA2C22D35B00627BC5 /* AdminOrdersViewModel.swift */; };
+		CC7B07CD2C22D4E000627BC5 /* ManageProductCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07CC2C22D4E000627BC5 /* ManageProductCategoriesView.swift */; };
+		CC7B07CF2C22D59400627BC5 /* HRProductCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07CE2C22D59400627BC5 /* HRProductCategory.swift */; };
 		CC82F8982C147FA800D978C8 /* OrderListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC82F8972C147FA800D978C8 /* OrderListItemView.swift */; };
 		CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */; };
 		CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9257F52BFB88AB0066F94B /* CKUtility.swift */; };
@@ -144,6 +146,8 @@
 		CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryViewModel.swift; sourceTree = "<group>"; };
 		CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrdersView.swift; sourceTree = "<group>"; };
 		CC7B07CA2C22D35B00627BC5 /* AdminOrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrdersViewModel.swift; sourceTree = "<group>"; };
+		CC7B07CC2C22D4E000627BC5 /* ManageProductCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProductCategoriesView.swift; sourceTree = "<group>"; };
+		CC7B07CE2C22D59400627BC5 /* HRProductCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProductCategory.swift; sourceTree = "<group>"; };
 		CC82F8972C147FA800D978C8 /* OrderListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListItemView.swift; sourceTree = "<group>"; };
 		CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CC9257F52BFB88AB0066F94B /* CKUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKUtility.swift; sourceTree = "<group>"; };
@@ -402,6 +406,7 @@
 				CC2ACF972C101026004C040B /* HRCartItem.swift */,
 				CC1107882C13F0EB00AB9F58 /* HROrder.swift */,
 				CCAC478A2C1C0E8C00A8EBF1 /* UPIListItemModel.swift */,
+				CC7B07CE2C22D59400627BC5 /* HRProductCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 			children = (
 				CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */,
 				CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */,
+				CC7B07CC2C22D4E000627BC5 /* ManageProductCategoriesView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -809,6 +815,7 @@
 				CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */,
 				CCAC47892C1C0BAC00A8EBF1 /* UPIViewModel.swift in Sources */,
 				CC11078B2C14565400AB9F58 /* VendorOrdersView.swift in Sources */,
+				CC7B07CD2C22D4E000627BC5 /* ManageProductCategoriesView.swift in Sources */,
 				CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */,
 				CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */,
 				CC3CF4E02C198DEC00C8A58D /* CityPickerView.swift in Sources */,
@@ -874,6 +881,7 @@
 				CC3CF4E42C19989200C8A58D /* SearchViewModel.swift in Sources */,
 				CC3CF4DE2C198BE500C8A58D /* SearchView.swift in Sources */,
 				CC548A3C2C1DA60500E98B85 /* RefundView.swift in Sources */,
+				CC7B07CF2C22D59400627BC5 /* HRProductCategory.swift in Sources */,
 				CC2ACF962C100A7B004C040B /* ProductCategoryViewModel.swift in Sources */,
 				CCDB49AE2C16D95900F7031B /* OrderHistoryListView.swift in Sources */,
 				CC97AF102BBE5F1E007BB76C /* SettingsView.swift in Sources */,
