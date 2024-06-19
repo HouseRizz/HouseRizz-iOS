@@ -23,6 +23,11 @@ struct SettingsView: View {
     @State private var showHelp:Bool = false
     @State private var showRefund:Bool = false
     @State private var showLogin:Bool = false
+    @State private var showEntireInventory:Bool = false
+    @State private var showEntireOrders:Bool = false
+    @State private var showNotificationManager:Bool = false
+    @State private var showCategoriesManager:Bool = false
+    @State private var showAppBannerManager:Bool = false
     
     var body: some View {
         NavigationStack {
@@ -116,6 +121,50 @@ struct SettingsView: View {
                         }
                     } header: {
                         Text("Vendor")
+                    }
+                } else if authentication.user?.userType == "admin" {
+                    Section {
+                        HStack {
+                            Image(systemName: "plus.circle")
+                            Text("Manage Entire App Inventory")
+                        }
+                        .onTapGesture {
+                            showEntireInventory.toggle()
+                        }
+                        
+                        HStack {
+                            Image(systemName: "archivebox")
+                            Text("Manage Entire App Orders")
+                        }
+                        .onTapGesture {
+                            showEntireOrders.toggle()
+                        }
+                        
+                        HStack {
+                            Image(systemName: "bell")
+                            Text("Manage Entire App Notifications")
+                        }
+                        .onTapGesture {
+                            showNotificationManager.toggle()
+                        }
+                        
+                        HStack {
+                            Image(systemName: "tray.2")
+                            Text("Product Categories")
+                        }
+                        .onTapGesture {
+                            showCategoriesManager.toggle()
+                        }
+                        
+                        HStack {
+                            Image(systemName: "banknote")
+                            Text("App Banners")
+                        }
+                        .onTapGesture {
+                            showAppBannerManager.toggle()
+                        }
+                    } header: {
+                        Text("Admin")
                     }
                 } else {
                     Section {
