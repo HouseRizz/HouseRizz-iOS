@@ -279,6 +279,9 @@ struct SettingsView: View {
             .sheet(isPresented: $showCategoriesManager, content: {
                 ManageProductCategoriesView()
             })
+            .sheet(isPresented: $showAppBannerManager, content: {
+                ManageAddBannerView()
+            })
             .alert(isPresented: $deleteAccount) {
                 Alert(title: Text("Delete Account"),
                       message: Text("This action will delete your account information, orders, and any other information"),

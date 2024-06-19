@@ -52,6 +52,11 @@
 		CC7B07D32C22DEE300627BC5 /* AddProductCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07D22C22DEE300627BC5 /* AddProductCategoriesView.swift */; };
 		CC7B07D52C22DF5900627BC5 /* AddProductCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07D42C22DF5900627BC5 /* AddProductCategoriesViewModel.swift */; };
 		CC7B07D82C22E41100627BC5 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07D72C22E41100627BC5 /* CategoryViewModel.swift */; };
+		CC7B07DA2C22ECE100627BC5 /* ManageAddBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07D92C22ECE100627BC5 /* ManageAddBannerView.swift */; };
+		CC7B07DC2C22ED8E00627BC5 /* AddAddBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07DB2C22ED8E00627BC5 /* AddAddBannerView.swift */; };
+		CC7B07DE2C22EDA900627BC5 /* ManageAddBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07DD2C22EDA900627BC5 /* ManageAddBannerViewModel.swift */; };
+		CC7B07E02C22EDCF00627BC5 /* AddAddBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07DF2C22EDCF00627BC5 /* AddAddBannerViewModel.swift */; };
+		CC7B07E22C22EE3700627BC5 /* HRAddBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07E12C22EE3700627BC5 /* HRAddBanner.swift */; };
 		CC82F8982C147FA800D978C8 /* OrderListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC82F8972C147FA800D978C8 /* OrderListItemView.swift */; };
 		CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */; };
 		CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9257F52BFB88AB0066F94B /* CKUtility.swift */; };
@@ -156,6 +161,11 @@
 		CC7B07D22C22DEE300627BC5 /* AddProductCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductCategoriesView.swift; sourceTree = "<group>"; };
 		CC7B07D42C22DF5900627BC5 /* AddProductCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductCategoriesViewModel.swift; sourceTree = "<group>"; };
 		CC7B07D72C22E41100627BC5 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		CC7B07D92C22ECE100627BC5 /* ManageAddBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAddBannerView.swift; sourceTree = "<group>"; };
+		CC7B07DB2C22ED8E00627BC5 /* AddAddBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddBannerView.swift; sourceTree = "<group>"; };
+		CC7B07DD2C22EDA900627BC5 /* ManageAddBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAddBannerViewModel.swift; sourceTree = "<group>"; };
+		CC7B07DF2C22EDCF00627BC5 /* AddAddBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddBannerViewModel.swift; sourceTree = "<group>"; };
+		CC7B07E12C22EE3700627BC5 /* HRAddBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAddBanner.swift; sourceTree = "<group>"; };
 		CC82F8972C147FA800D978C8 /* OrderListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListItemView.swift; sourceTree = "<group>"; };
 		CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CC9257F52BFB88AB0066F94B /* CKUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKUtility.swift; sourceTree = "<group>"; };
@@ -415,6 +425,7 @@
 				CC1107882C13F0EB00AB9F58 /* HROrder.swift */,
 				CCAC478A2C1C0E8C00A8EBF1 /* UPIListItemModel.swift */,
 				CC7B07CE2C22D59400627BC5 /* HRProductCategory.swift */,
+				CC7B07E12C22EE3700627BC5 /* HRAddBanner.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -495,6 +506,8 @@
 				CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */,
 				CC7B07CC2C22D4E000627BC5 /* ManageProductCategoriesView.swift */,
 				CC7B07D22C22DEE300627BC5 /* AddProductCategoriesView.swift */,
+				CC7B07D92C22ECE100627BC5 /* ManageAddBannerView.swift */,
+				CC7B07DB2C22ED8E00627BC5 /* AddAddBannerView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -510,9 +523,9 @@
 		CC7B07BE2C22CF8900627BC5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CC548A382C1DA58D00E98B85 /* About */,
 				CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */,
 				CCDB49B52C173BC200F7031B /* EditAddressView.swift */,
+				CC548A382C1DA58D00E98B85 /* About */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -549,6 +562,8 @@
 				CC7B07CA2C22D35B00627BC5 /* AdminOrdersViewModel.swift */,
 				CC7B07D02C22D7F400627BC5 /* ManageProductCategoriesViewModel.swift */,
 				CC7B07D42C22DF5900627BC5 /* AddProductCategoriesViewModel.swift */,
+				CC7B07DD2C22EDA900627BC5 /* ManageAddBannerViewModel.swift */,
+				CC7B07DF2C22EDCF00627BC5 /* AddAddBannerViewModel.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -831,7 +846,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC7B07D32C22DEE300627BC5 /* AddProductCategoriesView.swift in Sources */,
+				CC7B07DE2C22EDA900627BC5 /* ManageAddBannerViewModel.swift in Sources */,
 				CC97AF012BBE5CCE007BB76C /* HRUser.swift in Sources */,
+				CC7B07E02C22EDCF00627BC5 /* AddAddBannerViewModel.swift in Sources */,
 				CC7B07C42C22D0F900627BC5 /* AdminInventoryView.swift in Sources */,
 				CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */,
 				CCAC47892C1C0BAC00A8EBF1 /* UPIViewModel.swift in Sources */,
@@ -840,6 +857,7 @@
 				CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */,
 				CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */,
 				CC3CF4E02C198DEC00C8A58D /* CityPickerView.swift in Sources */,
+				CC7B07DC2C22ED8E00627BC5 /* AddAddBannerView.swift in Sources */,
 				CC06A97D2C0C97A100A0DAD3 /* NetworkManager.swift in Sources */,
 				CCA735562C1FDEE800053DDE /* LoginView.swift in Sources */,
 				CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */,
@@ -853,6 +871,7 @@
 				CC06A9732C0C8D5800A0DAD3 /* DoubleExtension.swift in Sources */,
 				CC7B07C92C22D33A00627BC5 /* AdminOrdersView.swift in Sources */,
 				CC06A9752C0C917E00A0DAD3 /* HRAddProductButton.swift in Sources */,
+				CC7B07DA2C22ECE100627BC5 /* ManageAddBannerView.swift in Sources */,
 				CC7B07D82C22E41100627BC5 /* CategoryViewModel.swift in Sources */,
 				CCDF24C02C12A5DB00353DD1 /* HRCartButton.swift in Sources */,
 				CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */,
@@ -879,6 +898,7 @@
 				CCC5B0482BFBB9A80007BEC1 /* InventoryProductDetailView.swift in Sources */,
 				CC2F47102BC81CDB00A4C1FC /* ProductCardView.swift in Sources */,
 				CC97AEC82BBE4FCE007BB76C /* CameraView.swift in Sources */,
+				CC7B07E22C22EE3700627BC5 /* HRAddBanner.swift in Sources */,
 				CC548A3E2C1DA61400E98B85 /* TermsView.swift in Sources */,
 				CC2F47122BC81D6D00A4C1FC /* SearchBarView.swift in Sources */,
 				CC548A402C1DA62300E98B85 /* PrivacyView.swift in Sources */,
