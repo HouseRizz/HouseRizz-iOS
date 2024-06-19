@@ -72,6 +72,7 @@ struct OrderDetailView: View {
                     }
                 }
                 
+                Text("Vendor: \(order.supplier)")
                 Text("Order Date: \(Date(timeIntervalSince1970: order.dateOfOrder).formatted(date: .complete, time: .shortened))")
                 Text("Buyer: \(order.buyerName)")
                 Text("Buyer Email: \(order.buyerEmail)")
