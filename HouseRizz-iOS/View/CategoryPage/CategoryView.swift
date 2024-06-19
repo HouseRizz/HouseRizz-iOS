@@ -7,19 +7,20 @@
 
 import SwiftUI
 
-struct ProductView: View {
+struct CategoryView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
     let columns = [GridItem(.flexible()), GridItem(.flexible()),GridItem(.flexible())]
+    @StateObject private var viewModel = CategoryViewModel()
 
     var body: some View {
         NavigationView {
             VStack {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(Category.allCases, id: \.self) { category in
-//                            NavigationLink(destination: ProductCategoryView(productCategory: category)) {
-//                                CategoryCard(image: category.image, title: category.title)
-//                            }
+                        ForEach(viewModel.categories.indices, id: \.self) { category in
+                            NavigationLink(destination: ProductCategoryView(productCategory: viewModel.categories[category])) {
+                                CategoryCard(category: viewModel.categories[category])
+                            }
                         }
                     }
                     .padding()
@@ -39,6 +40,6 @@ struct ProductView: View {
 }
 
 #Preview {
-    ProductView()
+    CategoryView()
         .environmentObject(CartViewModel())
 }
