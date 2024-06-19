@@ -33,6 +33,11 @@ struct SignupView: View {
             
             VStack{
                 
+                if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
+                        .foregroundStyle(.red)
+                }
+                
                 HStack {
                     Image(systemName: "person")
                     TextField("Name", text: $viewModel.name)
@@ -82,9 +87,9 @@ struct SignupView: View {
                         .bold()
                         .foregroundStyle(Color.black)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 15)
+                        .frame(height: 45)
                         .background(Color.white)
-                        .cornerRadius(8)
+                        .cornerRadius(20)
                         .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
                 } else {
                     ProgressView()

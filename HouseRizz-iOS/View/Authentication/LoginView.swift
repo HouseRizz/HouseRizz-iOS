@@ -20,6 +20,11 @@ struct LoginView: View {
     
     var body: some View {
         VStack(spacing:10){
+            if let errorMessage = viewModel.errorMessage {
+                Text(errorMessage)
+                    .foregroundStyle(.red)
+            }
+            
             HStack {
                 Image(systemName: "at")
                 TextField("Email", text: $viewModel.email)

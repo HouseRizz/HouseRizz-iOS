@@ -16,7 +16,7 @@ struct HRUserModelName {
     static let phoneNumber = "phoneNumber"
     static let address = "address"
     static let joined = "joined"
-    static let userFirestore = "users_prod"
+    static let userFirestore = "users"
 }
 
 struct HRUser: Encodable, Hashable, Identifiable {

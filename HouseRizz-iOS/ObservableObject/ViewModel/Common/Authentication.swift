@@ -38,7 +38,7 @@ class Authentication: ObservableObject {
     @Published var confirmPassword: String  = ""
     @Published var authenticationState: AuthenticationState = .unauthenticated
     @Published var isValid: Bool  = false
-    @Published var errorMessage: String = ""
+    @Published var errorMessage: String? = ""
     @Published var displayName = ""
     private var handler: AuthStateDidChangeListenerHandle?
     private var currentNonce: String?
