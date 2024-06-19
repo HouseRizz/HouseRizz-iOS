@@ -244,7 +244,7 @@ struct SettingsView: View {
                 }
             }
             .sheet(isPresented: $showVendorInventory, content: {
-                ProductInventoryView()
+                VendorInventoryView()
             })
             .sheet(isPresented: $showVendorOrders, content: {
                 ManageOrdersView()
@@ -269,6 +269,9 @@ struct SettingsView: View {
             })
             .sheet(isPresented: $showLogin, content: {
                 AuthenticationView()
+            })
+            .sheet(isPresented: $showEntireInventory, content: {
+                AdminInventoryView()
             })
             .alert(isPresented: $deleteAccount) {
                 Alert(title: Text("Delete Account"),

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ProductInventoryView: View {
-    @StateObject private var viewModel = ProductInventoryViewModel()
+struct VendorInventoryView: View {
+    @StateObject private var viewModel = VendorInventoryViewModel()
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     @State private var showDeleteOption: Bool = false
     @StateObject private var authentication = Authentication()

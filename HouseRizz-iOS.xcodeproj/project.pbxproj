@@ -42,6 +42,8 @@
 		CC548A402C1DA62300E98B85 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A3F2C1DA62300E98B85 /* PrivacyView.swift */; };
 		CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */; };
 		CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */; };
+		CC7B07C42C22D0F900627BC5 /* AdminInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */; };
+		CC7B07C72C22D15A00627BC5 /* AdminInventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */; };
 		CC82F8982C147FA800D978C8 /* OrderListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC82F8972C147FA800D978C8 /* OrderListItemView.swift */; };
 		CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */; };
 		CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9257F52BFB88AB0066F94B /* CKUtility.swift */; };
@@ -83,8 +85,8 @@
 		CCC5B03A2BFBB62F0007BEC1 /* HRProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */; };
 		CCC5B03C2BFBB6B80007BEC1 /* InventoryProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B03B2BFBB6B80007BEC1 /* InventoryProductCardView.swift */; };
 		CCC5B03E2BFBB7700007BEC1 /* HRTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B03D2BFBB7700007BEC1 /* HRTextField.swift */; };
-		CCC5B0402BFBB8580007BEC1 /* ProductInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B03F2BFBB8580007BEC1 /* ProductInventoryView.swift */; };
-		CCC5B0422BFBB8700007BEC1 /* ProductInventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0412BFBB8700007BEC1 /* ProductInventoryViewModel.swift */; };
+		CCC5B0402BFBB8580007BEC1 /* VendorInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B03F2BFBB8580007BEC1 /* VendorInventoryView.swift */; };
+		CCC5B0422BFBB8700007BEC1 /* VendorInventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0412BFBB8700007BEC1 /* VendorInventoryViewModel.swift */; };
 		CCC5B0442BFBB9310007BEC1 /* AddProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0432BFBB9310007BEC1 /* AddProductViewModel.swift */; };
 		CCC5B0462BFBB95A0007BEC1 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0452BFBB95A0007BEC1 /* AddProductView.swift */; };
 		CCC5B0482BFBB9A80007BEC1 /* InventoryProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0472BFBB9A80007BEC1 /* InventoryProductDetailView.swift */; };
@@ -136,6 +138,8 @@
 		CC548A3F2C1DA62300E98B85 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryView.swift; sourceTree = "<group>"; };
 		CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
+		CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryView.swift; sourceTree = "<group>"; };
+		CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryViewModel.swift; sourceTree = "<group>"; };
 		CC82F8972C147FA800D978C8 /* OrderListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListItemView.swift; sourceTree = "<group>"; };
 		CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CC9257F52BFB88AB0066F94B /* CKUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKUtility.swift; sourceTree = "<group>"; };
@@ -165,8 +169,8 @@
 		CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProduct.swift; sourceTree = "<group>"; };
 		CCC5B03B2BFBB6B80007BEC1 /* InventoryProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryProductCardView.swift; sourceTree = "<group>"; };
 		CCC5B03D2BFBB7700007BEC1 /* HRTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRTextField.swift; sourceTree = "<group>"; };
-		CCC5B03F2BFBB8580007BEC1 /* ProductInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInventoryView.swift; sourceTree = "<group>"; };
-		CCC5B0412BFBB8700007BEC1 /* ProductInventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInventoryViewModel.swift; sourceTree = "<group>"; };
+		CCC5B03F2BFBB8580007BEC1 /* VendorInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorInventoryView.swift; sourceTree = "<group>"; };
+		CCC5B0412BFBB8700007BEC1 /* VendorInventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorInventoryViewModel.swift; sourceTree = "<group>"; };
 		CCC5B0432BFBB9310007BEC1 /* AddProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewModel.swift; sourceTree = "<group>"; };
 		CCC5B0452BFBB95A0007BEC1 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		CCC5B0472BFBB9A80007BEC1 /* InventoryProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryProductDetailView.swift; sourceTree = "<group>"; };
@@ -469,6 +473,7 @@
 		CC7B07BC2C22CF0A00627BC5 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -516,6 +521,14 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		CC7B07C52C22D14400627BC5 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
 		CC8C42722C2031A100C05061 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +550,7 @@
 		CC8C42742C2031BF00C05061 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				CC7B07C52C22D14400627BC5 /* Admin */,
 				CC06A96C2C0C0AE600A0DAD3 /* Vendor */,
 				CC7B07C02C22D02800627BC5 /* Buyer */,
 			);
@@ -563,7 +577,7 @@
 		CC8C42772C2031FA00C05061 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
-				CCC5B0412BFBB8700007BEC1 /* ProductInventoryViewModel.swift */,
+				CCC5B0412BFBB8700007BEC1 /* VendorInventoryViewModel.swift */,
 				CCC5B0432BFBB9310007BEC1 /* AddProductViewModel.swift */,
 			);
 			path = Inventory;
@@ -603,7 +617,7 @@
 			children = (
 				CCC5B0452BFBB95A0007BEC1 /* AddProductView.swift */,
 				CCC5B0472BFBB9A80007BEC1 /* InventoryProductDetailView.swift */,
-				CCC5B03F2BFBB8580007BEC1 /* ProductInventoryView.swift */,
+				CCC5B03F2BFBB8580007BEC1 /* VendorInventoryView.swift */,
 			);
 			path = Inventory;
 			sourceTree = "<group>";
@@ -785,6 +799,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC97AF012BBE5CCE007BB76C /* HRUser.swift in Sources */,
+				CC7B07C42C22D0F900627BC5 /* AdminInventoryView.swift in Sources */,
 				CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */,
 				CCAC47892C1C0BAC00A8EBF1 /* UPIViewModel.swift in Sources */,
 				CC11078B2C14565400AB9F58 /* ManageOrdersView.swift in Sources */,
@@ -817,10 +832,11 @@
 				CCC5B03E2BFBB7700007BEC1 /* HRTextField.swift in Sources */,
 				CC2F47162BC8CE1900A4C1FC /* CartButton.swift in Sources */,
 				CCDB49B22C16DBC300F7031B /* OrderHistoryDetailView.swift in Sources */,
+				CC7B07C72C22D15A00627BC5 /* AdminInventoryViewModel.swift in Sources */,
 				CC06A95E2C0C080500A0DAD3 /* ColorExtension.swift in Sources */,
 				CCDED4702C1544CA0063C1D2 /* OrderDetailView.swift in Sources */,
 				CCC5B0442BFBB9310007BEC1 /* AddProductViewModel.swift in Sources */,
-				CCC5B0402BFBB8580007BEC1 /* ProductInventoryView.swift in Sources */,
+				CCC5B0402BFBB8580007BEC1 /* VendorInventoryView.swift in Sources */,
 				CCC5B0482BFBB9A80007BEC1 /* InventoryProductDetailView.swift in Sources */,
 				CC2F47102BC81CDB00A4C1FC /* ProductCardView.swift in Sources */,
 				CC97AEC82BBE4FCE007BB76C /* CameraView.swift in Sources */,
@@ -835,7 +851,7 @@
 				CC06A96F2C0C898D00A0DAD3 /* TextFieldExtension.swift in Sources */,
 				CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */,
 				CC97AF072BBE5DEA007BB76C /* AuthenticationView.swift in Sources */,
-				CCC5B0422BFBB8700007BEC1 /* ProductInventoryViewModel.swift in Sources */,
+				CCC5B0422BFBB8700007BEC1 /* VendorInventoryViewModel.swift in Sources */,
 				CCAC478F2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift in Sources */,
 				CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */,
 				CC06A95C2C0C07F100A0DAD3 /* EncodableExtension.swift in Sources */,
