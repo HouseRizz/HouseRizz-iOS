@@ -17,9 +17,11 @@ class HomeViewModel: ObservableObject {
         guard !city.isEmpty else {return products}
         return products.filter { $0.address.localizedCaseInsensitiveContains(city) }
     }
+    @Published var adds: [HRAddBanner] = []
     
     init(){
         fetchItems()
+        fetchAddBanners()
     }
     
     func fetchItems(){
@@ -36,6 +38,24 @@ class HomeViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] returnedItems in
                 self?.products = returnedItems
+            }
+            .store(in: &cancellables)
+    }
+    
+    func fetchAddBanners(){
+        let predicate = NSPredicate(value: true)
+        let recordType = HRAddBannerModelName.itemRecord
+        CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self?.error = error.localizedDescription
+                }
+            } receiveValue: { [weak self] returnedItems in
+                self?.adds = returnedItems
             }
             .store(in: &cancellables)
     }

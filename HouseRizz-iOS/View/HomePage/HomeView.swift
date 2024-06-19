@@ -14,6 +14,10 @@ struct HomeView: View {
     @EnvironmentObject private var searchViewModel: SearchViewModel
     var column = [GridItem(.adaptive(minimum: 160), spacing: 20)]
 
+    var groupedAdds: [Int: [HRAddBanner]] {
+        Dictionary(grouping: viewModel.adds, by: { $0.sliderNumber })
+    }
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -25,9 +29,11 @@ struct HomeView: View {
                 
                 ScrollView {
                     VStack {
-                        ImageSliderView(slides: ["coming1","coming2"])
-                        
-                        ImageSliderView(slides: ["greensofa","graysofa"])
+                        ForEach(groupedAdds.keys.sorted(), id: \.self) { sliderNumber in
+                            if let adds = groupedAdds[sliderNumber] {
+                                ImageSliderView(slides: adds)
+                            }
+                        }
 
                         Text("Featured Products")
                             .font(.title3.bold())
