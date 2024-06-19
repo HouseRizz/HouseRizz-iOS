@@ -69,7 +69,7 @@ extension Authentication {
         db.collection(HRUserModelName.userFirestore)
             .document(id)
             .setData(newUser.asDictionary())
-        }
+    }
     
     func updateAddress(_ address: String) {
         guard let userId = Auth.auth().currentUser?.uid else { return }
@@ -156,7 +156,7 @@ extension Authentication {
                 self?.user = HRUser(
                     id: data[HRUserModelName.id] as? String ?? "",
                     name: data[HRUserModelName.name] as? String ?? "",
-                    email: data[HRUserModelName.email] as? String ?? "", 
+                    email: data[HRUserModelName.email] as? String ?? "",
                     userType: data[HRUserModelName.userType] as? String ?? "",
                     phoneNumber: data[HRUserModelName.phoneNumber] as? String ?? "",
                     address: data[HRUserModelName.address] as? String ?? "",
@@ -213,52 +213,52 @@ extension Authentication {
 }
 
 extension Authentication {
-  func signInWithGoogle() async -> Bool {
-    guard let clientID = FirebaseApp.app()?.options.clientID else {
-      fatalError("No client ID found in Firebase Config")
-    }
-    let config = GIDConfiguration(clientID: clientID)
-    GIDSignIn.sharedInstance.configuration = config
-    
-    guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-          let window = windowScene.windows.first,
-          let rootViewController = window.rootViewController else {
-      print("There is no root view controller!")
-      return false
-    }
-    do {
-      let userAuthentication = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
-      let user = userAuthentication.user
-      guard let idToken = user.idToken else { throw AuthenticationError.tokenError(message: "ID token missing") }
-      let accessToken = user.accessToken
-      let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: accessToken.tokenString)
-      let result = try await Auth.auth().signIn(with: credential)
-      let firebaseUser = result.user
-      
-      // Check if user exists in Firestore
-      let db = Firestore.firestore()
-      let docRef = db.collection(HRUserModelName.userFirestore).document(currentUserId)
-      let docSnapshot = try await docRef.getDocument()
-      
-      if docSnapshot.exists {
-        // User exists, get data from Firestore
-        let data = docSnapshot.data()
-        phoneNumber = data?[HRUserModelName.phoneNumber] as? String ?? "Not Provided"
-        address = data?[HRUserModelName.address] as? String ?? "Not Provided"
-        userType = data?[HRUserModelName.userType] as? String ?? "Buyer"
-      }
+    func signInWithGoogle() async -> Bool {
+        guard let clientID = FirebaseApp.app()?.options.clientID else {
+            fatalError("No client ID found in Firebase Config")
+        }
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
         
-      name = firebaseUser.displayName ?? ""
-      email = firebaseUser.email ?? ""
-      insertUserRecord(id: currentUserId)
-      return true
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first,
+              let rootViewController = window.rootViewController else {
+            print("There is no root view controller!")
+            return false
+        }
+        do {
+            let userAuthentication = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
+            let user = userAuthentication.user
+            guard let idToken = user.idToken else { throw AuthenticationError.tokenError(message: "ID token missing") }
+            let accessToken = user.accessToken
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: accessToken.tokenString)
+            let result = try await Auth.auth().signIn(with: credential)
+            let firebaseUser = result.user
+            
+            // Check if user exists in Firestore
+            let db = Firestore.firestore()
+            let docRef = db.collection(HRUserModelName.userFirestore).document(currentUserId)
+            let docSnapshot = try await docRef.getDocument()
+            
+            if docSnapshot.exists {
+                // User exists, get data from Firestore
+                let data = docSnapshot.data()
+                phoneNumber = data?[HRUserModelName.phoneNumber] as? String ?? "Not Provided"
+                address = data?[HRUserModelName.address] as? String ?? "Not Provided"
+                userType = data?[HRUserModelName.userType] as? String ?? "Buyer"
+            }
+            
+            name = firebaseUser.displayName ?? ""
+            email = firebaseUser.email ?? ""
+            insertUserRecord(id: currentUserId)
+            return true
+        }
+        catch {
+            print(error.localizedDescription)
+            self.errorMessage = error.localizedDescription
+            return false
+        }
     }
-    catch {
-      print(error.localizedDescription)
-      self.errorMessage = error.localizedDescription
-      return false
-    }
-  }
 }
 
 
@@ -273,18 +273,17 @@ extension Authentication {
     func handleSignInWithAppleCompletion(_ result: Result<ASAuthorization, Error>) {
         if case .failure(let failure) = result {
             errorMessage = failure.localizedDescription
-        }
-        else if case .success(let authorization) = result {
+        } else if case .success(let authorization) = result {
             if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
                 guard let nonce = currentNonce else {
                     fatalError("Invalid state: a login callback was received, but no login request was sent.")
                 }
                 guard let appleIDToken = appleIDCredential.identityToken else {
-                    print("Unable to fetdch identify token.")
+                    print("Unable to fetch identity token.")
                     return
                 }
                 guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-                    print("Unable to serialise token string from data: \(appleIDToken.debugDescription)")
+                    print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
                     return
                 }
                 
@@ -294,35 +293,65 @@ extension Authentication {
                 Task {
                     do {
                         let result = try await Auth.auth().signIn(with: credential)
-                        await updateDisplayName(for: result.user, with: appleIDCredential)
-                        name = appleIDCredential.displayName()
-                        email = appleIDCredential.email ?? ""
-                        insertUserRecord(id: currentUserId)
-                    }
-                    catch {
+                        
+                        // Set the user ID
+                        currentUserId = result.user.uid
+                        
+                        // Use provided email or set to the user email from result
+                        if let providedEmail = appleIDCredential.email {
+                            email = providedEmail
+                        } else {
+                            email = result.user.email ?? ""
+                        }
+                        
+                        // Use provided name or set to the display name from result
+                        if let providedName = appleIDCredential.fullName?.formatted() {
+                            name = providedName
+                        } else {
+                            name = result.user.displayName ?? ""
+                        }
+                        
+                        // Check if user exists in Firestore
+                        let db = Firestore.firestore()
+                        let docRef = db.collection(HRUserModelName.userFirestore).document(currentUserId)
+                        let docSnapshot = try await docRef.getDocument()
+                        
+                        if docSnapshot.exists {
+                            // User exists, get data from Firestore
+                            let data = docSnapshot.data()
+                            phoneNumber = data?[HRUserModelName.phoneNumber] as? String ?? "Not Provided"
+                            address = data?[HRUserModelName.address] as? String ?? "Not Provided"
+                            userType = data?[HRUserModelName.userType] as? String ?? "Buyer"
+                        } else {
+                            // New user, insert record
+                            insertUserRecord(id: currentUserId)
+                        }
+                    } catch {
                         print("Error authenticating: \(error.localizedDescription)")
+                        errorMessage = error.localizedDescription
                     }
                 }
             }
         }
     }
-    
+
     func updateDisplayName(for user: User, with appleIDCredential: ASAuthorizationAppleIDCredential, force: Bool = false) async {
-        if let currentDisplayName = Auth.auth().currentUser?.displayName, !currentDisplayName.isEmpty {}
-        else {
+        if let currentDisplayName = Auth.auth().currentUser?.displayName, !currentDisplayName.isEmpty {
+            // Do nothing if display name already exists
+        } else {
             let changeRequest = user.createProfileChangeRequest()
             changeRequest.displayName = appleIDCredential.displayName()
             do {
                 try await changeRequest.commitChanges()
                 self.displayName = Auth.auth().currentUser?.displayName ?? ""
-            }
-            catch {
-                print("Unable to update the user's displayname: \(error.localizedDescription)")
+            } catch {
+                print("Unable to update the user's display name: \(error.localizedDescription)")
                 errorMessage = error.localizedDescription
             }
         }
     }
-    
+
+
     func verifySignInWithAppleAuthenticationState() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let providerData = Auth.auth().currentUser?.providerData
@@ -349,10 +378,11 @@ extension Authentication {
 extension ASAuthorizationAppleIDCredential {
     func displayName() -> String {
         return [self.fullName?.givenName, self.fullName?.familyName]
-            .compactMap( {$0})
+            .compactMap { $0 }
             .joined(separator: " ")
     }
 }
+
 
 private func randomNonceString(length: Int = 32) -> String {
     precondition(length > 0)
