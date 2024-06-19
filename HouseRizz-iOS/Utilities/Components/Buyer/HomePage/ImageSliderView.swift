@@ -9,17 +9,18 @@ import SwiftUI
 
 struct ImageSliderView: View {
     @State private var currentIndex = 0
-    var slides: [String]
+    var slides: [HRAddBanner]
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             ZStack(alignment: .trailing) {
-                
-                Image(slides[currentIndex])
-                    .resizable()
-                    .frame(width: .none, height: 180)
-                    .scaledToFit()
-                    .cornerRadius(15)
+                if let url = slides[currentIndex].imageURL, let data = try? Data(contentsOf: url), let image = UIImage(data: data){
+                    Image(uiImage: image)
+                        .resizable()
+                        .frame(width: .none, height: 180)
+                        .scaledToFit()
+                        .cornerRadius(15)
+                }
             }
             
             HStack {
@@ -42,8 +43,4 @@ struct ImageSliderView: View {
             }
         }
     }
-}
-
-#Preview {
-    ImageSliderView(slides: ["graysofa","leathersofa","greensofa","bluesofa"])
 }

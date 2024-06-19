@@ -27,11 +27,9 @@ struct InventoryProductCardView: View {
                 Text(product.name)
                     .font(.subheadline)
                     .padding(.vertical, 1)
-                    .foregroundStyle(.black)
                 
                 Text(product.price?.formattedCurrency() ?? "")
                     .font(.caption2)
-                    .foregroundStyle(.black)
             }
         }
         .frame(width: 185, height: 260)

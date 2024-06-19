@@ -19,7 +19,7 @@ struct TabbedView: View {
 //                    .tag(1)
 //                CameraView()
 //                    .tag(2)
-                ProductView()
+                CategoryView()
                     .tag(1)
             }
 
