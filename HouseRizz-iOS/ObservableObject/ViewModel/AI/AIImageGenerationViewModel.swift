@@ -17,7 +17,7 @@ class AIImageGenerationViewModel: ObservableObject {
     @Published var error: String = ""
     @Published var selectedPhotoData: Data? = nil
     let negativePrompt = "lowres, watermark, banner, logo, watermark, contactinfo, text, deformed, blurry, blur, out of focus, out of frame, surreal, extra, ugly, upholstered walls, fabric walls, plush walls, mirror, mirrored, functional, realistic"
-    @Published var prediction: InteriorDesign.Prediction? = nil
+    var prediction: InteriorDesign.Prediction? = nil
     @Published var selectedPhotos: [PhotosPickerItem] = []
     var cancellables = Set<AnyCancellable>()
     @Published var categories: [HRProductCategory] = []

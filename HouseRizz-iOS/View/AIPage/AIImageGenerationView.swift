@@ -98,7 +98,8 @@ struct AIImageGenerationView: View {
                             if let data = viewModel.selectedPhotoData, let uiImage = UIImage(data: data) {
                                 Image(uiImage: uiImage)
                                     .resizable()
-                                    .frame(width: 200, height: 200)
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 200)
                                     .clipShape(RoundedRectangle(cornerRadius: 5))
                             } else {
                                 ZStack {
@@ -113,7 +114,7 @@ struct AIImageGenerationView: View {
                                 .foregroundStyle(.gray)
                                 .cornerRadius(5)
                                 .frame(maxWidth: .infinity)
-                                .frame(width: 200, height: 200)
+                                .frame(height: 200)
                             }
                         }
                         .onChange(of: viewModel.selectedPhotos, { _, _ in
