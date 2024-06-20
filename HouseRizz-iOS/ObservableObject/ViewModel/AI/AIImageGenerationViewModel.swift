@@ -9,18 +9,20 @@ import SwiftUI
 import Replicate
 import Combine
 import PhotosUI
+import Observation
 
-class AIImageGenerationViewModel: ObservableObject {
-    @Published var type: String = "Bed"
-    @Published var vibe: String = "Modern"
-    @Published var apis: [HRAPI] = []
-    @Published var error: String = ""
-    @Published var selectedPhotoData: Data? = nil
+@Observable
+class AIImageGenerationViewModel {
+    var type: String = "Bed"
+    var vibe: String = "Modern"
+    var apis: [HRAPI] = []
+    var error: String = ""
+    var selectedPhotoData: Data? = nil
     let negativePrompt = "lowres, watermark, banner, logo, watermark, contactinfo, text, deformed, blurry, blur, out of focus, out of frame, surreal, extra, ugly, upholstered walls, fabric walls, plush walls, mirror, mirrored, functional, realistic"
     var prediction: InteriorDesign.Prediction? = nil
-    @Published var selectedPhotos: [PhotosPickerItem] = []
+    var selectedPhotos: [PhotosPickerItem] = []
     var cancellables = Set<AnyCancellable>()
-    @Published var categories: [HRProductCategory] = []
+    var categories: [HRProductCategory] = []
 
     private var client: Replicate.Client? {
         apis.first.flatMap { Replicate.Client(token: $0.api) }

@@ -8,7 +8,7 @@ import SwiftUI
 import PhotosUI
 
 struct AIImageGenerationView: View {
-    @StateObject private var viewModel = AIImageGenerationViewModel()
+    @State private var viewModel = AIImageGenerationViewModel()
     @State private var isLoading = false
     @State private var navigateToGeneratedPhotoView = false
 
