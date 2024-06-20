@@ -15,7 +15,7 @@ struct TabbedView: View {
             TabView(selection: $selectedTab) {
                 HomeView()
                     .tag(0)
-                AIView()
+                AIImageGenerationView()
                     .tag(1)
 //                CameraView()
 //                    .tag(2)

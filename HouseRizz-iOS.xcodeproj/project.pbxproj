@@ -48,6 +48,7 @@
 		CC69BD6E2C24389500491014 /* APIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD6D2C24389500491014 /* APIView.swift */; };
 		CC69BD702C2438AA00491014 /* APIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD6F2C2438AA00491014 /* APIViewModel.swift */; };
 		CC69BD722C243B6600491014 /* AIImageGenerationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */; };
+		CC69BD742C24406200491014 /* AIImageGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD732C24406200491014 /* AIImageGenerationView.swift */; };
 		CC7B07C42C22D0F900627BC5 /* AdminInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */; };
 		CC7B07C72C22D15A00627BC5 /* AdminInventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */; };
 		CC7B07C92C22D33A00627BC5 /* AdminOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */; };
@@ -162,6 +163,7 @@
 		CC69BD6D2C24389500491014 /* APIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIView.swift; sourceTree = "<group>"; };
 		CC69BD6F2C2438AA00491014 /* APIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIViewModel.swift; sourceTree = "<group>"; };
 		CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIImageGenerationViewModel.swift; sourceTree = "<group>"; };
+		CC69BD732C24406200491014 /* AIImageGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIImageGenerationView.swift; sourceTree = "<group>"; };
 		CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryView.swift; sourceTree = "<group>"; };
 		CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryViewModel.swift; sourceTree = "<group>"; };
 		CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrdersView.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				CCD3B0062BCA3440000AFB80 /* AIView.swift */,
+				CC69BD732C24406200491014 /* AIImageGenerationView.swift */,
 			);
 			path = AIPage;
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 				CC3CF4E22C1994C400C8A58D /* CityView.swift in Sources */,
 				CCDB49B62C173BC200F7031B /* EditAddressView.swift in Sources */,
 				CCAC478D2C1C1A5600A8EBF1 /* UPIListView.swift in Sources */,
+				CC69BD742C24406200491014 /* AIImageGenerationView.swift in Sources */,
 				CCC5B0462BFBB95A0007BEC1 /* AddProductView.swift in Sources */,
 				CCDB49B02C16D9AB00F7031B /* OrderHistoryListViewModel.swift in Sources */,
 				CC06A97F2C0C97F000A0DAD3 /* NoNetworkView.swift in Sources */,
