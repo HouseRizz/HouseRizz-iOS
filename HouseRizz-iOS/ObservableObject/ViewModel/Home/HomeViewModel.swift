@@ -20,8 +20,18 @@ class HomeViewModel: ObservableObject {
     @Published var adds: [HRAddBanner] = []
     
     init(){
+        requestNotificationPermission()
         fetchItems()
         fetchAddBanners()
+    }
+    
+    func requestNotificationPermission() {
+        CKUtility.requestNotificationPermission()
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+            } receiveValue: { returnedData in
+            }
+            .store(in: &cancellables)
     }
     
     func fetchItems(){
