@@ -13,8 +13,28 @@ import Combine
 class AIImageGenerationViewModel: ObservableObject {
     @Published var type: String = "Bed"
     @Published var vibe: String = "Modern"
+    @Published var apis: [HRAPI] = []
+    @Published var error: String = ""
     
     var cancellables = Set<AnyCancellable>()
+    
+    func fetchAPI(){
+        let predicate = NSPredicate(format: "%K == %@", HRAPIModelName.api, "Replicate HR Key")
+        let recordType = HRAPIModelName.itemRecord
+        CKUtility.fetch(predicate: predicate, recordType: recordType)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self?.error = error.localizedDescription
+                }
+            } receiveValue: { [weak self] returnedItems in
+                self?.apis = returnedItems
+            }
+            .store(in: &cancellables)
+    }
 
 }
 
