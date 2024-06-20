@@ -44,6 +44,7 @@
 		CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */; };
 		CC69BD2C2C23F68F00491014 /* AIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD2B2C23F68F00491014 /* AIViewModel.swift */; };
 		CC69BD682C2428B900491014 /* Replicate in Frameworks */ = {isa = PBXBuildFile; productRef = CC69BD672C2428B900491014 /* Replicate */; };
+		CC69BD6C2C24378C00491014 /* HRAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD6B2C24378B00491014 /* HRAPI.swift */; };
 		CC7B07C42C22D0F900627BC5 /* AdminInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */; };
 		CC7B07C72C22D15A00627BC5 /* AdminInventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */; };
 		CC7B07C92C22D33A00627BC5 /* AdminOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */; };
@@ -154,6 +155,7 @@
 		CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryView.swift; sourceTree = "<group>"; };
 		CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
 		CC69BD2B2C23F68F00491014 /* AIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIViewModel.swift; sourceTree = "<group>"; };
+		CC69BD6B2C24378B00491014 /* HRAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAPI.swift; sourceTree = "<group>"; };
 		CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryView.swift; sourceTree = "<group>"; };
 		CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryViewModel.swift; sourceTree = "<group>"; };
 		CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrdersView.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 				CCAC478A2C1C0E8C00A8EBF1 /* UPIListItemModel.swift */,
 				CC7B07CE2C22D59400627BC5 /* HRProductCategory.swift */,
 				CC7B07E12C22EE3700627BC5 /* HRAddBanner.swift */,
+				CC69BD6B2C24378B00491014 /* HRAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				CC7B07CD2C22D4E000627BC5 /* ManageProductCategoriesView.swift in Sources */,
 				CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */,
 				CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */,
+				CC69BD6C2C24378C00491014 /* HRAPI.swift in Sources */,
 				CC3CF4E02C198DEC00C8A58D /* CityPickerView.swift in Sources */,
 				CC7B07DC2C22ED8E00627BC5 /* AddAddBannerView.swift in Sources */,
 				CC06A97D2C0C97A100A0DAD3 /* NetworkManager.swift in Sources */,
