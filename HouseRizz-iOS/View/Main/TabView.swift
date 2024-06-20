@@ -15,8 +15,8 @@ struct TabbedView: View {
             TabView(selection: $selectedTab) {
                 HomeView()
                     .tag(0)
-//                AIView()
-//                    .tag(1)
+                AIView()
+                    .tag(1)
 //                CameraView()
 //                    .tag(2)
                 CategoryView()
