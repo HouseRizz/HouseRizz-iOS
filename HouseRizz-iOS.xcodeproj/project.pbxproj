@@ -43,6 +43,7 @@
 		CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */; };
 		CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */; };
 		CC69BD2C2C23F68F00491014 /* AIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD2B2C23F68F00491014 /* AIViewModel.swift */; };
+		CC69BD682C2428B900491014 /* Replicate in Frameworks */ = {isa = PBXBuildFile; productRef = CC69BD672C2428B900491014 /* Replicate */; };
 		CC7B07C42C22D0F900627BC5 /* AdminInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */; };
 		CC7B07C72C22D15A00627BC5 /* AdminInventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */; };
 		CC7B07C92C22D33A00627BC5 /* AdminOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */; };
@@ -222,6 +223,7 @@
 			files = (
 				CC97AF192BBE79A4007BB76C /* FocusEntity in Frameworks */,
 				CC97AEE92BBE5BF7007BB76C /* FirebaseAnalyticsSwift in Frameworks */,
+				CC69BD682C2428B900491014 /* Replicate in Frameworks */,
 				CC97AEE52BBE5BF6007BB76C /* FirebaseAnalytics in Frameworks */,
 				CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */,
 				CC97AEF22BBE5C1D007BB76C /* GoogleSignInSwift in Frameworks */,
@@ -789,6 +791,7 @@
 				CC97AEFE2BBE5CB4007BB76C /* FirebaseStorage */,
 				CC97AF182BBE79A4007BB76C /* FocusEntity */,
 				CC97AF1B2BBE8109007BB76C /* ARPersistence */,
+				CC69BD672C2428B900491014 /* Replicate */,
 			);
 			productName = "HouseRizz-iOS";
 			productReference = CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */;
@@ -823,6 +826,7 @@
 				CC97AEEE2BBE5C1D007BB76C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				CC97AF172BBE79A3007BB76C /* XCRemoteSwiftPackageReference "FocusEntity" */,
 				CC97AF1A2BBE8108007BB76C /* XCRemoteSwiftPackageReference "ARPersistence" */,
+				CC69BD662C2428B900491014 /* XCRemoteSwiftPackageReference "replicate-swift" */,
 			);
 			productRefGroup = CC97AEC32BBE4FCE007BB76C /* Products */;
 			projectDirPath = "";
@@ -1172,6 +1176,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CC69BD662C2428B900491014 /* XCRemoteSwiftPackageReference "replicate-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/replicate/replicate-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.21.0;
+			};
+		};
 		CC97AEE32BBE5BF6007BB76C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1207,6 +1219,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CC69BD672C2428B900491014 /* Replicate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC69BD662C2428B900491014 /* XCRemoteSwiftPackageReference "replicate-swift" */;
+			productName = Replicate;
+		};
 		CC97AEE42BBE5BF6007BB76C /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CC97AEE32BBE5BF6007BB76C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

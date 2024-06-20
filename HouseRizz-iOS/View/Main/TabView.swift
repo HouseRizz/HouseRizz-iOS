@@ -20,7 +20,7 @@ struct TabbedView: View {
 //                CameraView()
 //                    .tag(2)
                 CategoryView()
-                    .tag(1)
+                    .tag(2)
             }
 
             ZStack {
