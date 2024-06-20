@@ -47,6 +47,7 @@
 		CC69BD6C2C24378C00491014 /* HRAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD6B2C24378B00491014 /* HRAPI.swift */; };
 		CC69BD6E2C24389500491014 /* APIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD6D2C24389500491014 /* APIView.swift */; };
 		CC69BD702C2438AA00491014 /* APIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD6F2C2438AA00491014 /* APIViewModel.swift */; };
+		CC69BD722C243B6600491014 /* AIImageGenerationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */; };
 		CC7B07C42C22D0F900627BC5 /* AdminInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */; };
 		CC7B07C72C22D15A00627BC5 /* AdminInventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */; };
 		CC7B07C92C22D33A00627BC5 /* AdminOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */; };
@@ -160,6 +161,7 @@
 		CC69BD6B2C24378B00491014 /* HRAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAPI.swift; sourceTree = "<group>"; };
 		CC69BD6D2C24389500491014 /* APIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIView.swift; sourceTree = "<group>"; };
 		CC69BD6F2C2438AA00491014 /* APIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIViewModel.swift; sourceTree = "<group>"; };
+		CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIImageGenerationViewModel.swift; sourceTree = "<group>"; };
 		CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryView.swift; sourceTree = "<group>"; };
 		CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryViewModel.swift; sourceTree = "<group>"; };
 		CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrdersView.swift; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				CC69BD2B2C23F68F00491014 /* AIViewModel.swift */,
+				CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */,
 			);
 			path = AI;
 			sourceTree = "<group>";
@@ -922,6 +925,7 @@
 				CC7B07CB2C22D35B00627BC5 /* AdminOrdersViewModel.swift in Sources */,
 				CCC5B0442BFBB9310007BEC1 /* AddProductViewModel.swift in Sources */,
 				CCC5B0402BFBB8580007BEC1 /* VendorInventoryView.swift in Sources */,
+				CC69BD722C243B6600491014 /* AIImageGenerationViewModel.swift in Sources */,
 				CCC5B0482BFBB9A80007BEC1 /* InventoryProductDetailView.swift in Sources */,
 				CC2F47102BC81CDB00A4C1FC /* ProductCardView.swift in Sources */,
 				CC97AEC82BBE4FCE007BB76C /* CameraView.swift in Sources */,
