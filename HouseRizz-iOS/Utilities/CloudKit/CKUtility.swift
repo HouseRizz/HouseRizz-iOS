@@ -4,6 +4,7 @@
 import Foundation
 import CloudKit
 import Combine
+import UserNotifications
 
 protocol CKitableProtocol {
     init?(record: CKRecord)
@@ -240,6 +241,69 @@ extension CKUtility {
                 completion(.failure(error))
             } else {
                 completion(.success(true))
+            }
+        }
+    }
+}
+
+// MARK: PUSH NOTIFICATION FUNCTIONS
+extension CKUtility {
+    static private func requestNotificationPermission(options: UNAuthorizationOptions, completionHandler: (@escaping (Result<Bool, Error>) -> ())) {
+        UNUserNotificationCenter.current().requestAuthorization(options: options) { bool, error in
+            if let error = error {
+                completionHandler(.failure(error))
+            } else {
+                completionHandler(.success(true))
+            }
+        }
+    }
+    
+    static func requestNotificationPermission(options: UNAuthorizationOptions = [.alert, .sound, .badge]) -> Future<Bool, Error> {
+        Future { promise in
+            CKUtility.requestNotificationPermission(options: options) { result in
+                promise(result)
+            }
+        }
+    }
+    
+    static private func subscribeToNotification(recordType: String, predicate: NSPredicate, options: CKQuerySubscription.Options, subscriptionID: String, title: String, alertBody: String, soundName: String, completionHandler: (@escaping (Result<Bool, Error>) -> ())) {
+        let subscription = CKQuerySubscription(recordType: recordType, predicate: predicate, subscriptionID: subscriptionID, options: options)
+        let notification = CKSubscription.NotificationInfo()
+        notification.title = title
+        notification.alertBody = alertBody
+        notification.soundName = soundName
+        subscription.notificationInfo = notification
+        CKContainer.default().publicCloudDatabase.save(subscription) { returnedSubscription, returnedError in
+            if let returnedError = returnedError {
+                completionHandler(.failure(returnedError))
+            } else {
+                completionHandler(.success(true))
+            }
+        }
+    }
+    
+    static func subscribeToNotification (recordType: String, predicate: NSPredicate, options: CKQuerySubscription.Options = [.firesOnRecordCreation], subscriptionID: String, title: String , alertBody: String , soundName: String ) -> Future<Bool, Error> {
+        Future { promise in
+            subscribeToNotification(recordType: recordType, predicate: predicate, options: options, subscriptionID: subscriptionID, title: title, alertBody: alertBody, soundName: soundName) { result in
+                promise(result)
+            }
+        }
+    }
+    
+    static private func unsubsribeToNotification(subscriptionID: String, completionHandler: (@escaping (Result<Bool, Error>) -> ())) {
+        CKContainer.default().publicCloudDatabase.delete(withSubscriptionID: subscriptionID) { returnedID, returnedError in
+            if let returnedError = returnedError {
+                completionHandler(.failure(returnedError))
+            } else {
+                completionHandler(.success(true))
+            }
+        }
+    }
+    
+    static func unsubsribeToNotification(subscriptionID: String) -> Future<Bool, Error> {
+        Future { promise in
+            unsubsribeToNotification(subscriptionID: subscriptionID) { result in
+                promise(result)
             }
         }
     }
