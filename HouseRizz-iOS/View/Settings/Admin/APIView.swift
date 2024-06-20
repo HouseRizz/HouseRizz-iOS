@@ -8,8 +8,38 @@
 import SwiftUI
 
 struct APIView: View {
+    @StateObject private var viewModel = APIViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                HStack {
+                    TextField("API Name", text: $viewModel.name)
+                        .customTextFieldStyle()
+                    TextField("API", text: $viewModel.api)
+                        .customTextFieldStyle()
+                }
+                
+                HRAddProductButton(buttonText: "Save", background: Color.primaryColor, textColor: .white) {
+                    viewModel.addButtonPressed()
+                }
+                
+                List(viewModel.apis, id: \.self) { api in
+                    HStack {
+                        Text(api.name)
+                        Text(api.api)
+                    }
+                }
+            }
+            .navigationTitle("Manage All API")
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                viewModel.fetchAPI()
+            }
+            .refreshable {
+                viewModel.fetchAPI()
+        }
+        }
     }
 }
 

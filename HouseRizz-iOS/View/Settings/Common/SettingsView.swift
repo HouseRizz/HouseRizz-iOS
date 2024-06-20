@@ -28,6 +28,7 @@ struct SettingsView: View {
     @State private var showNotificationManager:Bool = false
     @State private var showCategoriesManager:Bool = false
     @State private var showAppBannerManager:Bool = false
+    @State private var showAPI: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -163,6 +164,13 @@ struct SettingsView: View {
                         .onTapGesture {
                             showAppBannerManager.toggle()
                         }
+                        HStack {
+                            Image(systemName: "lock")
+                            Text("Manage APIs")
+                        }
+                        .onTapGesture {
+                            showAPI.toggle()
+                        }
                     } header: {
                         Text("Admin")
                     }
@@ -281,6 +289,9 @@ struct SettingsView: View {
             })
             .sheet(isPresented: $showAppBannerManager, content: {
                 ManageAddBannerView()
+            })
+            .sheet(isPresented: $showAPI, content: {
+                APIView()
             })
             .alert(isPresented: $deleteAccount) {
                 Alert(title: Text("Delete Account"),
