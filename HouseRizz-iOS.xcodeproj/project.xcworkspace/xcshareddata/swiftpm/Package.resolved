@@ -1,5 +1,5 @@
 {
-  "originHash" : "3db4410af74a473365d81576456342922e7ad19c24ff1d3d9a708c87f1d8e2d5",
+  "originHash" : "5f36e3cc78eb11c566fef79f05af2c80b8ad91354deb968663e31fab8dc5f70e",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -152,6 +152,15 @@
       "state" : {
         "revision" : "540318ecedd63d883069ae7f1ed811a2df00b6ac",
         "version" : "2.4.0"
+      }
+    },
+    {
+      "identity" : "replicate-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/replicate/replicate-swift.git",
+      "state" : {
+        "revision" : "1893a954246eb9d8c281c8d0fdb6021adb93a1cd",
+        "version" : "0.21.0"
       }
     },
     {

@@ -42,6 +42,14 @@
 		CC548A402C1DA62300E98B85 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A3F2C1DA62300E98B85 /* PrivacyView.swift */; };
 		CC5DF1F22BCE6A0800061AB3 /* ProductCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */; };
 		CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */; };
+		CC69BD2C2C23F68F00491014 /* AIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD2B2C23F68F00491014 /* AIViewModel.swift */; };
+		CC69BD682C2428B900491014 /* Replicate in Frameworks */ = {isa = PBXBuildFile; productRef = CC69BD672C2428B900491014 /* Replicate */; };
+		CC69BD6C2C24378C00491014 /* HRAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD6B2C24378B00491014 /* HRAPI.swift */; };
+		CC69BD6E2C24389500491014 /* APIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD6D2C24389500491014 /* APIView.swift */; };
+		CC69BD702C2438AA00491014 /* APIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD6F2C2438AA00491014 /* APIViewModel.swift */; };
+		CC69BD722C243B6600491014 /* AIImageGenerationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */; };
+		CC69BD742C24406200491014 /* AIImageGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD732C24406200491014 /* AIImageGenerationView.swift */; };
+		CC69BD782C24525B00491014 /* GeneratedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD772C24525B00491014 /* GeneratedPhotoView.swift */; };
 		CC7B07C42C22D0F900627BC5 /* AdminInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */; };
 		CC7B07C72C22D15A00627BC5 /* AdminInventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */; };
 		CC7B07C92C22D33A00627BC5 /* AdminOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */; };
@@ -93,6 +101,16 @@
 		CCAC478B2C1C0E8C00A8EBF1 /* UPIListItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC478A2C1C0E8C00A8EBF1 /* UPIListItemModel.swift */; };
 		CCAC478D2C1C1A5600A8EBF1 /* UPIListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC478C2C1C1A5600A8EBF1 /* UPIListView.swift */; };
 		CCAC478F2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC478E2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift */; };
+		CCBB5A0E2C252DE000BD9E1F /* HRAIImageResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A0D2C252DE000BD9E1F /* HRAIImageResult.swift */; };
+		CCBB5A102C255C8000BD9E1F /* GeneratedPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A0F2C255C8000BD9E1F /* GeneratedPhotoViewModel.swift */; };
+		CCBB5A122C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A112C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift */; };
+		CCBB5A152C257EC800BD9E1F /* AIResultDisplayComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A142C257EC800BD9E1F /* AIResultDisplayComponent.swift */; };
+		CCBB5A172C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A162C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift */; };
+		CCBB5A192C2583DC00BD9E1F /* HRAIVibe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A182C2583DC00BD9E1F /* HRAIVibe.swift */; };
+		CCBB5A1B2C25846400BD9E1F /* ManageAIVibeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A1A2C25846400BD9E1F /* ManageAIVibeView.swift */; };
+		CCBB5A1D2C25848900BD9E1F /* ManageAIVibeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A1C2C25848900BD9E1F /* ManageAIVibeViewModel.swift */; };
+		CCBB5A1F2C25851A00BD9E1F /* AddAIVibeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A1E2C25851A00BD9E1F /* AddAIVibeViewModel.swift */; };
+		CCBB5A212C25861000BD9E1F /* AddAIVibeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A202C25861000BD9E1F /* AddAIVibeView.swift */; };
 		CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C222BC03A42004E51F9 /* fender.usdz */; };
 		CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C242BC03A47004E51F9 /* robot.usdz */; };
 		CCC5B03A2BFBB62F0007BEC1 /* HRProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */; };
@@ -151,6 +169,13 @@
 		CC548A3F2C1DA62300E98B85 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		CC5DF1F12BCE6A0800061AB3 /* ProductCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryView.swift; sourceTree = "<group>"; };
 		CC5DF1F32BCE795300061AB3 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
+		CC69BD2B2C23F68F00491014 /* AIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIViewModel.swift; sourceTree = "<group>"; };
+		CC69BD6B2C24378B00491014 /* HRAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAPI.swift; sourceTree = "<group>"; };
+		CC69BD6D2C24389500491014 /* APIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIView.swift; sourceTree = "<group>"; };
+		CC69BD6F2C2438AA00491014 /* APIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIViewModel.swift; sourceTree = "<group>"; };
+		CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIImageGenerationViewModel.swift; sourceTree = "<group>"; };
+		CC69BD732C24406200491014 /* AIImageGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIImageGenerationView.swift; sourceTree = "<group>"; };
+		CC69BD772C24525B00491014 /* GeneratedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedPhotoView.swift; sourceTree = "<group>"; };
 		CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryView.swift; sourceTree = "<group>"; };
 		CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryViewModel.swift; sourceTree = "<group>"; };
 		CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrdersView.swift; sourceTree = "<group>"; };
@@ -190,6 +215,16 @@
 		CCAC478A2C1C0E8C00A8EBF1 /* UPIListItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIListItemModel.swift; sourceTree = "<group>"; };
 		CCAC478C2C1C1A5600A8EBF1 /* UPIListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIListView.swift; sourceTree = "<group>"; };
 		CCAC478E2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoUPIAppsInstalledView.swift; sourceTree = "<group>"; };
+		CCBB5A0D2C252DE000BD9E1F /* HRAIImageResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAIImageResult.swift; sourceTree = "<group>"; };
+		CCBB5A0F2C255C8000BD9E1F /* GeneratedPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedPhotoViewModel.swift; sourceTree = "<group>"; };
+		CCBB5A112C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserAIImageGenerationView.swift; sourceTree = "<group>"; };
+		CCBB5A142C257EC800BD9E1F /* AIResultDisplayComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResultDisplayComponent.swift; sourceTree = "<group>"; };
+		CCBB5A162C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserAIImageGenerationViewModel.swift; sourceTree = "<group>"; };
+		CCBB5A182C2583DC00BD9E1F /* HRAIVibe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAIVibe.swift; sourceTree = "<group>"; };
+		CCBB5A1A2C25846400BD9E1F /* ManageAIVibeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAIVibeView.swift; sourceTree = "<group>"; };
+		CCBB5A1C2C25848900BD9E1F /* ManageAIVibeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAIVibeViewModel.swift; sourceTree = "<group>"; };
+		CCBB5A1E2C25851A00BD9E1F /* AddAIVibeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAIVibeViewModel.swift; sourceTree = "<group>"; };
+		CCBB5A202C25861000BD9E1F /* AddAIVibeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAIVibeView.swift; sourceTree = "<group>"; };
 		CCC42C222BC03A42004E51F9 /* fender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender.usdz; sourceTree = "<group>"; };
 		CCC42C242BC03A47004E51F9 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
 		CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProduct.swift; sourceTree = "<group>"; };
@@ -220,6 +255,7 @@
 			files = (
 				CC97AF192BBE79A4007BB76C /* FocusEntity in Frameworks */,
 				CC97AEE92BBE5BF7007BB76C /* FirebaseAnalyticsSwift in Frameworks */,
+				CC69BD682C2428B900491014 /* Replicate in Frameworks */,
 				CC97AEE52BBE5BF6007BB76C /* FirebaseAnalytics in Frameworks */,
 				CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */,
 				CC97AEF22BBE5C1D007BB76C /* GoogleSignInSwift in Frameworks */,
@@ -375,6 +411,9 @@
 			isa = PBXGroup;
 			children = (
 				CCD3B0062BCA3440000AFB80 /* AIView.swift */,
+				CC69BD732C24406200491014 /* AIImageGenerationView.swift */,
+				CC69BD772C24525B00491014 /* GeneratedPhotoView.swift */,
+				CCBB5A112C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift */,
 			);
 			path = AIPage;
 			sourceTree = "<group>";
@@ -426,6 +465,9 @@
 				CCAC478A2C1C0E8C00A8EBF1 /* UPIListItemModel.swift */,
 				CC7B07CE2C22D59400627BC5 /* HRProductCategory.swift */,
 				CC7B07E12C22EE3700627BC5 /* HRAddBanner.swift */,
+				CC69BD6B2C24378B00491014 /* HRAPI.swift */,
+				CCBB5A0D2C252DE000BD9E1F /* HRAIImageResult.swift */,
+				CCBB5A182C2583DC00BD9E1F /* HRAIVibe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -433,6 +475,7 @@
 		CC3D289C2BC4005100C1E119 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CC69BD2A2C23F68200491014 /* AI */,
 				CC7B07D62C22E40400627BC5 /* Category */,
 				CC7B07C22C22D06200627BC5 /* Authentication */,
 				CC8C42752C2031E600C05061 /* Products */,
@@ -499,6 +542,17 @@
 			path = About;
 			sourceTree = "<group>";
 		};
+		CC69BD2A2C23F68200491014 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				CC69BD2B2C23F68F00491014 /* AIViewModel.swift */,
+				CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */,
+				CCBB5A0F2C255C8000BD9E1F /* GeneratedPhotoViewModel.swift */,
+				CCBB5A162C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
 		CC7B07BC2C22CF0A00627BC5 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +562,9 @@
 				CC7B07D22C22DEE300627BC5 /* AddProductCategoriesView.swift */,
 				CC7B07D92C22ECE100627BC5 /* ManageAddBannerView.swift */,
 				CC7B07DB2C22ED8E00627BC5 /* AddAddBannerView.swift */,
+				CC69BD6D2C24389500491014 /* APIView.swift */,
+				CCBB5A1A2C25846400BD9E1F /* ManageAIVibeView.swift */,
+				CCBB5A202C25861000BD9E1F /* AddAIVibeView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -564,6 +621,9 @@
 				CC7B07D42C22DF5900627BC5 /* AddProductCategoriesViewModel.swift */,
 				CC7B07DD2C22EDA900627BC5 /* ManageAddBannerViewModel.swift */,
 				CC7B07DF2C22EDCF00627BC5 /* AddAddBannerViewModel.swift */,
+				CC69BD6F2C2438AA00491014 /* APIViewModel.swift */,
+				CCBB5A1C2C25848900BD9E1F /* ManageAIVibeViewModel.swift */,
+				CCBB5A1E2C25851A00BD9E1F /* AddAIVibeViewModel.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -643,6 +703,7 @@
 		CC8C42792C20353900C05061 /* Buyer */ = {
 			isa = PBXGroup;
 			children = (
+				CCBB5A132C257EB800BD9E1F /* AI */,
 				CC06A9502C0C070000A0DAD3 /* Cart */,
 				CC06A9562C0C07A100A0DAD3 /* HomePage */,
 				CC06A9582C0C07C100A0DAD3 /* CategoryPage */,
@@ -738,6 +799,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		CCBB5A132C257EB800BD9E1F /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				CCBB5A142C257EC800BD9E1F /* AIResultDisplayComponent.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
 		CCDB49AC2C16D93E00F7031B /* Orders */ = {
 			isa = PBXGroup;
 			children = (
@@ -778,6 +847,7 @@
 				CC97AEFE2BBE5CB4007BB76C /* FirebaseStorage */,
 				CC97AF182BBE79A4007BB76C /* FocusEntity */,
 				CC97AF1B2BBE8109007BB76C /* ARPersistence */,
+				CC69BD672C2428B900491014 /* Replicate */,
 			);
 			productName = "HouseRizz-iOS";
 			productReference = CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */;
@@ -812,6 +882,7 @@
 				CC97AEEE2BBE5C1D007BB76C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				CC97AF172BBE79A3007BB76C /* XCRemoteSwiftPackageReference "FocusEntity" */,
 				CC97AF1A2BBE8108007BB76C /* XCRemoteSwiftPackageReference "ARPersistence" */,
+				CC69BD662C2428B900491014 /* XCRemoteSwiftPackageReference "replicate-swift" */,
 			);
 			productRefGroup = CC97AEC32BBE4FCE007BB76C /* Products */;
 			projectDirPath = "";
@@ -848,25 +919,32 @@
 				CC7B07D32C22DEE300627BC5 /* AddProductCategoriesView.swift in Sources */,
 				CC7B07DE2C22EDA900627BC5 /* ManageAddBannerViewModel.swift in Sources */,
 				CC97AF012BBE5CCE007BB76C /* HRUser.swift in Sources */,
+				CCBB5A102C255C8000BD9E1F /* GeneratedPhotoViewModel.swift in Sources */,
 				CC7B07E02C22EDCF00627BC5 /* AddAddBannerViewModel.swift in Sources */,
 				CC7B07C42C22D0F900627BC5 /* AdminInventoryView.swift in Sources */,
 				CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */,
 				CCAC47892C1C0BAC00A8EBF1 /* UPIViewModel.swift in Sources */,
+				CCBB5A1B2C25846400BD9E1F /* ManageAIVibeView.swift in Sources */,
 				CC11078B2C14565400AB9F58 /* VendorOrdersView.swift in Sources */,
+				CC69BD2C2C23F68F00491014 /* AIViewModel.swift in Sources */,
 				CC7B07CD2C22D4E000627BC5 /* ManageProductCategoriesView.swift in Sources */,
 				CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */,
 				CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */,
+				CC69BD6E2C24389500491014 /* APIView.swift in Sources */,
+				CC69BD6C2C24378C00491014 /* HRAPI.swift in Sources */,
 				CC3CF4E02C198DEC00C8A58D /* CityPickerView.swift in Sources */,
 				CC7B07DC2C22ED8E00627BC5 /* AddAddBannerView.swift in Sources */,
 				CC06A97D2C0C97A100A0DAD3 /* NetworkManager.swift in Sources */,
 				CCA735562C1FDEE800053DDE /* LoginView.swift in Sources */,
 				CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */,
 				CCC5B03C2BFBB6B80007BEC1 /* InventoryProductCardView.swift in Sources */,
+				CCBB5A192C2583DC00BD9E1F /* HRAIVibe.swift in Sources */,
 				CC2F47142BC8389B00A4C1FC /* CartViewModel.swift in Sources */,
 				CC2F47182BC8D5ED00A4C1FC /* CartProductView.swift in Sources */,
 				CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */,
 				CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */,
 				CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */,
+				CCBB5A212C25861000BD9E1F /* AddAIVibeView.swift in Sources */,
 				CCDED4722C154E9F0063C1D2 /* OrderDetailViewModel.swift in Sources */,
 				CC06A9732C0C8D5800A0DAD3 /* DoubleExtension.swift in Sources */,
 				CC7B07C92C22D33A00627BC5 /* AdminOrdersView.swift in Sources */,
@@ -878,6 +956,7 @@
 				CC3CF4E22C1994C400C8A58D /* CityView.swift in Sources */,
 				CCDB49B62C173BC200F7031B /* EditAddressView.swift in Sources */,
 				CCAC478D2C1C1A5600A8EBF1 /* UPIListView.swift in Sources */,
+				CC69BD742C24406200491014 /* AIImageGenerationView.swift in Sources */,
 				CCC5B0462BFBB95A0007BEC1 /* AddProductView.swift in Sources */,
 				CCDB49B02C16D9AB00F7031B /* OrderHistoryListViewModel.swift in Sources */,
 				CC06A97F2C0C97F000A0DAD3 /* NoNetworkView.swift in Sources */,
@@ -887,16 +966,21 @@
 				CCC5B03E2BFBB7700007BEC1 /* HRTextField.swift in Sources */,
 				CC2F47162BC8CE1900A4C1FC /* CartButton.swift in Sources */,
 				CCDB49B22C16DBC300F7031B /* OrderHistoryDetailView.swift in Sources */,
+				CCBB5A0E2C252DE000BD9E1F /* HRAIImageResult.swift in Sources */,
 				CC7B07C72C22D15A00627BC5 /* AdminInventoryViewModel.swift in Sources */,
+				CC69BD782C24525B00491014 /* GeneratedPhotoView.swift in Sources */,
 				CC7B07D52C22DF5900627BC5 /* AddProductCategoriesViewModel.swift in Sources */,
 				CC7B07D12C22D7F400627BC5 /* ManageProductCategoriesViewModel.swift in Sources */,
 				CC06A95E2C0C080500A0DAD3 /* ColorExtension.swift in Sources */,
 				CCDED4702C1544CA0063C1D2 /* OrderDetailView.swift in Sources */,
 				CC7B07CB2C22D35B00627BC5 /* AdminOrdersViewModel.swift in Sources */,
 				CCC5B0442BFBB9310007BEC1 /* AddProductViewModel.swift in Sources */,
+				CCBB5A1D2C25848900BD9E1F /* ManageAIVibeViewModel.swift in Sources */,
 				CCC5B0402BFBB8580007BEC1 /* VendorInventoryView.swift in Sources */,
+				CC69BD722C243B6600491014 /* AIImageGenerationViewModel.swift in Sources */,
 				CCC5B0482BFBB9A80007BEC1 /* InventoryProductDetailView.swift in Sources */,
 				CC2F47102BC81CDB00A4C1FC /* ProductCardView.swift in Sources */,
+				CCBB5A122C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift in Sources */,
 				CC97AEC82BBE4FCE007BB76C /* CameraView.swift in Sources */,
 				CC7B07E22C22EE3700627BC5 /* HRAddBanner.swift in Sources */,
 				CC548A3E2C1DA61400E98B85 /* TermsView.swift in Sources */,
@@ -915,6 +999,7 @@
 				CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */,
 				CC06A95C2C0C07F100A0DAD3 /* EncodableExtension.swift in Sources */,
 				CC97AEF42BBE5C46007BB76C /* Authentication.swift in Sources */,
+				CCBB5A172C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift in Sources */,
 				CC548A3A2C1DA5FC00E98B85 /* HelpView.swift in Sources */,
 				CC06A9602C0C082200A0DAD3 /* NumberFormatterExtension.swift in Sources */,
 				CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */,
@@ -925,7 +1010,10 @@
 				CC3CF4E42C19989200C8A58D /* SearchViewModel.swift in Sources */,
 				CC3CF4DE2C198BE500C8A58D /* SearchView.swift in Sources */,
 				CC548A3C2C1DA60500E98B85 /* RefundView.swift in Sources */,
+				CC69BD702C2438AA00491014 /* APIViewModel.swift in Sources */,
 				CC7B07CF2C22D59400627BC5 /* HRProductCategory.swift in Sources */,
+				CCBB5A1F2C25851A00BD9E1F /* AddAIVibeViewModel.swift in Sources */,
+				CCBB5A152C257EC800BD9E1F /* AIResultDisplayComponent.swift in Sources */,
 				CC2ACF962C100A7B004C040B /* ProductCategoryViewModel.swift in Sources */,
 				CCDB49AE2C16D95900F7031B /* OrderHistoryListView.swift in Sources */,
 				CC97AF102BBE5F1E007BB76C /* SettingsView.swift in Sources */,
@@ -1160,6 +1248,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CC69BD662C2428B900491014 /* XCRemoteSwiftPackageReference "replicate-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/replicate/replicate-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.21.0;
+			};
+		};
 		CC97AEE32BBE5BF6007BB76C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1195,6 +1291,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CC69BD672C2428B900491014 /* Replicate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC69BD662C2428B900491014 /* XCRemoteSwiftPackageReference "replicate-swift" */;
+			productName = Replicate;
+		};
 		CC97AEE42BBE5BF6007BB76C /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CC97AEE32BBE5BF6007BB76C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

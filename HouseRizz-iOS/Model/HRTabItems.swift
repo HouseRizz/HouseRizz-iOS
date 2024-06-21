@@ -10,7 +10,7 @@ import Foundation
 enum HRTabItems: Int, CaseIterable {
     
     case home = 0
-//    case ai
+    case ai
 //    case ar
     case products
     
@@ -18,8 +18,8 @@ enum HRTabItems: Int, CaseIterable {
         switch self {
         case .home:
             return "Home"
-//        case .ai:
-//            return "AI"
+        case .ai:
+            return "AI"
 //        case .ar:
 //            return "3D"
         case .products:
@@ -32,8 +32,8 @@ enum HRTabItems: Int, CaseIterable {
         switch self {
         case .home:
             return "Home"
-//        case .ai:
-//            return "Star"
+        case .ai:
+            return "Star"
 //        case .ar:
 //            return "Earth"
         case .products:
