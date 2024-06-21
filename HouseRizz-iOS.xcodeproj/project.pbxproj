@@ -107,6 +107,7 @@
 		CCBB5A122C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A112C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift */; };
 		CCBB5A152C257EC800BD9E1F /* AIResultDisplayComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A142C257EC800BD9E1F /* AIResultDisplayComponent.swift */; };
 		CCBB5A172C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A162C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift */; };
+		CCBB5A192C2583DC00BD9E1F /* HRAIVibe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A182C2583DC00BD9E1F /* HRAIVibe.swift */; };
 		CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C222BC03A42004E51F9 /* fender.usdz */; };
 		CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C242BC03A47004E51F9 /* robot.usdz */; };
 		CCC5B03A2BFBB62F0007BEC1 /* HRProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */; };
@@ -217,6 +218,7 @@
 		CCBB5A112C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserAIImageGenerationView.swift; sourceTree = "<group>"; };
 		CCBB5A142C257EC800BD9E1F /* AIResultDisplayComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResultDisplayComponent.swift; sourceTree = "<group>"; };
 		CCBB5A162C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserAIImageGenerationViewModel.swift; sourceTree = "<group>"; };
+		CCBB5A182C2583DC00BD9E1F /* HRAIVibe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAIVibe.swift; sourceTree = "<group>"; };
 		CCC42C222BC03A42004E51F9 /* fender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender.usdz; sourceTree = "<group>"; };
 		CCC42C242BC03A47004E51F9 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
 		CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProduct.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				CC69BD6B2C24378B00491014 /* HRAPI.swift */,
 				CC69BD752C24452A00491014 /* HRImageStyle.swift */,
 				CCBB5A0D2C252DE000BD9E1F /* HRAIImageResult.swift */,
+				CCBB5A182C2583DC00BD9E1F /* HRAIVibe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -925,6 +928,7 @@
 				CCA735562C1FDEE800053DDE /* LoginView.swift in Sources */,
 				CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */,
 				CCC5B03C2BFBB6B80007BEC1 /* InventoryProductCardView.swift in Sources */,
+				CCBB5A192C2583DC00BD9E1F /* HRAIVibe.swift in Sources */,
 				CC2F47142BC8389B00A4C1FC /* CartViewModel.swift in Sources */,
 				CC2F47182BC8D5ED00A4C1FC /* CartProductView.swift in Sources */,
 				CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */,
