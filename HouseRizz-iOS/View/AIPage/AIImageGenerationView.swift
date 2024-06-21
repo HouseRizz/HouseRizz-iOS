@@ -64,22 +64,24 @@ struct AIImageGenerationView: View {
                     GeometryReader { reader in
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
-                                ForEach(ImageStyle.allCases, id: \.self) { imageStyle in
+                                ForEach(viewModel.vibes.indices, id: \.self) { vibe in
                                     Button {
-                                        viewModel.vibe = imageStyle.title
+                                        viewModel.vibe = viewModel.vibes[vibe].name
                                     } label: {
                                         VStack {
-                                            Image(imageStyle.rawValue)
-                                                .resizable()
-                                                .background(Color.primaryColor)
-                                                .scaledToFill()
-                                                .frame(width: reader.size.width * 0.4, height: reader.size.width * 0.4 * 1.4)
-                                                .overlay {
-                                                    RoundedRectangle(cornerRadius: 20).stroke(Color.primaryColor, lineWidth: imageStyle.title == viewModel.vibe ? 3 : 0)
-                                                }
-                                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                            if let url = viewModel.vibes[vibe].imageURL, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                                                Image(uiImage: image)
+                                                    .resizable()
+                                                    .background(Color.primaryColor)
+                                                    .scaledToFill()
+                                                    .frame(width: reader.size.width * 0.4, height: reader.size.width * 0.4 * 1.4)
+                                                    .overlay {
+                                                        RoundedRectangle(cornerRadius: 20).stroke(Color.primaryColor, lineWidth: viewModel.vibes[vibe].name == viewModel.vibe ? 3 : 0)
+                                                    }
+                                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                                            }
                                             
-                                            Text(imageStyle.title)
+                                            Text(viewModel.vibes[vibe].name)
                                         }
                                     }
                                 }
@@ -181,14 +183,14 @@ struct AIImageGenerationView: View {
                 .navigationDestination(isPresented: $showAllResults) {
                     AllUserAIImageGenerationView(authentication: authentication)
                 }
-//                .toolbar {
-//                    ToolbarItem(placement: .topBarTrailing) {
-//                        Image(systemName: "plus")
-//                            .onTapGesture {
-//                                showAllResults.toggle()
-//                            }
-//                    }
-//                }
+                //                .toolbar {
+                //                    ToolbarItem(placement: .topBarTrailing) {
+                //                        Image(systemName: "plus")
+                //                            .onTapGesture {
+                //                                showAllResults.toggle()
+                //                            }
+                //                    }
+                //                }
                 .padding()
             }
         }

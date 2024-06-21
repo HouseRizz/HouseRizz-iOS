@@ -24,6 +24,7 @@ class AIImageGenerationViewModel {
     var cancellables = Set<AnyCancellable>()
     var categories: [HRProductCategory] = []
     var uniqueID: UUID = UUID()
+    var vibes: [HRAIVibe] = []
     
     private var client: Replicate.Client? {
         apis.first.flatMap { Replicate.Client(token: $0.api) }
@@ -38,6 +39,7 @@ class AIImageGenerationViewModel {
     init() {
         fetchAPI()
         fetchCategories()
+        fetchVibes()
     }
     
     func addButtonPressed() {
@@ -116,7 +118,24 @@ class AIImageGenerationViewModel {
                 }
             } receiveValue: { [weak self] returnedItems in
                 self?.apis = returnedItems
-                print("\(self?.apis.first?.name ?? "none")")
+            }
+            .store(in: &cancellables)
+    }
+    
+    func fetchVibes(){
+        let predicate = NSPredicate(value: true)
+        let recordType = HRAIVibeModelName.itemRecord
+        CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self?.error = error.localizedDescription
+                }
+            } receiveValue: { [weak self] returnedItems in
+                self?.vibes = returnedItems
             }
             .store(in: &cancellables)
     }
@@ -145,7 +164,7 @@ enum InteriorDesign: Predictable {
     static let versionID = "76604baddc85b1b4616e1c6475eca080da339c8875bd4996705440484a6eac38"
     
     struct Input: Codable {
-        let image: String  // Image data URI-encoded string
+        let image: String
         let prompt: String
         let seed: Int?
         let guidance_scale: Double
