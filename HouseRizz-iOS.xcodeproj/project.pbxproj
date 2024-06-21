@@ -111,6 +111,7 @@
 		CCBB5A1B2C25846400BD9E1F /* ManageAIVibeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A1A2C25846400BD9E1F /* ManageAIVibeView.swift */; };
 		CCBB5A1D2C25848900BD9E1F /* ManageAIVibeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A1C2C25848900BD9E1F /* ManageAIVibeViewModel.swift */; };
 		CCBB5A1F2C25851A00BD9E1F /* AddAIVibeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A1E2C25851A00BD9E1F /* AddAIVibeViewModel.swift */; };
+		CCBB5A212C25861000BD9E1F /* AddAIVibeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A202C25861000BD9E1F /* AddAIVibeView.swift */; };
 		CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C222BC03A42004E51F9 /* fender.usdz */; };
 		CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C242BC03A47004E51F9 /* robot.usdz */; };
 		CCC5B03A2BFBB62F0007BEC1 /* HRProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */; };
@@ -225,6 +226,7 @@
 		CCBB5A1A2C25846400BD9E1F /* ManageAIVibeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAIVibeView.swift; sourceTree = "<group>"; };
 		CCBB5A1C2C25848900BD9E1F /* ManageAIVibeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAIVibeViewModel.swift; sourceTree = "<group>"; };
 		CCBB5A1E2C25851A00BD9E1F /* AddAIVibeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAIVibeViewModel.swift; sourceTree = "<group>"; };
+		CCBB5A202C25861000BD9E1F /* AddAIVibeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAIVibeView.swift; sourceTree = "<group>"; };
 		CCC42C222BC03A42004E51F9 /* fender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender.usdz; sourceTree = "<group>"; };
 		CCC42C242BC03A47004E51F9 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
 		CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProduct.swift; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 				CC7B07DB2C22ED8E00627BC5 /* AddAddBannerView.swift */,
 				CC69BD6D2C24389500491014 /* APIView.swift */,
 				CCBB5A1A2C25846400BD9E1F /* ManageAIVibeView.swift */,
+				CCBB5A202C25861000BD9E1F /* AddAIVibeView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -944,6 +947,7 @@
 				CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */,
 				CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */,
 				CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */,
+				CCBB5A212C25861000BD9E1F /* AddAIVibeView.swift in Sources */,
 				CCDED4722C154E9F0063C1D2 /* OrderDetailViewModel.swift in Sources */,
 				CC06A9732C0C8D5800A0DAD3 /* DoubleExtension.swift in Sources */,
 				CC7B07C92C22D33A00627BC5 /* AdminOrdersView.swift in Sources */,
