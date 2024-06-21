@@ -23,18 +23,40 @@ class AIImageGenerationViewModel {
     var selectedPhotos: [PhotosPickerItem] = []
     var cancellables = Set<AnyCancellable>()
     var categories: [HRProductCategory] = []
-
+    
     private var client: Replicate.Client? {
         apis.first.flatMap { Replicate.Client(token: $0.api) }
     }
-
+    
     var prompt: String {
         "A \(vibe) \(type) interior design with enhanced aesthetics, optimized layout, and improved functionality. The design should emphasize elements such as \(vibe) furniture, \(vibe) decor. Ensure the design is realistic and visually appealing."
     }
-
+    var user: String = ""
+    var imageURL: String = ""
+    
     init() {
         fetchAPI()
         fetchCategories()
+    }
+    
+    func addButtonPressed() {
+        guard !user.isEmpty else { return }
+        addResult(user: user)
+    }
+    
+    func clearItem() {
+        error = ""
+        user = ""
+        selectedPhotoData = nil
+    }
+    
+    private func addResult(user: String) {
+        guard let newResult = HRAIImageResult(id: UUID(), userName: user, imageURL: imageURL, vibe: vibe, type: type) else {
+            error = "Error creating item"
+            return
+        }
+        
+        CKUtility.add(item: newResult) { _ in }
     }
     
     func loadSelectedPhoto() {
@@ -50,21 +72,21 @@ class AIImageGenerationViewModel {
             }
         }
     }
-
+    
     func generate() async throws {
         guard let selectedPhotoData = selectedPhotoData else {
             error = "No photo selected."
             return
         }
-
+        
         let mimeType = "image/jpeg"
         let imageString = selectedPhotoData.uriEncoded(mimeType: mimeType)
-
+        
         guard let client = client else {
             error = "Client not initialized."
             return
         }
-
+        
         let input = InteriorDesign.Input(
             image: imageString,
             prompt: prompt,
@@ -74,11 +96,11 @@ class AIImageGenerationViewModel {
             prompt_strength: 0.8,
             num_inference_steps: 50
         )
-
+        
         prediction = try await InteriorDesign.predict(with: client, input: input)
         try await prediction?.wait(with: client)
     }
-
+    
     func fetchAPI() {
         let predicate = NSPredicate(format: "%K == %@", HRAPIModelName.name, "Replicate")
         let recordType = HRAPIModelName.itemRecord
@@ -97,7 +119,7 @@ class AIImageGenerationViewModel {
             }
             .store(in: &cancellables)
     }
-
+    
     func fetchCategories(){
         let predicate = NSPredicate(value: true)
         let recordType = HRProductCategoryModelName.itemRecord
@@ -120,7 +142,7 @@ class AIImageGenerationViewModel {
 enum InteriorDesign: Predictable {
     static var modelID = "adirik/interior-design"
     static let versionID = "76604baddc85b1b4616e1c6475eca080da339c8875bd4996705440484a6eac38"
-
+    
     struct Input: Codable {
         let image: String  // Image data URI-encoded string
         let prompt: String
@@ -130,7 +152,7 @@ enum InteriorDesign: Predictable {
         let prompt_strength: Double
         let num_inference_steps: Int
     }
-
+    
     typealias Output = URL
 }
 

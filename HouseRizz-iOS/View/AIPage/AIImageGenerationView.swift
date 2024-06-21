@@ -11,7 +11,8 @@ struct AIImageGenerationView: View {
     @State private var viewModel = AIImageGenerationViewModel()
     @State private var isLoading = false
     @State private var navigateToGeneratedPhotoView = false
-
+    @StateObject private var authentication = Authentication()
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -121,7 +122,7 @@ struct AIImageGenerationView: View {
                             viewModel.loadSelectedPhoto()
                         })
                     }
-
+                    
                     if isLoading {
                         ProgressView()
                             .frame(maxWidth: .infinity)
@@ -162,6 +163,12 @@ struct AIImageGenerationView: View {
                                     .scaledToFit()
                                     .frame(maxWidth: .infinity)
                                     .padding()
+                                    .onAppear {
+                                        viewModel.user = authentication.user?.email ?? "Not Provided"
+                                        viewModel.imageURL = url.absoluteString
+                                        print(viewModel.imageURL)
+                                        viewModel.addButtonPressed()
+                                    }
                             case .failure:
                                 Image(systemName: "exclamationmark.triangle.fill")
                                     .resizable()

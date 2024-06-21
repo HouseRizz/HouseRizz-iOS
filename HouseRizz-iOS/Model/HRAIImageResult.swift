@@ -15,13 +15,13 @@ struct HRAIImageResultModelName {
     static let vibe = "vibe"
     static let type = "type"
     static let record = "record"
-    static let itemRecord = "AIImageResult"
+    static let itemRecord = "AIDesignImageResult"
 }
 
 struct HRAIImageResult: Hashable, Identifiable, CKitableProtocol {
     var id: UUID
     let userName: String
-    let imageURL: URL?
+    let imageURL: String
     let vibe: String
     let type: String
     let record: CKRecord
@@ -33,8 +33,8 @@ struct HRAIImageResult: Hashable, Identifiable, CKitableProtocol {
         self.id = id
         guard let userName = record[HRAIImageResultModelName.userName] as? String else { return nil }
         self.userName = userName
-        let imageAsset = record[HRAIImageResultModelName.imageURL] as? CKAsset
-        self.imageURL = imageAsset?.fileURL
+        guard let imageURL = record[HRAIImageResultModelName.imageURL] as? String else { return nil }
+        self.imageURL = imageURL
         guard let vibe = record[HRAIImageResultModelName.vibe] as? String else { return nil }
         self.vibe = vibe
         guard let type = record[HRAIImageResultModelName.type] as? String else { return nil }
@@ -42,14 +42,11 @@ struct HRAIImageResult: Hashable, Identifiable, CKitableProtocol {
         self.record = record
     }
     
-    init?(id: UUID, userName: String, imageURL: URL?, vibe: String, type: String) {
+    init?(id: UUID, userName: String, imageURL: String, vibe: String, type: String) {
         let record = CKRecord(recordType: HRAIImageResultModelName.itemRecord)
         record[HRAIImageResultModelName.id] = id.uuidString
         record[HRAIImageResultModelName.userName] = userName
-        if let url = imageURL {
-            let asset = CKAsset(fileURL: url)
-            record[HRAIImageResultModelName.imageURL] = asset
-        }
+        record[HRAIImageResultModelName.imageURL] = imageURL
         record[HRAIImageResultModelName.vibe] = vibe
         record[HRAIImageResultModelName.type] = type
         self.init(record: record)
