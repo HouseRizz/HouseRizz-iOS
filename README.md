@@ -27,7 +27,7 @@ This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets 
 - [x]  View Order History
 - [x]  UPI Payment Gateway Integration
 - [ ]  AI Feature - Sketch to Render
-- [ ]  AI Feature - Redesign home from image
+- [x]  AI Feature - Redesign home from image
 - [ ]  AI Feature - Similarity Model
 - [ ]  AI Feature - Tinder Like Swipes but for Furniture Recommendations
 - [ ]  Notification - Order Updates
