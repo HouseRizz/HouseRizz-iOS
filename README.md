@@ -26,8 +26,9 @@ This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets 
 - [x]  Create Orders
 - [x]  View Order History
 - [x]  UPI Payment Gateway Integration
+- [ ]  Paywall for AI Feature
 - [ ]  AI Feature - Sketch to Render
-- [ ]  AI Feature - Redesign home from image
+- [x]  AI Feature - Redesign home from image
 - [ ]  AI Feature - Similarity Model
 - [ ]  AI Feature - Tinder Like Swipes but for Furniture Recommendations
 - [ ]  Notification - Order Updates
@@ -47,6 +48,7 @@ Admin Side
 - [x]  Manage All Orders
 - [x]  Manage Products Categories
 - [x]  Manage Add Banners
+- [x]  Manage AI Vibes (Image Styles)
 - [ ]  Manage Notifications
 
 ## Licence
