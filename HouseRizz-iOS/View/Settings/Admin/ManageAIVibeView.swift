@@ -51,7 +51,7 @@ struct ManageAIVibeView: View {
             .refreshable {
                 viewModel.fetchVibes()
             }
-            .navigationTitle("Product Categories")
+            .navigationTitle("AI Vibes")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

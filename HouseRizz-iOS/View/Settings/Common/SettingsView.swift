@@ -29,6 +29,7 @@ struct SettingsView: View {
     @State private var showCategoriesManager:Bool = false
     @State private var showAppBannerManager:Bool = false
     @State private var showAPI: Bool = false
+    @State private var showVibe: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -171,6 +172,13 @@ struct SettingsView: View {
                         .onTapGesture {
                             showAPI.toggle()
                         }
+                        HStack {
+                            Image(systemName: "scribble")
+                            Text("Manage Vibe")
+                        }
+                        .onTapGesture {
+                            showVibe.toggle()
+                        }
                     } header: {
                         Text("Admin")
                     }
@@ -292,6 +300,9 @@ struct SettingsView: View {
             })
             .sheet(isPresented: $showAPI, content: {
                 APIView()
+            })
+            .sheet(isPresented: $showVibe, content: {
+                ManageAIVibeView()
             })
             .alert(isPresented: $deleteAccount) {
                 Alert(title: Text("Delete Account"),
