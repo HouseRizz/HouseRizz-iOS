@@ -106,6 +106,7 @@
 		CCBB5A102C255C8000BD9E1F /* GeneratedPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A0F2C255C8000BD9E1F /* GeneratedPhotoViewModel.swift */; };
 		CCBB5A122C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A112C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift */; };
 		CCBB5A152C257EC800BD9E1F /* AIResultDisplayComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A142C257EC800BD9E1F /* AIResultDisplayComponent.swift */; };
+		CCBB5A172C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A162C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift */; };
 		CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C222BC03A42004E51F9 /* fender.usdz */; };
 		CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C242BC03A47004E51F9 /* robot.usdz */; };
 		CCC5B03A2BFBB62F0007BEC1 /* HRProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */; };
@@ -215,6 +216,7 @@
 		CCBB5A0F2C255C8000BD9E1F /* GeneratedPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedPhotoViewModel.swift; sourceTree = "<group>"; };
 		CCBB5A112C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserAIImageGenerationView.swift; sourceTree = "<group>"; };
 		CCBB5A142C257EC800BD9E1F /* AIResultDisplayComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResultDisplayComponent.swift; sourceTree = "<group>"; };
+		CCBB5A162C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserAIImageGenerationViewModel.swift; sourceTree = "<group>"; };
 		CCC42C222BC03A42004E51F9 /* fender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender.usdz; sourceTree = "<group>"; };
 		CCC42C242BC03A47004E51F9 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
 		CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProduct.swift; sourceTree = "<group>"; };
@@ -538,6 +540,7 @@
 				CC69BD2B2C23F68F00491014 /* AIViewModel.swift */,
 				CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */,
 				CCBB5A0F2C255C8000BD9E1F /* GeneratedPhotoViewModel.swift */,
+				CCBB5A162C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift */,
 			);
 			path = AI;
 			sourceTree = "<group>";
@@ -981,6 +984,7 @@
 				CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */,
 				CC06A95C2C0C07F100A0DAD3 /* EncodableExtension.swift in Sources */,
 				CC97AEF42BBE5C46007BB76C /* Authentication.swift in Sources */,
+				CCBB5A172C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift in Sources */,
 				CC548A3A2C1DA5FC00E98B85 /* HelpView.swift in Sources */,
 				CC06A9602C0C082200A0DAD3 /* NumberFormatterExtension.swift in Sources */,
 				CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */,

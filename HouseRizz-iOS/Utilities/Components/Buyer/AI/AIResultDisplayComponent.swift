@@ -32,6 +32,9 @@ struct AIResultDisplayComponent: View {
                             .scaledToFit()
                             .frame(maxWidth: .infinity)
                             .padding()
+                        
+                        ShareLink("Export", item: url)
+                            .padding(32)
                     case .failure:
                         Image(systemName: "exclamationmark.triangle.fill")
                             .resizable()

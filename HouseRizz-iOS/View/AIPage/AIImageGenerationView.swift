@@ -13,6 +13,7 @@ struct AIImageGenerationView: View {
     @State private var navigateToGeneratedPhotoView = false
     @State private var hasReturnedFromGeneratedPhotoView = false
     @State var uniqueID: UUID = UUID()
+    @State private var showAllResults: Bool = false
     @StateObject private var authentication = Authentication()
     
     var body: some View {
@@ -174,10 +175,21 @@ struct AIImageGenerationView: View {
                     }
                     
                 }
-                .padding()
                 .navigationDestination(isPresented: $navigateToGeneratedPhotoView) {
                     GeneratedPhotoView(uniqueID: uniqueID)
                 }
+                .navigationDestination(isPresented: $showAllResults) {
+                    AllUserAIImageGenerationView(authentication: authentication)
+                }
+//                .toolbar {
+//                    ToolbarItem(placement: .topBarTrailing) {
+//                        Image(systemName: "plus")
+//                            .onTapGesture {
+//                                showAllResults.toggle()
+//                            }
+//                    }
+//                }
+                .padding()
             }
         }
         .onChange(of: navigateToGeneratedPhotoView) { _, newValue in
