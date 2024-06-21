@@ -12,7 +12,6 @@ import Combine
 class ManageAIVibeViewModel {
     var error: String = ""
     var vibes: [HRAIVibe] = []
-    var selectedPhotoData = [Data]()
     var cancellables = Set<AnyCancellable>()
     
     init() {
