@@ -14,51 +14,17 @@ struct GeneratedPhotoView: View {
         NavigationStack {
             VStack {
                 if let result = viewModel.aiResult {
-                    HStack {
-                        Text(result.vibe)
-                        Text(result.type)
-                    }
-                    .font(.title)
-                    .bold()
-                    
-                    if let urlString = result.imageURL, let url = URL(string: urlString) {
-                        AsyncImage(url: url) { phase in
-                            switch phase {
-                            case .empty:
-                                ProgressView()
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: 200)
-                            case .success(let image):
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: .infinity)
-                                    .padding()
-                            case .failure:
-                                Image(systemName: "exclamationmark.triangle.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: 200)
-                                    .foregroundStyle(.red)
-                                    .padding()
-                            @unknown default:
-                                EmptyView()
-                            }
-                        }
-                    } else if !viewModel.error.isEmpty {
-                        Text(viewModel.error)
-                            .foregroundColor(.red)
-                            .padding()
-                    } else {
-                        Text("No image URL available.")
-                    }
-                    
-                    Spacer()
+                    AIResultDisplayComponent(result: result)
+                } else if !viewModel.error.isEmpty {
+                    Text(viewModel.error)
+                        .foregroundColor(.red)
+                        .padding()
                 } else {
                     Text("No matching result found.")
                         .padding()
                 }
+                
+                Spacer()
             }
             .navigationTitle("Generated Image")
             .navigationBarTitleDisplayMode(.inline)

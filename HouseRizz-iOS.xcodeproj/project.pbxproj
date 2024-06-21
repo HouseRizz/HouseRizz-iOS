@@ -104,6 +104,8 @@
 		CCAC478F2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC478E2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift */; };
 		CCBB5A0E2C252DE000BD9E1F /* HRAIImageResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A0D2C252DE000BD9E1F /* HRAIImageResult.swift */; };
 		CCBB5A102C255C8000BD9E1F /* GeneratedPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A0F2C255C8000BD9E1F /* GeneratedPhotoViewModel.swift */; };
+		CCBB5A122C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A112C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift */; };
+		CCBB5A152C257EC800BD9E1F /* AIResultDisplayComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A142C257EC800BD9E1F /* AIResultDisplayComponent.swift */; };
 		CCC42C232BC03A42004E51F9 /* fender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C222BC03A42004E51F9 /* fender.usdz */; };
 		CCC42C252BC03A47004E51F9 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CCC42C242BC03A47004E51F9 /* robot.usdz */; };
 		CCC5B03A2BFBB62F0007BEC1 /* HRProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */; };
@@ -211,6 +213,8 @@
 		CCAC478E2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoUPIAppsInstalledView.swift; sourceTree = "<group>"; };
 		CCBB5A0D2C252DE000BD9E1F /* HRAIImageResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAIImageResult.swift; sourceTree = "<group>"; };
 		CCBB5A0F2C255C8000BD9E1F /* GeneratedPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedPhotoViewModel.swift; sourceTree = "<group>"; };
+		CCBB5A112C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserAIImageGenerationView.swift; sourceTree = "<group>"; };
+		CCBB5A142C257EC800BD9E1F /* AIResultDisplayComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResultDisplayComponent.swift; sourceTree = "<group>"; };
 		CCC42C222BC03A42004E51F9 /* fender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender.usdz; sourceTree = "<group>"; };
 		CCC42C242BC03A47004E51F9 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
 		CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRProduct.swift; sourceTree = "<group>"; };
@@ -399,6 +403,7 @@
 				CCD3B0062BCA3440000AFB80 /* AIView.swift */,
 				CC69BD732C24406200491014 /* AIImageGenerationView.swift */,
 				CC69BD772C24525B00491014 /* GeneratedPhotoView.swift */,
+				CCBB5A112C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift */,
 			);
 			path = AIPage;
 			sourceTree = "<group>";
@@ -683,6 +688,7 @@
 		CC8C42792C20353900C05061 /* Buyer */ = {
 			isa = PBXGroup;
 			children = (
+				CCBB5A132C257EB800BD9E1F /* AI */,
 				CC06A9502C0C070000A0DAD3 /* Cart */,
 				CC06A9562C0C07A100A0DAD3 /* HomePage */,
 				CC06A9582C0C07C100A0DAD3 /* CategoryPage */,
@@ -776,6 +782,14 @@
 				CC97AF132BBE7590007BB76C /* redchair.usdz */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		CCBB5A132C257EB800BD9E1F /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				CCBB5A142C257EC800BD9E1F /* AIResultDisplayComponent.swift */,
+			);
+			path = AI;
 			sourceTree = "<group>";
 		};
 		CCDB49AC2C16D93E00F7031B /* Orders */ = {
@@ -948,6 +962,7 @@
 				CC69BD722C243B6600491014 /* AIImageGenerationViewModel.swift in Sources */,
 				CCC5B0482BFBB9A80007BEC1 /* InventoryProductDetailView.swift in Sources */,
 				CC2F47102BC81CDB00A4C1FC /* ProductCardView.swift in Sources */,
+				CCBB5A122C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift in Sources */,
 				CC97AEC82BBE4FCE007BB76C /* CameraView.swift in Sources */,
 				CC7B07E22C22EE3700627BC5 /* HRAddBanner.swift in Sources */,
 				CC548A3E2C1DA61400E98B85 /* TermsView.swift in Sources */,
@@ -978,6 +993,7 @@
 				CC548A3C2C1DA60500E98B85 /* RefundView.swift in Sources */,
 				CC69BD702C2438AA00491014 /* APIViewModel.swift in Sources */,
 				CC7B07CF2C22D59400627BC5 /* HRProductCategory.swift in Sources */,
+				CCBB5A152C257EC800BD9E1F /* AIResultDisplayComponent.swift in Sources */,
 				CC2ACF962C100A7B004C040B /* ProductCategoryViewModel.swift in Sources */,
 				CCDB49AE2C16D95900F7031B /* OrderHistoryListView.swift in Sources */,
 				CC97AF102BBE5F1E007BB76C /* SettingsView.swift in Sources */,
