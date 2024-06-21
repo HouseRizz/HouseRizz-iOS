@@ -20,7 +20,7 @@ struct GeneratedPhotoView: View {
                         .foregroundColor(.red)
                         .padding()
                 } else {
-                    Text("No matching result found.")
+                    Text("Loading ...")
                         .padding()
                 }
                 
