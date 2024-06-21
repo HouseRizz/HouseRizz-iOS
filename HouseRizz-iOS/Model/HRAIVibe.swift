@@ -12,7 +12,7 @@ struct HRAIVibeModelName {
     static let id = "id"
     static let name = "name"
     static let imageURL = "imageURL"
-    static let itemRecord = "ProductCategory"
+    static let itemRecord = "AIVibe"
 }
 
 struct HRAIVibe: Hashable, Identifiable, CKitableProtocol {
