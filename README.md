@@ -26,6 +26,7 @@ This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets 
 - [x]  Create Orders
 - [x]  View Order History
 - [x]  UPI Payment Gateway Integration
+- [ ]  Paywall for AI Feature
 - [ ]  AI Feature - Sketch to Render
 - [x]  AI Feature - Redesign home from image
 - [ ]  AI Feature - Similarity Model
