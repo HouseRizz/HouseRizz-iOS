@@ -47,6 +47,7 @@ Admin Side
 - [x]  Manage All Orders
 - [x]  Manage Products Categories
 - [x]  Manage Add Banners
+- [x]  Manage AI Vibes (Image Styles)
 - [ ]  Manage Notifications
 
 ## Licence
