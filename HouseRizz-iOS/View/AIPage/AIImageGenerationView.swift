@@ -11,6 +11,8 @@ struct AIImageGenerationView: View {
     @State private var viewModel = AIImageGenerationViewModel()
     @State private var isLoading = false
     @State private var navigateToGeneratedPhotoView = false
+    @State private var hasReturnedFromGeneratedPhotoView = false
+    @State var uniqueID: UUID = UUID()
     @StateObject private var authentication = Authentication()
     
     var body: some View {
@@ -134,7 +136,6 @@ struct AIImageGenerationView: View {
                             Task {
                                 try? await viewModel.generate()
                                 isLoading = false
-                                navigateToGeneratedPhotoView = true
                             }
                         } label: {
                             ZStack {
@@ -145,49 +146,46 @@ struct AIImageGenerationView: View {
                                 
                                 Text("Design")
                                     .bold()
-                                    .foregroundStyle(.black)
                             }
                         }
                         .padding()
                     }
-                    if let prediction = viewModel.prediction, let url = prediction.output {
-                        AsyncImage(url: url) { phase in
-                            switch phase {
-                            case .empty:
-                                ProgressView()
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: 200)
-                            case .success(let image):
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: .infinity)
-                                    .padding()
-                                    .onAppear {
-                                        viewModel.user = authentication.user?.email ?? "Not Provided"
-                                        viewModel.imageURL = url.absoluteString
-                                        print(viewModel.imageURL)
-                                        viewModel.addButtonPressed()
-                                    }
-                            case .failure:
-                                Image(systemName: "exclamationmark.triangle.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: 200)
-                                    .foregroundStyle(.red)
-                                    .padding()
-                            @unknown default:
-                                EmptyView()
-                            }
+                    
+                    if let prediction = viewModel.prediction, let url = prediction.output, !hasReturnedFromGeneratedPhotoView {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 12)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 50)
+                                .foregroundStyle(Color.primaryColor)
+                            
+                            Text("See Results")
+                                .bold()
+                        }
+                        .padding()
+                        .onAppear {
+                            viewModel.user = authentication.user?.email ?? "Not Provided"
+                            viewModel.imageURL = url.absoluteString
+                            viewModel.uniqueID = uniqueID
+                            viewModel.addButtonPressed()
+                            navigateToGeneratedPhotoView.toggle()
                         }
                     } else {
-                        Text("No image generated")
-                            .foregroundStyle(.gray)
-                            .padding()
+                        Text("")
                     }
+                    
                 }
                 .padding()
+                .navigationDestination(isPresented: $navigateToGeneratedPhotoView) {
+                    GeneratedPhotoView(uniqueID: uniqueID)
+                }
+            }
+        }
+        .onChange(of: navigateToGeneratedPhotoView) { _, newValue in
+            if !newValue {
+                hasReturnedFromGeneratedPhotoView = true
+                viewModel.prediction = nil
+                viewModel.selectedPhotoData = nil
+                viewModel.selectedPhotos = []
             }
         }
     }

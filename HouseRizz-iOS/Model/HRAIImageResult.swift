@@ -14,16 +14,18 @@ struct HRAIImageResultModelName {
     static let imageURL = "imageURL"
     static let vibe = "vibe"
     static let type = "type"
+    static let created = "created"
     static let record = "record"
-    static let itemRecord = "AIDesignImageResult"
+    static let itemRecord = "DesignImageResult"
 }
 
 struct HRAIImageResult: Hashable, Identifiable, CKitableProtocol {
     var id: UUID
     let userName: String
-    let imageURL: String
+    let imageURL: String?
     let vibe: String
     let type: String
+    let created: TimeInterval
     let record: CKRecord
     
     init?(record: CKRecord) {
@@ -39,16 +41,19 @@ struct HRAIImageResult: Hashable, Identifiable, CKitableProtocol {
         self.vibe = vibe
         guard let type = record[HRAIImageResultModelName.type] as? String else { return nil }
         self.type = type
+        guard let created = record[HRAIImageResultModelName.created] as? TimeInterval else { return nil }
+        self.created = created
         self.record = record
     }
     
-    init?(id: UUID, userName: String, imageURL: String, vibe: String, type: String) {
+    init?(id: UUID, userName: String, imageURL: String, vibe: String, type: String, created: TimeInterval) {
         let record = CKRecord(recordType: HRAIImageResultModelName.itemRecord)
         record[HRAIImageResultModelName.id] = id.uuidString
         record[HRAIImageResultModelName.userName] = userName
         record[HRAIImageResultModelName.imageURL] = imageURL
         record[HRAIImageResultModelName.vibe] = vibe
         record[HRAIImageResultModelName.type] = type
+        record[HRAIImageResultModelName.created] = created
         self.init(record: record)
     }
 }

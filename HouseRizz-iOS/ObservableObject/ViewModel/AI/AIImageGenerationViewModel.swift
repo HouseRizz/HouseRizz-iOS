@@ -23,6 +23,7 @@ class AIImageGenerationViewModel {
     var selectedPhotos: [PhotosPickerItem] = []
     var cancellables = Set<AnyCancellable>()
     var categories: [HRProductCategory] = []
+    var uniqueID: UUID = UUID()
     
     private var client: Replicate.Client? {
         apis.first.flatMap { Replicate.Client(token: $0.api) }
@@ -51,7 +52,7 @@ class AIImageGenerationViewModel {
     }
     
     private func addResult(user: String) {
-        guard let newResult = HRAIImageResult(id: UUID(), userName: user, imageURL: imageURL, vibe: vibe, type: type) else {
+        guard let newResult = HRAIImageResult(id: uniqueID, userName: user, imageURL: imageURL, vibe: vibe, type: type, created: Date().timeIntervalSince1970) else {
             error = "Error creating item"
             return
         }
