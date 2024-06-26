@@ -133,6 +133,7 @@
 		CCDED4702C1544CA0063C1D2 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDED46F2C1544CA0063C1D2 /* OrderDetailView.swift */; };
 		CCDED4722C154E9F0063C1D2 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDED4712C154E9F0063C1D2 /* OrderDetailViewModel.swift */; };
 		CCDF24C02C12A5DB00353DD1 /* HRCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */; };
+		CCF3713D2C2C5439009A82E0 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3713C2C2C5439009A82E0 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -248,6 +249,7 @@
 		CCDED46F2C1544CA0063C1D2 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 		CCDED4712C154E9F0063C1D2 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCartButton.swift; sourceTree = "<group>"; };
+		CCF3713C2C2C5439009A82E0 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -700,6 +702,7 @@
 				CCD3B0022BCA28B5000AFB80 /* TabView.swift */,
 				CC97AF042BBE5DE3007BB76C /* MainView.swift */,
 				CC06A97E2C0C97F000A0DAD3 /* NoNetworkView.swift */,
+				CCF3713C2C2C5439009A82E0 /* Secrets.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -996,6 +999,7 @@
 				CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */,
 				CC2ACF982C101026004C040B /* HRCartItem.swift in Sources */,
 				CC82F8982C147FA800D978C8 /* OrderListItemView.swift in Sources */,
+				CCF3713D2C2C5439009A82E0 /* Secrets.swift in Sources */,
 				CC0231582BCD47C8007CC053 /* CategoryView.swift in Sources */,
 				CCAC47872C1C0B9E00A8EBF1 /* UPIView.swift in Sources */,
 				CC06A96F2C0C898D00A0DAD3 /* TextFieldExtension.swift in Sources */,

@@ -6,15 +6,18 @@
 
 import SwiftUI
 import PhotosUI
+import RevenueCatUI
 
 struct AIImageGenerationView: View {
+    @StateObject private var authentication = Authentication()
+    @Binding var isPremium: Bool
     @State private var viewModel = AIImageGenerationViewModel()
     @State private var isLoading = false
     @State private var navigateToGeneratedPhotoView = false
     @State private var hasReturnedFromGeneratedPhotoView = false
     @State var uniqueID: UUID = UUID()
     @State private var showAllResults: Bool = false
-    @StateObject private var authentication = Authentication()
+    @State private var showPaywall: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -135,10 +138,14 @@ struct AIImageGenerationView: View {
                             .padding()
                     } else {
                         Button {
-                            isLoading = true
-                            Task {
-                                try? await viewModel.generate()
-                                isLoading = false
+                            if isPremium {
+                                isLoading = true
+                                Task {
+                                    try? await viewModel.generate()
+                                    isLoading = false
+                                }
+                            } else {
+                                showPaywall.toggle()
                             }
                         } label: {
                             ZStack {
@@ -183,6 +190,9 @@ struct AIImageGenerationView: View {
                 .navigationDestination(isPresented: $showAllResults) {
                     AllUserAIImageGenerationView(authentication: authentication)
                 }
+                .sheet(isPresented: $showPaywall) {
+                    PaywallView()
+                }
                 //                .toolbar {
                 //                    ToolbarItem(placement: .topBarTrailing) {
                 //                        Image(systemName: "plus")
@@ -206,5 +216,5 @@ struct AIImageGenerationView: View {
 }
 
 #Preview {
-    AIImageGenerationView()
+    AIImageGenerationView(isPremium: .constant(false))
 }
