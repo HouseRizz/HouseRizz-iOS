@@ -23,6 +23,8 @@
 		CC2ACF942C10045B004C040B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC2ACF932C10045B004C040B /* GoogleService-Info.plist */; };
 		CC2ACF962C100A7B004C040B /* ProductCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2ACF952C100A7B004C040B /* ProductCategoryViewModel.swift */; };
 		CC2ACF982C101026004C040B /* HRCartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2ACF972C101026004C040B /* HRCartItem.swift */; };
+		CC2B423F2C283246000456E5 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = CC2B423E2C283246000456E5 /* RevenueCat */; };
+		CC2B42412C283246000456E5 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = CC2B42402C283246000456E5 /* RevenueCatUI */; };
 		CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F47072BC80E6100A4C1FC /* HomeView.swift */; };
 		CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F470D2BC816BA00A4C1FC /* ImageSliderView.swift */; };
 		CC2F47102BC81CDB00A4C1FC /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F470F2BC81CDB00A4C1FC /* ProductCardView.swift */; };
@@ -131,6 +133,7 @@
 		CCDED4702C1544CA0063C1D2 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDED46F2C1544CA0063C1D2 /* OrderDetailView.swift */; };
 		CCDED4722C154E9F0063C1D2 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDED4712C154E9F0063C1D2 /* OrderDetailViewModel.swift */; };
 		CCDF24C02C12A5DB00353DD1 /* HRCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */; };
+		CCF3713D2C2C5439009A82E0 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3713C2C2C5439009A82E0 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -246,6 +249,7 @@
 		CCDED46F2C1544CA0063C1D2 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 		CCDED4712C154E9F0063C1D2 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCartButton.swift; sourceTree = "<group>"; };
+		CCF3713C2C2C5439009A82E0 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,7 +269,9 @@
 				CC97AEFD2BBE5CA7007BB76C /* FirebaseFirestoreSwift in Frameworks */,
 				CC97AEED2BBE5BF7007BB76C /* FirebaseAppCheck in Frameworks */,
 				CC97AEF92BBE5CA7007BB76C /* FirebaseFirestore in Frameworks */,
+				CC2B423F2C283246000456E5 /* RevenueCat in Frameworks */,
 				CC97AEEB2BBE5BF7007BB76C /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				CC2B42412C283246000456E5 /* RevenueCatUI in Frameworks */,
 				CC97AEF02BBE5C1D007BB76C /* GoogleSignIn in Frameworks */,
 				CC97AEF72BBE5C79007BB76C /* FirebaseAuth in Frameworks */,
 			);
@@ -696,6 +702,7 @@
 				CCD3B0022BCA28B5000AFB80 /* TabView.swift */,
 				CC97AF042BBE5DE3007BB76C /* MainView.swift */,
 				CC06A97E2C0C97F000A0DAD3 /* NoNetworkView.swift */,
+				CCF3713C2C2C5439009A82E0 /* Secrets.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -848,6 +855,8 @@
 				CC97AF182BBE79A4007BB76C /* FocusEntity */,
 				CC97AF1B2BBE8109007BB76C /* ARPersistence */,
 				CC69BD672C2428B900491014 /* Replicate */,
+				CC2B423E2C283246000456E5 /* RevenueCat */,
+				CC2B42402C283246000456E5 /* RevenueCatUI */,
 			);
 			productName = "HouseRizz-iOS";
 			productReference = CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */;
@@ -883,6 +892,7 @@
 				CC97AF172BBE79A3007BB76C /* XCRemoteSwiftPackageReference "FocusEntity" */,
 				CC97AF1A2BBE8108007BB76C /* XCRemoteSwiftPackageReference "ARPersistence" */,
 				CC69BD662C2428B900491014 /* XCRemoteSwiftPackageReference "replicate-swift" */,
+				CC2B423D2C283246000456E5 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = CC97AEC32BBE4FCE007BB76C /* Products */;
 			projectDirPath = "";
@@ -989,6 +999,7 @@
 				CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */,
 				CC2ACF982C101026004C040B /* HRCartItem.swift in Sources */,
 				CC82F8982C147FA800D978C8 /* OrderListItemView.swift in Sources */,
+				CCF3713D2C2C5439009A82E0 /* Secrets.swift in Sources */,
 				CC0231582BCD47C8007CC053 /* CategoryView.swift in Sources */,
 				CCAC47872C1C0B9E00A8EBF1 /* UPIView.swift in Sources */,
 				CC06A96F2C0C898D00A0DAD3 /* TextFieldExtension.swift in Sources */,
@@ -1170,7 +1181,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "krishmittal.HouseRizz-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1211,7 +1222,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "krishmittal.HouseRizz-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1248,6 +1259,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CC2B423D2C283246000456E5 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.43.1;
+			};
+		};
 		CC69BD662C2428B900491014 /* XCRemoteSwiftPackageReference "replicate-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/replicate/replicate-swift.git";
@@ -1291,6 +1310,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CC2B423E2C283246000456E5 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC2B423D2C283246000456E5 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		CC2B42402C283246000456E5 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC2B423D2C283246000456E5 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCatUI;
+		};
 		CC69BD672C2428B900491014 /* Replicate */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CC69BD662C2428B900491014 /* XCRemoteSwiftPackageReference "replicate-swift" */;
