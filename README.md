@@ -1,6 +1,6 @@
 # HouseRizz iOS App
 
-This the app for [HouseRizz](https://houserizz-com.vercel.app) a tool that lets you Redesign your home with  AI & AR. 
+This the app for [HouseRizz](https://houserizz-com.vercel.app) a marketplace that lets you Redesign your home using AI & AR. 
 
 <p align="center">
     <img src="https://developer.apple.com/assets/elements/icons/swift/swift-96x96_2x.png" alt="Swift5" width="48" height="48">&nbsp;&nbsp;&nbsp;
