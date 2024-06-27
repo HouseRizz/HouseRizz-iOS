@@ -11,13 +11,13 @@ struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var selectedProduct: HRProduct?
-    var column = [GridItem(.adaptive(minimum: 160), spacing: 20)]
+    @State private var columns = [GridItem]()
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    LazyVGrid(columns: column) {
+                    LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(viewModel.filteredProducts, id: \.self) { product in
                             ProductCardView(product: product)
                                 .environmentObject(cartViewModel)
@@ -55,6 +55,31 @@ struct SearchView: View {
                 ProductDetailsView(product: product)
                     .environmentObject(cartViewModel)
             }
+        }
+        .onAppear {
+            setColumns(for: UIScreen.main.bounds.width)
+        }
+        .onChange(of: UIScreen.main.bounds.width) { newWidth in
+            setColumns(for: newWidth)
+        }
+    }
+    
+    private func setColumns(for width: CGFloat) {
+        let minItemWidth: CGFloat = 160
+        let spacing: CGFloat = 20
+        let availableWidth = width - (2 * spacing) // Subtracting horizontal padding
+        
+        if availableWidth >= (minItemWidth * 2 + spacing) {
+            // If we can fit two columns, use two flexible columns
+            columns = [
+                GridItem(.flexible(minimum: minItemWidth), spacing: spacing),
+                GridItem(.flexible(minimum: minItemWidth), spacing: spacing)
+            ]
+        } else {
+            // If we can't fit two columns, use one flexible column
+            columns = [
+                GridItem(.flexible(minimum: minItemWidth), spacing: spacing)
+            ]
         }
     }
 }
