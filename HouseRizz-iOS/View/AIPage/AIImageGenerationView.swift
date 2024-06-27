@@ -7,6 +7,7 @@
 import SwiftUI
 import PhotosUI
 import RevenueCatUI
+import RevenueCat
 
 struct AIImageGenerationView: View {
     @StateObject private var authentication = Authentication()
@@ -18,6 +19,19 @@ struct AIImageGenerationView: View {
     @State var uniqueID: UUID = UUID()
     @State private var showAllResults: Bool = false
     @State private var showPaywall: Bool = false
+    
+    func checkPremiumStatus() {
+        Task {
+            do {
+                let customerInfo = try await Purchases.shared.customerInfo()
+                DispatchQueue.main.async {
+                    isPremium = customerInfo.entitlements["premium"]?.isActive == true
+                }
+            } catch {
+                print("Error checking premium status: \(error.localizedDescription)")
+            }
+        }
+    }
     
     var body: some View {
         NavigationStack {
@@ -139,11 +153,7 @@ struct AIImageGenerationView: View {
                     } else {
                         Button {
                             if isPremium {
-                                isLoading = true
-                                Task {
-                                    try? await viewModel.generate()
-                                    isLoading = false
-                                }
+                                generateImage()
                             } else {
                                 showPaywall.toggle()
                             }
@@ -193,14 +203,11 @@ struct AIImageGenerationView: View {
                 .sheet(isPresented: $showPaywall) {
                     PaywallView()
                 }
-                //                .toolbar {
-                //                    ToolbarItem(placement: .topBarTrailing) {
-                //                        Image(systemName: "plus")
-                //                            .onTapGesture {
-                //                                showAllResults.toggle()
-                //                            }
-                //                    }
-                //                }
+                .onChange(of: showPaywall) { _, newValue in
+                    if !newValue {
+                        checkPremiumStatus()
+                    }
+                }
                 .padding()
             }
         }
@@ -211,6 +218,14 @@ struct AIImageGenerationView: View {
                 viewModel.selectedPhotoData = nil
                 viewModel.selectedPhotos = []
             }
+        }
+    }
+    
+    func generateImage() {
+        isLoading = true
+        Task {
+            try? await viewModel.generate()
+            isLoading = false
         }
     }
 }
