@@ -33,10 +33,10 @@ struct TabbedView: View {
                             print(error.localizedDescription)
                         }
                     }
-//                CameraView()
-//                    .tag(2)
-                CategoryView()
+                CameraView()
                     .tag(2)
+                CategoryView()
+                    .tag(3)
             }
 
             ZStack {

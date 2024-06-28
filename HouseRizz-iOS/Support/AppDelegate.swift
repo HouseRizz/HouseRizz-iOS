@@ -19,9 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let cartViewModel = CartViewModel()
         let searchViewModel = SearchViewModel()
+        let placementSettings = PlacementSettingsViewModel()
+        let sessionSettings = ARSessionSettingsViewModel()
         let contentView = MainView()
             .environmentObject(cartViewModel)
             .environmentObject(searchViewModel)
+            .environmentObject(placementSettings)
+            .environmentObject(sessionSettings)
 
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = UIHostingController(rootView: contentView)
