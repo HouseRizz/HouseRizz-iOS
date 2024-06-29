@@ -106,6 +106,8 @@
 		CC97AF102BBE5F1E007BB76C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */; };
 		CC97AF192BBE79A4007BB76C /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF182BBE79A4007BB76C /* FocusEntity */; };
 		CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = CC97AF1B2BBE8109007BB76C /* ARPersistence */; };
+		CCA040962C3045130014CFB0 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA040952C3045130014CFB0 /* ARViewContainer.swift */; };
+		CCA040982C3045E90014CFB0 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA040972C3045E90014CFB0 /* SceneManager.swift */; };
 		CCA735562C1FDEE800053DDE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA735552C1FDEE800053DDE /* LoginView.swift */; };
 		CCAC47872C1C0B9E00A8EBF1 /* UPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC47862C1C0B9E00A8EBF1 /* UPIView.swift */; };
 		CCAC47892C1C0BAC00A8EBF1 /* UPIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC47882C1C0BAC00A8EBF1 /* UPIViewModel.swift */; };
@@ -228,6 +230,8 @@
 		CC97AF0C2BBE5E29007BB76C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CC97AF0D2BBE5E52007BB76C /* HRAuthenticationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRAuthenticationButton.swift; sourceTree = "<group>"; };
 		CC97AF0F2BBE5F1E007BB76C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CCA040952C3045130014CFB0 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		CCA040972C3045E90014CFB0 /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		CCA735552C1FDEE800053DDE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CCAC47862C1C0B9E00A8EBF1 /* UPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIView.swift; sourceTree = "<group>"; };
 		CCAC47882C1C0BAC00A8EBF1 /* UPIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIViewModel.swift; sourceTree = "<group>"; };
@@ -429,6 +433,7 @@
 				CC2DBD5E2C2F266D007817C0 /* PlacementView.swift */,
 				CC2DBD662C2F2793007817C0 /* BrowseView.swift */,
 				CC2DBD682C2F27F9007817C0 /* ControlView.swift */,
+				CCA040952C3045130014CFB0 /* ARViewContainer.swift */,
 			);
 			path = ARPage;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				CC06A97C2C0C97A100A0DAD3 /* NetworkManager.swift */,
+				CCA040972C3045E90014CFB0 /* SceneManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -962,6 +968,7 @@
 				CCAC47892C1C0BAC00A8EBF1 /* UPIViewModel.swift in Sources */,
 				CCBB5A1B2C25846400BD9E1F /* ManageAIVibeView.swift in Sources */,
 				CC11078B2C14565400AB9F58 /* VendorOrdersView.swift in Sources */,
+				CCA040962C3045130014CFB0 /* ARViewContainer.swift in Sources */,
 				CC69BD2C2C23F68F00491014 /* AIViewModel.swift in Sources */,
 				CC7B07CD2C22D4E000627BC5 /* ManageProductCategoriesView.swift in Sources */,
 				CC97AF052BBE5DE3007BB76C /* MainView.swift in Sources */,
@@ -1012,6 +1019,7 @@
 				CC69BD782C24525B00491014 /* GeneratedPhotoView.swift in Sources */,
 				CC7B07D52C22DF5900627BC5 /* AddProductCategoriesViewModel.swift in Sources */,
 				CC7B07D12C22D7F400627BC5 /* ManageProductCategoriesViewModel.swift in Sources */,
+				CCA040982C3045E90014CFB0 /* SceneManager.swift in Sources */,
 				CC06A95E2C0C080500A0DAD3 /* ColorExtension.swift in Sources */,
 				CCDED4702C1544CA0063C1D2 /* OrderDetailView.swift in Sources */,
 				CC7B07CB2C22D35B00627BC5 /* AdminOrdersViewModel.swift in Sources */,
