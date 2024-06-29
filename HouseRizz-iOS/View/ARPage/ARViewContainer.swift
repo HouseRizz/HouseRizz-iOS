@@ -19,6 +19,7 @@ struct ARViewContainer: UIViewRepresentable {
         
         self.placementSettings.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, { (event) in
             self.updateScene(for: arView)
+            self.updatePersistenceAvailability(for: arView)
         })
 
         return arView
@@ -45,6 +46,22 @@ struct ARViewContainer: UIViewRepresentable {
         let anchorEntity = AnchorEntity(plane: .any)
         anchorEntity.addChild(clonedEntity)
         arView.scene.addAnchor(anchorEntity)
+        self.sceneManager.anchorEntities.append(anchorEntity)
     }
     
+}
+
+extension ARViewContainer {
+    private func updatePersistenceAvailability(for arView: ARView) {
+        guard let currentFrame = arView.session.currentFrame else {
+            return
+        }
+        
+        switch currentFrame.worldMappingStatus {
+        case .extending, .mapped:
+            self.sceneManager.isPersistanceAvailable = !self.sceneManager.anchorEntities.isEmpty
+        default:
+            self.sceneManager.isPersistanceAvailable = false
+        }
+    }
 }
