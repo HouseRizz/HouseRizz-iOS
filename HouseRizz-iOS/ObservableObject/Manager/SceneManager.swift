@@ -11,4 +11,12 @@ import RealityKit
 class SceneManager: ObservableObject {
     @Published var isPersistanceAvailable: Bool = false
     @Published var anchorEntities: [AnchorEntity] = []
+    
+    lazy var persistenceUrl: URL = {
+        do {
+            return try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("hr.persistence")
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }()
 }
