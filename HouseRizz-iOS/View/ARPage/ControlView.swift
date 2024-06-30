@@ -7,10 +7,15 @@
 
 import SwiftUI
 
+enum ControlModes: String, CaseIterable {
+    case browse, scene
+}
+
 struct ControlView: View {
     @Binding var isControlsVisible: Bool
     @Binding var showBrowse: Bool
     @Binding var showSettings: Bool
+    @Binding var selectedControlModel: Int
     
     var body: some View {
         VStack {
@@ -20,6 +25,7 @@ struct ControlView: View {
             Spacer()
             
             if isControlsVisible {
+                ControlModePicker(selectedControlModel: $selectedControlModel)
                 ControlButtonBar(showBrowse: $showBrowse, showSettings: $showSettings)
             }
         }
@@ -50,6 +56,30 @@ struct ControlVisibilityToggleButton: View {
         }
         .padding(.top, 45)
         .padding(.trailing, 20)
+    }
+}
+
+struct ControlModePicker: View {
+    @Binding var selectedControlModel: Int
+    let controlModes = ControlModes.allCases
+    
+    init(selectedControlModel: Binding<Int>) {
+        self._selectedControlModel = selectedControlModel
+        UISegmentedControl.appearance().selectedSegmentTintColor = .clear
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.orange], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+        UISegmentedControl.appearance().backgroundColor = UIColor(Color.black.opacity(0.25))
+    }
+    
+    var body: some View {
+        Picker(selection: $selectedControlModel, label: Text("Select a Control Model")) {
+            ForEach(0..<controlModes.count, id: \.self) { index in
+                Text(self.controlModes[index].rawValue.uppercased()).tag(index)
+            }
+        }
+        .pickerStyle(SegmentedPickerStyle())
+        .frame(maxWidth: 400)
+        .padding(.horizontal, 10)
     }
 }
 

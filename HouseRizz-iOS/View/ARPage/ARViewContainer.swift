@@ -58,7 +58,7 @@ extension ARViewContainer {
         }
         
         switch currentFrame.worldMappingStatus {
-        case .extending, .mapped:
+        case .mapped, .extending:
             self.sceneManager.isPersistanceAvailable = !self.sceneManager.anchorEntities.isEmpty
         default:
             self.sceneManager.isPersistanceAvailable = false

@@ -11,5 +11,4 @@ import RealityKit
 class SceneManager: ObservableObject {
     @Published var isPersistanceAvailable: Bool = false
     @Published var anchorEntities: [AnchorEntity] = []
-    
 }

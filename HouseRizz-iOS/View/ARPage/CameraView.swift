@@ -12,13 +12,14 @@ struct CameraView: View {
     @State private var isControlsVisible: Bool = false
     @State private var showBrowse: Bool = false
     @State private var showSettings: Bool = false
+    @State private var selectedControlModel: Int = 0
     
     var body: some View {
         ZStack {
             ARViewContainer()
             
             if self.placementSettigns.selectedModel == nil {
-                ControlView(isControlsVisible: $isControlsVisible, showBrowse: $showBrowse, showSettings: $showSettings)
+                ControlView(isControlsVisible: $isControlsVisible, showBrowse: $showBrowse, showSettings: $showSettings, selectedControlModel: $selectedControlModel)
             } else {
                 PlacementView()
             }
