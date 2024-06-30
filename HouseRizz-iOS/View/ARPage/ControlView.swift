@@ -145,6 +145,7 @@ struct SceneButtons: View {
         ControlButton(systemIconName: "icloud.and.arrow.down") {
             
         }
+        .hidden(self.sceneManager.scenePersistenceData == nil)
         
         Spacer()
         

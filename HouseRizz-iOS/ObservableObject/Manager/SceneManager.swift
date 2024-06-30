@@ -19,4 +19,8 @@ class SceneManager: ObservableObject {
             fatalError(error.localizedDescription)
         }
     }()
+    
+    var scenePersistenceData: Data? {
+        return try? Data(contentsOf: persistenceUrl)
+    }
 }
