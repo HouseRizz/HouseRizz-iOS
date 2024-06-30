@@ -26,7 +26,7 @@ struct ControlView: View {
             
             if isControlsVisible {
                 ControlModePicker(selectedControlModel: $selectedControlModel)
-                ControlButtonBar(showBrowse: $showBrowse, showSettings: $showSettings)
+                ControlButtonBar(showBrowse: $showBrowse, showSettings: $showSettings, selectedControlMode: selectedControlModel)
             }
         }
     }
@@ -84,10 +84,30 @@ struct ControlModePicker: View {
 }
 
 struct ControlButtonBar: View {
+    @Binding var showBrowse: Bool
+    @Binding var showSettings: Bool
+    var selectedControlMode: Int
+    
+    var body: some View {
+        HStack(alignment: .center, content: {
+            if selectedControlMode == 1 {
+                SceneButtons()
+            } else {
+                BrowseButtons(showBrowse: $showBrowse, showSettings: $showSettings)
+            }
+        })
+        .frame(maxWidth: 500)
+        .padding(30)
+        .background(.black.opacity(0.25))
+        .padding(.bottom, 200)
+    }
+}
+
+struct BrowseButtons: View {
     @EnvironmentObject var placementSettings: PlacementSettingsViewModel
     @Binding var showBrowse: Bool
     @Binding var showSettings: Bool
-
+    
     var body: some View {
         HStack {
             MostRecentlyPlacedButton().hidden(self.placementSettings.recentlyPlaced.isEmpty)
@@ -108,10 +128,29 @@ struct ControlButtonBar: View {
                 ARSettingsView(showSettings: $showSettings)
             }
         }
-        .frame(maxWidth: 500)
-        .padding(30)
-        .background(.black.opacity(0.25))
-        .padding(.bottom, 200)
+    }
+}
+
+struct SceneButtons: View {
+    @EnvironmentObject var sceneManager: SceneManager
+    
+    var body: some View {
+        ControlButton(systemIconName: "icloud.and.arrow.up") {
+            
+        }
+        .hidden(!self.sceneManager.isPersistanceAvailable)
+        
+        Spacer()
+        
+        ControlButton(systemIconName: "icloud.and.arrow.down") {
+            
+        }
+        
+        Spacer()
+        
+        ControlButton(systemIconName: "trash") {
+            
+        }
     }
 }
 
