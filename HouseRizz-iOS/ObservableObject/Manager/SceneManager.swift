@@ -12,6 +12,9 @@ class SceneManager: ObservableObject {
     @Published var isPersistanceAvailable: Bool = false
     @Published var anchorEntities: [AnchorEntity] = []
     
+    var shouldSaveSceneToFilesystem: Bool = false
+    var shouldLoadSceneFromFilesystem: Bool = false
+    
     lazy var persistenceUrl: URL = {
         do {
             return try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("hr.persistence")

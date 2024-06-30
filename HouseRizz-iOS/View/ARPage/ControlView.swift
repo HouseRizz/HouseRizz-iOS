@@ -136,14 +136,14 @@ struct SceneButtons: View {
     
     var body: some View {
         ControlButton(systemIconName: "icloud.and.arrow.up") {
-            
+            self.sceneManager.shouldSaveSceneToFilesystem = true
         }
         .hidden(!self.sceneManager.isPersistanceAvailable)
         
         Spacer()
         
         ControlButton(systemIconName: "icloud.and.arrow.down") {
-            
+            self.sceneManager.shouldLoadSceneFromFilesystem = true
         }
         .hidden(self.sceneManager.scenePersistenceData == nil)
         

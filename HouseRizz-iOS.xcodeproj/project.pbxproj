@@ -49,6 +49,7 @@
 		CC3CF4E02C198DEC00C8A58D /* CityPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3CF4DF2C198DEC00C8A58D /* CityPickerView.swift */; };
 		CC3CF4E22C1994C400C8A58D /* CityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3CF4E12C1994C400C8A58D /* CityView.swift */; };
 		CC3CF4E42C19989200C8A58D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3CF4E32C19989200C8A58D /* SearchViewModel.swift */; };
+		CC4622EF2C31053B005C77F8 /* ScenePersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4622EE2C31053B005C77F8 /* ScenePersistenceHelper.swift */; };
 		CC548A3A2C1DA5FC00E98B85 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A392C1DA5FB00E98B85 /* HelpView.swift */; };
 		CC548A3C2C1DA60500E98B85 /* RefundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A3B2C1DA60500E98B85 /* RefundView.swift */; };
 		CC548A3E2C1DA61400E98B85 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A3D2C1DA61400E98B85 /* TermsView.swift */; };
@@ -186,6 +187,7 @@
 		CC3CF4DF2C198DEC00C8A58D /* CityPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerView.swift; sourceTree = "<group>"; };
 		CC3CF4E12C1994C400C8A58D /* CityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityView.swift; sourceTree = "<group>"; };
 		CC3CF4E32C19989200C8A58D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		CC4622EE2C31053B005C77F8 /* ScenePersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePersistenceHelper.swift; sourceTree = "<group>"; };
 		CC548A392C1DA5FB00E98B85 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		CC548A3B2C1DA60500E98B85 /* RefundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundView.swift; sourceTree = "<group>"; };
 		CC548A3D2C1DA61400E98B85 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				CC2DBD542C2F253F007817C0 /* FirebaseStorageHelper.swift */,
+				CC4622EE2C31053B005C77F8 /* ScenePersistenceHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -995,6 +998,7 @@
 				CC7B07DA2C22ECE100627BC5 /* ManageAddBannerView.swift in Sources */,
 				CC7B07D82C22E41100627BC5 /* CategoryViewModel.swift in Sources */,
 				CCDF24C02C12A5DB00353DD1 /* HRCartButton.swift in Sources */,
+				CC4622EF2C31053B005C77F8 /* ScenePersistenceHelper.swift in Sources */,
 				CC2DBD552C2F253F007817C0 /* FirebaseStorageHelper.swift in Sources */,
 				CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */,
 				CC3CF4E22C1994C400C8A58D /* CityView.swift in Sources */,

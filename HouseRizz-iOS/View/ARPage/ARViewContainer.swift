@@ -20,6 +20,7 @@ struct ARViewContainer: UIViewRepresentable {
         self.placementSettings.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, { (event) in
             self.updateScene(for: arView)
             self.updatePersistenceAvailability(for: arView)
+            self.handlePersistence(for: arView)
         })
 
         return arView
@@ -62,6 +63,23 @@ extension ARViewContainer {
             self.sceneManager.isPersistanceAvailable = !self.sceneManager.anchorEntities.isEmpty
         default:
             self.sceneManager.isPersistanceAvailable = false
+        }
+    }
+    
+    private func handlePersistence(for arView: CustomARView) {
+        if self.sceneManager.shouldSaveSceneToFilesystem {
+            ScenePersistenceHelper.saveScene(for: arView, at: self.sceneManager.persistenceUrl)
+        } else if self.sceneManager.shouldLoadSceneFromFilesystem {
+            guard let scenePersistenceData = self.sceneManager.scenePersistenceData else {
+                self.sceneManager.shouldLoadSceneFromFilesystem = false
+                return
+            }
+            
+            ScenePersistenceHelper.loadScene(for: arView, with: scenePersistenceData)
+            
+            self.sceneManager.anchorEntities.removeAll(keepingCapacity: true)
+            
+            self.sceneManager.shouldLoadSceneFromFilesystem = false
         }
     }
 }
