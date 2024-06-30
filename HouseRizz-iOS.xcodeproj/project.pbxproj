@@ -50,6 +50,7 @@
 		CC3CF4E22C1994C400C8A58D /* CityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3CF4E12C1994C400C8A58D /* CityView.swift */; };
 		CC3CF4E42C19989200C8A58D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3CF4E32C19989200C8A58D /* SearchViewModel.swift */; };
 		CC4622EF2C31053B005C77F8 /* ScenePersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4622EE2C31053B005C77F8 /* ScenePersistenceHelper.swift */; };
+		CC4622F12C3119E7005C77F8 /* ModelDeletionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4622F02C3119E7005C77F8 /* ModelDeletionManager.swift */; };
 		CC548A3A2C1DA5FC00E98B85 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A392C1DA5FB00E98B85 /* HelpView.swift */; };
 		CC548A3C2C1DA60500E98B85 /* RefundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A3B2C1DA60500E98B85 /* RefundView.swift */; };
 		CC548A3E2C1DA61400E98B85 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A3D2C1DA61400E98B85 /* TermsView.swift */; };
@@ -188,6 +189,7 @@
 		CC3CF4E12C1994C400C8A58D /* CityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityView.swift; sourceTree = "<group>"; };
 		CC3CF4E32C19989200C8A58D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		CC4622EE2C31053B005C77F8 /* ScenePersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePersistenceHelper.swift; sourceTree = "<group>"; };
+		CC4622F02C3119E7005C77F8 /* ModelDeletionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDeletionManager.swift; sourceTree = "<group>"; };
 		CC548A392C1DA5FB00E98B85 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		CC548A3B2C1DA60500E98B85 /* RefundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundView.swift; sourceTree = "<group>"; };
 		CC548A3D2C1DA61400E98B85 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 			children = (
 				CC06A97C2C0C97A100A0DAD3 /* NetworkManager.swift */,
 				CCA040972C3045E90014CFB0 /* SceneManager.swift */,
+				CC4622F02C3119E7005C77F8 /* ModelDeletionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1021,6 +1024,7 @@
 				CCBB5A0E2C252DE000BD9E1F /* HRAIImageResult.swift in Sources */,
 				CC7B07C72C22D15A00627BC5 /* AdminInventoryViewModel.swift in Sources */,
 				CC69BD782C24525B00491014 /* GeneratedPhotoView.swift in Sources */,
+				CC4622F12C3119E7005C77F8 /* ModelDeletionManager.swift in Sources */,
 				CC7B07D52C22DF5900627BC5 /* AddProductCategoriesViewModel.swift in Sources */,
 				CC7B07D12C22D7F400627BC5 /* ManageProductCategoriesViewModel.swift in Sources */,
 				CCA040982C3045E90014CFB0 /* SceneManager.swift in Sources */,
