@@ -118,6 +118,7 @@ struct BrowseButtons: View {
                 self.showBrowse.toggle()
             }.sheet(isPresented: $showBrowse) {
                 BrowseView(showBrowse: $showBrowse)
+                    .environmentObject(placementSettings)
             }
             
             Spacer()

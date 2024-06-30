@@ -32,20 +32,16 @@ struct BrowseView: View {
 
 struct ModelsByCategoryGrid: View {
     @Binding var showBrowse: Bool
-
-    @ObservedObject private var viewModel = HR3DModelViewModel()
+    @EnvironmentObject var modelsViewModel: HR3DModelViewModel
     
     var body: some View {
         VStack {
             ForEach(ModelCategory.allCases, id: \.self) { category in
-                let modelsByCategory = viewModel.models.filter( {$0.category == category})
+                let modelsByCategory = self.modelsViewModel.models.filter( {$0.category == category})
                 if !(modelsByCategory.isEmpty) {
                     HorizontalGrid(showBrowse: $showBrowse, title: category.label, items: modelsByCategory)
                 }
             }
-        }
-        .onAppear() {
-            self.viewModel.fetchData()
         }
     }
 }
@@ -71,7 +67,11 @@ struct HorizontalGrid: View {
                     ForEach( 0..<items.count, id: \.self ) { index in
                         let model = items[index]
                         ItemButton(model: model) {
-                            model.asyncLoadModelEntity()
+                            model.asyncLoadModelEntity { completed, error in
+                                if completed {
+                                    self.placementSettings.selectedModel = model
+                                }
+                            }
                             self.placementSettings.selectedModel = model
                             self.showBrowse = false
                         }

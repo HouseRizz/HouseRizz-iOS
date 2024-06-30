@@ -58,20 +58,21 @@ class HR3DModel: ObservableObject, Identifiable {
         }
     }
     
-    func asyncLoadModelEntity() {
+    func asyncLoadModelEntity(handler: @escaping (_ completed: Bool, _ error: Error?) -> Void) {
         FirebaseStorageHelper.asyncDownloadToFileSystem(relativePath: "models/\(self.name).usdz") { fileUrl in
             self.cancellable = ModelEntity.loadModelAsync(contentsOf: fileUrl)
                 .sink(receiveCompletion: { loadCompletion in
                     switch loadCompletion {
-                        
                     case .finished:
                         break
                     case .failure(let error):
                         print(error.localizedDescription)
+                        handler(false, error)
                     }
                 }, receiveValue: { modelEntity in
                     self.modelEntity = modelEntity
                     self.modelEntity?.scale *= self.scaleCompensation
+                    handler(true, nil)
                 })
         }
         

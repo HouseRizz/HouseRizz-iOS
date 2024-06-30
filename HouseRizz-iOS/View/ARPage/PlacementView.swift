@@ -17,7 +17,8 @@ struct PlacementView: View {
             }
             
             PlacementButton(sysytemIconName: "checkmark.circle.fill") {
-                self.placementSettigns.confirmedModel = self.placementSettigns.selectedModel
+                let modelAnchor = ModelAnchor(model: self.placementSettigns.selectedModel!, anchor: nil)
+                self.placementSettigns.modelsConfirmedForPlacement.append(modelAnchor)
                 self.placementSettigns.selectedModel = nil
             }
             Spacer()

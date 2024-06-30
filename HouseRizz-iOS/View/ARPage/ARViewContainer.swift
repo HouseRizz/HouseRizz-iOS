@@ -7,15 +7,21 @@
 
 import SwiftUI
 import RealityKit
+import ARKit
+
+private let anchorNamePrefix = "model-"
 
 struct ARViewContainer: UIViewRepresentable {
     @EnvironmentObject var placementSettings: PlacementSettingsViewModel
     @EnvironmentObject var sessionSettings: ARSessionSettingsViewModel
     @EnvironmentObject var sceneManager: SceneManager
+    @EnvironmentObject var modelsViewModel: HR3DModelViewModel
     
     func makeUIView(context: Context) -> CustomARView {
         
         let arView = CustomARView(frame: .zero, sessionSettings: sessionSettings)
+        
+        arView.session.delegate = context.coordinator
         
         self.placementSettings.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, { (event) in
             self.updateScene(for: arView)
@@ -33,21 +39,40 @@ struct ARViewContainer: UIViewRepresentable {
         
         arView.focusEntity?.isEnabled = self.placementSettings.selectedModel != nil
         
-        if let confirmedModel = self.placementSettings.confirmedModel, let modelEntity = confirmedModel.modelEntity {
-            self.place(modelEntity, in: arView)
-            self.placementSettings.confirmedModel = nil
+        if let modelAnchor = self.placementSettings.modelsConfirmedForPlacement.popLast(), let modelEntity = modelAnchor.model.modelEntity {
+            if let anchor = modelAnchor.anchor {
+                self.place(modelEntity, for: anchor, in: arView)
+                arView.session.add(anchor: anchor)
+                self.placementSettings.recentlyPlaced.append(modelAnchor.model)
+            } else if let transform = getTransformForPlacement(in: arView) {
+                let anchorName = anchorNamePrefix + modelAnchor.model.name
+                let anchor = ARAnchor(name: anchorName, transform: transform)
+                arView.session.add(anchor: anchor)
+                self.placementSettings.recentlyPlaced.append(modelAnchor.model)
+            }
         }
     }
     
-    private func place(_ modelEntity: ModelEntity, in arView: ARView) {
+    private func place(_ modelEntity: ModelEntity,for anchor: ARAnchor, in arView: ARView) {
         let clonedEntity = modelEntity.clone(recursive: true)
         
         clonedEntity.generateCollisionShapes(recursive: true)
         arView.installGestures([.translation, .rotation], for: clonedEntity)
         let anchorEntity = AnchorEntity(plane: .any)
         anchorEntity.addChild(clonedEntity)
+        anchorEntity.anchoring = AnchoringComponent(anchor)
         arView.scene.addAnchor(anchorEntity)
         self.sceneManager.anchorEntities.append(anchorEntity)
+    }
+    
+    private func getTransformForPlacement(in arView: ARView) -> simd_float4x4? {
+        guard let query = arView.makeRaycastQuery(from: arView.center, allowing: .estimatedPlane, alignment: .any) else {
+            return nil
+        }
+        
+        guard let raycastResult = arView.session.raycast(query).first else { return nil }
+        
+        return raycastResult.worldTransform
     }
     
 }
@@ -81,5 +106,38 @@ extension ARViewContainer {
             
             self.sceneManager.shouldLoadSceneFromFilesystem = false
         }
+    }
+}
+
+// MARK: - ARSessionDelagate + Coordinator
+
+extension ARViewContainer {
+    class Coordinator: NSObject, ARSessionDelegate {
+        var parent: ARViewContainer
+        
+        init(_ parent: ARViewContainer) {
+            self.parent = parent
+        }
+        
+        func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+            for anchor in anchors {
+                if let anchorName = anchor.name, anchorName.hasPrefix(anchorNamePrefix) {
+                    let modelName = anchorName.dropFirst(anchorNamePrefix.count)
+                    guard let model = self.parent.modelsViewModel.models.first(where: { $0.name == modelName}) else {
+                        return
+                    }
+                    model.asyncLoadModelEntity { completed, error in
+                        if completed {
+                            let modelAnchor = ModelAnchor(model: model, anchor: anchor)
+                            self.parent.placementSettings.modelsConfirmedForPlacement.append(modelAnchor)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(self)
     }
 }

@@ -8,6 +8,12 @@
 import SwiftUI
 import RealityKit
 import Combine
+import ARKit
+
+struct ModelAnchor {
+    var model: HR3DModel
+    var anchor: ARAnchor?
+}
 
 class PlacementSettingsViewModel: ObservableObject {
     static let shared = PlacementSettingsViewModel()
@@ -19,20 +25,9 @@ class PlacementSettingsViewModel: ObservableObject {
         }
     }
     
-    // confitm in placement
-    @Published var confirmedModel: HR3DModel? {
-        willSet(newValue) {
-            guard let model = newValue else {
-                return
-            }
-            
-            print(model.name)
-            
-            self.recentlyPlaced.append(model)
-        }
-    }
-    
     @Published var recentlyPlaced: [HR3DModel] = []
+    
+    var modelsConfirmedForPlacement: [ModelAnchor] = []
     
     var sceneObserver: Cancellable?
 }

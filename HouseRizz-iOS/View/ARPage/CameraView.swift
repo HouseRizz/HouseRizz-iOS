@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CameraView: View {
     @EnvironmentObject var placementSettigns: PlacementSettingsViewModel
+    @EnvironmentObject var modelsViewModel: HR3DModelViewModel
     @State private var isControlsVisible: Bool = false
     @State private var showBrowse: Bool = false
     @State private var showSettings: Bool = false
@@ -26,6 +27,9 @@ struct CameraView: View {
             
         }
         .edgesIgnoringSafeArea(.all)
+        .onAppear() {
+            self.modelsViewModel.fetchData()
+        }
     }
 }
 
