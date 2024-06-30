@@ -51,6 +51,7 @@
 		CC3CF4E42C19989200C8A58D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3CF4E32C19989200C8A58D /* SearchViewModel.swift */; };
 		CC4622EF2C31053B005C77F8 /* ScenePersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4622EE2C31053B005C77F8 /* ScenePersistenceHelper.swift */; };
 		CC4622F12C3119E7005C77F8 /* ModelDeletionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4622F02C3119E7005C77F8 /* ModelDeletionManager.swift */; };
+		CC4622F32C311CF6005C77F8 /* DeletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4622F22C311CF6005C77F8 /* DeletionView.swift */; };
 		CC548A3A2C1DA5FC00E98B85 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A392C1DA5FB00E98B85 /* HelpView.swift */; };
 		CC548A3C2C1DA60500E98B85 /* RefundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A3B2C1DA60500E98B85 /* RefundView.swift */; };
 		CC548A3E2C1DA61400E98B85 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC548A3D2C1DA61400E98B85 /* TermsView.swift */; };
@@ -190,6 +191,7 @@
 		CC3CF4E32C19989200C8A58D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		CC4622EE2C31053B005C77F8 /* ScenePersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePersistenceHelper.swift; sourceTree = "<group>"; };
 		CC4622F02C3119E7005C77F8 /* ModelDeletionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDeletionManager.swift; sourceTree = "<group>"; };
+		CC4622F22C311CF6005C77F8 /* DeletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletionView.swift; sourceTree = "<group>"; };
 		CC548A392C1DA5FB00E98B85 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		CC548A3B2C1DA60500E98B85 /* RefundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundView.swift; sourceTree = "<group>"; };
 		CC548A3D2C1DA61400E98B85 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 				CC2DBD662C2F2793007817C0 /* BrowseView.swift */,
 				CC2DBD682C2F27F9007817C0 /* ControlView.swift */,
 				CCA040952C3045130014CFB0 /* ARViewContainer.swift */,
+				CC4622F22C311CF6005C77F8 /* DeletionView.swift */,
 			);
 			path = ARPage;
 			sourceTree = "<group>";
@@ -1065,6 +1068,7 @@
 				CC06A9602C0C082200A0DAD3 /* NumberFormatterExtension.swift in Sources */,
 				CC5DF1F42BCE795300061AB3 /* CategoryCard.swift in Sources */,
 				CC2DBD5B2C2F25F2007817C0 /* ARSessionSettingsViewModel.swift in Sources */,
+				CC4622F32C311CF6005C77F8 /* DeletionView.swift in Sources */,
 				CC11078D2C1456F200AB9F58 /* VendorOrdersViewModel.swift in Sources */,
 				CC2DBD582C2F257D007817C0 /* ARSettingsView.swift in Sources */,
 				CCC5B03A2BFBB62F0007BEC1 /* HRProduct.swift in Sources */,

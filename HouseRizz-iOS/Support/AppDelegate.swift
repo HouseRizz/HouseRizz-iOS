@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sessionSettings = ARSessionSettingsViewModel()
         let sceneManager = SceneManager()
         let modelsViewModel = HR3DModelViewModel()
+        let modelDeletionManager = ModelDeletionManager()
         let contentView = MainView()
             .environmentObject(cartViewModel)
             .environmentObject(searchViewModel)
@@ -30,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .environmentObject(sessionSettings)
             .environmentObject(sceneManager)
             .environmentObject(modelsViewModel)
+            .environmentObject(modelDeletionManager)
 
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = UIHostingController(rootView: contentView)

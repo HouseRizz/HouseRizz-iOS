@@ -151,7 +151,9 @@ struct SceneButtons: View {
         Spacer()
         
         ControlButton(systemIconName: "trash") {
-            
+            for anchorEntity in sceneManager.anchorEntities {
+                anchorEntity.removeFromParent()
+            }
         }
     }
 }
