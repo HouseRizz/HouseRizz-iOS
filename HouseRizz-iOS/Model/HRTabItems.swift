@@ -19,9 +19,9 @@ enum HRTabItems: Int, CaseIterable {
         case .home:
             return "Home"
         case .ai:
-            return "AI"
+            return "Design"
         case .ar:
-            return "3D"
+            return "AR"
         case .products:
             return "Buy"
       

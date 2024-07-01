@@ -18,17 +18,28 @@ struct ControlView: View {
     @Binding var selectedControlModel: Int
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 10) {
+            if isControlsVisible {
+                HStack {
+                    ControlModePicker(selectedControlModel: $selectedControlModel)
+                    Spacer()
+                }
+            } else {
+                Color.clear.frame(height: 30)
+            }
             
-            ControlVisibilityToggleButton(isControlsVisible: $isControlsVisible)
+            HStack {
+                if isControlsVisible {
+                    ControlButtonBar(showBrowse: $showBrowse, showSettings: $showSettings, selectedControlMode: selectedControlModel)
+                }
+                Spacer()
+                ControlVisibilityToggleButton(isControlsVisible: $isControlsVisible)
+            }
             
             Spacer()
-            
-            if isControlsVisible {
-                ControlModePicker(selectedControlModel: $selectedControlModel)
-                ControlButtonBar(showBrowse: $showBrowse, showSettings: $showSettings, selectedControlMode: selectedControlModel)
-            }
         }
+        .padding(.top, 45)
+        .padding(.horizontal, 20)
     }
 }
 
@@ -38,24 +49,18 @@ struct ControlVisibilityToggleButton: View {
         HStack {
             Spacer()
             
-            ZStack {
-                Color.black.opacity(0.25)
-                
-                Button(action: {
-                    self.isControlsVisible.toggle()
-                }) {
-                    Image(systemName: self.isControlsVisible ? "rectangle" : "slider.horizontal.below.rectangle")
-                        .font(.system(size: 35))
-                        .foregroundStyle(.white)
-                        .buttonStyle(PlainButtonStyle())
-                }
-                
+            Button(action: {
+                self.isControlsVisible.toggle()
+            }) {
+                Image(systemName: self.isControlsVisible ? "rectangle" : "slider.horizontal.below.rectangle")
+                    .font(.system(size: 35))
+                    .foregroundStyle(.white)
+                    .buttonStyle(PlainButtonStyle())
             }
-            .frame(width: 50,height: 50)
-            .cornerRadius(8.0)
+            .frame(width: 50, height: 50)
+            .background(.black.opacity(0.25))
+            .cornerRadius(8)
         }
-        .padding(.top, 45)
-        .padding(.trailing, 20)
     }
 }
 
@@ -78,8 +83,7 @@ struct ControlModePicker: View {
             }
         }
         .pickerStyle(SegmentedPickerStyle())
-        .frame(maxWidth: 400)
-        .padding(.horizontal, 10)
+        .frame(maxWidth: 200)
     }
 }
 
@@ -89,17 +93,15 @@ struct ControlButtonBar: View {
     var selectedControlMode: Int
     
     var body: some View {
-        HStack(alignment: .center, content: {
+        VStack(alignment: .trailing, spacing: 10) {
             if selectedControlMode == 1 {
                 SceneButtons()
             } else {
                 BrowseButtons(showBrowse: $showBrowse, showSettings: $showSettings)
             }
-        })
-        .frame(maxWidth: 500)
-        .padding(30)
+        }
         .background(.black.opacity(0.25))
-        .padding(.bottom, 200)
+        .cornerRadius(8)
     }
 }
 
@@ -109,10 +111,8 @@ struct BrowseButtons: View {
     @Binding var showSettings: Bool
     
     var body: some View {
-        HStack {
+        HStack(spacing: 10) {
             MostRecentlyPlacedButton().hidden(self.placementSettings.recentlyPlaced.isEmpty)
-            
-            Spacer()
             
             ControlButton(systemIconName: "square.grid.2x2") {
                 self.showBrowse.toggle()
@@ -120,8 +120,6 @@ struct BrowseButtons: View {
                 BrowseView(showBrowse: $showBrowse)
                     .environmentObject(placementSettings)
             }
-            
-            Spacer()
             
             ControlButton(systemIconName: "slider.horizontal.3") {
                 self.showSettings.toggle()
@@ -136,23 +134,21 @@ struct SceneButtons: View {
     @EnvironmentObject var sceneManager: SceneManager
     
     var body: some View {
-        ControlButton(systemIconName: "icloud.and.arrow.up") {
-            self.sceneManager.shouldSaveSceneToFilesystem = true
-        }
-        .hidden(!self.sceneManager.isPersistanceAvailable)
-        
-        Spacer()
-        
-        ControlButton(systemIconName: "icloud.and.arrow.down") {
-            self.sceneManager.shouldLoadSceneFromFilesystem = true
-        }
-        .hidden(self.sceneManager.scenePersistenceData == nil)
-        
-        Spacer()
-        
-        ControlButton(systemIconName: "trash") {
-            for anchorEntity in sceneManager.anchorEntities {
-                anchorEntity.removeFromParent()
+        HStack(spacing: 10) {
+            ControlButton(systemIconName: "icloud.and.arrow.up") {
+                self.sceneManager.shouldSaveSceneToFilesystem = true
+            }
+            .hidden(!self.sceneManager.isPersistanceAvailable)
+            
+            ControlButton(systemIconName: "icloud.and.arrow.down") {
+                self.sceneManager.shouldLoadSceneFromFilesystem = true
+            }
+            .hidden(self.sceneManager.scenePersistenceData == nil)
+            
+            ControlButton(systemIconName: "trash") {
+                for anchorEntity in sceneManager.anchorEntities {
+                    anchorEntity.removeFromParent()
+                }
             }
         }
     }
@@ -171,7 +167,9 @@ struct ControlButton: View {
                 .foregroundStyle(.white)
                 .buttonStyle(PlainButtonStyle())
         }
-        .frame(width: 50,height: 50)
+        .frame(width: 50, height: 50)
+        .background(.black.opacity(0.25))
+        .cornerRadius(8)
     }
 }
 
@@ -196,6 +194,6 @@ struct MostRecentlyPlacedButton: View {
         }
         .frame(width: 50, height: 50)
         .background(.white)
-        .cornerRadius(8.0)
+        .cornerRadius(8)
     }
 }
