@@ -19,14 +19,14 @@ struct ControlView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            if isControlsVisible {
-                HStack {
-                    ControlModePicker(selectedControlModel: $selectedControlModel)
-                    Spacer()
-                }
-            } else {
-                Color.clear.frame(height: 30)
-            }
+//            if isControlsVisible {
+//                HStack {
+//                    ControlModePicker(selectedControlModel: $selectedControlModel)
+//                    Spacer()
+//                }
+//            } else {
+//                Color.clear.frame(height: 30)
+//            }
             
             HStack {
                 if isControlsVisible {
