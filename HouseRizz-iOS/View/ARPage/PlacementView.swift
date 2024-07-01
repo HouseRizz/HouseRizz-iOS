@@ -10,20 +10,24 @@ import SwiftUI
 struct PlacementView: View {
     @EnvironmentObject var placementSettigns: PlacementSettingsViewModel
     var body: some View {
-        HStack {
+        VStack {
             Spacer()
-            PlacementButton(sysytemIconName: "xmark.circle.fill") {
-                self.placementSettigns.selectedModel = nil
-            }
             
-            PlacementButton(sysytemIconName: "checkmark.circle.fill") {
-                let modelAnchor = ModelAnchor(model: self.placementSettigns.selectedModel!, anchor: nil)
-                self.placementSettigns.modelsConfirmedForPlacement.append(modelAnchor)
-                self.placementSettigns.selectedModel = nil
+            HStack {
+                Spacer()
+                PlacementButton(sysytemIconName: "xmark.circle.fill") {
+                    self.placementSettigns.selectedModel = nil
+                }
+                
+                PlacementButton(sysytemIconName: "checkmark.circle.fill") {
+                    let modelAnchor = ModelAnchor(model: self.placementSettigns.selectedModel!, anchor: nil)
+                    self.placementSettigns.modelsConfirmedForPlacement.append(modelAnchor)
+                    self.placementSettigns.selectedModel = nil
+                }
+                Spacer()
             }
-            Spacer()
         }
-        .padding(.bottom, 30)
+        .padding(.bottom, 150)
     }
 }
 

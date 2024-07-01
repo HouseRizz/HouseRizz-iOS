@@ -12,29 +12,33 @@ struct DeletionView: View {
     @EnvironmentObject var modelDeletionManger: ModelDeletionManager
     
     var body: some View {
-        HStack {
+        VStack {
             Spacer()
             
-            DeletionButton(sysytemIconName: "xmark.circle.fill") {
-                self.modelDeletionManger.entitySelectedForDeletion = nil
-            }
-            
-            Spacer()
-            
-            DeletionButton(sysytemIconName: "trash.circle.fill") {
-                guard let anchor = self.modelDeletionManger.entitySelectedForDeletion?.anchor else { return }
+            HStack {
+                Spacer()
                 
-                let anchoringIdentifier = anchor.anchorIdentifier
-                if let index = self.sceneManger.anchorEntities.firstIndex(where: { $0.anchorIdentifier == anchoringIdentifier}) {
-                    self.sceneManger.anchorEntities.remove(at: index) // Optimize this as all the elemets to the right will also have to shift
+                DeletionButton(sysytemIconName: "xmark.circle.fill") {
+                    self.modelDeletionManger.entitySelectedForDeletion = nil
                 }
-                anchor.removeFromParent()
-                self.modelDeletionManger.entitySelectedForDeletion = nil
+                
+                Spacer()
+                
+                DeletionButton(sysytemIconName: "trash.circle.fill") {
+                    guard let anchor = self.modelDeletionManger.entitySelectedForDeletion?.anchor else { return }
+                    
+                    let anchoringIdentifier = anchor.anchorIdentifier
+                    if let index = self.sceneManger.anchorEntities.firstIndex(where: { $0.anchorIdentifier == anchoringIdentifier}) {
+                        self.sceneManger.anchorEntities.remove(at: index) // Optimize this as all the elemets to the right will also have to shift
+                    }
+                    anchor.removeFromParent()
+                    self.modelDeletionManger.entitySelectedForDeletion = nil
+                }
+                
+                Spacer()
             }
-            
-            Spacer()
         }
-        .padding(.bottom, 30)
+        .padding(.bottom, 150)
     }
 }
 
