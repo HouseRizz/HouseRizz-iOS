@@ -152,11 +152,12 @@ struct AIImageGenerationView: View {
                             .padding()
                     } else {
                         Button {
-                            if isPremium {
-                                generateImage()
-                            } else {
-                                showPaywall.toggle()
-                            }
+                            generateImage()
+//                            if isPremium {
+//                                generateImage()
+//                            } else {
+//                                showPaywall.toggle()
+//                            }
                         } label: {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 12)
