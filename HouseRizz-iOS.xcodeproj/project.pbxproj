@@ -1223,7 +1223,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HouseRizz-iOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = HouseRizz;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to your camera to scan your surroundings and place 3D models in your environment. We respect your privacy and will only use the camera for these purposes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
@@ -1264,7 +1264,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HouseRizz-iOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = HouseRizz;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to your camera to scan your surroundings and place 3D models in your environment. We respect your privacy and will only use the camera for these purposes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";

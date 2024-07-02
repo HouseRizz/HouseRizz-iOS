@@ -33,18 +33,6 @@ struct AuthenticationView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                HStack {
-                    Spacer()
-                    Text("Skip")
-                        .bold()
-                        .foregroundStyle(Color.white)
-                        .padding()
-                        .onTapGesture {
-                            signInAnonymously()
-                        }
-                        .padding(.top, 15)
-                }
-                                
                 VStack(spacing: 10) {
                     SignInWithAppleButton(.continue) { request in
                         viewModel.handleSignInWithAppleRequest(request)
@@ -60,8 +48,10 @@ struct AuthenticationView: View {
                     HRAuthenticationButton(label: "Continue with Google", iconImage: Image("google")) { signInWithGoogle() }
                     
                     HRAuthenticationButton(label: "Continue with Email", iconName: "envelope.fill") { showLogin.toggle() }
+                    
+                    HRAuthenticationButton(label: "Continue Anonymously", iconName: "person.fill") { signInAnonymously() }
                 }
-                .padding(.top, 80)
+                .padding(.top, 150)
                 .sheet(isPresented: $showLogin) { LoginView() }
                 
                 Spacer()
