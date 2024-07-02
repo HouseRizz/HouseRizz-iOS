@@ -87,25 +87,29 @@ For more details, please refer to the full legal text of the CC BY-NC-SA 4.0 lic
 |---|---|---|
 | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/home.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/category.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/details.png" width="200" height="400"> |
 
+| City Selector | Search | Order History |
+|---|---|---|
+| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/city.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/search.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/orderhistory.png" width="200" height="400"> |
+
 | Cart | Cart Badge | Settings |
 |---|---|---|
 | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/cart.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/cart-badge.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/settings.png" width="200" height="400"> |
 
-| AI Input | AI Output | AR |
+| AI Page | AI Input | AI Output |
 |---|---|---|
-| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/aiinput.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/aioutput.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/ar.png" width="200" height="400"> |
+| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/ai.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/aiinput.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/aioutput.png" width="200" height="400"> |
 
-| AR Browse | AR Examples | AR Options |
+| AR Page | AR Options | AR Browse |
 |---|---|---|
-| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/arbrowse.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/arex.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/aroptions.png" width="200" height="400"> |
+| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/ar.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/arbrowse.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/arbrowse.png" width="200" height="400"> |
 
-| UPI | PhonePe | City Selector |
+| AR Settings | AR Example | AR Delete |
 |---|---|---|
-| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/upi.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/phonepe.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/cityselector.png" width="200" height="400"> |
+| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/arsetting.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/arex1.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/arex2.png" width="200" height="400"> |
 
-| City | Search | Order History |
+| UPI | PhonePe | Reccomendation |
 |---|---|---|
-| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/city.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/search.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/orderhistory.png" width="200" height="400"> |
+| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/upi.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/phonepe.png" width="200" height="400"> | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-QXhfg6x9bY2x8eO5zZLqaEwYFYYcDI7Bw&s" width="200" height="400"> |
 
 ### Vendor
 
@@ -117,9 +121,6 @@ For more details, please refer to the full legal text of the CC BY-NC-SA 4.0 lic
 |---|---|---|
 | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/addprod.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/order.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/orderhistory.png" width="200" height="400"> |
 
-| Orders List | Order Status | Vendor Settings |
-|---|---|---|
-| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/orders.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/orderstatus.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/vendorsettings.png" width="200" height="400"> |
 
 ### Admin
 
@@ -127,6 +128,6 @@ For more details, please refer to the full legal text of the CC BY-NC-SA 4.0 lic
 |---|---|---|
 | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/adminprod.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/adminorders.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/admincat.png" width="200" height="400"> |
 
-| Manage Banners | Manage AI Vibes |
+| Manage Banners | Manage AI Vibes | Manage Notifications |
 |---|---|---|
-| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/adminbanners.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/adminvibes.png" width="200" height="400"> |
+| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/adminbanners.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/adminvibes.png" width="200" height="400"> | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-QXhfg6x9bY2x8eO5zZLqaEwYFYYcDI7Bw&s" width="200" height="400"> |
