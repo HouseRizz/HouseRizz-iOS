@@ -3,6 +3,10 @@
 This the app for [HouseRizz](https://houserizz-com.vercel.app) a marketplace that lets you Redesign your home using AI & AR. 
 
 <p align="center">
+    <a href="https://apps.apple.com/in/app/houserizz/id6501991622"><img src="https://texttofloss.com/wp-content/uploads/2021/01/App-Store-Button-transparent.png" alt="Download on the App Store" width="200"></a>
+</p>
+
+<p align="center">
     <img src="https://developer.apple.com/assets/elements/icons/swift/swift-96x96_2x.png" alt="Swift5" width="48" height="48">&nbsp;&nbsp;&nbsp;
     <img src="https://developer.apple.com/assets/elements/icons/swiftui/swiftui-96x96_2x.png" alt="SwiftUI" width="48" height="48">&nbsp;&nbsp;&nbsp;
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBWdYpQbTI7_Bx47XFXEjy7vY9WH-ezfh9ame3oVL3Nw&s" alt="CloudKit" width="48" height="48">&nbsp;&nbsp;&nbsp;
@@ -111,17 +115,6 @@ For more details, please refer to the full legal text of the CC BY-NC-SA 4.0 lic
 |---|---|---|
 | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/upi.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/phonepe.png" width="200" height="400"> | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-QXhfg6x9bY2x8eO5zZLqaEwYFYYcDI7Bw&s" width="200" height="400"> |
 
-### Vendor
-
-| Manage Inventory | Delete | Add |
-|---|---|---|
-| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/manageinventory.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/adminprod.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/addprod.png" width="200" height="400"> |
-
-| Add Product | Orders | Order History |
-|---|---|---|
-| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/addprod.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/order.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/orderhistory.png" width="200" height="400"> |
-
-
 ### Admin
 
 | Manage Products | Manage Orders | Manage Categories |
@@ -131,3 +124,13 @@ For more details, please refer to the full legal text of the CC BY-NC-SA 4.0 lic
 | Manage Banners | Manage AI Vibes | Manage Notifications |
 |---|---|---|
 | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/adminbanners.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/adminvibes.png" width="200" height="400"> | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-QXhfg6x9bY2x8eO5zZLqaEwYFYYcDI7Bw&s" width="200" height="400"> |
+
+### Vendor
+
+| Manage Inventory | Add Product |
+|---|---|
+| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/manageinventory.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/addprod.png" width="200" height="400"> |
+
+| Orders | Order History |
+|---|---|
+| <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/orderstatus.png" width="200" height="400"> | <img src="https://github.com/HouseRizz/HouseRizz-iOS/blob/main/ScreenShots/orderhistory.png" width="200" height="400"> |
