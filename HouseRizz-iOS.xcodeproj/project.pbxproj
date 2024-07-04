@@ -140,6 +140,7 @@
 		CCD29BA82C3650470068079B /* AddCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29BA72C3650470068079B /* AddCitiesView.swift */; };
 		CCD29BAA2C3650640068079B /* ManageCitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29BA92C3650640068079B /* ManageCitiesViewModel.swift */; };
 		CCD29BAC2C3650B20068079B /* AddCitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29BAB2C3650B20068079B /* AddCitiesViewModel.swift */; };
+		CCD29BAE2C3653140068079B /* CityPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29BAD2C3653140068079B /* CityPickerViewModel.swift */; };
 		CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0022BCA28B5000AFB80 /* TabView.swift */; };
 		CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */; };
 		CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0062BCA3440000AFB80 /* AIView.swift */; };
@@ -273,6 +274,7 @@
 		CCD29BA72C3650470068079B /* AddCitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCitiesView.swift; sourceTree = "<group>"; };
 		CCD29BA92C3650640068079B /* ManageCitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCitiesViewModel.swift; sourceTree = "<group>"; };
 		CCD29BAB2C3650B20068079B /* AddCitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCitiesViewModel.swift; sourceTree = "<group>"; };
+		CCD29BAD2C3653140068079B /* CityPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewModel.swift; sourceTree = "<group>"; };
 		CCD3B0022BCA28B5000AFB80 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRTabItems.swift; sourceTree = "<group>"; };
 		CCD3B0062BCA3440000AFB80 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
@@ -718,6 +720,7 @@
 			children = (
 				CC2F47132BC8389B00A4C1FC /* CartViewModel.swift */,
 				CCAC47882C1C0BAC00A8EBF1 /* UPIViewModel.swift */,
+				CCD29BAD2C3653140068079B /* CityPickerViewModel.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -992,6 +995,7 @@
 				CCAC47892C1C0BAC00A8EBF1 /* UPIViewModel.swift in Sources */,
 				CCBB5A1B2C25846400BD9E1F /* ManageAIVibeView.swift in Sources */,
 				CC11078B2C14565400AB9F58 /* VendorOrdersView.swift in Sources */,
+				CCD29BAE2C3653140068079B /* CityPickerViewModel.swift in Sources */,
 				CCA040962C3045130014CFB0 /* ARViewContainer.swift in Sources */,
 				CC69BD2C2C23F68F00491014 /* AIViewModel.swift in Sources */,
 				CC7B07CD2C22D4E000627BC5 /* ManageProductCategoriesView.swift in Sources */,
