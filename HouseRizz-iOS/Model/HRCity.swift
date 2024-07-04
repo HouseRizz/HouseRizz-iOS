@@ -15,7 +15,7 @@ struct HRCityModelName {
     static let itemRecord = "City"
 }
 
-struct HRCityModelName: Hashable, Identifiable, CKitableProtocol {
+struct HRCity: Hashable, Identifiable, CKitableProtocol {
     var id: UUID
     let name: String
     let imageURL: URL?
