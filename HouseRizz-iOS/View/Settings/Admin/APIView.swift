@@ -38,7 +38,8 @@ struct APIView: View {
             }
             .refreshable {
                 viewModel.fetchAPI()
-        }
+            }
+            .padding()
         }
     }
 }

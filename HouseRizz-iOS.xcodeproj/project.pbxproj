@@ -136,6 +136,7 @@
 		CCC5B0462BFBB95A0007BEC1 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0452BFBB95A0007BEC1 /* AddProductView.swift */; };
 		CCC5B0482BFBB9A80007BEC1 /* InventoryProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0472BFBB9A80007BEC1 /* InventoryProductDetailView.swift */; };
 		CCD29BA42C364EE70068079B /* HRCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29BA32C364EE70068079B /* HRCity.swift */; };
+		CCD29BA62C364F710068079B /* ManageCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29BA52C364F710068079B /* ManageCitiesView.swift */; };
 		CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0022BCA28B5000AFB80 /* TabView.swift */; };
 		CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */; };
 		CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0062BCA3440000AFB80 /* AIView.swift */; };
@@ -265,6 +266,7 @@
 		CCC5B0472BFBB9A80007BEC1 /* InventoryProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryProductDetailView.swift; sourceTree = "<group>"; };
 		CCCBC6362BD182BA00D0FCEA /* HouseRizz-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HouseRizz-iOS.entitlements"; sourceTree = "<group>"; };
 		CCD29BA32C364EE70068079B /* HRCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCity.swift; sourceTree = "<group>"; };
+		CCD29BA52C364F710068079B /* ManageCitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCitiesView.swift; sourceTree = "<group>"; };
 		CCD3B0022BCA28B5000AFB80 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRTabItems.swift; sourceTree = "<group>"; };
 		CCD3B0062BCA3440000AFB80 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 				CC69BD6D2C24389500491014 /* APIView.swift */,
 				CCBB5A1A2C25846400BD9E1F /* ManageAIVibeView.swift */,
 				CCBB5A202C25861000BD9E1F /* AddAIVibeView.swift */,
+				CCD29BA52C364F710068079B /* ManageCitiesView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -1063,6 +1066,7 @@
 				CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */,
 				CC97AF072BBE5DEA007BB76C /* AuthenticationView.swift in Sources */,
 				CCC5B0422BFBB8700007BEC1 /* VendorInventoryViewModel.swift in Sources */,
+				CCD29BA62C364F710068079B /* ManageCitiesView.swift in Sources */,
 				CCAC478F2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift in Sources */,
 				CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */,
 				CC06A95C2C0C07F100A0DAD3 /* EncodableExtension.swift in Sources */,
