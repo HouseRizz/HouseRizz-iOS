@@ -137,6 +137,9 @@
 		CCC5B0482BFBB9A80007BEC1 /* InventoryProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0472BFBB9A80007BEC1 /* InventoryProductDetailView.swift */; };
 		CCD29BA42C364EE70068079B /* HRCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29BA32C364EE70068079B /* HRCity.swift */; };
 		CCD29BA62C364F710068079B /* ManageCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29BA52C364F710068079B /* ManageCitiesView.swift */; };
+		CCD29BA82C3650470068079B /* AddCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29BA72C3650470068079B /* AddCitiesView.swift */; };
+		CCD29BAA2C3650640068079B /* ManageCitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29BA92C3650640068079B /* ManageCitiesViewModel.swift */; };
+		CCD29BAC2C3650B20068079B /* AddCitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29BAB2C3650B20068079B /* AddCitiesViewModel.swift */; };
 		CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0022BCA28B5000AFB80 /* TabView.swift */; };
 		CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */; };
 		CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0062BCA3440000AFB80 /* AIView.swift */; };
@@ -267,6 +270,9 @@
 		CCCBC6362BD182BA00D0FCEA /* HouseRizz-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HouseRizz-iOS.entitlements"; sourceTree = "<group>"; };
 		CCD29BA32C364EE70068079B /* HRCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCity.swift; sourceTree = "<group>"; };
 		CCD29BA52C364F710068079B /* ManageCitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCitiesView.swift; sourceTree = "<group>"; };
+		CCD29BA72C3650470068079B /* AddCitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCitiesView.swift; sourceTree = "<group>"; };
+		CCD29BA92C3650640068079B /* ManageCitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCitiesViewModel.swift; sourceTree = "<group>"; };
+		CCD29BAB2C3650B20068079B /* AddCitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCitiesViewModel.swift; sourceTree = "<group>"; };
 		CCD3B0022BCA28B5000AFB80 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRTabItems.swift; sourceTree = "<group>"; };
 		CCD3B0062BCA3440000AFB80 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
@@ -633,6 +639,7 @@
 				CCBB5A1A2C25846400BD9E1F /* ManageAIVibeView.swift */,
 				CCBB5A202C25861000BD9E1F /* AddAIVibeView.swift */,
 				CCD29BA52C364F710068079B /* ManageCitiesView.swift */,
+				CCD29BA72C3650470068079B /* AddCitiesView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -692,6 +699,8 @@
 				CC69BD6F2C2438AA00491014 /* APIViewModel.swift */,
 				CCBB5A1C2C25848900BD9E1F /* ManageAIVibeViewModel.swift */,
 				CCBB5A1E2C25851A00BD9E1F /* AddAIVibeViewModel.swift */,
+				CCD29BA92C3650640068079B /* ManageCitiesViewModel.swift */,
+				CCD29BAB2C3650B20068079B /* AddCitiesViewModel.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -1015,6 +1024,7 @@
 				CC2DBD552C2F253F007817C0 /* FirebaseStorageHelper.swift in Sources */,
 				CC2F47082BC80E6100A4C1FC /* HomeView.swift in Sources */,
 				CC3CF4E22C1994C400C8A58D /* CityView.swift in Sources */,
+				CCD29BAC2C3650B20068079B /* AddCitiesViewModel.swift in Sources */,
 				CCDB49B62C173BC200F7031B /* EditAddressView.swift in Sources */,
 				CCAC478D2C1C1A5600A8EBF1 /* UPIListView.swift in Sources */,
 				CC69BD742C24406200491014 /* AIImageGenerationView.swift in Sources */,
@@ -1044,6 +1054,7 @@
 				CCC5B0442BFBB9310007BEC1 /* AddProductViewModel.swift in Sources */,
 				CCBB5A1D2C25848900BD9E1F /* ManageAIVibeViewModel.swift in Sources */,
 				CCC5B0402BFBB8580007BEC1 /* VendorInventoryView.swift in Sources */,
+				CCD29BAA2C3650640068079B /* ManageCitiesViewModel.swift in Sources */,
 				CC69BD722C243B6600491014 /* AIImageGenerationViewModel.swift in Sources */,
 				CCC5B0482BFBB9A80007BEC1 /* InventoryProductDetailView.swift in Sources */,
 				CC2F47102BC81CDB00A4C1FC /* ProductCardView.swift in Sources */,
@@ -1078,6 +1089,7 @@
 				CC2DBD5B2C2F25F2007817C0 /* ARSessionSettingsViewModel.swift in Sources */,
 				CC4622F32C311CF6005C77F8 /* DeletionView.swift in Sources */,
 				CC11078D2C1456F200AB9F58 /* VendorOrdersViewModel.swift in Sources */,
+				CCD29BA82C3650470068079B /* AddCitiesView.swift in Sources */,
 				CC2DBD582C2F257D007817C0 /* ARSettingsView.swift in Sources */,
 				CCC5B03A2BFBB62F0007BEC1 /* HRProduct.swift in Sources */,
 				CC1107892C13F0EB00AB9F58 /* HROrder.swift in Sources */,
