@@ -27,7 +27,7 @@ extension NumberFormatter {
         if isIndianUser {
             return currencyFormatter.string(from: NSNumber(value: amount)) ?? ""
         } else {
-            let convertedAmount = isINR ? amount / 85 : amount // Convert INR to USD if necessary
+            let convertedAmount = isINR ? amount / 85 : amount
             return currencyFormatter.string(from: NSNumber(value: convertedAmount)) ?? ""
         }
     }
