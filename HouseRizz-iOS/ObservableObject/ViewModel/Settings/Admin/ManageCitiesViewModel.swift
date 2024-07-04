@@ -15,10 +15,10 @@ class ManageCitiesViewModel {
     var cancellables = Set<AnyCancellable>()
     
     init() {
-        fetchVibes()
+        fetchCities()
     }
     
-    func fetchVibes(){
+    func fetchCities(){
         let predicate = NSPredicate(value: true)
         let recordType = HRCityModelName.itemRecord
         CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
