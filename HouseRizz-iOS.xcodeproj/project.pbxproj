@@ -135,6 +135,7 @@
 		CCC5B0442BFBB9310007BEC1 /* AddProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0432BFBB9310007BEC1 /* AddProductViewModel.swift */; };
 		CCC5B0462BFBB95A0007BEC1 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0452BFBB95A0007BEC1 /* AddProductView.swift */; };
 		CCC5B0482BFBB9A80007BEC1 /* InventoryProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC5B0472BFBB9A80007BEC1 /* InventoryProductDetailView.swift */; };
+		CCD29BA42C364EE70068079B /* HRCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29BA32C364EE70068079B /* HRCity.swift */; };
 		CCD3B0032BCA28B5000AFB80 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0022BCA28B5000AFB80 /* TabView.swift */; };
 		CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */; };
 		CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD3B0062BCA3440000AFB80 /* AIView.swift */; };
@@ -263,6 +264,7 @@
 		CCC5B0452BFBB95A0007BEC1 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		CCC5B0472BFBB9A80007BEC1 /* InventoryProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryProductDetailView.swift; sourceTree = "<group>"; };
 		CCCBC6362BD182BA00D0FCEA /* HouseRizz-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HouseRizz-iOS.entitlements"; sourceTree = "<group>"; };
+		CCD29BA32C364EE70068079B /* HRCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCity.swift; sourceTree = "<group>"; };
 		CCD3B0022BCA28B5000AFB80 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRTabItems.swift; sourceTree = "<group>"; };
 		CCD3B0062BCA3440000AFB80 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
@@ -528,6 +530,7 @@
 				CCBB5A0D2C252DE000BD9E1F /* HRAIImageResult.swift */,
 				CCBB5A182C2583DC00BD9E1F /* HRAIVibe.swift */,
 				CC2DBD622C2F26E7007817C0 /* HR3DModel.swift */,
+				CCD29BA32C364EE70068079B /* HRCity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -992,6 +995,7 @@
 				CCC5B03C2BFBB6B80007BEC1 /* InventoryProductCardView.swift in Sources */,
 				CCBB5A192C2583DC00BD9E1F /* HRAIVibe.swift in Sources */,
 				CC2F47142BC8389B00A4C1FC /* CartViewModel.swift in Sources */,
+				CCD29BA42C364EE70068079B /* HRCity.swift in Sources */,
 				CC2F47182BC8D5ED00A4C1FC /* CartProductView.swift in Sources */,
 				CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */,
 				CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */,
