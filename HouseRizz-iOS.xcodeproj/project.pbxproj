@@ -117,6 +117,7 @@
 		CCAC478B2C1C0E8C00A8EBF1 /* UPIListItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC478A2C1C0E8C00A8EBF1 /* UPIListItemModel.swift */; };
 		CCAC478D2C1C1A5600A8EBF1 /* UPIListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC478C2C1C1A5600A8EBF1 /* UPIListView.swift */; };
 		CCAC478F2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC478E2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift */; };
+		CCB2E7862C44F25F00E2C01D /* HouseRizz_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2E7852C44F25F00E2C01D /* HouseRizz_iOS_Tests.swift */; };
 		CCBB5A0E2C252DE000BD9E1F /* HRAIImageResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A0D2C252DE000BD9E1F /* HRAIImageResult.swift */; };
 		CCBB5A102C255C8000BD9E1F /* GeneratedPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A0F2C255C8000BD9E1F /* GeneratedPhotoViewModel.swift */; };
 		CCBB5A122C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBB5A112C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift */; };
@@ -153,6 +154,16 @@
 		CCDF24C02C12A5DB00353DD1 /* HRCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */; };
 		CCF3713D2C2C5439009A82E0 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3713C2C2C5439009A82E0 /* Secrets.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CCB2E7872C44F25F00E2C01D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC97AEBA2BBE4FCE007BB76C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC97AEC12BBE4FCE007BB76C;
+			remoteInfo = "HouseRizz-iOS";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CC0231572BCD47C8007CC053 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
@@ -250,6 +261,8 @@
 		CCAC478A2C1C0E8C00A8EBF1 /* UPIListItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIListItemModel.swift; sourceTree = "<group>"; };
 		CCAC478C2C1C1A5600A8EBF1 /* UPIListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIListView.swift; sourceTree = "<group>"; };
 		CCAC478E2C1C226E00A8EBF1 /* NoUPIAppsInstalledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoUPIAppsInstalledView.swift; sourceTree = "<group>"; };
+		CCB2E7832C44F25F00E2C01D /* HouseRizz-iOS_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HouseRizz-iOS_Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCB2E7852C44F25F00E2C01D /* HouseRizz_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseRizz_iOS_Tests.swift; sourceTree = "<group>"; };
 		CCBB5A0D2C252DE000BD9E1F /* HRAIImageResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAIImageResult.swift; sourceTree = "<group>"; };
 		CCBB5A0F2C255C8000BD9E1F /* GeneratedPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedPhotoViewModel.swift; sourceTree = "<group>"; };
 		CCBB5A112C257E9B00BD9E1F /* AllUserAIImageGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserAIImageGenerationView.swift; sourceTree = "<group>"; };
@@ -310,6 +323,13 @@
 				CC2B42412C283246000456E5 /* RevenueCatUI in Frameworks */,
 				CC97AEF02BBE5C1D007BB76C /* GoogleSignIn in Frameworks */,
 				CC97AEF72BBE5C79007BB76C /* FirebaseAuth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCB2E7802C44F25F00E2C01D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,6 +845,7 @@
 			children = (
 				CC1026232C218908003FF6C4 /* Launch Screen.storyboard */,
 				CC97AEC42BBE4FCE007BB76C /* HouseRizz-iOS */,
+				CCB2E7842C44F25F00E2C01D /* HouseRizz-iOS_Tests */,
 				CC97AEC32BBE4FCE007BB76C /* Products */,
 				CC97AEF52BBE5C79007BB76C /* Frameworks */,
 			);
@@ -834,6 +855,7 @@
 			isa = PBXGroup;
 			children = (
 				CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */,
+				CCB2E7832C44F25F00E2C01D /* HouseRizz-iOS_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -866,6 +888,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCB2E7842C44F25F00E2C01D /* HouseRizz-iOS_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CCB2E7852C44F25F00E2C01D /* HouseRizz_iOS_Tests.swift */,
+			);
+			path = "HouseRizz-iOS_Tests";
 			sourceTree = "<group>";
 		};
 		CCBB5A132C257EB800BD9E1F /* AI */ = {
@@ -924,6 +954,24 @@
 			productReference = CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CCB2E7822C44F25F00E2C01D /* HouseRizz-iOS_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCB2E78B2C44F25F00E2C01D /* Build configuration list for PBXNativeTarget "HouseRizz-iOS_Tests" */;
+			buildPhases = (
+				CCB2E77F2C44F25F00E2C01D /* Sources */,
+				CCB2E7802C44F25F00E2C01D /* Frameworks */,
+				CCB2E7812C44F25F00E2C01D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCB2E7882C44F25F00E2C01D /* PBXTargetDependency */,
+			);
+			name = "HouseRizz-iOS_Tests";
+			productName = "HouseRizz-iOS_Tests";
+			productReference = CCB2E7832C44F25F00E2C01D /* HouseRizz-iOS_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -931,11 +979,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1520;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					CC97AEC12BBE4FCE007BB76C = {
 						CreatedOnToolsVersion = 15.2;
+					};
+					CCB2E7822C44F25F00E2C01D = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = CC97AEC12BBE4FCE007BB76C;
 					};
 				};
 			};
@@ -961,6 +1013,7 @@
 			projectRoot = "";
 			targets = (
 				CC97AEC12BBE4FCE007BB76C /* HouseRizz-iOS */,
+				CCB2E7822C44F25F00E2C01D /* HouseRizz-iOS_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -974,6 +1027,13 @@
 				CC1026242C218908003FF6C4 /* Launch Screen.storyboard in Resources */,
 				CC97AECA2BBE4FD0007BB76C /* Assets.xcassets in Resources */,
 				CC2ACF942C10045B004C040B /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCB2E7812C44F25F00E2C01D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1111,7 +1171,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CCB2E77F2C44F25F00E2C01D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCB2E7862C44F25F00E2C01D /* HouseRizz_iOS_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CCB2E7882C44F25F00E2C01D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC97AEC12BBE4FCE007BB76C /* HouseRizz-iOS */;
+			targetProxy = CCB2E7872C44F25F00E2C01D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CC97AECE2BBE4FD0007BB76C /* Debug */ = {
@@ -1315,6 +1391,44 @@
 			};
 			name = Release;
 		};
+		CCB2E7892C44F25F00E2C01D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 792SAN8W5Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krishmittal.HouseRizz-iOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HouseRizz-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HouseRizz-iOS";
+			};
+			name = Debug;
+		};
+		CCB2E78A2C44F25F00E2C01D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 792SAN8W5Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krishmittal.HouseRizz-iOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HouseRizz-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HouseRizz-iOS";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1332,6 +1446,15 @@
 			buildConfigurations = (
 				CC97AED12BBE4FD0007BB76C /* Debug */,
 				CC97AED22BBE4FD0007BB76C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCB2E78B2C44F25F00E2C01D /* Build configuration list for PBXNativeTarget "HouseRizz-iOS_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCB2E7892C44F25F00E2C01D /* Debug */,
+				CCB2E78A2C44F25F00E2C01D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
