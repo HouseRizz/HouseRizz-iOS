@@ -7,27 +7,6 @@
 
 import SwiftUI
 
-enum SettingsViewState: Identifiable {
-    case vendorInventory
-    case vendorOrders
-    case buyerOrders
-    case editAddress
-    case terms
-    case privacy
-    case refund
-    case login
-    case entireInventory
-    case entireOrders
-    case notificationManager
-    case categoriesManager
-    case appBannerManager
-    case api
-    case vibe
-    case city
-    
-    var id: Self { self }
-}
-
 struct SettingsView: View {
     @StateObject var authentication = Authentication()
     @Environment(\.colorScheme) var colorScheme
@@ -266,40 +245,7 @@ struct SettingsView: View {
                 }
             }
             .sheet(item: $activeState) { state in
-                switch state {
-                case .vendorInventory:
-                    VendorInventoryView()
-                case .vendorOrders:
-                    VendorOrdersView()
-                case .buyerOrders:
-                    OrderHistoryListView()
-                case .editAddress:
-                    EditAddressView()
-                case .terms:
-                    TermsView()
-                case .privacy:
-                    PrivacyView()
-                case .refund:
-                    RefundView()
-                case .login:
-                    AuthenticationView()
-                case .entireInventory:
-                    AdminInventoryView()
-                case .entireOrders:
-                    AdminOrdersView()
-                case .categoriesManager:
-                    ManageProductCategoriesView()
-                case .appBannerManager:
-                    ManageAddBannerView()
-                case .api:
-                    APIView()
-                case .vibe:
-                    ManageAIVibeView()
-                case .city:
-                    ManageCitiesView()
-                case .notificationManager:
-                    Text("Notification Manager View")
-                }
+                state.sheetView
             }
             .alert(isPresented: $deleteAccount) {
                 Alert(title: Text("Delete Account"),
@@ -310,6 +256,67 @@ struct SettingsView: View {
                       secondaryButton: .cancel(Text("Cancel"))
                 )
             }
+        }
+    }
+}
+
+enum SettingsViewState: Identifiable {
+    case vendorInventory
+    case vendorOrders
+    case buyerOrders
+    case editAddress
+    case terms
+    case privacy
+    case refund
+    case login
+    case entireInventory
+    case entireOrders
+    case notificationManager
+    case categoriesManager
+    case appBannerManager
+    case api
+    case vibe
+    case city
+    
+    var id: Self { self }
+}
+
+extension SettingsViewState {
+    @ViewBuilder
+    var sheetView: some View {
+        switch self {
+        case .vendorInventory:
+            VendorInventoryView()
+        case .vendorOrders:
+            VendorOrdersView()
+        case .buyerOrders:
+            OrderHistoryListView()
+        case .editAddress:
+            EditAddressView()
+        case .terms:
+            TermsView()
+        case .privacy:
+            PrivacyView()
+        case .refund:
+            RefundView()
+        case .login:
+            AuthenticationView()
+        case .entireInventory:
+            AdminInventoryView()
+        case .entireOrders:
+            AdminOrdersView()
+        case .notificationManager:
+            Text("Notification Manager View")
+        case .categoriesManager:
+            ManageProductCategoriesView()
+        case .appBannerManager:
+            ManageAddBannerView()
+        case .api:
+            APIView()
+        case .vibe:
+            ManageAIVibeView()
+        case .city:
+            ManageCitiesView()
         }
     }
 }
