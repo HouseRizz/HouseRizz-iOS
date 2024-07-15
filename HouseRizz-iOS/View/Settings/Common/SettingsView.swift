@@ -7,30 +7,36 @@
 
 import SwiftUI
 
+enum SettingsViewState: Identifiable {
+    case vendorInventory
+    case vendorOrders
+    case buyerOrders
+    case editAddress
+    case terms
+    case privacy
+    case refund
+    case login
+    case entireInventory
+    case entireOrders
+    case notificationManager
+    case categoriesManager
+    case appBannerManager
+    case api
+    case vibe
+    case city
+    
+    var id: Self { self }
+}
+
 struct SettingsView: View {
     @StateObject var authentication = Authentication()
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode
-    @State private var showVendorInventory: Bool = false
-    @State private var showVendorOrders: Bool = false
-    @State private var showBuyerOrders: Bool = false
+    
+    @State private var activeState: SettingsViewState?
     @State private var editPhoneNumber: Bool = false
     @State private var editablePhoneNumber: String = ""
-    @State private var showEditAddress: Bool = false
     @State private var deleteAccount: Bool = false
-    @State private var showTerms:Bool = false
-    @State private var showPrivacy:Bool = false
-    @State private var showHelp:Bool = false
-    @State private var showRefund:Bool = false
-    @State private var showLogin:Bool = false
-    @State private var showEntireInventory:Bool = false
-    @State private var showEntireOrders:Bool = false
-    @State private var showNotificationManager:Bool = false
-    @State private var showCategoriesManager:Bool = false
-    @State private var showAppBannerManager:Bool = false
-    @State private var showAPI: Bool = false
-    @State private var showVibe: Bool = false
-    @State private var showCity: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -79,7 +85,7 @@ struct SettingsView: View {
                             Text((user.address ?? "Not Provided").prefix(15) + "...")
                                 .foregroundStyle(.blue)
                                 .onTapGesture {
-                                    showEditAddress.toggle()
+                                    activeState = .editAddress
                                 }
                         }
                     } header: {
@@ -104,7 +110,6 @@ struct SettingsView: View {
                     }
                 }
                 
-                
                 if authentication.user?.userType == "vendor" {
                     Section {
                         HStack {
@@ -112,7 +117,7 @@ struct SettingsView: View {
                             Text("Manage Inventory")
                         }
                         .onTapGesture {
-                            showVendorInventory.toggle()
+                            activeState = .vendorInventory
                         }
                         
                         HStack {
@@ -120,7 +125,7 @@ struct SettingsView: View {
                             Text("Manage Orders")
                         }
                         .onTapGesture {
-                            showVendorOrders.toggle()
+                            activeState = .vendorOrders
                         }
                     } header: {
                         Text("Vendor")
@@ -132,7 +137,7 @@ struct SettingsView: View {
                             Text("Manage Entire App Inventory")
                         }
                         .onTapGesture {
-                            showEntireInventory.toggle()
+                            activeState = .entireInventory
                         }
                         
                         HStack {
@@ -140,7 +145,7 @@ struct SettingsView: View {
                             Text("Manage Entire App Orders")
                         }
                         .onTapGesture {
-                            showEntireOrders.toggle()
+                            activeState = .entireOrders
                         }
                         
                         HStack {
@@ -148,7 +153,7 @@ struct SettingsView: View {
                             Text("Manage Entire App Notifications")
                         }
                         .onTapGesture {
-                            showNotificationManager.toggle()
+                            activeState = .notificationManager
                         }
                         
                         HStack {
@@ -156,7 +161,7 @@ struct SettingsView: View {
                             Text("Product Categories")
                         }
                         .onTapGesture {
-                            showCategoriesManager.toggle()
+                            activeState = .categoriesManager
                         }
                         
                         HStack {
@@ -164,28 +169,28 @@ struct SettingsView: View {
                             Text("App Banners")
                         }
                         .onTapGesture {
-                            showAppBannerManager.toggle()
+                            activeState = .appBannerManager
                         }
                         HStack {
                             Image(systemName: "lock")
                             Text("Manage APIs")
                         }
                         .onTapGesture {
-                            showAPI.toggle()
+                            activeState = .api
                         }
                         HStack {
                             Image(systemName: "scribble")
                             Text("Manage Vibe")
                         }
                         .onTapGesture {
-                            showVibe.toggle()
+                            activeState = .vibe
                         }
                         HStack {
                             Image(systemName: "location")
                             Text("Manage Cities")
                         }
                         .onTapGesture {
-                            showCity.toggle()
+                            activeState = .city
                         }
                     } header: {
                         Text("Admin")
@@ -197,7 +202,7 @@ struct SettingsView: View {
                             Text("Order History")
                         }
                         .onTapGesture {
-                            showBuyerOrders.toggle()
+                            activeState = .buyerOrders
                         }
                     } header: {
                         Text("Orders")
@@ -227,33 +232,26 @@ struct SettingsView: View {
                 }
                 
                 Section {
-//                    HStack {
-//                        Image(systemName: "questionmark.circle")
-//                        Text("Help Center")
-//                    }
-//                    .onTapGesture {
-//                        showHelp = true
-//                    }
                     HStack {
                         Image(systemName: "book.closed")
                         Text("Terms of Use")
                     }
                     .onTapGesture {
-                        showTerms = true
+                        activeState = .terms
                     }
                     HStack {
                         Image(systemName: "lock")
                         Text("Privacy Policy")
                     }
                     .onTapGesture {
-                        showPrivacy = true
+                        activeState = .privacy
                     }
                     HStack {
                         Image(systemName: "archivebox")
                         Text("Refund Policy")
                     }
                     .onTapGesture {
-                        showRefund = true
+                        activeState = .refund
                     }
                 } header: {
                     Text("About")
@@ -267,54 +265,42 @@ struct SettingsView: View {
                     editablePhoneNumber = phoneNumber
                 }
             }
-            .sheet(isPresented: $showVendorInventory, content: {
-                VendorInventoryView()
-            })
-            .sheet(isPresented: $showVendorOrders, content: {
-                VendorOrdersView()
-            })
-            .sheet(isPresented: $showBuyerOrders, content: {
-                OrderHistoryListView()
-            })
-            .sheet(isPresented: $showEditAddress, content: {
-                EditAddressView()
-            })
-            .sheet(isPresented: $showHelp, content: {
-                HelpView()
-            })
-            .sheet(isPresented: $showTerms, content: {
-                TermsView()
-            })
-            .sheet(isPresented: $showPrivacy, content: {
-                PrivacyView()
-            })
-            .sheet(isPresented: $showRefund, content: {
-                RefundView()
-            })
-            .sheet(isPresented: $showLogin, content: {
-                AuthenticationView()
-            })
-            .sheet(isPresented: $showEntireInventory, content: {
-                AdminInventoryView()
-            })
-            .sheet(isPresented: $showEntireOrders, content: {
-                AdminOrdersView()
-            })
-            .sheet(isPresented: $showCategoriesManager, content: {
-                ManageProductCategoriesView()
-            })
-            .sheet(isPresented: $showAppBannerManager, content: {
-                ManageAddBannerView()
-            })
-            .sheet(isPresented: $showAPI, content: {
-                APIView()
-            })
-            .sheet(isPresented: $showVibe, content: {
-                ManageAIVibeView()
-            })
-            .sheet(isPresented: $showCity, content: {
-                ManageCitiesView()
-            })
+            .sheet(item: $activeState) { state in
+                switch state {
+                case .vendorInventory:
+                    VendorInventoryView()
+                case .vendorOrders:
+                    VendorOrdersView()
+                case .buyerOrders:
+                    OrderHistoryListView()
+                case .editAddress:
+                    EditAddressView()
+                case .terms:
+                    TermsView()
+                case .privacy:
+                    PrivacyView()
+                case .refund:
+                    RefundView()
+                case .login:
+                    AuthenticationView()
+                case .entireInventory:
+                    AdminInventoryView()
+                case .entireOrders:
+                    AdminOrdersView()
+                case .categoriesManager:
+                    ManageProductCategoriesView()
+                case .appBannerManager:
+                    ManageAddBannerView()
+                case .api:
+                    APIView()
+                case .vibe:
+                    ManageAIVibeView()
+                case .city:
+                    ManageCitiesView()
+                case .notificationManager:
+                    Text("Notification Manager View")
+                }
+            }
             .alert(isPresented: $deleteAccount) {
                 Alert(title: Text("Delete Account"),
                       message: Text("This action will delete your account information, orders, and any other information"),
