@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AIView: View {
+    @StateObject private var viewModel = AIViewModel()
+    
     var body: some View {
         Text("AI")
     }

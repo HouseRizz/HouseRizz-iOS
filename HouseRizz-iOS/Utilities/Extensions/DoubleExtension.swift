@@ -8,16 +8,13 @@
 import Foundation
 
 extension Double {
-    func formattedCurrency() -> String {
-        let formatter = NumberFormatter.currencyFormatter
-        return formatter.string(from: NSNumber(value: self)) ?? ""
+    func formattedCurrency(isINR: Bool = true) -> String {
+        return NumberFormatter.formatCurrency(self, isINR: isINR)
     }
 }
 
 extension Int {
-    func formattedCurrency() -> String {
-        let formatter = NumberFormatter.currencyFormatter
-        return formatter.string(from: NSNumber(value: self)) ?? ""
+    func formattedCurrency(isINR: Bool = true) -> String {
+        return NumberFormatter.formatCurrency(Double(self), isINR: isINR)
     }
 }
-

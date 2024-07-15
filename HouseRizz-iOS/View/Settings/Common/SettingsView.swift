@@ -28,6 +28,9 @@ struct SettingsView: View {
     @State private var showNotificationManager:Bool = false
     @State private var showCategoriesManager:Bool = false
     @State private var showAppBannerManager:Bool = false
+    @State private var showAPI: Bool = false
+    @State private var showVibe: Bool = false
+    @State private var showCity: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -163,6 +166,27 @@ struct SettingsView: View {
                         .onTapGesture {
                             showAppBannerManager.toggle()
                         }
+                        HStack {
+                            Image(systemName: "lock")
+                            Text("Manage APIs")
+                        }
+                        .onTapGesture {
+                            showAPI.toggle()
+                        }
+                        HStack {
+                            Image(systemName: "scribble")
+                            Text("Manage Vibe")
+                        }
+                        .onTapGesture {
+                            showVibe.toggle()
+                        }
+                        HStack {
+                            Image(systemName: "location")
+                            Text("Manage Cities")
+                        }
+                        .onTapGesture {
+                            showCity.toggle()
+                        }
                     } header: {
                         Text("Admin")
                     }
@@ -281,6 +305,15 @@ struct SettingsView: View {
             })
             .sheet(isPresented: $showAppBannerManager, content: {
                 ManageAddBannerView()
+            })
+            .sheet(isPresented: $showAPI, content: {
+                APIView()
+            })
+            .sheet(isPresented: $showVibe, content: {
+                ManageAIVibeView()
+            })
+            .sheet(isPresented: $showCity, content: {
+                ManageCitiesView()
             })
             .alert(isPresented: $deleteAccount) {
                 Alert(title: Text("Delete Account"),

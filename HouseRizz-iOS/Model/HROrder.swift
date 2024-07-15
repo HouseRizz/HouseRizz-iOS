@@ -139,11 +139,3 @@ enum OrderStatus: CaseIterable {
         }
     }
 }
-
-enum availableCities: String, CaseIterable, Identifiable {
-    case delhi = "Delhi"
-    case agra = "Agra"
-    
-    var id: String { self.rawValue }
-    var title: String { self.rawValue }
-}

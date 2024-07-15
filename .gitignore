@@ -93,3 +93,4 @@ iOSInjectionProject/
 GoogleService-Info.plist
 # Google (Gemini API) plist file
 GenerativeAI-Info.plist
+Secrets.swift

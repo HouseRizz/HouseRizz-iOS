@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CloudKit
 
 struct HRUserModelName {
     static let id = "id"

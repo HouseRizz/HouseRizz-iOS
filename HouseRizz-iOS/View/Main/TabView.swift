@@ -6,21 +6,37 @@
 //
 
 import SwiftUI
+import RevenueCat
+import RevenueCatUI
 
 struct TabbedView: View {
     @State var selectedTab = 0
+    @State var isPremium = false
+    
+    init() {
+        Purchases.logLevel = .debug
+        Purchases.configure(withAPIKey: Secrets.apiKey)
+    }
 
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
                 HomeView()
                     .tag(0)
-//                AIView()
-//                    .tag(1)
-//                CameraView()
-//                    .tag(2)
-                CategoryView()
+                AIImageGenerationView(isPremium: $isPremium)
                     .tag(1)
+                    .task {
+                        do {
+                            let customerInfo = try await Purchases.shared.customerInfo()
+                            isPremium = customerInfo.entitlements["premium"]?.isActive == true
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                CameraView()
+                    .tag(2)
+                CategoryView()
+                    .tag(3)
             }
 
             ZStack {

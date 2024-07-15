@@ -10,7 +10,7 @@ import Combine
 
 class SearchViewModel: ObservableObject {
     
-    @Published var selectedCity: String = availableCities.delhi.title
+    @Published var selectedCity: String = "delhi"
     @Published var error: String = ""
     @Published var products: [HRProduct] = []
     var cancellables = Set<AnyCancellable>()
