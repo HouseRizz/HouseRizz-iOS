@@ -244,9 +244,7 @@ struct SettingsView: View {
                     editablePhoneNumber = phoneNumber
                 }
             }
-            .sheet(item: $activeState) { state in
-                state.sheetView
-            }
+            .sheet(item: $activeState) { $0.sheetView }
             .alert(isPresented: $deleteAccount) {
                 Alert(title: Text("Delete Account"),
                       message: Text("This action will delete your account information, orders, and any other information"),
