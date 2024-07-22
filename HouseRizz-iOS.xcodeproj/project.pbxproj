@@ -599,6 +599,7 @@
 		CC3D28A02BC4009000C1E119 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				CCF3713C2C2C5439009A82E0 /* Secrets.swift */,
 				CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */,
 				CC97AEC92BBE4FD0007BB76C /* Assets.xcassets */,
 				CC2ACF932C10045B004C040B /* GoogleService-Info.plist */,
@@ -776,7 +777,6 @@
 				CCD3B0022BCA28B5000AFB80 /* TabView.swift */,
 				CC97AF042BBE5DE3007BB76C /* MainView.swift */,
 				CC06A97E2C0C97F000A0DAD3 /* NoNetworkView.swift */,
-				CCF3713C2C2C5439009A82E0 /* Secrets.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
