@@ -66,6 +66,9 @@
 		CC69BD722C243B6600491014 /* AIImageGenerationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */; };
 		CC69BD742C24406200491014 /* AIImageGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD732C24406200491014 /* AIImageGenerationView.swift */; };
 		CC69BD782C24525B00491014 /* GeneratedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD772C24525B00491014 /* GeneratedPhotoView.swift */; };
+		CC71DCF02CB14E2600E7F86E /* FirestoreDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC71DCED2CB14E2600E7F86E /* FirestoreDatabaseManager.swift */; };
+		CC71DCF12CB14E2600E7F86E /* RealtimeDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC71DCEE2CB14E2600E7F86E /* RealtimeDatabaseManager.swift */; };
+		CC71DCF32CB14E6D00E7F86E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = CC71DCF22CB14E6D00E7F86E /* FirebaseDatabase */; };
 		CC7B07C42C22D0F900627BC5 /* AdminInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */; };
 		CC7B07C72C22D15A00627BC5 /* AdminInventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */; };
 		CC7B07C92C22D33A00627BC5 /* AdminOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */; };
@@ -211,6 +214,8 @@
 		CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIImageGenerationViewModel.swift; sourceTree = "<group>"; };
 		CC69BD732C24406200491014 /* AIImageGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIImageGenerationView.swift; sourceTree = "<group>"; };
 		CC69BD772C24525B00491014 /* GeneratedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedPhotoView.swift; sourceTree = "<group>"; };
+		CC71DCED2CB14E2600E7F86E /* FirestoreDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDatabaseManager.swift; sourceTree = "<group>"; };
+		CC71DCEE2CB14E2600E7F86E /* RealtimeDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseManager.swift; sourceTree = "<group>"; };
 		CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryView.swift; sourceTree = "<group>"; };
 		CC7B07C62C22D15A00627BC5 /* AdminInventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryViewModel.swift; sourceTree = "<group>"; };
 		CC7B07C82C22D33A00627BC5 /* AdminOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrdersView.swift; sourceTree = "<group>"; };
@@ -299,6 +304,7 @@
 				CC97AEE52BBE5BF6007BB76C /* FirebaseAnalytics in Frameworks */,
 				CC97AF1C2BBE8109007BB76C /* ARPersistence in Frameworks */,
 				CC97AEF22BBE5C1D007BB76C /* GoogleSignInSwift in Frameworks */,
+				CC71DCF32CB14E6D00E7F86E /* FirebaseDatabase in Frameworks */,
 				CC97AEFB2BBE5CA7007BB76C /* FirebaseFirestoreCombine-Community in Frameworks */,
 				CC97AEE72BBE5BF7007BB76C /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				CC97AEFF2BBE5CB4007BB76C /* FirebaseStorage in Frameworks */,
@@ -578,6 +584,7 @@
 		CC3D289E2BC4005F00C1E119 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CC71DCEF2CB14E2600E7F86E /* Managers */,
 				CC2DBD562C2F2542007817C0 /* Helper */,
 				CC3D289F2BC4006700C1E119 /* Components */,
 				CC06A95A2C0C07DD00A0DAD3 /* Extensions */,
@@ -627,6 +634,15 @@
 				CCBB5A162C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift */,
 			);
 			path = AI;
+			sourceTree = "<group>";
+		};
+		CC71DCEF2CB14E2600E7F86E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CC71DCED2CB14E2600E7F86E /* FirestoreDatabaseManager.swift */,
+				CC71DCEE2CB14E2600E7F86E /* RealtimeDatabaseManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		CC7B07BC2C22CF0A00627BC5 /* Admin */ = {
@@ -919,6 +935,7 @@
 				CC69BD672C2428B900491014 /* Replicate */,
 				CC2B423E2C283246000456E5 /* RevenueCat */,
 				CC2B42402C283246000456E5 /* RevenueCatUI */,
+				CC71DCF22CB14E6D00E7F86E /* FirebaseDatabase */,
 			);
 			productName = "HouseRizz-iOS";
 			productReference = CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */;
@@ -1094,6 +1111,8 @@
 				CC4622F32C311CF6005C77F8 /* DeletionView.swift in Sources */,
 				CC11078D2C1456F200AB9F58 /* VendorOrdersViewModel.swift in Sources */,
 				CCD29BA82C3650470068079B /* AddCitiesView.swift in Sources */,
+				CC71DCF02CB14E2600E7F86E /* FirestoreDatabaseManager.swift in Sources */,
+				CC71DCF12CB14E2600E7F86E /* RealtimeDatabaseManager.swift in Sources */,
 				CC2DBD582C2F257D007817C0 /* ARSettingsView.swift in Sources */,
 				CCC5B03A2BFBB62F0007BEC1 /* HRProduct.swift in Sources */,
 				CC1107892C13F0EB00AB9F58 /* HROrder.swift in Sources */,
@@ -1404,6 +1423,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CC69BD662C2428B900491014 /* XCRemoteSwiftPackageReference "replicate-swift" */;
 			productName = Replicate;
+		};
+		CC71DCF22CB14E6D00E7F86E /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseDatabase;
 		};
 		CC97AEE42BBE5BF6007BB76C /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
