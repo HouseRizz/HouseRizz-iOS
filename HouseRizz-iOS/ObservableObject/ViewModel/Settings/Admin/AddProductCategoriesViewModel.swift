@@ -14,13 +14,10 @@ class AddProductCategoriesViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var selectedPhotoData = [Data]()
     var cancellables = Set<AnyCancellable>()
-    var urls: [URL] = []
-    var errors: [Error] = []
     
     func addButtonPressed(){
         guard !name.isEmpty else {return}
         addCategory(name: name)
-        
     }
     
     func clearItem() {
@@ -30,27 +27,25 @@ class AddProductCategoriesViewModel: ObservableObject {
     }
     
     private func addCategory(name: String) {
-        for (index, imageData) in selectedPhotoData.enumerated() {
-            guard let image = UIImage(data: imageData),
-                  let url = FileManager
-                                .default
-                                .urls(for: .cachesDirectory, in: .userDomainMask)
-                                .first?.appendingPathComponent("photo\(index + 1).jpg"),
-                  let data = image.jpegData(compressionQuality: 1.0) else { continue }
-            do {
-                try data.write(to: url)
-                urls.append(url)
-            } catch {
-                errors.append(error)
-            }
-        }
-        
-        guard let newCategory = HRProductCategory(id: UUID(), name: name, imageURL: urls[0] ) else {
-            error = "Error creating item"
+        guard let imageData = selectedPhotoData.first else {
+            error = "Please select an image"
             return
         }
         
-        CKUtility.add(item: newCategory) { _ in }
+        let categoryId = UUID()
+        let storagePath = "categories/\(categoryId.uuidString)/image.jpg"
+        
+        // Upload image to Firebase Storage, then create category
+        FirestoreUtility.uploadImage(data: imageData, path: storagePath) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let imageURL):
+                    let newCategory = HRProductCategory(id: categoryId, name: name, imageURL: imageURL)
+                    FirestoreUtility.add(item: newCategory) { _ in }
+                case .failure(let error):
+                    self?.error = error.localizedDescription
+                }
+            }
+        }
     }
-    
 }

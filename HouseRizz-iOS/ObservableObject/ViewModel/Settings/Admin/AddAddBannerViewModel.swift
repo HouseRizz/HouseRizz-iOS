@@ -10,18 +10,15 @@ import Combine
 
 class AddAddBannerViewModel: ObservableObject {
     @Published var error: String = ""
-    @Published var categories: [HRAddBanner] = []
+    @Published var banners: [HRAddBanner] = []
     @Published var name: String = ""
     @Published var sliderNumber: Int = 1
     @Published var selectedPhotoData = [Data]()
     var cancellables = Set<AnyCancellable>()
-    var urls: [URL] = []
-    var errors: [Error] = []
     
     func addButtonPressed(){
         guard !name.isEmpty else {return}
-        addCategory(name: name)
-        
+        addBanner(name: name)
     }
     
     func clearItem() {
@@ -30,28 +27,27 @@ class AddAddBannerViewModel: ObservableObject {
         selectedPhotoData = []
     }
     
-    private func addCategory(name: String) {
-        for (index, imageData) in selectedPhotoData.enumerated() {
-            guard let image = UIImage(data: imageData),
-                  let url = FileManager
-                                .default
-                                .urls(for: .cachesDirectory, in: .userDomainMask)
-                                .first?.appendingPathComponent("photo\(index + 1).jpg"),
-                  let data = image.jpegData(compressionQuality: 1.0) else { continue }
-            do {
-                try data.write(to: url)
-                urls.append(url)
-            } catch {
-                errors.append(error)
-            }
-        }
-        
-        guard let newAddBanner = HRAddBanner(id: UUID(), name: name, imageURL: urls[0], sliderNumber: sliderNumber ) else {
-            error = "Error creating item"
+    private func addBanner(name: String) {
+        guard let imageData = selectedPhotoData.first else {
+            error = "Please select an image"
             return
         }
         
-        CKUtility.add(item: newAddBanner) { _ in }
+        let bannerId = UUID()
+        let storagePath = "banners/\(bannerId.uuidString)/image.jpg"
+        
+        // Upload image to Firebase Storage, then create banner
+        FirestoreUtility.uploadImage(data: imageData, path: storagePath) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                switch result {
+                case .success(let imageURL):
+                    let newBanner = HRAddBanner(id: bannerId, name: name, imageURL: imageURL, sliderNumber: self.sliderNumber)
+                    FirestoreUtility.add(item: newBanner) { _ in }
+                case .failure(let error):
+                    self.error = error.localizedDescription
+                }
+            }
+        }
     }
-    
 }

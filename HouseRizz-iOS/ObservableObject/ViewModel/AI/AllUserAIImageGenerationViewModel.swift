@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import Combine
 
 @Observable
@@ -16,18 +15,13 @@ class AllUserAIImageGenerationViewModel {
     var cancellables = Set<AnyCancellable>()
     
     func fetchResult(for userName: String) {
-        let predicate = NSPredicate(format: "%K == %@", HRAIImageResultModelName.userName, userName)
-        let recordType = HRAIImageResultModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType)
+        FirestoreUtility.fetch(field: "userName", isEqualTo: userName)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HRAIImageResult]) in
                 self?.aiResult = returnedItems
             }
             .store(in: &cancellables)

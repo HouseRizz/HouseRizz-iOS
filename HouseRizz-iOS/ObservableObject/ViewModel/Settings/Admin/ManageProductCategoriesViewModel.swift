@@ -9,66 +9,39 @@ import SwiftUI
 import Combine
 
 class ManageProductCategoriesViewModel: ObservableObject {
-    @Published var isSignedInToiCloud: Bool = false
     @Published var error: String = ""
-    @Published var permissionStatus: Bool = false
     @Published var categories: [HRProductCategory] = []
     @Published var selectedPhotoData = [Data]()
     var cancellables = Set<AnyCancellable>()
     
     init(){
-        getiCloudStatus()
-        requestPermission()
         fetchCategories()
     }
     
-    private func getiCloudStatus(){
-        CKUtility.getiCloudStatus()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    self?.error = error.localizedDescription
-                }
-            } receiveValue: { [weak self] success in
-                self?.isSignedInToiCloud = success
-            }
-            .store(in: &cancellables)
-    }
-    
-    func requestPermission(){
-        CKUtility.requestApplicationPermission()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    self?.error = error.localizedDescription
-                }
-            } receiveValue: { [weak self] success in
-                self?.permissionStatus = success
-            }
-            .store(in: &cancellables)
-    }
-    
     func fetchCategories(){
-        let predicate = NSPredicate(value: true)
-        let recordType = HRProductCategoryModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
+        FirestoreUtility.fetch(sortBy: "name", ascending: true)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HRProductCategory]) in
                 self?.categories = returnedItems
             }
+            .store(in: &cancellables)
+    }
+    
+    func deleteCategory(_ category: HRProductCategory) {
+        FirestoreUtility.delete(item: category)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                if case .finished = completion {
+                    self?.fetchCategories()
+                }
+                if case .failure(let error) = completion {
+                    self?.error = error.localizedDescription
+                }
+            } receiveValue: { _ in }
             .store(in: &cancellables)
     }
 }

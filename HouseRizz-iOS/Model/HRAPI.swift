@@ -6,38 +6,23 @@
 //
 
 import Foundation
-import CloudKit
 
 struct HRAPIModelName {
     static let id = "id"
     static let name = "name"
     static let api = "api"
-    static let itemRecord = "API"
 }
 
-struct HRAPI: Hashable, Identifiable, CKitableProtocol {
+struct HRAPI: Hashable, Identifiable, Codable, FirestorableProtocol {
+    static let collectionName = "apis"
+    
     var id: UUID
     let name: String
     let api: String
-    let record: CKRecord
     
-    init?(record: CKRecord) {
-        guard let idString = record[HRAPIModelName.id] as? String, let id = UUID(uuidString: idString) else {
-            return nil
-        }
+    init(id: UUID = UUID(), name: String, api: String) {
         self.id = id
-        guard let name = record[HRAPIModelName.name] as? String else { return nil }
         self.name = name
-        guard let api = record[HRAPIModelName.api] as? String else { return nil }
         self.api = api
-        self.record = record
-    }
-    
-    init?(id: UUID, name: String, api: String) {
-        let record = CKRecord(recordType: HRAPIModelName.itemRecord)
-        record[HRAPIModelName.id] = id.uuidString
-        record[HRAPIModelName.name] = name
-        record[HRAPIModelName.api] = api
-        self.init(record: record)
     }
 }

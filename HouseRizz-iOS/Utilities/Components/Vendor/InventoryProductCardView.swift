@@ -13,15 +13,30 @@ struct InventoryProductCardView: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             VStack(alignment: .leading) {
-                if let url = product.imageURL1, let data = try? Data(contentsOf: url), let image = UIImage(data: data){
-                    Image(uiImage: image)
-                        .resizable()
-                        .frame(width: 175,height: 160)
-                        .cornerRadius(12)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(.gray, lineWidth: 0.5)
-                            )
+                if let url = product.imageURL1Value {
+                    AsyncImage(url: url) { phase in
+                        switch phase {
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .frame(width: 175, height: 160)
+                                .cornerRadius(12)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .stroke(.gray, lineWidth: 0.5)
+                                )
+                        case .failure(_):
+                            Image(systemName: "photo")
+                                .resizable()
+                                .frame(width: 175, height: 160)
+                                .foregroundColor(.gray)
+                        case .empty:
+                            ProgressView()
+                                .frame(width: 175, height: 160)
+                        @unknown default:
+                            EmptyView()
+                        }
+                    }
                 }
                 
                 Text(product.name)

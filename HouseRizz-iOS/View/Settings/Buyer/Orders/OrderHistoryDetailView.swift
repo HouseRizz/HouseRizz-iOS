@@ -14,7 +14,7 @@ struct OrderHistoryDetailView: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: order.imageURL, transaction: .init(animation: .default)) { phase in
+            AsyncImage(url: order.imageURLValue, transaction: .init(animation: .default)) { phase in
                 switch phase {
                     case .empty:
                         Image("DefaultProductImage")

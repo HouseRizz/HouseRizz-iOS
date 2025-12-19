@@ -13,12 +13,27 @@ struct CartProductView: View {
 
     var body: some View {
         HStack(spacing: 20) {
-            if let url = cartItem.product.imageURL1, let data = try? Data(contentsOf: url), let image = UIImage(data: data){
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 90, height: 110)
-                    .cornerRadius(15)
+            if let url = cartItem.product.imageURL1Value {
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 90, height: 110)
+                            .cornerRadius(15)
+                    case .failure(_):
+                        Image(systemName: "photo")
+                            .resizable()
+                            .frame(width: 90, height: 110)
+                            .foregroundColor(.gray)
+                    case .empty:
+                        ProgressView()
+                            .frame(width: 90, height: 110)
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
             }
             
 

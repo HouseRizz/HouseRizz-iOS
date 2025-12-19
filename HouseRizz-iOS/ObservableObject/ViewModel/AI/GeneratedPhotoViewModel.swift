@@ -15,18 +15,13 @@ class GeneratedPhotoViewModel {
     var cancellables = Set<AnyCancellable>()
     
     func fetchResult(for uniqueID: UUID) {
-        let predicate = NSPredicate(format: "%K == %@", HRAIImageResultModelName.id, uniqueID.uuidString)
-        let recordType = HRAIImageResultModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType)
+        FirestoreUtility.fetch(field: "id", isEqualTo: uniqueID.uuidString)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HRAIImageResult]) in
                 self?.aiResult = returnedItems.first
             }
             .store(in: &cancellables)

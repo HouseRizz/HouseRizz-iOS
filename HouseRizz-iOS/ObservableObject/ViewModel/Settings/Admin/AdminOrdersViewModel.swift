@@ -14,18 +14,13 @@ class AdminOrdersViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     func fetchOrders() {
-        let predicate = NSPredicate(value: true)
-        let recordType = HROrderModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType)
+        FirestoreUtility.fetch()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HROrder]) in
                 self?.orders = returnedItems
             }
             .store(in: &cancellables)

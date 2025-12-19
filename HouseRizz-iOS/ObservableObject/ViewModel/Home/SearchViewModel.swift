@@ -27,18 +27,13 @@ class SearchViewModel: ObservableObject {
     }
     
     func fetchItems(){
-        let predicate = NSPredicate(value: true)
-        let recordType = HRProductModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType)
+        FirestoreUtility.fetch()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HRProduct]) in
                 self?.products = returnedItems
             }
             .store(in: &cancellables)

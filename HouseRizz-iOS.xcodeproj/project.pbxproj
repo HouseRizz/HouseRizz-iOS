@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0000012EF57900004AAAAA /* FirestoreUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000002EF57900004AAAAA /* FirestoreUtility.swift */; };
 		CC0231582BCD47C8007CC053 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0231572BCD47C8007CC053 /* CategoryView.swift */; };
 		CC06A95C2C0C07F100A0DAD3 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A95B2C0C07F100A0DAD3 /* EncodableExtension.swift */; };
 		CC06A95E2C0C080500A0DAD3 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC06A95D2C0C080500A0DAD3 /* ColorExtension.swift */; };
@@ -20,7 +21,6 @@
 		CC1107892C13F0EB00AB9F58 /* HROrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1107882C13F0EB00AB9F58 /* HROrder.swift */; };
 		CC11078B2C14565400AB9F58 /* VendorOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11078A2C14565400AB9F58 /* VendorOrdersView.swift */; };
 		CC11078D2C1456F200AB9F58 /* VendorOrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11078C2C1456F200AB9F58 /* VendorOrdersViewModel.swift */; };
-		CC2ACF942C10045B004C040B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC2ACF932C10045B004C040B /* GoogleService-Info.plist */; };
 		CC2ACF962C100A7B004C040B /* ProductCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2ACF952C100A7B004C040B /* ProductCategoryViewModel.swift */; };
 		CC2ACF982C101026004C040B /* HRCartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2ACF972C101026004C040B /* HRCartItem.swift */; };
 		CC2B423F2C283246000456E5 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = CC2B423E2C283246000456E5 /* RevenueCat */; };
@@ -66,6 +66,7 @@
 		CC69BD722C243B6600491014 /* AIImageGenerationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */; };
 		CC69BD742C24406200491014 /* AIImageGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD732C24406200491014 /* AIImageGenerationView.swift */; };
 		CC69BD782C24525B00491014 /* GeneratedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69BD772C24525B00491014 /* GeneratedPhotoView.swift */; };
+		CC6ACE962EF5787A004B3B20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC6ACE952EF5787A004B3B20 /* GoogleService-Info.plist */; };
 		CC71DCF02CB14E2600E7F86E /* FirestoreDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC71DCED2CB14E2600E7F86E /* FirestoreDatabaseManager.swift */; };
 		CC71DCF12CB14E2600E7F86E /* RealtimeDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC71DCEE2CB14E2600E7F86E /* RealtimeDatabaseManager.swift */; };
 		CC71DCF32CB14E6D00E7F86E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = CC71DCF22CB14E6D00E7F86E /* FirebaseDatabase */; };
@@ -86,7 +87,6 @@
 		CC7B07E22C22EE3700627BC5 /* HRAddBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B07E12C22EE3700627BC5 /* HRAddBanner.swift */; };
 		CC82F8982C147FA800D978C8 /* OrderListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC82F8972C147FA800D978C8 /* OrderListItemView.swift */; };
 		CC8D4E962C04B6B10080BC0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */; };
-		CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9257F52BFB88AB0066F94B /* CKUtility.swift */; };
 		CC97AEC62BBE4FCE007BB76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */; };
 		CC97AEC82BBE4FCE007BB76C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97AEC72BBE4FCE007BB76C /* CameraView.swift */; };
 		CC97AECA2BBE4FD0007BB76C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC97AEC92BBE4FD0007BB76C /* Assets.xcassets */; };
@@ -158,6 +158,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC0000002EF57900004AAAAA /* FirestoreUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUtility.swift; sourceTree = "<group>"; };
 		CC0231572BCD47C8007CC053 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CC06A95B2C0C07F100A0DAD3 /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
 		CC06A95D2C0C080500A0DAD3 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -171,7 +172,6 @@
 		CC1107882C13F0EB00AB9F58 /* HROrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HROrder.swift; sourceTree = "<group>"; };
 		CC11078A2C14565400AB9F58 /* VendorOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorOrdersView.swift; sourceTree = "<group>"; };
 		CC11078C2C1456F200AB9F58 /* VendorOrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorOrdersViewModel.swift; sourceTree = "<group>"; };
-		CC2ACF932C10045B004C040B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CC2ACF952C100A7B004C040B /* ProductCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryViewModel.swift; sourceTree = "<group>"; };
 		CC2ACF972C101026004C040B /* HRCartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCartItem.swift; sourceTree = "<group>"; };
 		CC2DBD522C2F251A007817C0 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
@@ -214,6 +214,7 @@
 		CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIImageGenerationViewModel.swift; sourceTree = "<group>"; };
 		CC69BD732C24406200491014 /* AIImageGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIImageGenerationView.swift; sourceTree = "<group>"; };
 		CC69BD772C24525B00491014 /* GeneratedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedPhotoView.swift; sourceTree = "<group>"; };
+		CC6ACE952EF5787A004B3B20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CC71DCED2CB14E2600E7F86E /* FirestoreDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDatabaseManager.swift; sourceTree = "<group>"; };
 		CC71DCEE2CB14E2600E7F86E /* RealtimeDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseManager.swift; sourceTree = "<group>"; };
 		CC7B07C32C22D0F900627BC5 /* AdminInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInventoryView.swift; sourceTree = "<group>"; };
@@ -233,7 +234,6 @@
 		CC7B07E12C22EE3700627BC5 /* HRAddBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAddBanner.swift; sourceTree = "<group>"; };
 		CC82F8972C147FA800D978C8 /* OrderListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListItemView.swift; sourceTree = "<group>"; };
 		CC8D4E952C04B6B10080BC0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		CC9257F52BFB88AB0066F94B /* CKUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKUtility.swift; sourceTree = "<group>"; };
 		CC97AEC22BBE4FCE007BB76C /* HouseRizz-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HouseRizz-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC97AEC72BBE4FCE007BB76C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -379,12 +379,12 @@
 			path = CategoryPage;
 			sourceTree = "<group>";
 		};
-		CC06A9592C0C07D200A0DAD3 /* CloudKit */ = {
+		CC06A9592C0C07D200A0DAD3 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				CC9257F52BFB88AB0066F94B /* CKUtility.swift */,
+				CC0000002EF57900004AAAAA /* FirestoreUtility.swift */,
 			);
-			path = CloudKit;
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		CC06A95A2C0C07DD00A0DAD3 /* Extensions */ = {
@@ -588,7 +588,7 @@
 				CC2DBD562C2F2542007817C0 /* Helper */,
 				CC3D289F2BC4006700C1E119 /* Components */,
 				CC06A95A2C0C07DD00A0DAD3 /* Extensions */,
-				CC06A9592C0C07D200A0DAD3 /* CloudKit */,
+				CC06A9592C0C07D200A0DAD3 /* Firebase */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -607,9 +607,9 @@
 			isa = PBXGroup;
 			children = (
 				CCF3713C2C2C5439009A82E0 /* Secrets.swift */,
+				CC6ACE952EF5787A004B3B20 /* GoogleService-Info.plist */,
 				CC97AEC52BBE4FCE007BB76C /* AppDelegate.swift */,
 				CC97AEC92BBE4FD0007BB76C /* Assets.xcassets */,
-				CC2ACF932C10045B004C040B /* GoogleService-Info.plist */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -987,10 +987,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC6ACE962EF5787A004B3B20 /* GoogleService-Info.plist in Resources */,
 				CC97AECD2BBE4FD0007BB76C /* Preview Assets.xcassets in Resources */,
 				CC1026242C218908003FF6C4 /* Launch Screen.storyboard in Resources */,
 				CC97AECA2BBE4FD0007BB76C /* Assets.xcassets in Resources */,
-				CC2ACF942C10045B004C040B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1001,6 +1001,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0000012EF57900004AAAAA /* FirestoreUtility.swift in Sources */,
 				CC7B07D32C22DEE300627BC5 /* AddProductCategoriesView.swift in Sources */,
 				CC7B07DE2C22EDA900627BC5 /* ManageAddBannerViewModel.swift in Sources */,
 				CC97AF012BBE5CCE007BB76C /* HRUser.swift in Sources */,
@@ -1024,7 +1025,6 @@
 				CC7B07DC2C22ED8E00627BC5 /* AddAddBannerView.swift in Sources */,
 				CC06A97D2C0C97A100A0DAD3 /* NetworkManager.swift in Sources */,
 				CCA735562C1FDEE800053DDE /* LoginView.swift in Sources */,
-				CC9257F62BFB88AB0066F94B /* CKUtility.swift in Sources */,
 				CCC5B03C2BFBB6B80007BEC1 /* InventoryProductCardView.swift in Sources */,
 				CCBB5A192C2583DC00BD9E1F /* HRAIVibe.swift in Sources */,
 				CC2F47142BC8389B00A4C1FC /* CartViewModel.swift in Sources */,

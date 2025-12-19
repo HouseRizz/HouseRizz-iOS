@@ -10,7 +10,7 @@ import SwiftUI
 struct InventoryProductDetailView: View {
     var product: HRProduct
     private var imageUrls: [URL?] {
-        [product.imageURL1, product.imageURL2, product.imageURL3]
+        [product.imageURL1Value, product.imageURL2Value, product.imageURL3Value]
     }
     
     var body: some View {
@@ -19,12 +19,25 @@ struct InventoryProductDetailView: View {
                 ScrollView(.horizontal) {
                     LazyHStack {
                         ForEach(imageUrls.compactMap({ $0 }), id: \.self) { url in
-                            if let data = try? Data(contentsOf: url),
-                               let image = UIImage(data: data) {
-                                Image(uiImage: image)
-                                    .resizable()
-                                    .ignoresSafeArea(edges: .top)
-                                    .frame(width: 320, height: 300)
+                            AsyncImage(url: url) { phase in
+                                switch phase {
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                        .ignoresSafeArea(edges: .top)
+                                        .frame(width: 320, height: 300)
+                                case .failure(_):
+                                    Image(systemName: "photo")
+                                        .resizable()
+                                        .ignoresSafeArea(edges: .top)
+                                        .frame(width: 320, height: 300)
+                                        .foregroundColor(.gray)
+                                case .empty:
+                                    ProgressView()
+                                        .frame(width: 320, height: 300)
+                                @unknown default:
+                                    EmptyView()
+                                }
                             }
                         }
                     }

@@ -23,8 +23,6 @@ class AddProductViewModel: ObservableObject {
     @Published var isSuccess: Bool = false
     @Published var isLoaded: Bool = false
     @Published var categories: [HRProductCategory] = []
-    var urls: [URL] = []
-    var errors: [Error] = []
     var cancellables = Set<AnyCancellable>()
     var finalPrice: Double {
         let totalPrice = sellingPrice + (sellingPrice * taxRate / 100)
@@ -53,33 +51,58 @@ class AddProductViewModel: ObservableObject {
     private func addItem(name: String, vendorName: String) {
         guard !selectedPhotoData.isEmpty else {
             error = "Please select at least one image"
-            return
-        }
-        
-        for (index, imageData) in selectedPhotoData.enumerated() {
-            guard let image = UIImage(data: imageData),
-                  let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("photo\(index + 1).jpg"),
-                  let data = image.jpegData(compressionQuality: 1.0) else { continue }
-            do {
-                try data.write(to: url)
-                urls.append(url)
-            } catch {
-                errors.append(error)
-            }
-        }
-        
-        let selectedCategory = categories[selectedCategoryIndex].name
-        
-        guard let newItem = HRProduct(id: UUID(), name: name, description: description, price: finalPrice, imageURL1: urls.count > 0 ? urls[0] : nil, imageURL2: urls.count > 1 ? urls[1] : nil, imageURL3: urls.count > 2 ? urls[2] : nil, modelURL: modelURL, category: selectedCategory, supplier: vendorName, address: address) else {
-            error = "Error creating item"
             isLoaded = true
             return
         }
         
-        CKUtility.add(item: newItem) { [weak self] _ in
-            DispatchQueue.main.async {
-                self?.isLoaded = true
-                self?.isSuccess = true
+        let productId = UUID()
+        let selectedCategory = categories.isEmpty ? "" : categories[selectedCategoryIndex].name
+        
+        // Upload images and model to Firebase Storage
+        Task {
+            do {
+                var imageURLs: [String?] = [nil, nil, nil]
+                
+                // Upload images
+                for (index, imageData) in selectedPhotoData.prefix(3).enumerated() {
+                    let storagePath = "products/\(productId.uuidString)/image\(index + 1).jpg"
+                    let url = try await FirestoreUtility.uploadImage(data: imageData, path: storagePath)
+                    imageURLs[index] = url
+                }
+                
+                // Upload 3D model if exists
+                var modelURLString: String? = nil
+                if let modelURL = modelURL {
+                    let storagePath = "products/\(productId.uuidString)/model.usdz"
+                    modelURLString = try await FirestoreUtility.uploadFile(from: modelURL, to: storagePath, contentType: "model/vnd.usdz+zip")
+                }
+                
+                // Create and save product
+                let newProduct = HRProduct(
+                    id: productId,
+                    name: name,
+                    description: description,
+                    price: finalPrice,
+                    imageURL1: imageURLs[0],
+                    imageURL2: imageURLs[1],
+                    imageURL3: imageURLs[2],
+                    modelURL: modelURLString,
+                    category: selectedCategory,
+                    supplier: vendorName,
+                    address: address
+                )
+                
+                _ = try await FirestoreUtility.add(item: newProduct)
+                
+                await MainActor.run {
+                    self.isLoaded = true
+                    self.isSuccess = true
+                }
+            } catch {
+                await MainActor.run {
+                    self.error = error.localizedDescription
+                    self.isLoaded = true
+                }
             }
         }
     }
@@ -105,18 +128,13 @@ class AddProductViewModel: ObservableObject {
     }
     
     func fetchCategories() {
-        let predicate = NSPredicate(value: true)
-        let recordType = HRProductCategoryModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
+        FirestoreUtility.fetch(sortBy: "name", ascending: true)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HRProductCategory]) in
                 self?.categories = returnedItems
             }
             .store(in: &cancellables)

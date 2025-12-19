@@ -6,41 +6,29 @@
 //
 
 import Foundation
-import CloudKit
 
 struct HRAIVibeModelName {
     static let id = "id"
     static let name = "name"
     static let imageURL = "imageURL"
-    static let itemRecord = "AIVibe"
 }
 
-struct HRAIVibe: Hashable, Identifiable, CKitableProtocol {
+struct HRAIVibe: Hashable, Identifiable, Codable, FirestorableProtocol {
+    static let collectionName = "aiVibes"
+    
     var id: UUID
     let name: String
-    let imageURL: URL?
-    let record: CKRecord
+    let imageURL: String?
     
-    init?(record: CKRecord) {
-        guard let idString = record[HRAIVibeModelName.id] as? String, let id = UUID(uuidString: idString) else {
-            return nil
-        }
+    init(id: UUID = UUID(), name: String, imageURL: String? = nil) {
         self.id = id
-        guard let name = record[HRAIVibeModelName.name] as? String else { return nil }
         self.name = name
-        let imageAsset = record[HRAIVibeModelName.imageURL] as? CKAsset
-        self.imageURL = imageAsset?.fileURL
-        self.record = record
+        self.imageURL = imageURL
     }
     
-    init?(id: UUID, name: String, imageURL: URL?) {
-        let record = CKRecord(recordType: HRAIVibeModelName.itemRecord)
-        record[HRAIVibeModelName.id] = id.uuidString
-        record[HRAIVibeModelName.name] = name
-        if let url = imageURL {
-            let asset = CKAsset(fileURL: url)
-            record[HRAIVibeModelName.imageURL] = asset
-        }
-        self.init(record: record)
+    /// Convenience computed property to get URL from string
+    var imageURLValue: URL? {
+        guard let urlString = imageURL else { return nil }
+        return URL(string: urlString)
     }
 }

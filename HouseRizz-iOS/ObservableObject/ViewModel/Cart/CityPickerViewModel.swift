@@ -19,18 +19,13 @@ class CityPickerViewModel {
     }
     
     func fetchCities(){
-        let predicate = NSPredicate(value: true)
-        let recordType = HRCityModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
+        FirestoreUtility.fetch(sortBy: "name", ascending: true)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HRCity]) in
                 self?.cities = returnedItems
             }
             .store(in: &cancellables)

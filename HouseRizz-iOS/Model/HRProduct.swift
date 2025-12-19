@@ -1,12 +1,11 @@
 //
-//  HRCKProduct.swift
+//  HRProduct.swift
 //  HouseRizz-iOS
 //
 //  Created by Krish Mittal on 20/05/24.
 //
 
 import Foundation
-import CloudKit
 
 struct HRProductModelName {
     static let id = "id"
@@ -20,10 +19,11 @@ struct HRProductModelName {
     static let imageURL2 = "imageURL2"
     static let imageURL3 = "imageURL3"
     static let modelURL = "modelURL"
-    static let itemRecord = "Products"
 }
 
-struct HRProduct: Hashable, Identifiable, CKitableProtocol {
+struct HRProduct: Hashable, Identifiable, Codable, FirestorableProtocol {
+    static let collectionName = "products"
+    
     var id: UUID
     let category: String
     let name: String
@@ -31,69 +31,55 @@ struct HRProduct: Hashable, Identifiable, CKitableProtocol {
     let supplier: String
     let address: String
     let price: Double?
-    let imageURL1: URL?
-    let imageURL2: URL?
-    let imageURL3: URL?
-    let modelURL: URL?
-    let record: CKRecord
-
-    init?(record: CKRecord) {
-        guard let idString = record[HRProductModelName.id] as? String, let id = UUID(uuidString: idString) else {
-            return nil
-        }
+    let imageURL1: String?
+    let imageURL2: String?
+    let imageURL3: String?
+    let modelURL: String?
+    
+    init(
+        id: UUID = UUID(),
+        name: String,
+        description: String? = nil,
+        price: Double? = nil,
+        imageURL1: String? = nil,
+        imageURL2: String? = nil,
+        imageURL3: String? = nil,
+        modelURL: String? = nil,
+        category: String,
+        supplier: String,
+        address: String
+    ) {
         self.id = id
-        guard let name = record[HRProductModelName.name] as? String else { return nil }
         self.name = name
-        guard let description = record[HRProductModelName.description] as? String else { return nil }
         self.description = description
-        guard let category = record[HRProductModelName.category] as? String else { return nil }
-        self.category = category
-        guard let supplier = record[HRProductModelName.supplier] as? String else { return nil }
-        self.supplier = supplier
-        guard let address = record[HRProductModelName.address] as? String else { return nil }
-        self.address = address
-        guard let price = record[HRProductModelName.price] as? Double else { return nil }
         self.price = price
-        let imageAsset1 = record[HRProductModelName.imageURL1] as? CKAsset
-        self.imageURL1 = imageAsset1?.fileURL
-        let imageAsset2 = record[HRProductModelName.imageURL2] as? CKAsset
-        self.imageURL2 = imageAsset2?.fileURL
-        let imageAsset3 = record[HRProductModelName.imageURL3] as? CKAsset
-        self.imageURL3 = imageAsset3?.fileURL
-        let modelURL = record[HRProductModelName.modelURL] as? CKAsset
-        self.modelURL = modelURL?.fileURL
-        self.record = record
+        self.imageURL1 = imageURL1
+        self.imageURL2 = imageURL2
+        self.imageURL3 = imageURL3
+        self.modelURL = modelURL
+        self.category = category
+        self.supplier = supplier
+        self.address = address
     }
-
-    init?(id: UUID, name: String, description: String?, price: Double?, imageURL1: URL?, imageURL2: URL?, imageURL3: URL?, modelURL: URL?, category: String?, supplier: String?, address: String?) {
-        let record = CKRecord(recordType: HRProductModelName.itemRecord)
-        record[HRProductModelName.id] = id.uuidString
-        record[HRProductModelName.name] = name
-        record[HRProductModelName.description] = description
-        record[HRProductModelName.price] = price
-        if (category != nil) {
-            record[HRProductModelName.category] = category
-        }
-        if (supplier != nil) {
-            record[HRProductModelName.supplier] = supplier
-        }
-        record[HRProductModelName.address] = address
-        if let url1 = imageURL1 {
-            let asset1 = CKAsset(fileURL: url1)
-            record[HRProductModelName.imageURL1] = asset1
-        }
-        if let url2 = imageURL2 {
-            let asset2 = CKAsset(fileURL: url2)
-            record[HRProductModelName.imageURL2] = asset2
-        }
-        if let url3 = imageURL3 {
-            let asset3 = CKAsset(fileURL: url3)
-            record[HRProductModelName.imageURL3] = asset3
-        }
-        if let modelURL = modelURL {
-            let modelAsset = CKAsset(fileURL: modelURL)
-            record[HRProductModelName.modelURL] = modelAsset
-        }
-        self.init(record: record)
+    
+    /// Convenience computed properties to get URLs from strings
+    var imageURL1Value: URL? {
+        guard let urlString = imageURL1 else { return nil }
+        return URL(string: urlString)
+    }
+    
+    var imageURL2Value: URL? {
+        guard let urlString = imageURL2 else { return nil }
+        return URL(string: urlString)
+    }
+    
+    var imageURL3Value: URL? {
+        guard let urlString = imageURL3 else { return nil }
+        return URL(string: urlString)
+    }
+    
+    var modelURLValue: URL? {
+        guard let urlString = modelURL else { return nil }
+        return URL(string: urlString)
     }
 }

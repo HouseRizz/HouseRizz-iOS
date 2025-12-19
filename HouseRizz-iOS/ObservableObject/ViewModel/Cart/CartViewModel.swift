@@ -17,21 +17,21 @@ class CartViewModel: ObservableObject {
     
     func sendOrder(buyerName: String, buyerEmail: String, buyerPhoneNumber: String?, buyerAddress: String?) {
         for product in products {
-            guard let newOrder = HROrder(id: orderId,
-                                         name: product.product.name,
-                                         price: product.product.price,
-                                         quantity: product.quantity,
-                                         imageURL: product.product.imageURL1,
-                                         supplier: product.product.supplier,
-                                         buyerName: buyerName,
-                                         buyerEmail: buyerEmail,
-                                         buyerPhoneNumber: buyerPhoneNumber,
-                                         buyerAddress: buyerAddress,
-                                         dateOfOrder: dateOfOrder.timeIntervalSince1970,
-                                         orderStatus: orderStatus)
-                    
-            else { continue }
-            CKUtility.add(item: newOrder) { _ in }
+            let newOrder = HROrder(
+                id: orderId,
+                name: product.product.name,
+                price: product.product.price,
+                quantity: product.quantity,
+                imageURL: product.product.imageURL1,
+                supplier: product.product.supplier,
+                buyerName: buyerName,
+                buyerEmail: buyerEmail,
+                buyerPhoneNumber: buyerPhoneNumber,
+                buyerAddress: buyerAddress,
+                dateOfOrder: dateOfOrder.timeIntervalSince1970,
+                orderStatus: orderStatus
+            )
+            FirestoreUtility.add(item: newOrder) { _ in }
         }
     }
 }
@@ -71,5 +71,3 @@ extension CartViewModel {
         }
     }
 }
-
-

@@ -19,15 +19,31 @@ struct ManageCitiesView: View {
                         ForEach(viewModel.cities.indices, id: \.self) { index in
                             let city = viewModel.cities[index]
                             VStack {
-                                if let url = city.imageURL, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .frame(width: 100, height: 100)
-                                        .cornerRadius(12)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 12)
-                                                .stroke(.gray, lineWidth: 0.5)
-                                        )
+                                if let url = city.imageURLValue {
+                                    AsyncImage(url: url) { phase in
+                                        switch phase {
+                                        case .success(let image):
+                                            image
+                                                .resizable()
+                                                .frame(width: 100, height: 100)
+                                                .cornerRadius(12)
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 12)
+                                                        .stroke(.gray, lineWidth: 0.5)
+                                                )
+                                        case .failure(_):
+                                            Image(systemName: "building.2")
+                                                .resizable()
+                                                .frame(width: 100, height: 100)
+                                                .cornerRadius(12)
+                                                .foregroundColor(.gray)
+                                        case .empty:
+                                            ProgressView()
+                                                .frame(width: 100, height: 100)
+                                        @unknown default:
+                                            EmptyView()
+                                        }
+                                    }
                                 }
                                 
                                 VStack {

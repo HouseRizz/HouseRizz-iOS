@@ -54,12 +54,16 @@ class AIImageGenerationViewModel {
     }
     
     private func addResult(user: String) {
-        guard let newResult = HRAIImageResult(id: uniqueID, userName: user, imageURL: imageURL, vibe: vibe, type: type, created: Date().timeIntervalSince1970) else {
-            error = "Error creating item"
-            return
-        }
+        let newResult = HRAIImageResult(
+            id: uniqueID,
+            userName: user,
+            imageURL: imageURL,
+            vibe: vibe,
+            type: type,
+            created: Date().timeIntervalSince1970
+        )
         
-        CKUtility.add(item: newResult) { _ in }
+        FirestoreUtility.add(item: newResult) { _ in }
     }
     
     func loadSelectedPhoto() {
@@ -105,54 +109,39 @@ class AIImageGenerationViewModel {
     }
     
     func fetchAPI() {
-        let predicate = NSPredicate(format: "%K == %@", HRAPIModelName.name, "Replicate")
-        let recordType = HRAPIModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType)
+        FirestoreUtility.fetch(field: "name", isEqualTo: "Replicate")
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HRAPI]) in
                 self?.apis = returnedItems
             }
             .store(in: &cancellables)
     }
     
     func fetchVibes(){
-        let predicate = NSPredicate(value: true)
-        let recordType = HRAIVibeModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
+        FirestoreUtility.fetch(sortBy: "name", ascending: true)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HRAIVibe]) in
                 self?.vibes = returnedItems
             }
             .store(in: &cancellables)
     }
     
     func fetchCategories(){
-        let predicate = NSPredicate(value: true)
-        let recordType = HRProductCategoryModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
+        FirestoreUtility.fetch(sortBy: "name", ascending: true)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HRProductCategory]) in
                 self?.categories = returnedItems
             }
             .store(in: &cancellables)

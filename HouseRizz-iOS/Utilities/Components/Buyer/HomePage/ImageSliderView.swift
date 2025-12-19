@@ -14,12 +14,27 @@ struct ImageSliderView: View {
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             ZStack(alignment: .trailing) {
-                if let url = slides[currentIndex].imageURL, let data = try? Data(contentsOf: url), let image = UIImage(data: data){
-                    Image(uiImage: image)
-                        .resizable()
-                        .frame(width: .none, height: 180)
-                        .scaledToFit()
-                        .cornerRadius(15)
+                if slides.indices.contains(currentIndex), let url = slides[currentIndex].imageURLValue {
+                    AsyncImage(url: url) { phase in
+                        switch phase {
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .frame(width: .none, height: 180)
+                                .scaledToFit()
+                                .cornerRadius(15)
+                        case .failure(_):
+                            Image(systemName: "photo")
+                                .resizable()
+                                .frame(width: .none, height: 180)
+                                .foregroundColor(.gray)
+                        case .empty:
+                            ProgressView()
+                                .frame(width: .none, height: 180)
+                        @unknown default:
+                            EmptyView()
+                        }
+                    }
                 }
             }
             

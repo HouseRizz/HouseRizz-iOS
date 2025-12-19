@@ -14,14 +14,11 @@ class AddCitiesViewModel {
     var cities: [HRCity] = []
     var selectedPhotoData = [Data]()
     var cancellables = Set<AnyCancellable>()
-    var urls: [URL] = []
-    var errors: [Error] = []
     var name: String = ""
     
     func addButtonPressed(){
         guard !name.isEmpty else {return}
         addCity(name: name)
-        
     }
     
     func clearItem() {
@@ -31,26 +28,25 @@ class AddCitiesViewModel {
     }
     
     private func addCity(name: String) {
-        for (index, imageData) in selectedPhotoData.enumerated() {
-            guard let image = UIImage(data: imageData),
-                  let url = FileManager
-                                .default
-                                .urls(for: .cachesDirectory, in: .userDomainMask)
-                                .first?.appendingPathComponent("photo\(index + 1).jpg"),
-                  let data = image.jpegData(compressionQuality: 1.0) else { continue }
-            do {
-                try data.write(to: url)
-                urls.append(url)
-            } catch {
-                errors.append(error)
-            }
-        }
-        
-        guard let newCity = HRCity(id: UUID(), name: name, imageURL: urls[0] ) else {
-            error = "Error creating item"
+        guard let imageData = selectedPhotoData.first else {
+            error = "Please select an image"
             return
         }
         
-        CKUtility.add(item: newCity) { _ in }
+        let cityId = UUID()
+        let storagePath = "cities/\(cityId.uuidString)/image.jpg"
+        
+        // Upload image to Firebase Storage, then create city
+        FirestoreUtility.uploadImage(data: imageData, path: storagePath) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let imageURL):
+                    let newCity = HRCity(id: cityId, name: name, imageURL: imageURL)
+                    FirestoreUtility.add(item: newCity) { _ in }
+                case .failure(let error):
+                    self?.error = error.localizedDescription
+                }
+            }
+        }
     }
 }

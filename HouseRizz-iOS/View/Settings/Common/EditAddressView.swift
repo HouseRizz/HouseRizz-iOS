@@ -103,11 +103,27 @@ struct EditAddressView: View {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(viewModel.cities, id: \.id) { city in
                         VStack {
-                            if let url = city.imageURL, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                                Image(uiImage: image)
-                                    .resizable()
-                                    .frame(width: 100, height: 100)
-                                    .cornerRadius(20)
+                            if let url = city.imageURLValue {
+                                AsyncImage(url: url) { phase in
+                                    switch phase {
+                                    case .success(let image):
+                                        image
+                                            .resizable()
+                                            .frame(width: 100, height: 100)
+                                            .cornerRadius(20)
+                                    case .failure(_):
+                                        Image(systemName: "building.2")
+                                            .resizable()
+                                            .frame(width: 100, height: 100)
+                                            .cornerRadius(20)
+                                            .foregroundColor(.gray)
+                                    case .empty:
+                                        ProgressView()
+                                            .frame(width: 100, height: 100)
+                                    @unknown default:
+                                        EmptyView()
+                                    }
+                                }
                             } else {
                                 Image(systemName: "building.2")
                                     .resizable()

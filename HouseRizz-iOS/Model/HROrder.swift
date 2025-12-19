@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CloudKit
 
 struct HROrderModelName {
     static let id = "id"
@@ -21,82 +20,63 @@ struct HROrderModelName {
     static let buyerAddress = "buyerAddress"
     static let dateOfOrder = "dateOfOrder"
     static let orderStatus = "orderStatus"
-    static let itemRecord = "Orders"
 }
 
-struct HROrder: Hashable, Identifiable, CKitableProtocol {
+struct HROrder: Hashable, Identifiable, Codable, FirestorableProtocol {
+    static let collectionName = "orders"
+    
     var id: UUID
     let name: String
     let supplier: String
     let price: Double?
     let quantity: Int?
-    let imageURL: URL?
+    let imageURL: String?
     let buyerName: String
     let buyerEmail: String
     let buyerPhoneNumber: String?
     let buyerAddress: String?
     let dateOfOrder: TimeInterval
-    let orderStatus: String
-    let record: CKRecord
+    var orderStatus: String
     
-    init?(record: CKRecord) {
-        guard let idString = record[HROrderModelName.id] as? String, let id = UUID(uuidString: idString) else {
-            return nil
-        }
+    init(
+        id: UUID = UUID(),
+        name: String,
+        price: Double? = nil,
+        quantity: Int? = nil,
+        imageURL: String? = nil,
+        supplier: String,
+        buyerName: String,
+        buyerEmail: String,
+        buyerPhoneNumber: String? = nil,
+        buyerAddress: String? = nil,
+        dateOfOrder: TimeInterval = Date().timeIntervalSince1970,
+        orderStatus: String = OrderStatus.toBeConfirmed.title
+    ) {
         self.id = id
-        guard let name = record[HROrderModelName.name] as? String else { return nil }
         self.name = name
-        guard let supplier = record[HROrderModelName.supplier] as? String else { return nil }
         self.supplier = supplier
-        guard let price = record[HROrderModelName.price] as? Double else { return nil }
         self.price = price
-        guard let quantity = record[HROrderModelName.quantity] as? Int else { return nil }
         self.quantity = quantity
-        let imageAsset = record[HROrderModelName.imageURL] as? CKAsset
-        self.imageURL = imageAsset?.fileURL
-        guard let buyerName = record[HROrderModelName.buyerName] as? String else { return nil }
+        self.imageURL = imageURL
         self.buyerName = buyerName
-        guard let buyerEmail = record[HROrderModelName.buyerEmail] as? String else { return nil }
         self.buyerEmail = buyerEmail
-        guard let buyerPhoneNumber = record[HROrderModelName.buyerPhoneNumber] as? String else { return nil }
         self.buyerPhoneNumber = buyerPhoneNumber
-        guard let buyerAddress = record[HROrderModelName.buyerAddress] as? String else { return nil }
         self.buyerAddress = buyerAddress
-        guard let dateOfOrder = record[HROrderModelName.dateOfOrder] as? TimeInterval else { return nil }
         self.dateOfOrder = dateOfOrder
-        guard let orderStatus = record[HROrderModelName.orderStatus] as? String else { return nil }
         self.orderStatus = orderStatus
-        self.record = record
     }
     
-    init?(id: UUID, name: String, price: Double?, quantity: Int?, imageURL: URL?,  supplier: String? , buyerName: String, buyerEmail: String?, buyerPhoneNumber: String?, buyerAddress: String?, dateOfOrder: TimeInterval, orderStatus: String?) {
-        let record = CKRecord(recordType: HROrderModelName.itemRecord)
-        record[HROrderModelName.id] = id.uuidString
-        record[HROrderModelName.name] = name
-        record[HROrderModelName.supplier] = supplier
-        record[HROrderModelName.price] = price
-        record[HROrderModelName.quantity] = quantity
-        if let url = imageURL {
-            let asset = CKAsset(fileURL: url)
-            record[HROrderModelName.imageURL] = asset
-        }
-        record[HROrderModelName.buyerName] = buyerName
-        record[HROrderModelName.buyerEmail] = buyerEmail
-        if (buyerPhoneNumber != nil) {
-            record[HROrderModelName.buyerPhoneNumber] = buyerPhoneNumber
-        }
-        if (buyerAddress != nil) {
-            record[HROrderModelName.buyerAddress] = buyerAddress
-        }
-        record[HROrderModelName.dateOfOrder] = dateOfOrder
-        record[HROrderModelName.orderStatus] = orderStatus
-        self.init(record: record)
+    /// Convenience computed property to get URL from string
+    var imageURLValue: URL? {
+        guard let urlString = imageURL else { return nil }
+        return URL(string: urlString)
     }
     
-    func updateOrderStatus(status: String) -> HROrder? {
-        let record = record
-        record[HROrderModelName.orderStatus] = status
-        return HROrder(record: record)
+    /// Returns a new order with updated status
+    func withUpdatedStatus(_ status: String) -> HROrder {
+        var updatedOrder = self
+        updatedOrder.orderStatus = status
+        return updatedOrder
     }
 }
 

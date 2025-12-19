@@ -25,39 +25,28 @@ class HomeViewModel: ObservableObject {
     }
     
     func fetchItems(){
-        let predicate = NSPredicate(value: true)
-        let recordType = HRProductModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType)
+        FirestoreUtility.fetch()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HRProduct]) in
                 self?.products = returnedItems
             }
             .store(in: &cancellables)
     }
     
     func fetchAddBanners(){
-        let predicate = NSPredicate(value: true)
-        let recordType = HRAddBannerModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
+        FirestoreUtility.fetch(sortBy: "name", ascending: true)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HRAddBanner]) in
                 self?.adds = returnedItems
             }
             .store(in: &cancellables)
     }
 }
-

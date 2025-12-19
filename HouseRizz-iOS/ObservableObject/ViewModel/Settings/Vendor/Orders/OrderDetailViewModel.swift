@@ -21,8 +21,8 @@ class OrderDetailViewModel: ObservableObject {
     }
 
     func updateOrderStatus(order: HROrder) {
-        guard let newOrder = order.updateOrderStatus(status: selectedOrderStatus.title) else { return }
-        CKUtility.update(item: newOrder) { [weak self] _ in
+        let updatedOrder = order.withUpdatedStatus(selectedOrderStatus.title)
+        FirestoreUtility.update(item: updatedOrder) { [weak self] _ in
             DispatchQueue.main.async {
                 self?.isChangedStatus.toggle()
             }

@@ -14,14 +14,11 @@ class AddAIVibeViewModel {
     var vibes: [HRAIVibe] = []
     var selectedPhotoData = [Data]()
     var cancellables = Set<AnyCancellable>()
-    var urls: [URL] = []
-    var errors: [Error] = []
     var name: String = ""
     
     func addButtonPressed(){
         guard !name.isEmpty else {return}
         addVibe(name: name)
-        
     }
     
     func clearItem() {
@@ -31,26 +28,25 @@ class AddAIVibeViewModel {
     }
     
     private func addVibe(name: String) {
-        for (index, imageData) in selectedPhotoData.enumerated() {
-            guard let image = UIImage(data: imageData),
-                  let url = FileManager
-                                .default
-                                .urls(for: .cachesDirectory, in: .userDomainMask)
-                                .first?.appendingPathComponent("photo\(index + 1).jpg"),
-                  let data = image.jpegData(compressionQuality: 1.0) else { continue }
-            do {
-                try data.write(to: url)
-                urls.append(url)
-            } catch {
-                errors.append(error)
-            }
-        }
-        
-        guard let newVibe = HRAIVibe(id: UUID(), name: name, imageURL: urls[0] ) else {
-            error = "Error creating item"
+        guard let imageData = selectedPhotoData.first else {
+            error = "Please select an image"
             return
         }
         
-        CKUtility.add(item: newVibe) { _ in }
+        let vibeId = UUID()
+        let storagePath = "vibes/\(vibeId.uuidString)/image.jpg"
+        
+        // Upload image to Firebase Storage, then create vibe
+        FirestoreUtility.uploadImage(data: imageData, path: storagePath) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let imageURL):
+                    let newVibe = HRAIVibe(id: vibeId, name: name, imageURL: imageURL)
+                    FirestoreUtility.add(item: newVibe) { _ in }
+                case .failure(let error):
+                    self?.error = error.localizedDescription
+                }
+            }
+        }
     }
 }

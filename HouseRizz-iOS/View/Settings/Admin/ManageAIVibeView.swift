@@ -19,15 +19,30 @@ struct ManageAIVibeView: View {
                         ForEach(viewModel.vibes.indices, id: \.self) { index in
                             let vibe = viewModel.vibes[index]
                             VStack {
-                                if let url = vibe.imageURL, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .frame(width: 100, height: 100)
-                                        .cornerRadius(12)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 12)
-                                                .stroke(.gray, lineWidth: 0.5)
-                                        )
+                                if let url = vibe.imageURLValue {
+                                    AsyncImage(url: url) { phase in
+                                        switch phase {
+                                        case .success(let image):
+                                            image
+                                                .resizable()
+                                                .frame(width: 100, height: 100)
+                                                .cornerRadius(12)
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 12)
+                                                        .stroke(.gray, lineWidth: 0.5)
+                                                )
+                                        case .failure(_):
+                                            Image(systemName: "photo")
+                                                .resizable()
+                                                .frame(width: 100, height: 100)
+                                                .foregroundColor(.gray)
+                                        case .empty:
+                                            ProgressView()
+                                                .frame(width: 100, height: 100)
+                                        @unknown default:
+                                            EmptyView()
+                                        }
+                                    }
                                 }
                                 
                                 VStack {

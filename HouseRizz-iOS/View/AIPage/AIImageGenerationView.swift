@@ -53,16 +53,33 @@ struct AIImageGenerationView: View {
                                         viewModel.type = viewModel.categories[category].name
                                     } label: {
                                         VStack {
-                                            if let url = viewModel.categories[category].imageURL, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                                                Image(uiImage: image)
-                                                    .resizable()
-                                                    .background(Color.primaryColor)
-                                                    .scaledToFill()
-                                                    .frame(width: reader.size.width * 0.4, height: reader.size.width * 0.4 * 1.4)
-                                                    .overlay {
-                                                        RoundedRectangle(cornerRadius: 20).stroke(Color.primaryColor, lineWidth: viewModel.categories[category].name == viewModel.type ? 3 : 0)
+                                            if let url = viewModel.categories[category].imageURLValue {
+                                                AsyncImage(url: url) { phase in
+                                                    switch phase {
+                                                    case .success(let image):
+                                                        image
+                                                            .resizable()
+                                                            .background(Color.primaryColor)
+                                                            .scaledToFill()
+                                                            .frame(width: reader.size.width * 0.4, height: reader.size.width * 0.4 * 1.4)
+                                                            .overlay {
+                                                                RoundedRectangle(cornerRadius: 20).stroke(Color.primaryColor, lineWidth: viewModel.categories[category].name == viewModel.type ? 3 : 0)
+                                                            }
+                                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                                    case .failure(_):
+                                                        Image(systemName: "photo")
+                                                            .resizable()
+                                                            .background(Color.primaryColor)
+                                                            .scaledToFill()
+                                                            .frame(width: reader.size.width * 0.4, height: reader.size.width * 0.4 * 1.4)
+                                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                                    case .empty:
+                                                        ProgressView()
+                                                            .frame(width: reader.size.width * 0.4, height: reader.size.width * 0.4 * 1.4)
+                                                    @unknown default:
+                                                        EmptyView()
                                                     }
-                                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                                                }
                                             }
                                             
                                             Text(viewModel.categories[category].name)
@@ -86,16 +103,33 @@ struct AIImageGenerationView: View {
                                         viewModel.vibe = viewModel.vibes[vibe].name
                                     } label: {
                                         VStack {
-                                            if let url = viewModel.vibes[vibe].imageURL, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                                                Image(uiImage: image)
-                                                    .resizable()
-                                                    .background(Color.primaryColor)
-                                                    .scaledToFill()
-                                                    .frame(width: reader.size.width * 0.4, height: reader.size.width * 0.4 * 1.4)
-                                                    .overlay {
-                                                        RoundedRectangle(cornerRadius: 20).stroke(Color.primaryColor, lineWidth: viewModel.vibes[vibe].name == viewModel.vibe ? 3 : 0)
+                                            if let url = viewModel.vibes[vibe].imageURLValue {
+                                                AsyncImage(url: url) { phase in
+                                                    switch phase {
+                                                    case .success(let image):
+                                                        image
+                                                            .resizable()
+                                                            .background(Color.primaryColor)
+                                                            .scaledToFill()
+                                                            .frame(width: reader.size.width * 0.4, height: reader.size.width * 0.4 * 1.4)
+                                                            .overlay {
+                                                                RoundedRectangle(cornerRadius: 20).stroke(Color.primaryColor, lineWidth: viewModel.vibes[vibe].name == viewModel.vibe ? 3 : 0)
+                                                            }
+                                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                                    case .failure(_):
+                                                        Image(systemName: "photo")
+                                                            .resizable()
+                                                            .background(Color.primaryColor)
+                                                            .scaledToFill()
+                                                            .frame(width: reader.size.width * 0.4, height: reader.size.width * 0.4 * 1.4)
+                                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                                    case .empty:
+                                                        ProgressView()
+                                                            .frame(width: reader.size.width * 0.4, height: reader.size.width * 0.4 * 1.4)
+                                                    @unknown default:
+                                                        EmptyView()
                                                     }
-                                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                                                }
                                             }
                                             
                                             Text(viewModel.vibes[vibe].name)

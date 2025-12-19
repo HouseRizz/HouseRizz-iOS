@@ -19,12 +19,27 @@ struct ManageAddBannerView: View {
                         let add = viewModel.adds[index]
                         ZStack(alignment: .topTrailing) {
                             VStack {
-                                if let url = add.imageURL, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .frame(width: .none, height: 180)
-                                        .scaledToFit()
-                                        .cornerRadius(15)
+                                if let url = add.imageURLValue {
+                                    AsyncImage(url: url) { phase in
+                                        switch phase {
+                                        case .success(let image):
+                                            image
+                                                .resizable()
+                                                .frame(width: .none, height: 180)
+                                                .scaledToFit()
+                                                .cornerRadius(15)
+                                        case .failure(_):
+                                            Image(systemName: "photo")
+                                                .resizable()
+                                                .frame(width: .none, height: 180)
+                                                .foregroundColor(.gray)
+                                        case .empty:
+                                            ProgressView()
+                                                .frame(width: .none, height: 180)
+                                        @unknown default:
+                                            EmptyView()
+                                        }
+                                    }
                                 }
                                 
                                 HStack {

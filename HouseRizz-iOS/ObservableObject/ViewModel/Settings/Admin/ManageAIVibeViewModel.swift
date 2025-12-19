@@ -19,20 +19,29 @@ class ManageAIVibeViewModel {
     }
     
     func fetchVibes(){
-        let predicate = NSPredicate(value: true)
-        let recordType = HRAIVibeModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType, sortDescription: [NSSortDescriptor(key: "name", ascending: true)])
+        FirestoreUtility.fetch(sortBy: "name", ascending: true)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HRAIVibe]) in
                 self?.vibes = returnedItems
             }
+            .store(in: &cancellables)
+    }
+    
+    func deleteVibe(_ vibe: HRAIVibe) {
+        FirestoreUtility.delete(item: vibe)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                if case .finished = completion {
+                    self?.fetchVibes()
+                }
+                if case .failure(let error) = completion {
+                    self?.error = error.localizedDescription
+                }
+            } receiveValue: { _ in }
             .store(in: &cancellables)
     }
 }

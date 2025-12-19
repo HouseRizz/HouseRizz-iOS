@@ -1,5 +1,4 @@
 {
-  "originHash" : "ecd5224ad9e98727edb2ba23129bc4b047d3d5420dd3de27fe180e37f0386c4c",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -20,39 +19,12 @@
       }
     },
     {
-      "identity" : "appauth-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/openid/AppAuth-iOS.git",
-      "state" : {
-        "revision" : "2781038865a80e2c425a1da12cc1327bcd56501f",
-        "version" : "1.7.6"
-      }
-    },
-    {
-      "identity" : "arpersistence",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Shiru99/ARPersistence",
-      "state" : {
-        "revision" : "e1fcbc7299b94e778703414a7a82de838a776d11",
-        "version" : "1.0.0"
-      }
-    },
-    {
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/firebase/firebase-ios-sdk",
+      "location" : "https://github.com/firebase/firebase-ios-sdk.git",
       "state" : {
         "revision" : "eca84fd638116dd6adb633b5a3f31cc7befcbb7d",
         "version" : "10.29.0"
-      }
-    },
-    {
-      "identity" : "focusentity",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/maxxfrazer/FocusEntity",
-      "state" : {
-        "revision" : "3e08b26f863957113f4d0b2d45cf6dfbd1a41333",
-        "version" : "2.5.2"
       }
     },
     {
@@ -71,15 +43,6 @@
       "state" : {
         "revision" : "a637d318ae7ae246b02d7305121275bc75ed5565",
         "version" : "9.4.0"
-      }
-    },
-    {
-      "identity" : "googlesignin-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/google/GoogleSignIn-iOS.git",
-      "state" : {
-        "revision" : "a7965d134c5d3567026c523e0a8a583f73b62b0d",
-        "version" : "7.1.0"
       }
     },
     {
@@ -107,15 +70,6 @@
       "state" : {
         "revision" : "a2ab612cb980066ee56d90d60d8462992c07f24b",
         "version" : "3.5.0"
-      }
-    },
-    {
-      "identity" : "gtmappauth",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/google/GTMAppAuth.git",
-      "state" : {
-        "revision" : "5d7d66f647400952b1758b230e019b07c0b4b22a",
-        "version" : "4.1.1"
       }
     },
     {
@@ -155,21 +109,12 @@
       }
     },
     {
-      "identity" : "purchases-ios",
+      "identity" : "swift-argument-parser",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/RevenueCat/purchases-ios.git",
+      "location" : "https://github.com/apple/swift-argument-parser.git",
       "state" : {
-        "revision" : "ced4ac2b66ba1b91ad1d91df6ed9fe38c19cef2d",
-        "version" : "4.44.1"
-      }
-    },
-    {
-      "identity" : "replicate-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/replicate/replicate-swift.git",
-      "state" : {
-        "revision" : "efd033f4e421112b70e82221c813417e164aab7a",
-        "version" : "0.24.0"
+        "revision" : "c5d11a805e765f52ba34ec7284bd4fcd6ba68615",
+        "version" : "1.7.0"
       }
     },
     {
@@ -182,5 +127,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }

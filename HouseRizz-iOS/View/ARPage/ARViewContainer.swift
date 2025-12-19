@@ -59,9 +59,8 @@ struct ARViewContainer: UIViewRepresentable {
         
         clonedEntity.generateCollisionShapes(recursive: true)
         arView.installGestures([.translation, .rotation], for: clonedEntity)
-        let anchorEntity = AnchorEntity(plane: .any)
+        let anchorEntity = AnchorEntity(world: anchor.transform)
         anchorEntity.addChild(clonedEntity)
-        anchorEntity.anchoring = AnchoringComponent(anchor)
         arView.scene.addAnchor(anchorEntity)
         self.sceneManager.anchorEntities.append(anchorEntity)
     }

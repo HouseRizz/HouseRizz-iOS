@@ -1,0 +1,202 @@
+DEFINE SCHEMA
+
+    RECORD TYPE AIVibe (
+        "___createTime" TIMESTAMP,
+        "___createdBy"  REFERENCE,
+        "___etag"       STRING,
+        "___modTime"    TIMESTAMP,
+        "___modifiedBy" REFERENCE,
+        "___recordID"   REFERENCE QUERYABLE,
+        id              STRING QUERYABLE SEARCHABLE SORTABLE,
+        imageURL        ASSET,
+        name            STRING QUERYABLE SEARCHABLE SORTABLE,
+        GRANT WRITE TO "_creator",
+        GRANT CREATE TO "_icloud",
+        GRANT READ TO "_world"
+    );
+
+    RECORD TYPE API (
+        "___createTime" TIMESTAMP,
+        "___createdBy"  REFERENCE,
+        "___etag"       STRING,
+        "___modTime"    TIMESTAMP,
+        "___modifiedBy" REFERENCE,
+        "___recordID"   REFERENCE QUERYABLE,
+        api             STRING QUERYABLE SEARCHABLE SORTABLE,
+        id              STRING QUERYABLE SEARCHABLE SORTABLE,
+        name            STRING QUERYABLE SEARCHABLE SORTABLE,
+        GRANT WRITE TO "_creator",
+        GRANT CREATE TO "_icloud",
+        GRANT READ TO "_world"
+    );
+
+    RECORD TYPE AddBanner (
+        "___createTime" TIMESTAMP,
+        "___createdBy"  REFERENCE,
+        "___etag"       STRING,
+        "___modTime"    TIMESTAMP,
+        "___modifiedBy" REFERENCE,
+        "___recordID"   REFERENCE QUERYABLE,
+        id              STRING QUERYABLE SEARCHABLE SORTABLE,
+        imageURL        ASSET,
+        name            STRING QUERYABLE SEARCHABLE SORTABLE,
+        sliderNumber    INT64 QUERYABLE SORTABLE,
+        GRANT WRITE TO "_creator",
+        GRANT CREATE TO "_icloud",
+        GRANT READ TO "_world"
+    );
+
+    RECORD TYPE City (
+        "___createTime" TIMESTAMP,
+        "___createdBy"  REFERENCE,
+        "___etag"       STRING,
+        "___modTime"    TIMESTAMP,
+        "___modifiedBy" REFERENCE,
+        "___recordID"   REFERENCE QUERYABLE,
+        id              STRING QUERYABLE SEARCHABLE SORTABLE,
+        imageURL        ASSET,
+        name            STRING QUERYABLE SEARCHABLE SORTABLE,
+        GRANT WRITE TO "_creator",
+        GRANT CREATE TO "_icloud",
+        GRANT READ TO "_world"
+    );
+
+    RECORD TYPE DesignImageResult (
+        "___createTime" TIMESTAMP,
+        "___createdBy"  REFERENCE,
+        "___etag"       STRING,
+        "___modTime"    TIMESTAMP,
+        "___modifiedBy" REFERENCE,
+        "___recordID"   REFERENCE QUERYABLE,
+        created         DOUBLE QUERYABLE SORTABLE,
+        id              STRING QUERYABLE SEARCHABLE SORTABLE,
+        imageURL        STRING QUERYABLE SEARCHABLE SORTABLE,
+        type            STRING QUERYABLE SEARCHABLE SORTABLE,
+        userName        STRING QUERYABLE SEARCHABLE SORTABLE,
+        vibe            STRING QUERYABLE SEARCHABLE SORTABLE,
+        GRANT WRITE TO "_creator",
+        GRANT CREATE TO "_icloud",
+        GRANT READ TO "_world"
+    );
+
+    RECORD TYPE Items (
+        "___createTime" TIMESTAMP,
+        "___createdBy"  REFERENCE,
+        "___etag"       STRING,
+        "___modTime"    TIMESTAMP,
+        "___modifiedBy" REFERENCE,
+        "___recordID"   REFERENCE QUERYABLE,
+        address         STRING QUERYABLE SEARCHABLE SORTABLE,
+        category        STRING QUERYABLE SEARCHABLE SORTABLE,
+        city            STRING QUERYABLE SEARCHABLE SORTABLE,
+        description     STRING QUERYABLE SEARCHABLE SORTABLE,
+        id              STRING QUERYABLE SEARCHABLE SORTABLE,
+        imageURL1       ASSET,
+        imageURL2       ASSET,
+        imageURL3       ASSET,
+        name            STRING QUERYABLE SEARCHABLE SORTABLE,
+        price           INT64 QUERYABLE SORTABLE,
+        supplier        STRING QUERYABLE SEARCHABLE SORTABLE,
+        GRANT WRITE TO "_creator",
+        GRANT CREATE TO "_icloud",
+        GRANT READ TO "_world"
+    );
+
+    RECORD TYPE Orders (
+        "___createTime"  TIMESTAMP,
+        "___createdBy"   REFERENCE,
+        "___etag"        STRING,
+        "___modTime"     TIMESTAMP,
+        "___modifiedBy"  REFERENCE,
+        "___recordID"    REFERENCE QUERYABLE,
+        buyerAddress     STRING QUERYABLE SEARCHABLE SORTABLE,
+        buyerEmail       STRING QUERYABLE SEARCHABLE SORTABLE,
+        buyerName        STRING QUERYABLE SEARCHABLE SORTABLE,
+        buyerPhoneNumber STRING QUERYABLE SEARCHABLE SORTABLE,
+        dateOfOrder      DOUBLE QUERYABLE SORTABLE,
+        id               STRING QUERYABLE SEARCHABLE SORTABLE,
+        imageURL         ASSET,
+        name             STRING QUERYABLE SEARCHABLE SORTABLE,
+        orderStatus      STRING QUERYABLE SEARCHABLE SORTABLE,
+        price            DOUBLE QUERYABLE SORTABLE,
+        quantity         INT64 QUERYABLE SORTABLE,
+        supplier         STRING QUERYABLE SEARCHABLE SORTABLE,
+        GRANT WRITE TO "_creator",
+        GRANT CREATE TO "_icloud",
+        GRANT READ TO "_world"
+    );
+
+    RECORD TYPE ProductCategory (
+        "___createTime" TIMESTAMP,
+        "___createdBy"  REFERENCE,
+        "___etag"       STRING,
+        "___modTime"    TIMESTAMP,
+        "___modifiedBy" REFERENCE,
+        "___recordID"   REFERENCE QUERYABLE,
+        id              STRING QUERYABLE SEARCHABLE SORTABLE,
+        imageURL        ASSET,
+        name            STRING QUERYABLE SEARCHABLE SORTABLE,
+        GRANT WRITE TO "_creator",
+        GRANT CREATE TO "_icloud",
+        GRANT READ TO "_world"
+    );
+
+    RECORD TYPE Products (
+        "___createTime" TIMESTAMP,
+        "___createdBy"  REFERENCE,
+        "___etag"       STRING,
+        "___modTime"    TIMESTAMP,
+        "___modifiedBy" REFERENCE,
+        "___recordID"   REFERENCE QUERYABLE,
+        address         STRING QUERYABLE SEARCHABLE SORTABLE,
+        category        STRING QUERYABLE SEARCHABLE SORTABLE,
+        description     STRING QUERYABLE SEARCHABLE SORTABLE,
+        id              STRING QUERYABLE SEARCHABLE SORTABLE,
+        imageURL1       ASSET,
+        imageURL2       ASSET,
+        imageURL3       ASSET,
+        modelURL        ASSET,
+        name            STRING QUERYABLE SEARCHABLE SORTABLE,
+        price           DOUBLE QUERYABLE SORTABLE,
+        supplier        STRING QUERYABLE SEARCHABLE SORTABLE,
+        GRANT WRITE TO "_creator",
+        GRANT CREATE TO "_icloud",
+        GRANT READ TO "_world"
+    );
+
+    RECORD TYPE SignedInUsers (
+        "___createTime" TIMESTAMP,
+        "___createdBy"  REFERENCE,
+        "___etag"       STRING,
+        "___modTime"    TIMESTAMP,
+        "___modifiedBy" REFERENCE,
+        "___recordID"   REFERENCE QUERYABLE,
+        address         STRING QUERYABLE SEARCHABLE SORTABLE,
+        email           STRING QUERYABLE SEARCHABLE SORTABLE,
+        id              STRING QUERYABLE SEARCHABLE SORTABLE,
+        joined          DOUBLE QUERYABLE SORTABLE,
+        name            STRING QUERYABLE SEARCHABLE SORTABLE,
+        phoneNumber     STRING QUERYABLE SEARCHABLE SORTABLE,
+        userType        STRING QUERYABLE SEARCHABLE SORTABLE,
+        GRANT WRITE TO "_creator",
+        GRANT CREATE TO "_icloud",
+        GRANT READ TO "_world"
+    );
+
+    RECORD TYPE Users (
+        "___createTime" TIMESTAMP,
+        "___createdBy"  REFERENCE,
+        "___etag"       STRING,
+        "___modTime"    TIMESTAMP,
+        "___modifiedBy" REFERENCE,
+        "___recordID"   REFERENCE QUERYABLE,
+        address         STRING QUERYABLE SEARCHABLE SORTABLE,
+        email           STRING QUERYABLE SEARCHABLE SORTABLE,
+        id              STRING QUERYABLE SEARCHABLE SORTABLE,
+        joined          DOUBLE QUERYABLE SORTABLE,
+        name            STRING QUERYABLE SEARCHABLE SORTABLE,
+        phoneNumber     STRING QUERYABLE SEARCHABLE SORTABLE,
+        roles           LIST<INT64>,
+        GRANT WRITE TO "_creator",
+        GRANT READ TO "_world"
+    );

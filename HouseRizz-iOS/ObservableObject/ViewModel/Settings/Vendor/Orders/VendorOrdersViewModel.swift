@@ -15,18 +15,13 @@ class VendorOrdersViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     func fetchOrders(vendorName: String) {
-        let predicate = NSPredicate(format: "%K == %@", HROrderModelName.supplier, vendorName)
-        let recordType = HROrderModelName.itemRecord
-        CKUtility.fetch(predicate: predicate, recordType: recordType)
+        FirestoreUtility.fetch(field: "supplier", isEqualTo: vendorName)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] returnedItems in
+            } receiveValue: { [weak self] (returnedItems: [HROrder]) in
                 self?.orders = returnedItems
             }
             .store(in: &cancellables)
