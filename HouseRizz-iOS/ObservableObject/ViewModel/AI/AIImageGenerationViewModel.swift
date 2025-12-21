@@ -6,38 +6,36 @@
 //
 
 import SwiftUI
-import Replicate
 import Combine
 import PhotosUI
 import Observation
 
 @Observable
 class AIImageGenerationViewModel {
-    var type: String = "Bed"
+    var type: String = "Bedroom"
     var vibe: String = "Modern"
-    var apis: [HRAPI] = []
     var error: String = ""
     var selectedPhotoData: Data? = nil
-    let negativePrompt = "lowres, watermark, banner, logo, watermark, contactinfo, text, deformed, blurry, blur, out of focus, out of frame, surreal, extra, ugly, upholstered walls, fabric walls, plush walls, mirror, mirrored, functional, realistic"
-    var prediction: InteriorDesign.Prediction? = nil
     var selectedPhotos: [PhotosPickerItem] = []
     var cancellables = Set<AnyCancellable>()
     var categories: [HRProductCategory] = []
     var uniqueID: UUID = UUID()
     var vibes: [HRAIVibe] = []
     
-    private var client: Replicate.Client? {
-        apis.first.flatMap { Replicate.Client(token: $0.api) }
-    }
+    // Result from API
+    var generatedImageURL: String? = nil
+    var furnitureUsed: [FurnitureUsed] = []
+    var segmentedObjects: [SegmentedObject]? = nil
+    var matchedLabels: [String] = []  // Matched segmentation labels for greying out
+    var isGenerating: Bool = false
     
     var prompt: String {
-        "A \(vibe) \(type) interior design with enhanced aesthetics, optimized layout, and improved functionality. The design should emphasize elements such as \(vibe) furniture, \(vibe) decor. Ensure the design is realistic and visually appealing."
+        "\(vibe) \(type) interior design"
     }
     var user: String = ""
     var imageURL: String = ""
     
     init() {
-        fetchAPI()
         fetchCategories()
         fetchVibes()
     }
@@ -51,6 +49,10 @@ class AIImageGenerationViewModel {
         error = ""
         user = ""
         selectedPhotoData = nil
+        generatedImageURL = nil
+        furnitureUsed = []
+        segmentedObjects = nil
+        matchedLabels = []
     }
     
     private func addResult(user: String) {
@@ -80,48 +82,40 @@ class AIImageGenerationViewModel {
         }
     }
     
+    /// Generate room design using the Virtual Staging API
     func generate() async throws {
         guard let selectedPhotoData = selectedPhotoData else {
             error = "No photo selected."
             return
         }
         
-        let mimeType = "image/jpeg"
-        let imageString = selectedPhotoData.uriEncoded(mimeType: mimeType)
+        isGenerating = true
+        error = ""
         
-        guard let client = client else {
-            error = "Client not initialized."
-            return
-        }
-        
-        let input = InteriorDesign.Input(
-            image: imageString,
-            prompt: prompt,
-            seed: nil,
-            guidance_scale: 15,
-            negative_prompt: negativePrompt,
-            prompt_strength: 0.8,
-            num_inference_steps: 50
-        )
-        
-        prediction = try await InteriorDesign.predict(with: client, input: input)
-        try await prediction?.wait(with: client)
-    }
-    
-    func fetchAPI() {
-        FirestoreUtility.fetch(field: "name", isEqualTo: "Replicate")
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] completion in
-                if case .failure(let error) = completion {
-                    self?.error = error.localizedDescription
-                }
-            } receiveValue: { [weak self] (returnedItems: [HRAPI]) in
-                self?.apis = returnedItems
+        do {
+            let response = try await VirtualStagingAPIService.shared.designRoom(
+                imageData: selectedPhotoData,
+                vibe: prompt
+            )
+            
+            await MainActor.run {
+                self.generatedImageURL = response.generatedImageURL
+                self.imageURL = response.generatedImageURL
+                self.furnitureUsed = response.furnitureUsed ?? []
+                self.segmentedObjects = response.segmentation?.objects
+                self.matchedLabels = response.matchedLabels ?? []
+                self.isGenerating = false
             }
-            .store(in: &cancellables)
+        } catch {
+            await MainActor.run {
+                self.error = error.localizedDescription
+                self.isGenerating = false
+            }
+            throw error
+        }
     }
     
-    func fetchVibes(){
+    func fetchVibes() {
         FirestoreUtility.fetch(sortBy: "name", ascending: true)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
@@ -134,7 +128,7 @@ class AIImageGenerationViewModel {
             .store(in: &cancellables)
     }
     
-    func fetchCategories(){
+    func fetchCategories() {
         FirestoreUtility.fetch(sortBy: "name", ascending: true)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
@@ -145,29 +139,5 @@ class AIImageGenerationViewModel {
                 self?.categories = returnedItems
             }
             .store(in: &cancellables)
-    }
-}
-
-enum InteriorDesign: Predictable {
-    static var modelID = "adirik/interior-design"
-    static let versionID = "76604baddc85b1b4616e1c6475eca080da339c8875bd4996705440484a6eac38"
-    
-    struct Input: Codable {
-        let image: String
-        let prompt: String
-        let seed: Int?
-        let guidance_scale: Double
-        let negative_prompt: String
-        let prompt_strength: Double
-        let num_inference_steps: Int
-    }
-    
-    typealias Output = URL
-}
-
-extension Data {
-    func uriEncoded(mimeType: String) -> String {
-        let base64String = self.base64EncodedString()
-        return "data:\(mimeType);base64,\(base64String)"
     }
 }

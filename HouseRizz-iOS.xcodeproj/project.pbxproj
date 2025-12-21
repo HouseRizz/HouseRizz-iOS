@@ -155,6 +155,9 @@
 		CCDED4722C154E9F0063C1D2 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDED4712C154E9F0063C1D2 /* OrderDetailViewModel.swift */; };
 		CCDF24C02C12A5DB00353DD1 /* HRCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */; };
 		CCF3713D2C2C5439009A82E0 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3713C2C2C5439009A82E0 /* Secrets.swift */; };
+		CCF6DB7D2EF8150100D2991F /* VirtualStagingAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6DB7C2EF8150100D2991F /* VirtualStagingAPIService.swift */; };
+		CCF6DB7F2EF8153500D2991F /* DesignResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6DB7E2EF8153500D2991F /* DesignResponse.swift */; };
+		CCF6DB812EF817EA00D2991F /* FurnitureSegmentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6DB802EF817EA00D2991F /* FurnitureSegmentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -291,6 +294,9 @@
 		CCDED4712C154E9F0063C1D2 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		CCDF24BF2C12A5DB00353DD1 /* HRCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCartButton.swift; sourceTree = "<group>"; };
 		CCF3713C2C2C5439009A82E0 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		CCF6DB7C2EF8150100D2991F /* VirtualStagingAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualStagingAPIService.swift; sourceTree = "<group>"; };
+		CCF6DB7E2EF8153500D2991F /* DesignResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignResponse.swift; sourceTree = "<group>"; };
+		CCF6DB802EF817EA00D2991F /* FurnitureSegmentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurnitureSegmentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -534,6 +540,7 @@
 		CC3D289B2BC4004A00C1E119 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CCF6DB7E2EF8153500D2991F /* DesignResponse.swift */,
 				CC97AF002BBE5CCE007BB76C /* HRUser.swift */,
 				CCD3B0042BCA302C000AFB80 /* HRTabItems.swift */,
 				CCC5B0392BFBB62F0007BEC1 /* HRProduct.swift */,
@@ -584,6 +591,7 @@
 		CC3D289E2BC4005F00C1E119 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CCF6DB802EF817EA00D2991F /* FurnitureSegmentation.swift */,
 				CC71DCEF2CB14E2600E7F86E /* Managers */,
 				CC2DBD562C2F2542007817C0 /* Helper */,
 				CC3D289F2BC4006700C1E119 /* Components */,
@@ -629,6 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				CC69BD2B2C23F68F00491014 /* AIViewModel.swift */,
+				CCF6DB7C2EF8150100D2991F /* VirtualStagingAPIService.swift */,
 				CC69BD712C243B6600491014 /* AIImageGenerationViewModel.swift */,
 				CCBB5A0F2C255C8000BD9E1F /* GeneratedPhotoViewModel.swift */,
 				CCBB5A162C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift */,
@@ -1007,6 +1016,7 @@
 				CC97AF012BBE5CCE007BB76C /* HRUser.swift in Sources */,
 				CCBB5A102C255C8000BD9E1F /* GeneratedPhotoViewModel.swift in Sources */,
 				CC7B07E02C22EDCF00627BC5 /* AddAddBannerViewModel.swift in Sources */,
+				CCF6DB812EF817EA00D2991F /* FurnitureSegmentation.swift in Sources */,
 				CC2DBD692C2F27F9007817C0 /* ControlView.swift in Sources */,
 				CC7B07C42C22D0F900627BC5 /* AdminInventoryView.swift in Sources */,
 				CC2F470E2BC816BA00A4C1FC /* ImageSliderView.swift in Sources */,
@@ -1025,12 +1035,14 @@
 				CC7B07DC2C22ED8E00627BC5 /* AddAddBannerView.swift in Sources */,
 				CC06A97D2C0C97A100A0DAD3 /* NetworkManager.swift in Sources */,
 				CCA735562C1FDEE800053DDE /* LoginView.swift in Sources */,
+				CCF6DB7F2EF8153500D2991F /* DesignResponse.swift in Sources */,
 				CCC5B03C2BFBB6B80007BEC1 /* InventoryProductCardView.swift in Sources */,
 				CCBB5A192C2583DC00BD9E1F /* HRAIVibe.swift in Sources */,
 				CC2F47142BC8389B00A4C1FC /* CartViewModel.swift in Sources */,
 				CCD29BA42C364EE70068079B /* HRCity.swift in Sources */,
 				CC2F47182BC8D5ED00A4C1FC /* CartProductView.swift in Sources */,
 				CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */,
+				CCF6DB7D2EF8150100D2991F /* VirtualStagingAPIService.swift in Sources */,
 				CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */,
 				CCD3B0052BCA302C000AFB80 /* HRTabItems.swift in Sources */,
 				CCBB5A212C25861000BD9E1F /* AddAIVibeView.swift in Sources */,
