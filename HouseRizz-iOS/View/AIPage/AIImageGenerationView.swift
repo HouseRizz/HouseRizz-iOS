@@ -101,8 +101,7 @@ struct AIImageGenerationView: View {
                 GeneratedPhotoView(
                     uniqueID: uniqueID,
                     originalImageData: viewModel.selectedPhotoData,
-                    matchedLabels: viewModel.matchedLabels,
-                    segmentedObjects: viewModel.segmentedObjects
+                    furnitureMarkers: viewModel.furnitureMarkers
                 )
             }
             .navigationDestination(isPresented: $showAllResults) {

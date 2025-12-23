@@ -11,14 +11,12 @@ struct GeneratedPhotoView: View {
     @Environment(\.dismiss) private var dismiss
     let uniqueID: UUID
     let originalImageData: Data?
-    let matchedLabels: [String]  // Matched segmentation labels from API
-    let segmentedObjects: [SegmentedObject]?  // Objects from segmentation
+    let furnitureMarkers: [FurnitureMarker]
     
-    init(uniqueID: UUID, originalImageData: Data? = nil, matchedLabels: [String] = [], segmentedObjects: [SegmentedObject]? = nil) {
+    init(uniqueID: UUID, originalImageData: Data? = nil, furnitureMarkers: [FurnitureMarker] = []) {
         self.uniqueID = uniqueID
         self.originalImageData = originalImageData
-        self.matchedLabels = matchedLabels
-        self.segmentedObjects = segmentedObjects
+        self.furnitureMarkers = furnitureMarkers
     }
     
     var body: some View {
@@ -28,8 +26,7 @@ struct GeneratedPhotoView: View {
                 AIResultDisplayComponent(
                     result: result,
                     originalImageData: originalImageData,
-                    matchedLabels: matchedLabels,
-                    segmentedObjects: segmentedObjects
+                    furnitureMarkers: furnitureMarkers
                 )
                     .padding(.horizontal, 16)
                     .padding(.top, 16)

@@ -26,7 +26,8 @@ class AIImageGenerationViewModel {
     var generatedImageURL: String? = nil
     var furnitureUsed: [FurnitureUsed] = []
     var segmentedObjects: [SegmentedObject]? = nil
-    var matchedLabels: [String] = []  // Matched segmentation labels for greying out
+    var matchedLabels: [String] = []
+    var furnitureMarkers: [FurnitureMarker] = []  // For interactive overlay
     var isGenerating: Bool = false
     
     var prompt: String {
@@ -53,6 +54,7 @@ class AIImageGenerationViewModel {
         furnitureUsed = []
         segmentedObjects = nil
         matchedLabels = []
+        furnitureMarkers = []
     }
     
     private func addResult(user: String) {
@@ -104,6 +106,7 @@ class AIImageGenerationViewModel {
                 self.furnitureUsed = response.furnitureUsed ?? []
                 self.segmentedObjects = response.segmentation?.objects
                 self.matchedLabels = response.matchedLabels ?? []
+                self.furnitureMarkers = response.furnitureMarkers ?? []
                 self.isGenerating = false
             }
         } catch {

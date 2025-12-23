@@ -16,7 +16,7 @@ class VirtualStagingAPIService {
     
     // MARK: - Caching for Development/Testing
     /// Set to true to use cached response instead of calling API
-    var useCachedResponse = true
+    var useCachedResponse = false
     private var cachedResponse: DesignResponse?
     
     private init() {

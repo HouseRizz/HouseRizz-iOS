@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 /// Response model for the Virtual Staging API /design/upload endpoint
 struct DesignResponse: Codable {
@@ -14,7 +15,8 @@ struct DesignResponse: Codable {
     let furnitureUsed: [FurnitureUsed]?
     let vibe: String
     let segmentation: SegmentationData?
-    let matchedLabels: [String]?  // Segmentation labels that match furniture_used items
+    let matchedLabels: [String]?
+    let furnitureMarkers: [FurnitureMarker]?  // Furniture with position for overlay
     
     enum CodingKeys: String, CodingKey {
         case success
@@ -23,6 +25,7 @@ struct DesignResponse: Codable {
         case vibe
         case segmentation
         case matchedLabels = "matched_labels"
+        case furnitureMarkers = "furniture_markers"
     }
 }
 
@@ -94,5 +97,44 @@ struct DesignRequest: Codable {
         self.mimeType = mimeType
         self.vibeText = vibeText
         self.runSegmentation = runSegmentation
+    }
+}
+
+/// Furniture marker with position data from API for interactive overlay
+struct FurnitureMarker: Codable, Identifiable, Hashable {
+    var id: String { "\(name)_\(type)" }
+    
+    let name: String
+    let type: String
+    let price: Double?
+    let imageURL: String?
+    let description: String?
+    /// Bounding box in normalized coordinates (0-1): [x1, y1, x2, y2]
+    let box: [Double]
+    /// Mask color [R, G, B] for highlight effect
+    let maskColor: [Int]?
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case type
+        case price
+        case imageURL = "image_url"
+        case description
+        case box
+        case maskColor = "mask_color"
+    }
+    
+    /// Center point of the bounding box (normalized 0-1)
+    var centerPoint: CGPoint {
+        guard box.count >= 4 else { return .zero }
+        let centerX = (box[0] + box[2]) / 2
+        let centerY = (box[1] + box[3]) / 2
+        return CGPoint(x: centerX, y: centerY)
+    }
+    
+    /// Formatted price string
+    var formattedPrice: String? {
+        guard let price = price else { return nil }
+        return String(format: "$%.0f", price)
     }
 }
