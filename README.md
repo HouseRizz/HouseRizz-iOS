@@ -8,7 +8,7 @@ This the app for [HouseRizz](https://houserizz-com.vercel.app) a marketplace tha
 
 <p align="center">
     <img src="https://developer.apple.com/assets/elements/icons/swift/swift-96x96_2x.png" alt="Swift5" width="48" height="48">&nbsp;&nbsp;&nbsp;
-    <img src="https://developer.apple.com/assets/elements/icons/swiftui/swiftui-96x96_2x.png" alt="SwiftUI" width="48" height="48">&nbsp;&nbsp;&nbsp;width="48" height="48">&nbsp;&nbsp;&nbsp;
+    <img src="https://developer.apple.com/assets/elements/icons/swiftui/swiftui-96x96_2x.png" alt="SwiftUI" width="48" height="48">&nbsp;&nbsp;&nbsp;
 </p>
 
 ### Documentation : [Documentation](https://github.com/HouseRizz/HouseRizz-iOS/blob/main/Documentation/HouseRizz%20Documentation%20(Draft)%20269ab245e07e43bb8dcaa9488a8c2edb.pdf)
