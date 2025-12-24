@@ -29,5 +29,13 @@
 		<string>freecharge</string>
 		<string>myjio</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>HouseRizz needs camera access to take room photos for AI design and to use AR features for viewing furniture in your space.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>HouseRizz needs photo library access to select room photos for AI room design.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>HouseRizz needs permission to save generated AI room designs to your photo library.</string>
+	<key>UISupportsDocumentBrowser</key>
+	<true/>
 </dict>
 </plist>

@@ -174,17 +174,16 @@ struct AIResultDisplayComponent: View {
                     if let marker = selectedMarker {
                         ExpandableFurnitureProductCard(
                             marker: marker,
-                            onAddToCart: {
-                                // TODO: Add to cart
-                            },
                             onDismiss: {
                                 withAnimation(.spring(response: 0.3)) {
                                     selectedMarker = nil
                                 }
                             },
                             onProductTap: { product in
-                                // TODO: Navigate to product detail
-                                print("Tapped product: \(product.name)")
+                                // Open product source URL
+                                if let url = product.sourceURLValue {
+                                    UIApplication.shared.open(url)
+                                }
                             }
                         )
                         .transition(.move(edge: .bottom).combined(with: .opacity))
@@ -424,6 +423,7 @@ struct AIResultDisplayComponent: View {
                     price: 299.99,
                     imageURL: nil,
                     description: "A beautiful modern armchair",
+                    sourceUrl: "https://www.ikea.com/in/en/p/example-armchair",
                     box: [0.1, 0.3, 0.4, 0.7],
                     maskColor: [100, 150, 200]
                 ),
@@ -433,6 +433,7 @@ struct AIResultDisplayComponent: View {
                     price: 199.99,
                     imageURL: nil,
                     description: "Elegant wooden coffee table",
+                    sourceUrl: "https://www.ikea.com/in/en/p/example-table",
                     box: [0.5, 0.5, 0.8, 0.8],
                     maskColor: [150, 100, 200]
                 )
@@ -511,8 +512,9 @@ struct FurnitureMarkerDot: View {
 struct FurnitureProductCard: View {
     let marker: FurnitureMarker
     var onShowSimilar: () -> Void
-    var onAddToCart: () -> Void
     var onDismiss: () -> Void
+    
+    @Environment(\.openURL) private var openURL
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -579,21 +581,24 @@ struct FurnitureProductCard: View {
                     )
                 }
                 
-                Button {
-                    onAddToCart()
-                } label: {
-                    HStack(spacing: 6) {
-                        Image(systemName: "cart.badge.plus")
-                        Text("Add to cart")
+                // View Product button - opens source URL in Safari
+                if let sourceURL = marker.sourceURLValue {
+                    Button {
+                        openURL(sourceURL)
+                    } label: {
+                        HStack(spacing: 6) {
+                            Image(systemName: "link")
+                            Text("View Product")
+                        }
+                        .font(.subheadline.weight(.medium))
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.primaryColor)
+                        )
                     }
-                    .font(.subheadline.weight(.medium))
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.primaryColor)
-                    )
                 }
             }
         }
@@ -630,9 +635,31 @@ struct FurnitureProductCard: View {
 // MARK: - Similar Products View
 struct SimilarProductsView: View {
     let furnitureType: String
+    let sourceDomain: String?  // Domain to filter by (e.g., "ikea.com")
     var onProductTap: (HRProduct) -> Void
     
     @StateObject private var viewModel = SimilarProductsViewModel()
+    
+    init(furnitureType: String, sourceDomain: String? = nil, onProductTap: @escaping (HRProduct) -> Void) {
+        self.furnitureType = furnitureType
+        self.sourceDomain = sourceDomain
+        self.onProductTap = onProductTap
+    }
+    
+    /// Extract domain from URL string
+    private func extractDomain(from urlString: String?) -> String? {
+        guard let urlString = urlString, let url = URL(string: urlString) else { return nil }
+        return url.host?.replacingOccurrences(of: "www.", with: "")
+    }
+    
+    /// Filtered products by domain
+    private var filteredProducts: [HRProduct] {
+        guard let domain = sourceDomain else { return viewModel.products }
+        return viewModel.products.filter { product in
+            guard let productDomain = extractDomain(from: product.sourceUrl) else { return false }
+            return productDomain == domain
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -648,7 +675,7 @@ struct SimilarProductsView: View {
                 }
             }
             
-            if viewModel.products.isEmpty && !viewModel.isLoading {
+            if filteredProducts.isEmpty && !viewModel.isLoading {
                 Text("No products found")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
@@ -657,7 +684,7 @@ struct SimilarProductsView: View {
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
-                        ForEach(viewModel.products.prefix(10)) { product in
+                        ForEach(filteredProducts.prefix(10)) { product in
                             SimilarProductCard(product: product) {
                                 onProductTap(product)
                             }
@@ -692,7 +719,8 @@ class SimilarProductsViewModel: ObservableObject {
                     self?.error = error.localizedDescription
                 }
             } receiveValue: { [weak self] (returnedItems: [HRProduct]) in
-                self?.products = returnedItems
+                // Only include products that have a sourceUrl
+                self?.products = returnedItems.filter { $0.sourceUrl != nil }
             }
             .store(in: &cancellables)
     }
@@ -762,11 +790,11 @@ struct SimilarProductCard: View {
 // MARK: - Expandable Furniture Product Card (with Similar Products)
 struct ExpandableFurnitureProductCard: View {
     let marker: FurnitureMarker
-    var onAddToCart: () -> Void
     var onDismiss: () -> Void
     var onProductTap: (HRProduct) -> Void
     
     @State private var showSimilarProducts = false
+    @Environment(\.openURL) private var openURL
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -842,21 +870,24 @@ struct ExpandableFurnitureProductCard: View {
                     .animation(.easeInOut(duration: 0.2), value: showSimilarProducts)
                 }
                 
-                Button {
-                    onAddToCart()
-                } label: {
-                    HStack(spacing: 6) {
-                        Image(systemName: "cart.badge.plus")
-                        Text("Add to cart")
+                // View Product button - opens source URL in Safari
+                if let sourceURL = marker.sourceURLValue {
+                    Button {
+                        openURL(sourceURL)
+                    } label: {
+                        HStack(spacing: 6) {
+                            Image(systemName: "link")
+                            Text("View Product")
+                        }
+                        .font(.subheadline.weight(.medium))
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.primaryColor)
+                        )
                     }
-                    .font(.subheadline.weight(.medium))
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.primaryColor)
-                    )
                 }
             }
             
@@ -865,7 +896,15 @@ struct ExpandableFurnitureProductCard: View {
                 Divider()
                     .padding(.vertical, 4)
                 
-                SimilarProductsView(furnitureType: marker.type) { product in
+                SimilarProductsView(
+                    furnitureType: marker.type,
+                    sourceDomain: {
+                        // Extract domain from marker's sourceUrl
+                        guard let urlString = marker.sourceUrl,
+                              let url = URL(string: urlString) else { return nil }
+                        return url.host?.replacingOccurrences(of: "www.", with: "")
+                    }()
+                ) { product in
                     onProductTap(product)
                 }
                 .transition(

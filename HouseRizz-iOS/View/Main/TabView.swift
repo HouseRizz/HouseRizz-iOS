@@ -21,10 +21,8 @@ struct TabbedView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
-                HomeView()
+                AIImageGenerationView(isPremium: $isPremium, selectedTab: $selectedTab)
                     .tag(0)
-                AIImageGenerationView(isPremium: $isPremium)
-                    .tag(1)
                     .task {
                         do {
                             let customerInfo = try await Purchases.shared.customerInfo()
@@ -34,6 +32,8 @@ struct TabbedView: View {
                         }
                     }
                 CameraView()
+                    .tag(1)
+                HomeView()
                     .tag(2)
                 CategoryView()
                     .tag(3)

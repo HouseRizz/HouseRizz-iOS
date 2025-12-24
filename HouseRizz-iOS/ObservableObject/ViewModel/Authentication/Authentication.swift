@@ -40,6 +40,7 @@ class Authentication: ObservableObject {
     @Published var isValid: Bool  = false
     @Published var errorMessage: String? = ""
     @Published var displayName = ""
+    @Published var isLoading: Bool = true
     private var handler: AuthStateDidChangeListenerHandle?
     private var currentNonce: String?
     var cancellables = Set<AnyCancellable>()
@@ -49,6 +50,7 @@ class Authentication: ObservableObject {
         self.handler = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             DispatchQueue.main.async {
                 self?.currentUserId = user?.uid ?? ""
+                self?.isLoading = false
             }
         }
         fetchUser()

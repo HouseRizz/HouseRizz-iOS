@@ -102,13 +102,17 @@ struct DesignRequest: Codable {
 
 /// Furniture marker with position data from API for interactive overlay
 struct FurnitureMarker: Codable, Identifiable, Hashable {
-    var id: String { "\(name)_\(type)" }
+    var id: String {
+        let boxString = box.map { String(format: "%.2f", $0) }.joined(separator: "-")
+        return "\(name)_\(type)_\(boxString)"
+    }
     
     let name: String
     let type: String
     let price: Double?
     let imageURL: String?
     let description: String?
+    let sourceUrl: String?  // External link to product page
     /// Bounding box in normalized coordinates (0-1): [x1, y1, x2, y2]
     let box: [Double]
     /// Mask color [R, G, B] for highlight effect
@@ -120,6 +124,7 @@ struct FurnitureMarker: Codable, Identifiable, Hashable {
         case price
         case imageURL = "image_url"
         case description
+        case sourceUrl = "source_url"
         case box
         case maskColor = "mask_color"
     }
@@ -136,5 +141,11 @@ struct FurnitureMarker: Codable, Identifiable, Hashable {
     var formattedPrice: String? {
         guard let price = price else { return nil }
         return String(format: "$%.0f", price)
+    }
+    
+    /// Source URL value
+    var sourceURLValue: URL? {
+        guard let urlString = sourceUrl else { return nil }
+        return URL(string: urlString)
     }
 }

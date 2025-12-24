@@ -12,6 +12,8 @@ import RevenueCat
 struct AIImageGenerationView: View {
     @StateObject private var authentication = Authentication()
     @Binding var isPremium: Bool
+    @Binding var selectedTab: Int
+    @State private var showARPrompt: Bool = false
     @State private var viewModel = AIImageGenerationViewModel()
     @State private var navigateToGeneratedPhotoView = false
     @State private var hasReturnedFromGeneratedPhotoView = false
@@ -97,6 +99,22 @@ struct AIImageGenerationView: View {
                 }
             }
             .background(Color(UIColor.systemBackground))
+            .overlay {
+                if viewModel.isGenerating && showARPrompt {
+                    ZStack {
+                        Color.black.opacity(0.4)
+                            .edgesIgnoringSafeArea(.all)
+                            .onTapGesture {
+                                showARPrompt = false
+                            }
+                        
+                        ARPromptView(selectedTab: $selectedTab, isPresented: $showARPrompt)
+                            .padding(.horizontal, 24)
+                            .transition(.scale.combined(with: .opacity))
+                    }
+                    .zIndex(100)
+                }
+            }
             .navigationDestination(isPresented: $navigateToGeneratedPhotoView) {
                 GeneratedPhotoView(
                     uniqueID: uniqueID,
@@ -348,34 +366,37 @@ struct AIImageGenerationView: View {
     
     // MARK: - Generate Button
     private var generateButton: some View {
-        Button {
-            generateImage()
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(viewModel.selectedPhotoData != nil ? Color.primaryColor : Color.gray.opacity(0.3))
-                    .frame(height: 50)
-                
-                if viewModel.isGenerating {
-                    HStack(spacing: 12) {
-                        // Custom loading dots
-                        LoadingDotsView()
-                        Text("Designing...")
-                            .font(.headline)
-                            .foregroundColor(.white)
+        VStack(spacing: 16) {
+            Button {
+                generateImage()
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(viewModel.selectedPhotoData != nil ? Color.primaryColor : Color.gray.opacity(0.3))
+                        .frame(height: 50)
+                    
+                    if viewModel.isGenerating {
+                        HStack(spacing: 12) {
+                            // Custom loading dots
+                            LoadingDotsView()
+                            Text("Designing...")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                        }
+                    } else {
+                        HStack(spacing: 8) {
+                            Image(systemName: "wand.and.stars")
+                            Text("Generate Design")
+                                .font(.headline)
+                        }
+                        .foregroundColor(viewModel.selectedPhotoData != nil ? .white : .gray)
                     }
-                } else {
-                    HStack(spacing: 8) {
-                        Image(systemName: "wand.and.stars")
-                        Text("Generate Design")
-                            .font(.headline)
-                    }
-                    .foregroundColor(viewModel.selectedPhotoData != nil ? .white : .gray)
                 }
             }
+            .disabled(viewModel.selectedPhotoData == nil || viewModel.isGenerating)
         }
-        .disabled(viewModel.selectedPhotoData == nil || viewModel.isGenerating)
         .padding(.top, 8)
+        .animation(.spring(response: 0.5, dampingFraction: 0.7), value: viewModel.isGenerating)
     }
     
     // MARK: - Error View
@@ -397,6 +418,7 @@ struct AIImageGenerationView: View {
     
     func generateImage() {
         hasReturnedFromGeneratedPhotoView = false
+        showARPrompt = true
         Task {
             try? await viewModel.generate()
         }
@@ -466,6 +488,82 @@ struct CameraPickerView: UIViewControllerRepresentable {
     }
 }
 
+// MARK: - AR Prompt View (appears during generation)
+// MARK: - AR Prompt View (popup banner)
+struct ARPromptView: View {
+    @Binding var selectedTab: Int
+    @Binding var isPresented: Bool
+    @State private var isAnimating = false
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            // Close Button
+            HStack {
+                Spacer()
+                Button {
+                    withAnimation {
+                        isPresented = false
+                    }
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title3)
+                        .foregroundColor(.gray.opacity(0.8))
+                }
+            }
+            .padding(.bottom, 8)
+            
+            Button {
+                isPresented = false
+                selectedTab = 1 // Switch to AR tab
+            } label: {
+                HStack(spacing: 16) {
+                    // Animated AR Icon
+                    ZStack {
+                        Circle()
+                            .fill(Color.primaryColor.opacity(0.1))
+                            .frame(width: 60, height: 60)
+                        
+                        Image(systemName: "cube.transparent.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(.primaryColor)
+                            .scaleEffect(isAnimating ? 1.1 : 0.9)
+                            .animation(
+                                .easeInOut(duration: 1.0).repeatForever(autoreverses: true),
+                                value: isAnimating
+                            )
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("While you wait...")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        
+                        Text("Try Furnishing in AR!")
+                            .font(.title3.bold())
+                            .foregroundColor(.primary)
+                            .multilineTextAlignment(.leading)
+                    }
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right.circle.fill")
+                        .font(.title2)
+                        .foregroundColor(.primaryColor)
+                }
+            }
+        }
+        .padding(20)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color(UIColor.systemBackground))
+                .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 10)
+        )
+        .onAppear {
+            isAnimating = true
+        }
+    }
+}
+
 #Preview {
-    AIImageGenerationView(isPremium: .constant(false))
+    AIImageGenerationView(isPremium: .constant(false), selectedTab: .constant(0))
 }

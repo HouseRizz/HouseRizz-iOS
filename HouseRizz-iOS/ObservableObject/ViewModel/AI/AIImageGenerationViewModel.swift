@@ -100,13 +100,16 @@ class AIImageGenerationViewModel {
                 vibe: prompt
             )
             
+            // Enrich markers with real products from inventory
+            let enriched = await enrichMarkers(response.furnitureMarkers ?? [])
+            
             await MainActor.run {
                 self.generatedImageURL = response.generatedImageURL
                 self.imageURL = response.generatedImageURL
                 self.furnitureUsed = response.furnitureUsed ?? []
                 self.segmentedObjects = response.segmentation?.objects
                 self.matchedLabels = response.matchedLabels ?? []
-                self.furnitureMarkers = response.furnitureMarkers ?? []
+                self.furnitureMarkers = enriched
                 self.isGenerating = false
             }
         } catch {
@@ -116,6 +119,47 @@ class AIImageGenerationViewModel {
             }
             throw error
         }
+    }
+    
+    /// Map generic furniture markers to real products from Firestore
+    private func enrichMarkers(_ markers: [FurnitureMarker]) async -> [FurnitureMarker] {
+        // Fetch products for the current room category/type
+        // We use 'type' (e.g. "Bedroom") as the category filter
+        guard let products: [HRProduct] = try? await FirestoreUtility.fetch(field: "category", isEqualTo: self.type) else {
+            return markers
+        }
+        
+        var enrichedMarkers: [FurnitureMarker] = []
+        
+        for marker in markers {
+            // Find products where name matches (case-insensitive)
+            // The user specified matching the inventory name with the product name
+            let matchingProducts = products.filter { product in
+                product.name.localizedCaseInsensitiveContains(marker.name) ||
+                marker.name.localizedCaseInsensitiveContains(product.name)
+            }
+            
+            // Only use the first match if found. 
+            // If no match is found, we keep the original marker (generic info) 
+            // instead of showing a random (incorrect) product.
+            if let product = matchingProducts.first {
+                let enriched = FurnitureMarker(
+                    name: product.name,
+                    type: marker.type,
+                    price: product.price,
+                    imageURL: product.imageURL1,
+                    description: product.description,
+                    sourceUrl: product.sourceUrl,
+                    box: marker.box,
+                    maskColor: marker.maskColor
+                )
+                enrichedMarkers.append(enriched)
+            } else {
+                enrichedMarkers.append(marker)
+            }
+        }
+        
+        return enrichedMarkers
     }
     
     func fetchVibes() {

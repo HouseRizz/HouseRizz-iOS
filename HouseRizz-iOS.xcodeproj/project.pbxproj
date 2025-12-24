@@ -158,6 +158,7 @@
 		CCF6DB7D2EF8150100D2991F /* VirtualStagingAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6DB7C2EF8150100D2991F /* VirtualStagingAPIService.swift */; };
 		CCF6DB7F2EF8153500D2991F /* DesignResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6DB7E2EF8153500D2991F /* DesignResponse.swift */; };
 		CCF6DB812EF817EA00D2991F /* FurnitureSegmentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6DB802EF817EA00D2991F /* FurnitureSegmentation.swift */; };
+		CCF6E1B72EFC10B000D2991F /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6E1B62EFC10B000D2991F /* LaunchScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -297,6 +298,7 @@
 		CCF6DB7C2EF8150100D2991F /* VirtualStagingAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualStagingAPIService.swift; sourceTree = "<group>"; };
 		CCF6DB7E2EF8153500D2991F /* DesignResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignResponse.swift; sourceTree = "<group>"; };
 		CCF6DB802EF817EA00D2991F /* FurnitureSegmentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurnitureSegmentation.swift; sourceTree = "<group>"; };
+		CCF6E1B62EFC10B000D2991F /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -800,6 +802,7 @@
 			isa = PBXGroup;
 			children = (
 				CCD3B0022BCA28B5000AFB80 /* TabView.swift */,
+				CCF6E1B62EFC10B000D2991F /* LaunchScreenView.swift */,
 				CC97AF042BBE5DE3007BB76C /* MainView.swift */,
 				CC06A97E2C0C97F000A0DAD3 /* NoNetworkView.swift */,
 			);
@@ -1115,6 +1118,7 @@
 				CC97AF092BBE5DEF007BB76C /* SignupView.swift in Sources */,
 				CC06A95C2C0C07F100A0DAD3 /* EncodableExtension.swift in Sources */,
 				CC97AEF42BBE5C46007BB76C /* Authentication.swift in Sources */,
+				CCF6E1B72EFC10B000D2991F /* LaunchScreenView.swift in Sources */,
 				CCBB5A172C257FC700BD9E1F /* AllUserAIImageGenerationViewModel.swift in Sources */,
 				CC548A3A2C1DA5FC00E98B85 /* HelpView.swift in Sources */,
 				CC06A9602C0C082200A0DAD3 /* NumberFormatterExtension.swift in Sources */,

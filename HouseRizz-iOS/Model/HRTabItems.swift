@@ -9,9 +9,9 @@ import Foundation
 
 enum HRTabItems: Int, CaseIterable {
     
-    case home = 0
-    case ai
+    case ai = 0
     case ar
+    case home
     case products
     
     var title: String{

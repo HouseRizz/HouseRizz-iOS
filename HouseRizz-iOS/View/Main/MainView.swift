@@ -23,7 +23,9 @@ struct MainView: View {
     
     @ViewBuilder
     private func displayContentView() -> some View {
-        if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
+        if viewModel.isLoading {
+            LaunchScreenView()
+        } else if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
             TabbedView()
         } else {
             AuthenticationView()
