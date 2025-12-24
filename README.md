@@ -8,9 +8,7 @@ This the app for [HouseRizz](https://houserizz-com.vercel.app) a marketplace tha
 
 <p align="center">
     <img src="https://developer.apple.com/assets/elements/icons/swift/swift-96x96_2x.png" alt="Swift5" width="48" height="48">&nbsp;&nbsp;&nbsp;
-    <img src="https://developer.apple.com/assets/elements/icons/swiftui/swiftui-96x96_2x.png" alt="SwiftUI" width="48" height="48">&nbsp;&nbsp;&nbsp;
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBWdYpQbTI7_Bx47XFXEjy7vY9WH-ezfh9ame3oVL3Nw&s" alt="CloudKit" width="48" height="48">&nbsp;&nbsp;&nbsp;
-    <img src="https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-dsc/events/firebase_logo-1.png" alt="FireBase" width="48" height="48">&nbsp;&nbsp;&nbsp;
+    <img src="https://developer.apple.com/assets/elements/icons/swiftui/swiftui-96x96_2x.png" alt="SwiftUI" width="48" height="48">&nbsp;&nbsp;&nbsp;width="48" height="48">&nbsp;&nbsp;&nbsp;
 </p>
 
 ### Documentation : [Documentation](https://github.com/HouseRizz/HouseRizz-iOS/blob/main/Documentation/HouseRizz%20Documentation%20(Draft)%20269ab245e07e43bb8dcaa9488a8c2edb.pdf)
