@@ -45,6 +45,7 @@
 		CC2F47182BC8D5ED00A4C1FC /* CartProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F47172BC8D5ED00A4C1FC /* CartProductView.swift */; };
 		CC2F471A2BC8D73A00A4C1FC /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F47192BC8D73A00A4C1FC /* CartView.swift */; };
 		CC2F471C2BC8EAF400A4C1FC /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */; };
+		CC3482642EFCEF6500D7E0E6 /* HRAIRoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3482632EFCEF6500D7E0E6 /* HRAIRoomType.swift */; };
 		CC3CF4DE2C198BE500C8A58D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3CF4DD2C198BE500C8A58D /* SearchView.swift */; };
 		CC3CF4E02C198DEC00C8A58D /* CityPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3CF4DF2C198DEC00C8A58D /* CityPickerView.swift */; };
 		CC3CF4E22C1994C400C8A58D /* CityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3CF4E12C1994C400C8A58D /* CityView.swift */; };
@@ -198,6 +199,7 @@
 		CC2F47172BC8D5ED00A4C1FC /* CartProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductView.swift; sourceTree = "<group>"; };
 		CC2F47192BC8D73A00A4C1FC /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		CC2F471B2BC8EAF400A4C1FC /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		CC3482632EFCEF6500D7E0E6 /* HRAIRoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAIRoomType.swift; sourceTree = "<group>"; };
 		CC3CF4DD2C198BE500C8A58D /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		CC3CF4DF2C198DEC00C8A58D /* CityPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerView.swift; sourceTree = "<group>"; };
 		CC3CF4E12C1994C400C8A58D /* CityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityView.swift; sourceTree = "<group>"; };
@@ -553,6 +555,7 @@
 				CC7B07E12C22EE3700627BC5 /* HRAddBanner.swift */,
 				CC69BD6B2C24378B00491014 /* HRAPI.swift */,
 				CCBB5A0D2C252DE000BD9E1F /* HRAIImageResult.swift */,
+				CC3482632EFCEF6500D7E0E6 /* HRAIRoomType.swift */,
 				CCBB5A182C2583DC00BD9E1F /* HRAIVibe.swift */,
 				CC2DBD622C2F26E7007817C0 /* HR3DModel.swift */,
 				CCD29BA32C364EE70068079B /* HRCity.swift */,
@@ -1100,6 +1103,7 @@
 				CC2DBD672C2F2793007817C0 /* BrowseView.swift in Sources */,
 				CC548A3E2C1DA61400E98B85 /* TermsView.swift in Sources */,
 				CC2F47122BC81D6D00A4C1FC /* SearchBarView.swift in Sources */,
+				CC3482642EFCEF6500D7E0E6 /* HRAIRoomType.swift in Sources */,
 				CC2DBD532C2F251A007817C0 /* ViewExtension.swift in Sources */,
 				CC548A402C1DA62300E98B85 /* PrivacyView.swift in Sources */,
 				CCD3B0072BCA3440000AFB80 /* AIView.swift in Sources */,

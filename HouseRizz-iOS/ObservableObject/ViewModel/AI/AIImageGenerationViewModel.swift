@@ -18,7 +18,7 @@ class AIImageGenerationViewModel {
     var selectedPhotoData: Data? = nil
     var selectedPhotos: [PhotosPickerItem] = []
     var cancellables = Set<AnyCancellable>()
-    var categories: [HRProductCategory] = []
+    var roomTypes: [HRAIRoomType] = []
     var uniqueID: UUID = UUID()
     var vibes: [HRAIVibe] = []
     
@@ -37,7 +37,7 @@ class AIImageGenerationViewModel {
     var imageURL: String = ""
     
     init() {
-        fetchCategories()
+        fetchRoomTypes()
         fetchVibes()
     }
     
@@ -175,15 +175,15 @@ class AIImageGenerationViewModel {
             .store(in: &cancellables)
     }
     
-    func fetchCategories() {
+    func fetchRoomTypes() {
         FirestoreUtility.fetch(sortBy: "name", ascending: true)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
-            } receiveValue: { [weak self] (returnedItems: [HRProductCategory]) in
-                self?.categories = returnedItems
+            } receiveValue: { [weak self] (returnedItems: [HRAIRoomType]) in
+                self?.roomTypes = returnedItems
             }
             .store(in: &cancellables)
     }

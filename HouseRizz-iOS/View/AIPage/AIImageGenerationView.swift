@@ -337,27 +337,27 @@ struct AIImageGenerationView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
-                    ForEach(viewModel.categories.indices, id: \.self) { index in
-                        roomTypeChip(category: viewModel.categories[index])
+                    ForEach(viewModel.roomTypes.indices, id: \.self) { index in
+                        roomTypeChip(roomType: viewModel.roomTypes[index])
                     }
                 }
             }
         }
     }
     
-    private func roomTypeChip(category: HRProductCategory) -> some View {
+    private func roomTypeChip(roomType: HRAIRoomType) -> some View {
         Button {
-            viewModel.type = category.name
+            viewModel.type = roomType.name
         } label: {
-            Text(category.name)
+            Text(roomType.name)
                 .font(.subheadline)
-                .fontWeight(viewModel.type == category.name ? .semibold : .regular)
-                .foregroundColor(viewModel.type == category.name ? .white : .primary)
+                .fontWeight(viewModel.type == roomType.name ? .semibold : .regular)
+                .foregroundColor(viewModel.type == roomType.name ? .white : .primary)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 10)
                 .background(
                     Capsule()
-                        .fill(viewModel.type == category.name ? Color.primaryColor : Color(UIColor.secondarySystemBackground))
+                        .fill(viewModel.type == roomType.name ? Color.primaryColor : Color(UIColor.secondarySystemBackground))
                 )
         }
         .disabled(viewModel.isGenerating)
